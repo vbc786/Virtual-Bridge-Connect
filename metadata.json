@@ -1,0 +1,6 @@
+{
+  "name": "Virtual Bridge Connect",
+  "description": "Premium solopreneur agency platform with strategy intake, capability directories, stacks integration, and administrative viewport.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

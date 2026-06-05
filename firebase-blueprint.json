@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Information collected from high-ticket strategy intake form.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "projectDescription": { "type": "string" },
+        "budget": { "type": "string" },
+        "chosenStack": { "type": "string" },
+        "selectedTags": { "type": "array" },
+        "dateTime": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "status", "createdAt"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Log of actions performed in the application for administration monitoring.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collected strategy intake requests."
+    },
+    "/audit_logs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Audit trail logs for administrative control viewport tracking."
+    }
+  }
+}

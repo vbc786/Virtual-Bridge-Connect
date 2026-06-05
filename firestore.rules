@@ -1,0 +1,93 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Default Deny All
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- REUSABLE SECURITY HIGHLIGHT IMPLEMENTATIONS ---
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Role-based access control based on DB validation rather than client claims
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // --- ENTITY-SPECIFIC VALIDATIONS AND MATCH BLOCKS ---
+
+    // 1. LEADS COLLECTION
+    match /leads/{leadId} {
+      allow read: if isAdmin();
+      
+      allow create: if isValidId(leadId) 
+        && isValidLeadFields(incoming())
+        && incoming().createdAt == request.time
+        && incoming().status == 'new';
+
+      allow update: if isAdmin()
+        && isValidId(leadId)
+        && isValidLeadFields(incoming())
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isAdmin();
+    }
+
+    function isValidLeadFields(data) {
+      return data.keys().hasAll(['id', 'name', 'email', 'status', 'createdAt'])
+        && data.keys().size() <= 12
+        && data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() <= 128 && data.name.size() > 0
+        && data.email is string && data.email.size() <= 128 && data.email.size() > 0
+        && data.status is string && data.status.size() <= 32
+        && (data.projectDescription == null || (data.projectDescription is string && data.projectDescription.size() <= 2000))
+        && (data.budget == null || (data.budget is string && data.budget.size() <= 128))
+        && (data.chosenStack == null || (data.chosenStack is string && data.chosenStack.size() <= 256))
+        && (data.dateTime == null || (data.dateTime is string && data.dateTime.size() <= 128))
+        && (data.selectedTags == null || (data.selectedTags is list && data.selectedTags.size() <= 20));
+    }
+
+    // 2. AUDIT LOGS COLLECTION
+    match /audit_logs/{logId} {
+      allow read: if isAdmin();
+
+      allow create: if isValidId(logId)
+        && isValidAuditLogFields(incoming())
+        && incoming().timestamp == request.time;
+
+      allow update: if false; // Audit logs are immutable and write-once
+      allow delete: if isAdmin();
+    }
+
+    function isValidAuditLogFields(data) {
+      return data.keys().hasAll(['id', 'action', 'timestamp'])
+        && data.keys().size() <= 5
+        && data.id is string && data.id.size() <= 128
+        && data.action is string && data.action.size() <= 256
+        && data.timestamp is timestamp
+        && (data.details == null || (data.details is string && data.details.size() <= 4000));
+    }
+
+    // Allow admins to register their own IDs if bootstrapping is needed or managed
+    match /admins/{adminId} {
+      allow read, write: if isSignedIn() && (request.auth.uid == adminId || exists(/databases/$(database)/documents/admins/$(request.auth.uid)));
+    }
+  }
+}
