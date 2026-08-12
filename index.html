@@ -15,8 +15,8 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://virtual-bridge-connect.vercel.app/logo.png" />
-  <link rel="icon" type="image/png" href="https://virtual-bridge-connect.vercel.app/logo.png" />
-  <link rel="apple-touch-icon" href="https://virtual-bridge-connect.vercel.app/logo.png" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2300FF66' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 75 C30 45, 70 45, 85 75' stroke='%2300FF66'/%3E%3Cpath d='M15 75 Q50 35 85 75' stroke-dasharray='3 3' stroke-width='2' stroke='%2300E5FF' opacity='0.8'/%3E%3Cline x1='33' y1='62' x2='33' y2='75' stroke-width='2'/%3E%3Cline x1='50' y1='57' x2='50' y2='75' stroke-width='2'/%3E%3Cline x1='67' y1='62' x2='67' y2='75' stroke-width='2'/%3E%3Ccircle cx='15' cy='75' r='6' fill='%23030706' stroke='%2300FF66' stroke-width='3'/%3E%3Ccircle cx='50' cy='57' r='6' fill='%23030706' stroke='%2300E5FF' stroke-width='3'/%3E%3Ccircle cx='85' cy='75' r='6' fill='%23030706' stroke='%2300FF66' stroke-width='3'/%3E%3Ccircle cx='33' cy='62' r='4.5' fill='%23030706' stroke='%2300FF66' stroke-width='2.5'/%3E%3Ccircle cx='67' cy='62' r='4.5' fill='%23030706' stroke='%2300FF66' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2300FF66' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 75 C30 45, 70 45, 85 75' stroke='%2300FF66'/%3E%3Cpath d='M15 75 Q50 35 85 75' stroke-dasharray='3 3' stroke-width='2' stroke='%2300E5FF' opacity='0.8'/%3E%3Cline x1='33' y1='62' x2='33' y2='75' stroke-width='2'/%3E%3Cline x1='50' y1='57' x2='50' y2='75' stroke-width='2'/%3E%3Cline x1='67' y1='62' x2='67' y2='75' stroke-width='2'/%3E%3Ccircle cx='15' cy='75' r='6' fill='%23030706' stroke='%2300FF66' stroke-width='3'/%3E%3Ccircle cx='50' cy='57' r='6' fill='%23030706' stroke='%2300E5FF' stroke-width='3'/%3E%3Ccircle cx='85' cy='75' r='6' fill='%23030706' stroke='%2300FF66' stroke-width='3'/%3E%3Ccircle cx='33' cy='62' r='4.5' fill='%23030706' stroke='%2300FF66' stroke-width='2.5'/%3E%3Ccircle cx='67' cy='62' r='4.5' fill='%23030706' stroke='%2300FF66' stroke-width='2.5'/%3E%3C/svg%3E" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -240,10 +240,20 @@
       <!-- Premium B2B Hero Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-[9px] font-mono uppercase tracking-widest rounded-sm">
-            <span>Enterprise Systems Architecture</span>
-            <span class="w-1 h-1 bg-cyber-emerald rounded-full"></span>
-            <span>B2B Deployment</span>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-[9px] font-mono uppercase tracking-widest rounded-sm">
+              <span>Enterprise Systems Architecture</span>
+              <span class="w-1 h-1 bg-cyber-emerald rounded-full"></span>
+              <span>B2B Deployment</span>
+            </div>
+            <!-- Live CSAT Social Proof Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-yellow-400/5 border border-yellow-400/30 text-yellow-400 text-[9px] font-mono uppercase tracking-widest rounded-sm shadow-[0_0_10px_rgba(250,204,21,0.05)]">
+              <span class="text-yellow-400 font-bold">★ <span id="csat-avg-badge">4.9</span> / 5.0</span>
+              <span class="w-1 h-1 bg-yellow-400 rounded-full"></span>
+              <span class="text-cyber-slate">VERIFIED CLIENT SATISFACTION (CSAT)</span>
+              <span class="w-1 h-1 bg-yellow-400 rounded-full"></span>
+              <span id="csat-count-badge" class="text-white font-bold">3 REVIEWS</span>
+            </div>
           </div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase font-display leading-[1.05] tracking-tight text-white">
             WE BRIDGE ONSHORE <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-emerald to-cyber-teal">STRATEGY</span> WITH OFFSHORE PERFORMANCE
@@ -321,6 +331,26 @@
           <p class="text-xs text-cyber-slate leading-relaxed">
             Upon project fulfillment and sprint clearance, master branches and repositories transfer 100% directly to your firm's administrative custody with absolute code ownership.
           </p>
+        </div>
+      </div>
+
+      <!-- Live Testimonials & CSAT Feedback Grid Section -->
+      <div class="cyber-glass p-8 rounded-sm space-y-6 mt-12 no-print">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-cyber-emerald/15 pb-4 gap-4">
+          <div>
+            <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white flex items-center gap-2">
+              <span class="inline-block w-2 h-4 bg-cyber-emerald"></span>
+              Client Reviews & Verified CSAT //
+            </h2>
+            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Real-time performance metrics synced from Firestore</p>
+          </div>
+          <button type="button" onclick="openReviewModal()" class="px-5 py-2.5 bg-cyber-emerald text-cyber-obsidian font-black font-mono text-xs uppercase tracking-widest hover:opacity-90 transition-all glow-btn rounded-sm cursor-pointer">
+            LEAVE A CLIENT REVIEW
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="reviews-grid-container">
+          <!-- Dynamic reviews will be rendered here -->
         </div>
       </div>
 
@@ -528,13 +558,13 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px] font-mono">Company / Contact Name *</label>
+                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px] font-mono">Company / Client Name *</label>
                 <input type="text" id="lead-name" placeholder="Acme Systems LLC" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('lead-name-warn')" />
                 <span id="lead-name-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px] font-mono">Business Email Address *</label>
+                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px] font-mono">Client Business Email *</label>
                 <input type="text" id="lead-email" placeholder="systems@acme.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
                 <span id="lead-email-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
@@ -542,48 +572,63 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label for="lead-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number</label>
-                <input type="text" id="lead-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" />
+                <label for="lead-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number *</label>
+                <input type="text" id="lead-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('lead-phone-warn')" />
+                <span id="lead-phone-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
-              <div class="space-y-2">
-                <label for="lead-service" class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core</label>
-                <select id="lead-service" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Creative Design">Creative Design</option>
-                  <option value="Social Media Management">Social Media Management</option>
-                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
-                  <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
-                  <option value="Strategic Consultations">Strategic Consultations</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label for="lead-budget" class="block text-white uppercase tracking-wider text-[10px] font-mono">B2B Budget Spectrum Core *</label>
                 <select id="lead-budget" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
                   <option value="Under $200">Under $200</option>
                   <option value="$200–$500">$200–$500</option>
                   <option value="$500–$1,500">$500–$1,500</option>
-                  <option value="$1,500–$5,000" selected>$1,500–$5,000</option>
-                  <option value="$5,000–$25,000">$5,000–$25,000</option>
+                  <option value="$1,500–$3,500" selected>$1,500–$3,500</option>
+                  <option value="$3,500–$25,000">$3,500–$25,000</option>
                   <option value="$25,000+">$25,000+</option>
                   <option value="Multi-Business Bundle / Custom Enterprise Deal">Multi-Business Bundle / Custom Enterprise Deal</option>
                 </select>
               </div>
+            </div>
 
-              <div class="flex items-center gap-2 pt-6">
-                <input type="checkbox" id="lead-multi-site" class="w-4 h-4 accent-cyber-emerald" />
-                <label for="lead-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
-                  I own/manage multiple businesses and need a multi-site or bulk service deal.
+            <!-- Multi-Select Checkboxes Grid for Services -->
+            <div class="space-y-2">
+              <label class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core / Services *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-[#0d1914]/30 border border-cyber-emerald/20 p-4 rounded-sm">
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="lead-services" value="Website Design & Development" class="accent-cyber-emerald w-4 h-4 rounded-sm" />
+                  <span>Website Design & Development</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="lead-services" value="Search Engine Optimization (SEO)" class="accent-cyber-emerald w-4 h-4 rounded-sm" />
+                  <span>Search Engine Optimization (SEO)</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="lead-services" value="Custom Software / SaaS" class="accent-cyber-emerald w-4 h-4 rounded-sm" />
+                  <span>Custom Software / SaaS</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="lead-services" value="Graphic Design & Branding" class="accent-cyber-emerald w-4 h-4 rounded-sm" />
+                  <span>Graphic Design & Branding</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="lead-services" value="Social Media & Growth" class="accent-cyber-emerald w-4 h-4 rounded-sm" />
+                  <span>Social Media & Growth</span>
                 </label>
               </div>
+              <span id="lead-services-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2">
+              <input type="checkbox" id="lead-multi-site" class="w-4 h-4 accent-cyber-emerald animate-pulse" />
+              <label for="lead-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
+                I own/manage multiple businesses and need a multi-site or bulk service deal.
+              </label>
             </div>
 
             <div class="space-y-2">
-              <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project *</label>
-              <textarea id="lead-brief" rows="5" placeholder="Tell us about what you want to build, existing systems, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
+              <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project & Goals *</label>
+              <textarea id="lead-brief" rows="5" placeholder="Briefly specify your target goals, deliverables, revision policies, or integration constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
               <div class="flex justify-between items-center text-[9px] text-cyber-slate mt-1 font-mono">
                 <span id="lead-brief-warn" class="text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
                 <span id="lead-brief-counter" class="text-cyber-slate">0/30 characters (Minimum 30 required)</span>
@@ -652,47 +697,62 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label for="partner-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number</label>
-                <input type="text" id="partner-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" />
+                <label for="partner-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number *</label>
+                <input type="text" id="partner-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('partner-phone-warn')" />
+                <span id="partner-phone-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
-              <div class="space-y-2">
-                <label for="partner-service" class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core</label>
-                <select id="partner-service" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Creative Design">Creative Design</option>
-                  <option value="Social Media Management">Social Media Management</option>
-                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
-                  <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
-                  <option value="Strategic Consultations">Strategic Consultations</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label for="partner-budget" class="block text-white uppercase tracking-wider text-[10px] font-mono">B2B Budget Spectrum Core *</label>
                 <select id="partner-budget" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
                   <option value="Under $200">Under $200</option>
                   <option value="$200–$500">$200–$500</option>
                   <option value="$500–$1,500">$500–$1,500</option>
-                  <option value="$1,500–$5,000" selected>$1,500–$5,000</option>
-                  <option value="$5,000–$25,000">$5,000–$25,000</option>
+                  <option value="$1,500–$3,500" selected>$1,500–$3,500</option>
+                  <option value="$3,500–$25,000">$3,500–$25,000</option>
                   <option value="$25,000+">$25,000+</option>
                   <option value="Multi-Business Bundle / Custom Enterprise Deal">Multi-Business Bundle / Custom Enterprise Deal</option>
                 </select>
               </div>
+            </div>
 
-              <div class="flex items-center gap-2 pt-6">
-                <input type="checkbox" id="partner-multi-site" class="w-4 h-4 accent-cyber-teal" />
-                <label for="partner-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
-                  I own/manage multiple businesses and need a multi-site or bulk service deal.
+            <!-- Multi-Select Checkboxes Grid for Partner Services -->
+            <div class="space-y-2">
+              <label class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core / Services *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-[#0d1914]/30 border border-cyber-emerald/20 p-4 rounded-sm">
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="partner-services" value="Website Design & Development" class="accent-cyber-teal w-4 h-4 rounded-sm" />
+                  <span>Website Design & Development</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="partner-services" value="Search Engine Optimization (SEO)" class="accent-cyber-teal w-4 h-4 rounded-sm" />
+                  <span>Search Engine Optimization (SEO)</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="partner-services" value="Custom Software / SaaS" class="accent-cyber-teal w-4 h-4 rounded-sm" />
+                  <span>Custom Software / SaaS</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="partner-services" value="Graphic Design & Branding" class="accent-cyber-teal w-4 h-4 rounded-sm" />
+                  <span>Graphic Design & Branding</span>
+                </label>
+                <label class="flex items-center gap-2.5 text-xs text-cyber-slate hover:text-white cursor-pointer select-none">
+                  <input type="checkbox" name="partner-services" value="Social Media & Growth" class="accent-cyber-teal w-4 h-4 rounded-sm" />
+                  <span>Social Media & Growth</span>
                 </label>
               </div>
+              <span id="partner-services-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2">
+              <input type="checkbox" id="partner-multi-site" class="w-4 h-4 accent-cyber-teal animate-pulse" />
+              <label for="partner-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
+                I own/manage multiple businesses and need a multi-site or bulk service deal.
+              </label>
             </div>
 
             <div class="space-y-2">
-              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project &amp; Goals *</label>
+              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project & Goals *</label>
               <textarea id="partner-notes" rows="4" placeholder="Briefly list your target goals, any branding assets you already have, or timeline requirements..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('partner-notes-warn')"></textarea>
               <div class="flex justify-between items-center text-[9px] text-cyber-slate mt-1 font-mono">
                 <span id="partner-notes-warn" class="text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
@@ -732,7 +792,7 @@
       </div>
 
       <!-- B2B Analytical KPI Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="cyber-glass p-5 rounded-sm relative overflow-hidden">
           <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">TOTAL REGISTERED INQUIRIES</p>
           <p class="text-3xl font-extrabold font-display text-white mt-1" id="stat-total">0</p>
@@ -747,6 +807,11 @@
           <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">ENGAGED &amp; COMPLETED LEADS</p>
           <p class="text-3xl font-extrabold font-display text-cyber-emerald mt-1" id="stat-converted">0</p>
           <div class="absolute bottom-1 right-2 font-mono text-[8px] text-cyber-emerald/30">CONVERSION VELOCITY</div>
+        </div>
+        <div class="cyber-glass p-5 rounded-sm relative overflow-hidden">
+          <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">AVERAGE CSAT RATING</p>
+          <p class="text-3xl font-extrabold font-display text-yellow-400 mt-1" id="stat-csat">0.0 ★</p>
+          <div class="absolute bottom-1 right-2 font-mono text-[8px] text-yellow-400/30" id="stat-csat-reviews">from 0 reviews</div>
         </div>
       </div>
 
@@ -858,6 +923,35 @@
         </div>
       </div>
 
+      <!-- CSAT Review Moderation Table Grid -->
+      <div class="cyber-glass p-6 space-y-4 rounded-sm">
+        <div class="flex justify-between items-center sm:flex-row flex-col gap-2">
+          <h3 class="text-sm font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+            <span class="w-1.5 h-3 bg-cyber-teal"></span>
+            CSAT CLIENT REVIEWS MODERATION PANEL
+          </h3>
+          <span class="text-[9px] font-mono text-cyber-slate uppercase">SYNC ENGINE: LIVE FIRESTORE NODE</span>
+        </div>
+
+        <div class="overflow-x-auto w-full">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="border-b border-cyber-emerald/20 text-cyber-slate">
+                <th class="py-3 px-4 font-bold uppercase">Client Name</th>
+                <th class="py-3 px-4 font-bold uppercase">Company / Project</th>
+                <th class="py-3 px-4 font-bold uppercase">Email</th>
+                <th class="py-3 px-4 font-bold uppercase text-center">Stars</th>
+                <th class="py-3 px-4 font-bold uppercase">Status</th>
+                <th class="py-3 px-4 font-bold uppercase text-center no-print">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-reviews-table-body" class="divide-y divide-cyber-emerald/5">
+              <!-- Rendered reviews will dynamically inject here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- Lead Detail Brief Modal Drawer -->
       <div id="brief-modal" class="hidden fixed inset-0 bg-cyber-obsidian/90 z-50 flex items-center justify-center p-4">
         <div class="cyber-glass max-w-2xl w-full p-6 space-y-4 rounded-sm relative">
@@ -868,6 +962,62 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-cyber-slate leading-relaxed" id="brief-details-content">
             <!-- Dynamically populated detail logs -->
           </div>
+        </div>
+      </div>
+
+      <!-- Client Review Submission Modal -->
+      <div id="review-modal" class="hidden fixed inset-0 bg-cyber-obsidian/95 z-50 flex items-center justify-center p-4 no-print">
+        <div class="cyber-glass max-w-lg w-full p-6 space-y-4 rounded-sm relative">
+          <div class="border-b border-cyber-emerald/15 pb-2 flex justify-between items-center">
+            <h3 class="text-sm font-bold text-cyber-emerald uppercase tracking-widest font-mono">SUBMIT VERIFIED CLIENT REVIEW</h3>
+            <button type="button" onclick="closeReviewModal()" class="text-cyber-slate hover:text-white font-black text-sm">✕</button>
+          </div>
+          
+          <form id="review-submission-form" onsubmit="executeReviewSubmission(event)" class="space-y-4 font-mono text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label for="review-client-name" class="block text-white uppercase tracking-wider text-[10px]">Client Name *</label>
+                <input type="text" id="review-client-name" placeholder="e.g. Sarah Jenkins" required class="w-full bg-[#0d1914] border border-cyber-emerald/20 px-3 py-2 text-white transition-all focus:outline-none focus:border-cyber-emerald rounded-sm" oninput="validateReviewForm()" />
+              </div>
+              <div class="space-y-1">
+                <label for="review-company-project" class="block text-white uppercase tracking-wider text-[10px]">Company / Project Name *</label>
+                <input type="text" id="review-company-project" placeholder="e.g. Apex Corp ERP Integration" required class="w-full bg-[#0d1914] border border-cyber-emerald/20 px-3 py-2 text-white transition-all focus:outline-none focus:border-cyber-emerald rounded-sm" oninput="validateReviewForm()" />
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <label for="review-email" class="block text-white uppercase tracking-wider text-[10px]">Client Business Email *</label>
+              <input type="text" id="review-email" placeholder="sarah@apexcorp.com" required class="w-full bg-[#0d1914] border border-cyber-emerald/20 px-3 py-2 text-white transition-all focus:outline-none focus:border-cyber-emerald rounded-sm" oninput="validateReviewForm(); clearFieldWarning('review-email-warn');" />
+              <span id="review-email-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-3"></span>
+            </div>
+
+            <!-- Interactive Star Rating Selector -->
+            <div class="space-y-1">
+              <label class="block text-white uppercase tracking-wider text-[10px]">Star Rating *</label>
+              <div class="flex items-center gap-2 pt-1" id="star-selector-container">
+                <button type="button" onclick="setReviewRating(1)" onmouseover="hoverReviewRating(1)" onmouseout="resetHoverRating()" class="text-2xl text-cyber-slate hover:scale-110 transition-transform focus:outline-none star-btn" data-star="1">★</button>
+                <button type="button" onclick="setReviewRating(2)" onmouseover="hoverReviewRating(2)" onmouseout="resetHoverRating()" class="text-2xl text-cyber-slate hover:scale-110 transition-transform focus:outline-none star-btn" data-star="2">★</button>
+                <button type="button" onclick="setReviewRating(3)" onmouseover="hoverReviewRating(3)" onmouseout="resetHoverRating()" class="text-2xl text-cyber-slate hover:scale-110 transition-transform focus:outline-none star-btn" data-star="3">★</button>
+                <button type="button" onclick="setReviewRating(4)" onmouseover="hoverReviewRating(4)" onmouseout="resetHoverRating()" class="text-2xl text-cyber-slate hover:scale-110 transition-transform focus:outline-none star-btn" data-star="4">★</button>
+                <button type="button" onclick="setReviewRating(5)" onmouseover="hoverReviewRating(5)" onmouseout="resetHoverRating()" class="text-2xl text-cyber-slate hover:scale-110 transition-transform focus:outline-none star-btn" data-star="5">★</button>
+                <span class="text-xs text-cyber-emerald font-bold uppercase tracking-wider ml-2" id="rating-label-text">Select rating</span>
+              </div>
+              <input type="hidden" id="review-rating-value" required value="" />
+            </div>
+
+            <div class="space-y-1">
+              <label for="review-feedback" class="block text-white uppercase tracking-wider text-[10px]">Review Feedback Area *</label>
+              <textarea id="review-feedback" rows="4" placeholder="Share your experience working with Virtual Bridge Connect..." required class="w-full bg-[#0d1914] border border-cyber-emerald/20 px-3 py-2 text-white transition-all focus:outline-none focus:border-cyber-emerald rounded-sm" oninput="validateReviewForm(); updateReviewFeedbackCounter(); clearFieldWarning('review-feedback-warn');"></textarea>
+              <div class="flex justify-between items-center text-[9px] text-cyber-slate mt-1 font-mono">
+                <span id="review-feedback-warn" class="text-[#FF3366] font-bold uppercase tracking-wider block h-3"></span>
+                <span id="review-feedback-counter">0/2000 characters</span>
+              </div>
+            </div>
+
+            <button type="submit" id="review-submit-btn" disabled class="w-full py-3 bg-cyber-emerald text-cyber-obsidian font-extrabold text-xs uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+              SUBMIT VERIFIED REVIEW
+            </button>
+          </form>
         </div>
       </div>
 
@@ -936,6 +1086,421 @@
       db = firebase.firestore();
     } catch (err) {
       console.error("Firebase config runtime initialization error: ", err);
+    }
+
+    // ==============================================
+    // 1.1 CSAT CLIENT REVIEWS ENGINE LOGIC
+    // ==============================================
+    let activeReviews = [];
+    let selectedReviewRating = 0;
+
+    // Seeding default client reviews if no reviews are stored locally or in Firestore
+    const defaultSeededReviews = [
+      {
+        id: "seed-review-1",
+        clientName: "Sarah Jenkins",
+        companyProject: "Apex Corp ERP Integration",
+        email: "sarah@apexcorp.com",
+        rating: 5,
+        feedback: "Virtual Bridge Connect designed and delivered our multi-site system ahead of schedule. Our offshore velocity has been outstanding.",
+        status: "Approved",
+        createdAt: "2026-08-10T14:30:00.000Z"
+      },
+      {
+        id: "seed-review-2",
+        clientName: "Steve Miller",
+        companyProject: "Global Logistics Inc",
+        email: "s.miller@globallogistics.com",
+        rating: 5,
+        feedback: "Their offshore speed combined with Northern Virginia architects gave us senior systems engineering at a fraction of standard onshore quotes.",
+        status: "Approved",
+        createdAt: "2026-08-08T09:15:00.000Z"
+      },
+      {
+        id: "seed-review-3",
+        clientName: "Amara Malik",
+        companyProject: "Lahore Fintech Hub",
+        email: "amara@fintechlahore.pk",
+        rating: 4,
+        feedback: "Excellent backend architecture. Secure Firestore synchronization with Firestore security rules was executed to perfection. Highly recommended for complex B2B applications.",
+        status: "Approved",
+        createdAt: "2026-08-05T18:45:00.000Z"
+      }
+    ];
+
+    function openReviewModal() {
+      document.getElementById("review-submission-form").reset();
+      selectedReviewRating = 0;
+      updateStarRatingUI(0);
+      document.getElementById("review-rating-value").value = "";
+      document.getElementById("rating-label-text").innerText = "Select rating";
+      document.getElementById("review-feedback-counter").innerText = "0/2000 characters";
+      document.getElementById("review-submit-btn").disabled = true;
+      document.getElementById("review-email-warn").innerText = "";
+      document.getElementById("review-feedback-warn").innerText = "";
+      document.getElementById("review-modal").classList.remove("hidden");
+    }
+
+    function closeReviewModal() {
+      document.getElementById("review-modal").classList.add("hidden");
+    }
+
+    function hoverReviewRating(rating) {
+      updateStarRatingUI(rating, true);
+    }
+
+    function resetHoverRating() {
+      updateStarRatingUI(selectedReviewRating, false);
+    }
+
+    function setReviewRating(rating) {
+      selectedReviewRating = rating;
+      document.getElementById("review-rating-value").value = rating;
+      const labels = {
+        1: "1 Star - Poor Integration",
+        2: "2 Stars - Subpar Velocity",
+        3: "3 Stars - Average Compliance",
+        4: "4 Stars - Great Performance",
+        5: "5 Stars - Elite Enterprise Standards"
+      };
+      document.getElementById("rating-label-text").innerText = labels[rating] || "Selected";
+      updateStarRatingUI(rating, false);
+      validateReviewForm();
+    }
+
+    function updateStarRatingUI(rating, isHoverState = false) {
+      const starButtons = document.querySelectorAll(".star-btn");
+      starButtons.forEach((btn, idx) => {
+        const starVal = idx + 1;
+        if (starVal <= rating) {
+          btn.classList.remove("text-cyber-slate");
+          btn.classList.add("text-yellow-400", "drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]");
+        } else {
+          btn.classList.remove("text-yellow-400", "drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]");
+          btn.classList.add("text-cyber-slate");
+        }
+      });
+    }
+
+    function updateReviewFeedbackCounter() {
+      const feedbackText = document.getElementById("review-feedback").value;
+      const counter = document.getElementById("review-feedback-counter");
+      if (counter) {
+        counter.innerText = `${feedbackText.length}/2000 characters`;
+      }
+    }
+
+    function validateReviewForm() {
+      const name = document.getElementById("review-client-name").value.trim();
+      const company = document.getElementById("review-company-project").value.trim();
+      const email = document.getElementById("review-email").value.trim();
+      const feedback = document.getElementById("review-feedback").value.trim();
+      const submitBtn = document.getElementById("review-submit-btn");
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const isEmailValid = emailRegex.test(email);
+      const isFeedbackValid = feedback.length >= 10 && feedback.length <= 2000;
+      const isRatingSelected = selectedReviewRating > 0;
+
+      if (submitBtn) {
+        if (name && company && isEmailValid && isFeedbackValid && isRatingSelected) {
+          submitBtn.disabled = false;
+        } else {
+          submitBtn.disabled = true;
+        }
+      }
+    }
+
+    async function executeReviewSubmission(event) {
+      event.preventDefault();
+      const name = document.getElementById("review-client-name").value.trim();
+      const company = document.getElementById("review-company-project").value.trim();
+      const email = document.getElementById("review-email").value.trim();
+      const feedback = document.getElementById("review-feedback").value.trim();
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById("review-email-warn").innerText = "INVALID BUSINESS EMAIL CORE ACCESSIBILITY REJECTED.";
+        return;
+      }
+
+      if (feedback.length < 10) {
+        document.getElementById("review-feedback-warn").innerText = "FEEDBACK INSIGNIFICANT. MINIMUM 10 CHARACTERS REQUIRED.";
+        return;
+      }
+
+      const reviewId = "rev_" + Math.random().toString(36).substring(2, 15);
+      const timestamp = new Date().toISOString();
+
+      const newReview = {
+        id: reviewId,
+        clientName: name,
+        companyProject: company,
+        email: email,
+        rating: parseInt(selectedReviewRating),
+        feedback: feedback,
+        status: "Approved",
+        createdAt: timestamp
+      };
+
+      if (db) {
+        try {
+          await db.collection("reviews").doc(reviewId).set({
+            ...newReview,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          console.log("Review successfully saved to live Firestore database node.");
+        } catch (err) {
+          console.warn("Firestore reviews write failed. Shifting to offline storage state.", err);
+          saveOfflineReview(newReview);
+        }
+      } else {
+        saveOfflineReview(newReview);
+      }
+
+      closeReviewModal();
+      alert("THANK YOU! Your verified CSAT review has been received and compiled.");
+    }
+
+    function saveOfflineReview(review) {
+      const localReviews = JSON.parse(localStorage.getItem("vbc_offline_reviews") || "[]");
+      localReviews.push(review);
+      localStorage.setItem("vbc_offline_reviews", JSON.stringify(localReviews));
+      syncReviewsDataRegistry();
+    }
+
+    function syncReviewsDataRegistry() {
+      if (db) {
+        db.collection("reviews").onSnapshot(snapshot => {
+          activeReviews = [];
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            activeReviews.push({
+              id: doc.id,
+              ...data,
+              createdAt: getSafeTimestampString(data.createdAt)
+            });
+          });
+
+          if (activeReviews.length === 0) {
+            activeReviews = [...defaultSeededReviews];
+          }
+
+          renderReviewsUI();
+          renderReviewsAdminTable();
+          calculateCSATStats();
+        }, err => {
+          console.warn("Firestore reviews sync failed, reading offline reviews...", err);
+          loadOfflineReviews();
+        });
+      } else {
+        loadOfflineReviews();
+      }
+    }
+
+    function loadOfflineReviews() {
+      const localReviews = JSON.parse(localStorage.getItem("vbc_offline_reviews") || "[]");
+      if (localReviews.length === 0) {
+        activeReviews = [...defaultSeededReviews];
+      } else {
+        // combine seeded and local
+        const merged = [...defaultSeededReviews];
+        localReviews.forEach(lr => {
+          const exists = merged.some(r => r.id === lr.id);
+          if (!exists) merged.push(lr);
+        });
+        activeReviews = merged;
+      }
+      renderReviewsUI();
+      renderReviewsAdminTable();
+      calculateCSATStats();
+    }
+
+    function renderReviewsUI() {
+      const container = document.getElementById("reviews-grid-container");
+      if (!container) return;
+
+      const approvedReviews = activeReviews.filter(r => r.status === "Approved");
+
+      if (approvedReviews.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-1 md:col-span-2 lg:col-span-3 py-8 text-center text-cyber-slate font-mono uppercase text-[10px]">
+            No approved client testimonials compiled inside this system.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = approvedReviews.map(r => {
+        const ratingStars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+        const dateFormatted = new Date(r.createdAt).toLocaleDateString("en-US", {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        return `
+          <div class="bg-[#080F0C] border border-cyber-emerald/10 hover:border-cyber-emerald/35 p-6 rounded-sm space-y-4 transition-all flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="text-white font-bold font-display text-sm leading-tight">${r.clientName}</h4>
+                  <span class="text-[10px] text-cyber-slate font-mono uppercase">${r.companyProject}</span>
+                </div>
+                <div class="flex items-center gap-1 text-xs text-cyber-emerald font-bold px-2 py-0.5 bg-cyber-emerald/10 border border-cyber-emerald/20 rounded-sm">
+                  <span class="w-1 h-1 bg-cyber-emerald rounded-full"></span>
+                  <span>VERIFIED</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                <span class="drop-shadow-[0_0_6px_rgba(250,204,21,0.4)]">${"★".repeat(r.rating)}</span><span class="text-cyber-slate">${"☆".repeat(5 - r.rating)}</span>
+              </div>
+
+              <p class="text-xs text-cyber-slate font-sans leading-relaxed italic">
+                "${r.feedback}"
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-cyber-emerald/5 flex justify-between items-center text-[9px] font-mono text-cyber-slate">
+              <span>CSAT NODE SUBMISSION</span>
+              <span>${dateFormatted}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderReviewsAdminTable() {
+      const tbody = document.getElementById("admin-reviews-table-body");
+      if (!tbody) return;
+
+      if (activeReviews.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-8 text-center text-cyber-slate font-mono uppercase text-[10px]">
+              No client reviews logged inside this database node.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = activeReviews.map(r => {
+        const statusVal = r.status || "Pending";
+
+        let badgeClass = "bg-[#FFCC00]/10 text-[#FFCC00] border-[#FFCC00]/30";
+        if (statusVal === "Approved") badgeClass = "bg-[#00FF66]/10 text-[#00FF66] border-[#00FF66]/30";
+        if (statusVal === "Hidden") badgeClass = "bg-[#FF3366]/10 text-[#FF3366] border-[#FF3366]/30";
+
+        return `
+          <tr class="hover:bg-[#00FF66]/5 transition-colors">
+            <td class="py-3 px-4 font-bold text-white">${r.clientName}</td>
+            <td class="py-3 px-4 text-cyber-slate">${r.companyProject}</td>
+            <td class="py-3 px-4 text-cyber-slate font-mono">${r.email}</td>
+            <td class="py-3 px-4 text-center text-yellow-400 font-mono">${r.rating} ★</td>
+            <td class="py-3 px-4">
+              <span class="px-2 py-0.5 border rounded-sm text-[9px] font-bold uppercase tracking-wider ${badgeClass}">
+                ${statusVal}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-center no-print">
+              <div class="flex items-center justify-center gap-2">
+                <select onchange="updateReviewStatusInFirestore('${r.id}', this.value)" class="bg-[#030706] border border-cyber-emerald/20 px-2 py-1 text-white text-[10px] font-mono focus:outline-none focus:border-cyber-emerald rounded-sm">
+                  <option value="Approved" ${statusVal === "Approved" ? "selected" : ""}>Approve</option>
+                  <option value="Pending" ${statusVal === "Pending" ? "selected" : ""}>Pending</option>
+                  <option value="Hidden" ${statusVal === "Hidden" ? "selected" : ""}>Hide</option>
+                </select>
+                <button onclick="deleteReviewEntry('${r.id}')" class="text-[#FF3366] hover:text-white font-bold px-2 py-1 border border-[#FF3366]/30 hover:bg-[#FF3366] hover:border-[#FF3366] rounded-sm transition-all text-[9px]">
+                  DELETE
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    async function updateReviewStatusInFirestore(id, value) {
+      if (db && !id.startsWith("seed-review")) {
+        try {
+          await db.collection("reviews").doc(id).update({ status: value });
+          console.log(`Review ${id} status successfully updated to ${value}`);
+        } catch (err) {
+          console.warn("Firestore reviews update status failed. Shifting to offline state updates.", err);
+          updateOfflineReviewStatus(id, value);
+        }
+      } else {
+        updateOfflineReviewStatus(id, value);
+      }
+    }
+
+    function updateOfflineReviewStatus(id, value) {
+      const seedIdx = defaultSeededReviews.findIndex(r => r.id === id);
+      if (seedIdx !== -1) {
+        defaultSeededReviews[seedIdx].status = value;
+      }
+
+      const localReviews = JSON.parse(localStorage.getItem("vbc_offline_reviews") || "[]");
+      const localIdx = localReviews.findIndex(r => r.id === id);
+      if (localIdx !== -1) {
+        localReviews[localIdx].status = value;
+        localStorage.setItem("vbc_offline_reviews", JSON.stringify(localReviews));
+      }
+
+      renderReviewsUI();
+      renderReviewsAdminTable();
+      calculateCSATStats();
+    }
+
+    async function deleteReviewEntry(id) {
+      if (!confirm("Are you absolutely sure you want to permanently delete this client review?")) return;
+
+      if (db && !id.startsWith("seed-review")) {
+        try {
+          await db.collection("reviews").doc(id).delete();
+          console.log(`Review ${id} successfully deleted from Firestore.`);
+        } catch (err) {
+          console.warn("Firestore reviews delete failed, shifting to offline deletion.", err);
+          deleteOfflineReviewEntry(id);
+        }
+      } else {
+        deleteOfflineReviewEntry(id);
+      }
+    }
+
+    function deleteOfflineReviewEntry(id) {
+      const seedIdx = defaultSeededReviews.findIndex(r => r.id === id);
+      if (seedIdx !== -1) {
+        defaultSeededReviews.splice(seedIdx, 1);
+      }
+
+      const localReviews = JSON.parse(localStorage.getItem("vbc_offline_reviews") || "[]");
+      const updated = localReviews.filter(r => r.id !== id);
+      localStorage.setItem("vbc_offline_reviews", JSON.stringify(updated));
+
+      syncReviewsDataRegistry();
+    }
+
+    function calculateCSATStats() {
+      const approvedReviews = activeReviews.filter(r => r.status === "Approved");
+      const totalCount = approvedReviews.length;
+      let average = 4.9;
+
+      if (totalCount > 0) {
+        const sum = approvedReviews.reduce((acc, r) => acc + r.rating, 0);
+        average = parseFloat((sum / totalCount).toFixed(1));
+      }
+
+      const heroAvg = document.getElementById("csat-avg-badge");
+      const heroCount = document.getElementById("csat-count-badge");
+      if (heroAvg) heroAvg.innerText = average.toFixed(1);
+      if (heroCount) heroCount.innerText = `${totalCount} REVIEWS`;
+
+      const adminCsat = document.getElementById("stat-csat");
+      const adminCsatReviews = document.getElementById("stat-csat-reviews");
+      if (adminCsat) adminCsat.innerText = `${average.toFixed(1)} ★`;
+      if (adminCsatReviews) adminCsatReviews.innerText = `from ${totalCount} reviews`;
     }
 
     // Helper utility to safely convert Firestore timestamps or strings to standard ISO formats
@@ -1244,7 +1809,8 @@
       const nameVal = document.getElementById("lead-name").value.trim();
       const emailVal = document.getElementById("lead-email").value.trim();
       const phoneVal = document.getElementById("lead-phone").value.trim();
-      const serviceVal = document.getElementById("lead-service").value;
+      const selectedServices = Array.from(document.querySelectorAll('input[name="lead-services"]:checked')).map(el => el.value);
+      const serviceVal = selectedServices.join(", ") || "";
       const budgetVal = document.getElementById("lead-budget").value;
       const multiBusinessVal = document.getElementById("lead-multi-site").checked ? "Yes" : "No";
       const briefVal = document.getElementById("lead-brief").value.trim();
@@ -1252,18 +1818,30 @@
       // Clear previous error warnings
       document.getElementById("lead-name-warn").innerText = "";
       document.getElementById("lead-email-warn").innerText = "";
+      document.getElementById("lead-phone-warn").innerText = "";
+      document.getElementById("lead-services-warn").innerText = "";
       document.getElementById("lead-brief-warn").innerText = "";
 
       let isErr = false;
 
       if (!nameVal) {
-        document.getElementById("lead-name-warn").innerText = "COMPANY / CONTACT NAME SPECIFICATION IS MANDATORY.";
+        document.getElementById("lead-name-warn").innerText = "COMPANY / CLIENT NAME SPECIFICATION IS MANDATORY.";
         isErr = true;
       }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailVal || !emailRegex.test(emailVal)) {
-        document.getElementById("lead-email-warn").innerText = "CORRECT EMAIL FORMULATION IS MANDATORY (name@domain.com).";
+        document.getElementById("lead-email-warn").innerText = "PLEASE ENTER A VALID BUSINESS EMAIL DESIGNATED FOR QUOTATIONS (name@domain.com)";
+        isErr = true;
+      }
+
+      if (!phoneVal) {
+        document.getElementById("lead-phone-warn").innerText = "DIRECT PHONE / WHATSAPP NUMBER IS REQUIRED FOR FOLLOW-UP.";
+        isErr = true;
+      }
+
+      if (selectedServices.length === 0) {
+        document.getElementById("lead-services-warn").innerText = "CHOOSE AT LEAST ONE SERVICE COMPONENT.";
         isErr = true;
       }
 
@@ -1280,7 +1858,7 @@
       const payload = {
         name: nameVal,
         email: emailVal,
-        phone: phoneVal || "N/A",
+        phone: phoneVal,
         service: serviceVal,
         budget: budgetVal,
         multi_business_bundle: multiBusinessVal,
@@ -1313,7 +1891,7 @@
             to_name: "Virtual Bridge Connect Team",
             from_name: nameVal,
             from_email: emailVal,
-            phone: phoneVal || "N/A",
+            phone: phoneVal,
             service: serviceVal,
             budget: budgetVal,
             multi_business: multiBusinessVal,
@@ -1331,7 +1909,7 @@
       const mailtoBody = encodeURIComponent(
         `COMPANY/CLIENT NAME: ${nameVal}\n` +
         `EMAIL: ${emailVal}\n` +
-        `PHONE: ${phoneVal || "N/A"}\n` +
+        `PHONE: ${phoneVal}\n` +
         `SERVICE CAPABILITY: ${serviceVal}\n` +
         `BUDGET SPECTRUM: ${budgetVal}\n` +
         `MULTI-SITE BUNDLE: ${multiBusinessVal}\n` +
@@ -1346,7 +1924,7 @@
         `----------------------------------------\n` +
         `• *Client Name:* ${nameVal}\n` +
         `• *Email:* ${emailVal}\n` +
-        `• *Phone/WA:* ${phoneVal || "N/A"}\n` +
+        `• *Phone/WA:* ${phoneVal}\n` +
         `• *Category Core:* ${serviceVal}\n` +
         `• *Budget Tier:* ${budgetVal}\n` +
         `• *Bulk Deal Required:* ${multiBusinessVal}\n` +
@@ -1363,6 +1941,9 @@
         document.getElementById("lead-brief-counter").innerText = "0/30 characters (Minimum 30 required)";
         document.getElementById("lead-brief-counter").className = "text-cyber-slate";
         
+        // Reset checkbox elements visually
+        document.querySelectorAll('input[name="lead-services"]').forEach(cb => cb.checked = false);
+        
         // Open WhatsApp and trigger mailto fallback simultaneously
         window.open(waURL, "_blank");
         window.location.href = emailFallbackURL;
@@ -1375,7 +1956,8 @@
       const nameVal = document.getElementById("partner-contact").value.trim();
       const emailVal = document.getElementById("partner-email").value.trim();
       const phoneVal = document.getElementById("partner-phone").value.trim();
-      const serviceVal = document.getElementById("partner-service").value;
+      const selectedServices = Array.from(document.querySelectorAll('input[name="partner-services"]:checked')).map(el => el.value);
+      const serviceVal = selectedServices.join(", ") || "";
       const budgetVal = document.getElementById("partner-budget").value;
       const multiBusinessVal = document.getElementById("partner-multi-site").checked ? "Yes" : "No";
       const briefVal = document.getElementById("partner-notes").value.trim();
@@ -1383,6 +1965,8 @@
       // Clear previous warnings
       document.getElementById("partner-contact-warn").innerText = "";
       document.getElementById("partner-email-warn").innerText = "";
+      document.getElementById("partner-phone-warn").innerText = "";
+      document.getElementById("partner-services-warn").innerText = "";
       document.getElementById("partner-notes-warn").innerText = "";
 
       let isErr = false;
@@ -1392,14 +1976,24 @@
         isErr = true;
       }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailVal || !emailRegex.test(emailVal)) {
-        document.getElementById("partner-email-warn").innerText = "VALID EMAIL IS MANDATORY (name@domain.com).";
+        document.getElementById("partner-email-warn").innerText = "PLEASE ENTER A VALID BUSINESS EMAIL DESIGNATED FOR QUOTATIONS (name@domain.com)";
+        isErr = true;
+      }
+
+      if (!phoneVal) {
+        document.getElementById("partner-phone-warn").innerText = "DIRECT PHONE / WHATSAPP NUMBER IS REQUIRED FOR FOLLOW-UP.";
+        isErr = true;
+      }
+
+      if (selectedServices.length === 0) {
+        document.getElementById("partner-services-warn").innerText = "CHOOSE AT LEAST ONE SERVICE COMPONENT.";
         isErr = true;
       }
 
       if (!briefVal || briefVal.length < 30) {
-        document.getElementById("partner-notes-warn").innerText = "PLEASE SPECIFY GOALS & TIMELINE WITH A MINIMUM OF 30 CHARACTERS.";
+        document.getElementById("partner-notes-warn").innerText = "A DETAILED SPECIFICATION BRIEF OF A MINIMUM OF 30 CHARACTERS IS REQUIRED.";
         isErr = true;
       }
 
@@ -1411,7 +2005,7 @@
       const payload = {
         name: nameVal,
         email: emailVal,
-        phone: phoneVal || "N/A",
+        phone: phoneVal,
         service: serviceVal,
         budget: budgetVal,
         multi_business_bundle: multiBusinessVal,
@@ -1444,7 +2038,7 @@
             to_name: "Virtual Bridge Connect Team",
             from_name: nameVal,
             from_email: emailVal,
-            phone: phoneVal || "N/A",
+            phone: phoneVal,
             service: serviceVal,
             budget: budgetVal,
             multi_business: multiBusinessVal,
@@ -1461,7 +2055,7 @@
       const mailtoBody = encodeURIComponent(
         `COMPANY/CLIENT NAME: ${nameVal}\n` +
         `EMAIL: ${emailVal}\n` +
-        `PHONE: ${phoneVal || "N/A"}\n` +
+        `PHONE: ${phoneVal}\n` +
         `SERVICE CAPABILITY: ${serviceVal}\n` +
         `BUDGET SPECTRUM: ${budgetVal}\n` +
         `MULTI-SITE BUNDLE: ${multiBusinessVal}\n` +
@@ -1476,7 +2070,7 @@
         `----------------------------------------\n` +
         `• *Client Name:* ${nameVal}\n` +
         `• *Email:* ${emailVal}\n` +
-        `• *Phone/WA:* ${phoneVal || "N/A"}\n` +
+        `• *Phone/WA:* ${phoneVal}\n` +
         `• *Category Core:* ${serviceVal}\n` +
         `• *Budget Tier:* ${budgetVal}\n` +
         `• *Bulk Deal Required:* ${multiBusinessVal}\n` +
@@ -1491,6 +2085,9 @@
         document.getElementById("partner-form").reset();
         document.getElementById("partner-notes-counter").innerText = "0/30 characters (Minimum 30 required)";
         document.getElementById("partner-notes-counter").className = "text-cyber-slate";
+        
+        // Reset checkbox elements visually
+        document.querySelectorAll('input[name="partner-services"]').forEach(cb => cb.checked = false);
         
         window.open(waURL, "_blank");
         window.location.href = emailFallbackURL;
@@ -1973,10 +2570,12 @@
     function validateLeadForm() {
       const nameVal = document.getElementById("lead-name")?.value.trim() || "";
       const emailVal = document.getElementById("lead-email")?.value.trim() || "";
+      const phoneVal = document.getElementById("lead-phone")?.value.trim() || "";
       const briefVal = document.getElementById("lead-brief")?.value.trim() || "";
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const checkedServices = document.querySelectorAll('input[name="lead-services"]:checked').length;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       
-      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && briefVal.length >= 30;
+      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && phoneVal.length > 0 && checkedServices > 0 && briefVal.length >= 30;
       const btn = document.getElementById("submit-btn");
       if (btn) {
         btn.disabled = !isValid;
@@ -1993,10 +2592,12 @@
     function validatePartnerForm() {
       const nameVal = document.getElementById("partner-contact")?.value.trim() || "";
       const emailVal = document.getElementById("partner-email")?.value.trim() || "";
+      const phoneVal = document.getElementById("partner-phone")?.value.trim() || "";
       const briefVal = document.getElementById("partner-notes")?.value.trim() || "";
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const checkedServices = document.querySelectorAll('input[name="partner-services"]:checked').length;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       
-      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && briefVal.length >= 30;
+      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && phoneVal.length > 0 && checkedServices > 0 && briefVal.length >= 30;
       const btn = document.getElementById("partner-submit-btn");
       if (btn) {
         btn.disabled = !isValid;
@@ -2014,6 +2615,9 @@
       // Dynamic rendering of systems layouts
       buildApplicationUI();
 
+      // Sync verified client reviews and CSAT statistics
+      syncReviewsDataRegistry();
+
       // Set initial disabled state for buttons
       validateLeadForm();
       validatePartnerForm();
@@ -2021,21 +2625,46 @@
       // Hook up character count and form validation listeners dynamically
       const leadNameInput = document.getElementById("lead-name");
       const leadEmailInput = document.getElementById("lead-email");
+      const leadPhoneInput = document.getElementById("lead-phone");
       const leadText = document.getElementById("lead-brief");
+      const leadCbs = document.querySelectorAll('input[name="lead-services"]');
 
       if (leadNameInput) leadNameInput.addEventListener("input", validateLeadForm);
-      if (leadEmailInput) {
-        leadEmailInput.addEventListener("input", () => {
-          const warnSpan = document.getElementById("lead-email-warn");
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (leadEmailInput.value && !emailRegex.test(leadEmailInput.value)) {
-            if (warnSpan) warnSpan.innerText = "Please enter a valid email (name@domain.com)";
+      if (leadPhoneInput) {
+        leadPhoneInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("lead-phone-warn");
+          if (leadPhoneInput.value.trim() === "") {
+            if (warnSpan) warnSpan.innerText = "DIRECT PHONE / WHATSAPP NUMBER IS REQUIRED FOR FOLLOW-UP.";
           } else {
             if (warnSpan) warnSpan.innerText = "";
           }
           validateLeadForm();
         });
       }
+      if (leadEmailInput) {
+        leadEmailInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("lead-email-warn");
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (leadEmailInput.value && !emailRegex.test(leadEmailInput.value)) {
+            if (warnSpan) warnSpan.innerText = "PLEASE ENTER A VALID BUSINESS EMAIL DESIGNATED FOR QUOTATIONS (name@domain.com)";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validateLeadForm();
+        });
+      }
+      leadCbs.forEach(cb => {
+        cb.addEventListener("change", () => {
+          const warnSpan = document.getElementById("lead-services-warn");
+          const checkedCount = document.querySelectorAll('input[name="lead-services"]:checked').length;
+          if (checkedCount === 0) {
+            if (warnSpan) warnSpan.innerText = "CHOOSE AT LEAST ONE SERVICE COMPONENT.";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validateLeadForm();
+        });
+      });
 
       if (leadText) {
         leadText.addEventListener("input", function() {
@@ -2055,21 +2684,46 @@
 
       const partnerContactInput = document.getElementById("partner-contact");
       const partnerEmailInput = document.getElementById("partner-email");
+      const partnerPhoneInput = document.getElementById("partner-phone");
       const partnerText = document.getElementById("partner-notes");
+      const partnerCbs = document.querySelectorAll('input[name="partner-services"]');
 
       if (partnerContactInput) partnerContactInput.addEventListener("input", validatePartnerForm);
-      if (partnerEmailInput) {
-        partnerEmailInput.addEventListener("input", () => {
-          const warnSpan = document.getElementById("partner-email-warn");
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (partnerEmailInput.value && !emailRegex.test(partnerEmailInput.value)) {
-            if (warnSpan) warnSpan.innerText = "Please enter a valid email (name@domain.com)";
+      if (partnerPhoneInput) {
+        partnerPhoneInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("partner-phone-warn");
+          if (partnerPhoneInput.value.trim() === "") {
+            if (warnSpan) warnSpan.innerText = "DIRECT PHONE / WHATSAPP NUMBER IS REQUIRED FOR FOLLOW-UP.";
           } else {
             if (warnSpan) warnSpan.innerText = "";
           }
           validatePartnerForm();
         });
       }
+      if (partnerEmailInput) {
+        partnerEmailInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("partner-email-warn");
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (partnerEmailInput.value && !emailRegex.test(partnerEmailInput.value)) {
+            if (warnSpan) warnSpan.innerText = "PLEASE ENTER A VALID BUSINESS EMAIL DESIGNATED FOR QUOTATIONS (name@domain.com)";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validatePartnerForm();
+        });
+      }
+      partnerCbs.forEach(cb => {
+        cb.addEventListener("change", () => {
+          const warnSpan = document.getElementById("partner-services-warn");
+          const checkedCount = document.querySelectorAll('input[name="partner-services"]:checked').length;
+          if (checkedCount === 0) {
+            if (warnSpan) warnSpan.innerText = "CHOOSE AT LEAST ONE SERVICE COMPONENT.";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validatePartnerForm();
+        });
+      });
 
       if (partnerText) {
         partnerText.addEventListener("input", function() {

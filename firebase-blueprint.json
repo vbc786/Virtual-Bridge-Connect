@@ -19,6 +19,23 @@
       },
       "required": ["id", "name", "email", "status", "createdAt"]
     },
+    "Review": {
+      "title": "Review",
+      "description": "Client CSAT review rating and feedback.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "clientName": { "type": "string" },
+        "companyProject": { "type": "string" },
+        "email": { "type": "string" },
+        "rating": { "type": "integer" },
+        "feedback": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "clientName", "companyProject", "email", "rating", "feedback", "status", "createdAt"]
+    },
     "AuditLog": {
       "title": "AuditLog",
       "description": "Log of actions performed in the application for administration monitoring.",
@@ -36,6 +53,10 @@
     "/leads/{leadId}": {
       "schema": "Lead",
       "description": "Collected strategy intake requests."
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Client CSAT reviews and rating submissions."
     },
     "/audit_logs/{logId}": {
       "schema": "AuditLog",

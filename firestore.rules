@@ -64,7 +64,38 @@ service cloud.firestore {
         && (data.selectedTags == null || (data.selectedTags is list && data.selectedTags.size() <= 20));
     }
 
-    // 2. AUDIT LOGS COLLECTION
+    // 2. REVIEWS COLLECTION
+    match /reviews/{reviewId} {
+      allow read: if isAdmin() || resource.data.status == 'Approved';
+
+      allow create: if isValidId(reviewId)
+        && isValidReviewFields(incoming())
+        && incoming().createdAt == request.time
+        && (incoming().status == 'Approved' || incoming().status == 'Pending');
+
+      allow update: if isAdmin()
+        && isValidId(reviewId)
+        && isValidReviewFields(incoming())
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isAdmin();
+    }
+
+    function isValidReviewFields(data) {
+      return data.keys().hasAll(['id', 'clientName', 'companyProject', 'email', 'rating', 'feedback', 'status', 'createdAt'])
+        && data.keys().size() <= 10
+        && data.id is string && data.id.size() <= 128
+        && data.clientName is string && data.clientName.size() <= 128 && data.clientName.size() > 0
+        && data.companyProject is string && data.companyProject.size() <= 128 && data.companyProject.size() > 0
+        && data.email is string && data.email.size() <= 128 && data.email.size() > 0
+        && data.rating is int && data.rating >= 1 && data.rating <= 5
+        && data.feedback is string && data.feedback.size() <= 2000 && data.feedback.size() > 0
+        && data.status is string && data.status.size() <= 32
+        && (data.updatedAt == null || data.updatedAt is timestamp);
+    }
+
+    // 3. AUDIT LOGS COLLECTION
     match /audit_logs/{logId} {
       allow read: if isAdmin();
 
