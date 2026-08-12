@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-[#030706]">
+<html lang="en" class="h-full">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtual Bridge Connect | High-Performance Technical Systems Architecture</title>
-  
-  <!-- Browser Favicon using Inline SVG for modern vector rendering without external image dependencies -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300FF66' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'/%3E%3C/svg%3E" />
+  <title>Virtual Bridge Connect | Global Systems Engineering & Design</title>
 
-  <!-- Typography (Space Grotesk + Inter) -->
+  <!-- Dynamic Open Graph / WhatsApp Preview Tags -->
+  <meta property="og:title" content="Virtual Bridge Connect | Global Systems Engineering & Design" />
+  <meta property="og:description" content="Direct inquiry portal for engineering, web development, SEO, software architecture, and design services." />
+  <meta property="og:image" content="https://virtual-bridge-connect.vercel.app/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://virtual-bridge-connect.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://virtual-bridge-connect.vercel.app/logo.png" />
+  <link rel="icon" type="image/png" href="https://virtual-bridge-connect.vercel.app/logo.png" />
+  <link rel="apple-touch-icon" href="https://virtual-bridge-connect.vercel.app/logo.png" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Firebase Compat SDKs -->
+  <!-- EmailJS Browser SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Firebase Compat Core & Firestore SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
           colors: {
             cyber: {
-              obsidian: '#030706',
-              abyss: '#080F0C',
               emerald: '#00FF66',
               teal: '#00E5FF',
-              highEmerald: '#00CC52',
+              obsidian: '#030706',
+              surface: '#080F0C',
               slate: '#94A3B8'
             }
-          },
-          fontFamily: {
-            sans: ['"Inter"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
       }
@@ -45,87 +58,41 @@
   </script>
 
   <style>
-    /* HIGH-CONTRAST NEON MODERN DESIGN SYSTEM */
-    body {
-      background-color: #030706;
-      background-image: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.08), transparent 70%);
-      background-attachment: fixed;
+    /* Premium custom glowing visual accents */
+    .glow-emerald {
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
     }
-    
-    ::selection {
-      background-color: #00FF66;
-      color: #030706;
-    }
-
-    /* Ambient background glow spheres */
-    .glow-sphere-1 {
-      position: fixed;
-      top: -10%;
-      left: 15%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    .glow-sphere-2 {
-      position: fixed;
-      bottom: -10%;
-      right: 10%;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* Glassmorphism Components */
-    .cyber-glass {
-      background: rgba(10, 20, 15, 0.65);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(0, 255, 102, 0.18);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .cyber-glass:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0, 255, 102, 0.45);
-      box-shadow: 0 0 30px rgba(0, 255, 102, 0.35);
-    }
-
     .glow-input:focus {
       border-color: #00FF66 !important;
-      outline: none;
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.3) !important;
+      box-shadow: 0 0 12px rgba(0, 255, 102, 0.25) !important;
     }
-
     .glow-btn {
-      border: 1px solid rgba(0, 255, 102, 0.3);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.25);
     }
-
     .glow-btn:hover {
-      border-color: #00FF66 !important;
-      background-color: #00FF66 !important;
-      color: #030706 !important;
-      box-shadow: 0 0 25px rgba(0, 255, 102, 0.35) !important;
-      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0, 255, 102, 0.5);
     }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #FFFFFF 40%, #00FF66 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .cyber-glass {
+      background: rgba(8, 15, 12, 0.85);
+      border: 1px solid rgba(0, 255, 102, 0.18);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    /* FAQ transition heights */
+    .faq-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .faq-collapse.open {
+      opacity: 1;
     }
 
     /* Scrollbar override */
     ::-webkit-scrollbar {
       width: 6px;
-      height: 6px;
     }
     ::-webkit-scrollbar-track {
       background: #030706;
@@ -135,797 +102,808 @@
       border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #00FF66;
+      background: rgba(0, 255, 102, 0.6);
     }
 
-    .view-transition {
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Executive Print Override Blocks */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      header, footer, nav, button, select, input, textarea, .no-print,
+      .glow-sphere-1, .glow-sphere-2, #modal-passcode {
+        display: none !important;
+      }
+      #view-admin {
+        display: block !important;
+        opacity: 1 !important;
+        color: #000000 !important;
+      }
+      .cyber-glass {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        margin-bottom: 20px !important;
+        page-break-inside: avoid !important;
+      }
+      h1, h2, h3, h4, span, p, td, th {
+        color: #000000 !important;
+      }
+      table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+      }
+      th, td {
+        border: 1px solid #000000 !important;
+        padding: 8px !important;
+        color: #000000 !important;
+      }
     }
   </style>
 </head>
-<body class="h-full flex flex-col justify-between font-sans bg-[#030706] text-white selection:bg-cyber-emerald selection:text-cyber-obsidian antialiased overflow-x-hidden min-h-screen relative">
+<body class="h-full flex flex-col justify-between bg-cyber-obsidian text-white selection:bg-cyber-emerald selection:text-cyber-obsidian antialiased overflow-x-hidden min-h-screen relative font-sans">
 
-  <!-- Fixed background gradients -->
-  <div class="glow-sphere-1"></div>
-  <div class="glow-sphere-2"></div>
+  <!-- Abstract Ambient Cyber Spheres -->
+  <div class="glow-sphere-1 absolute top-[-100px] left-[-150px] w-[500px] h-[500px] bg-cyber-emerald/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+  <div class="glow-sphere-2 absolute bottom-[-150px] right-[-150px] w-[600px] h-[600px] bg-cyber-teal/5 rounded-full blur-[140px] pointer-events-none z-0"></div>
 
-  <!-- ============================================== -->
-  <!-- STICKY GLASS HEADER -->
-  <!-- ============================================== -->
-  <header class="w-full bg-[#0d1914]/65 sticky top-0 z-[100] backdrop-blur-xl border-b border-cyber-emerald/15">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-      
-      <!-- Brand Custom Logo SVG & Title Alignment -->
-      <div class="flex items-center justify-between w-full md:w-auto gap-3">
-        <a href="#" onclick="switchViewport('home')" class="flex items-center gap-3 select-none hover:shadow-[0_0_20px_rgba(0,255,102,0.25)] border border-transparent hover:border-cyber-emerald/40 rounded px-2 py-1 transition-all duration-300">
-          <!-- Minimalist Glowing Vector Network Bridge Node Icon -->
-          <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg border border-cyber-emerald/30 bg-cyber-emerald/5 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-emerald/20 to-transparent opacity-50"></div>
-            <svg class="w-5 h-5 text-cyber-emerald relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xl font-extrabold tracking-tight text-white hover:text-cyber-emerald transition-colors uppercase font-display leading-none">
-              VIRTUAL BRIDGE<span class="text-cyber-emerald">//</span>CONNECT
-            </span>
-            <span class="text-[8px] font-mono uppercase tracking-[0.25em] text-cyber-slate mt-1 leading-none">High-performance technical systems</span>
-          </div>
+  <!-- Header Navigation -->
+  <header class="cyber-glass sticky top-0 z-40 border-b border-cyber-emerald/10 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Stacked Bridge Node Logo -->
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+        <div class="relative w-12 h-12 flex items-center justify-center bg-cyber-obsidian border border-cyber-emerald/30 rounded-md overflow-hidden p-1.5 transition-all group-hover:border-cyber-emerald">
+          <img src="https://virtual-bridge-connect.vercel.app/logo.png" alt="VBC Node" class="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(0,255,102,0.6)]" referrerpolicy="no-referrer" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold uppercase tracking-widest font-display text-white group-hover:text-cyber-emerald transition-colors">
+            VIRTUAL BRIDGE <span class="text-cyber-emerald">//</span> CONNECT
+          </span>
+          <span class="text-[8px] font-mono text-cyber-slate tracking-wider uppercase">GLOBAL SYSTEMS ENGINEERING &amp; DESIGN</span>
+        </div>
+      </a>
+
+      <!-- Quick Actions Desktop -->
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs">
+        <a href="#services" class="text-cyber-slate hover:text-white transition-colors uppercase tracking-wider py-2">Our Services</a>
+        <a href="#stacks" class="text-cyber-slate hover:text-white transition-colors uppercase tracking-wider py-2">Tech Stacks</a>
+        <a href="#mobility" class="text-cyber-slate hover:text-white transition-colors uppercase tracking-wider py-2">Mobility &amp; ERP</a>
+        <a href="#integration" class="text-cyber-slate hover:text-white transition-colors uppercase tracking-wider py-2">Systems Integration</a>
+        <a href="#marketing" class="text-cyber-slate hover:text-white transition-colors uppercase tracking-wider py-2">Media &amp; SEO</a>
+        <a href="#intake" class="px-4 py-2 border border-cyber-emerald/40 text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian transition-all uppercase tracking-widest font-bold glow-emerald rounded-sm">
+          CONTACT US
         </a>
-        
-        <!-- Mobile Nav Hamburger -->
-        <button onclick="toggleMobileMenu()" class="md:hidden text-xs font-mono border border-cyber-emerald/20 px-3 py-1.5 bg-cyber-obsidian hover:bg-cyber-emerald/10 text-cyber-emerald flex items-center gap-1.5 focus:outline-none transition-all">
-          MENU
-          <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald animate-pulse"></span>
-        </button>
-      </div>
-
-      <!-- Desktop Navigation -->
-      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 xl:gap-2 text-[10px] font-mono uppercase tracking-widest text-cyber-slate">
-        <button onclick="switchViewport('home')" id="nav-home" class="px-2.5 py-1.5 transition-colors text-cyber-emerald font-bold">home</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('services')" id="nav-services" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">services</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('stacks')" id="nav-stacks" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">cms stacks</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('mobility')" id="nav-mobility" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">mobility & erp</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('integration')" id="nav-integration" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">integrations</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('marketing')" id="nav-marketing" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">marketing</button>
-        <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('intake')" id="nav-intake" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian font-bold transition-all ml-1.5 rounded-sm">CONTACT US</button>
       </nav>
 
-      <!-- Security layer indicators -->
-      <div class="hidden lg:flex items-center gap-4">
-        <div class="flex items-center gap-2 px-3 py-1.5 border border-cyber-emerald/15 text-[9px] font-mono text-cyber-slate bg-cyber-obsidian">
-          <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald animate-pulse"></span>
-          <span>SECURED SESSION PORTAL</span>
-        </div>
-      </div>
+      <!-- Mobile Menu Trigger -->
+      <button type="button" onclick="toggleMobileMenu()" class="md:hidden flex items-center p-2 text-cyber-slate hover:text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+      </button>
     </div>
 
-    <!-- Mobile Drawer Panel -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-cyber-emerald/15 bg-cyber-obsidian/95 text-xs font-mono divide-y divide-cyber-emerald/15 uppercase tracking-widest text-center">
-      <button onclick="switchViewport('home'); toggleMobileMenu()" class="w-full py-4 block text-cyber-emerald font-bold">home</button>
-      <button onclick="switchViewport('services'); toggleMobileMenu()" class="w-full py-4 block">services</button>
-      <button onclick="switchViewport('stacks'); toggleMobileMenu()" class="w-full py-4 block">cms stacks</button>
-      <button onclick="switchViewport('mobility'); toggleMobileMenu()" class="w-full py-4 block">mobility & erp</button>
-      <button onclick="switchViewport('integration'); toggleMobileMenu()" class="w-full py-4 block">integrations</button>
-      <button onclick="switchViewport('marketing'); toggleMobileMenu()" class="w-full py-4 block">marketing</button>
-      <button onclick="switchViewport('intake'); toggleMobileMenu()" class="w-full py-4 block bg-cyber-emerald text-cyber-obsidian font-bold">CONTACT US</button>
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-drawer" class="hidden md:hidden border-t border-cyber-emerald/10 bg-cyber-obsidian/95 p-4 flex flex-col gap-3 text-xs font-mono">
+      <a href="#services" onclick="toggleMobileMenu()" class="text-cyber-slate hover:text-white transition-colors py-2 block">Our Services</a>
+      <a href="#stacks" onclick="toggleMobileMenu()" class="text-cyber-slate hover:text-white transition-colors py-2 block">Tech Stacks</a>
+      <a href="#mobility" onclick="toggleMobileMenu()" class="text-cyber-slate hover:text-white transition-colors py-2 block">Mobility &amp; ERP</a>
+      <a href="#integration" onclick="toggleMobileMenu()" class="text-cyber-slate hover:text-white transition-colors py-2 block">Systems Integration</a>
+      <a href="#marketing" onclick="toggleMobileMenu()" class="text-cyber-slate hover:text-white transition-colors py-2 block">Media &amp; SEO</a>
+      <a href="#intake" onclick="toggleMobileMenu()" class="text-center px-4 py-3 border border-cyber-emerald text-cyber-emerald font-bold tracking-widest rounded-sm block">CONTACT US</a>
     </div>
   </header>
 
-  <!-- ============================================== -->
-  <!-- MAIN VIEWPORT GRID LAYER -->
-  <!-- ============================================== -->
-  <main class="flex-grow py-8 md:py-16 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Main View Frame -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow z-10 w-full relative">
+
+    <!-- CO-BRANDED DYNAMIC PARTNER HEADER BADGE -->
+    <div id="partner-badge-container" class="hidden no-print mb-8">
+      <div class="bg-[#00FF66]/5 border-2 border-dashed border-cyber-emerald/40 px-6 py-4 rounded-sm flex items-center justify-between shadow-[0_0_15px_rgba(0,255,102,0.05)]">
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-emerald opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-cyber-emerald"></span>
+          </span>
+          <span id="partner-badge-text" class="text-xs sm:text-sm font-mono font-black text-cyber-emerald tracking-widest uppercase">
+            EXCLUSIVE TECH PARTNER × VIRTUAL BRIDGE CONNECT
+          </span>
+        </div>
+        <span class="hidden sm:inline-block text-[9px] font-mono text-cyber-slate uppercase bg-cyber-obsidian px-2.5 py-1 border border-cyber-emerald/15 rounded-sm">
+          SECURE CHANNEL ENCRYPTED
+        </span>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: HOME (CAPABILITIES DIRECTORY) -->
+    <!-- ============================================== -->
+    <section id="view-home" class="space-y-12 block">
       
-      <!-- ============================================== -->
-      <!-- PAGE 1: THE HOMEPAGE -->
-      <!-- ============================================== -->
-      <section id="view-home" class="view-transition opacity-100 block space-y-20">
-        
-        <!-- Simplified high-contrast hero with B2B friendly copy -->
-        <div class="max-w-5xl space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyber-emerald/30 text-[9px] font-mono tracking-widest text-cyber-emerald uppercase bg-cyber-emerald/5">
-            <span class="inline-block w-1 h-1 bg-cyber-emerald animate-ping"></span>
-            <span>HIGH-VELOCITY TRANS-GLOBAL DELIVERY PIPELINES</span>
+      <!-- Premium B2B Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-[9px] font-mono uppercase tracking-widest rounded-sm">
+            <span>Enterprise Systems Architecture</span>
+            <span class="w-1 h-1 bg-cyber-emerald rounded-full"></span>
+            <span>B2B Deployment</span>
           </div>
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display tracking-tight text-white font-extrabold leading-[1.0] text-gradient">
-            Intensive, Comprehensive & Pioneering Global IT Outsourcing.
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase font-display leading-[1.05] tracking-tight text-white">
+            WE BRIDGE ONSHORE <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-emerald to-cyber-teal">STRATEGY</span> WITH OFFSHORE PERFORMANCE
           </h1>
-          <p class="text-sm sm:text-base text-cyber-slate max-w-2xl font-normal leading-relaxed">
-            Reliable, secure software engineering and design solutions. We connect high-load corporate hubs in Reston, VA to our deep technical delivery teams in Lahore, Pakistan to build, scale, and maintain your systems with absolute clarity.
+          <p class="text-sm text-cyber-slate leading-relaxed font-sans max-w-2xl">
+            Virtual Bridge Connect delivers custom software architecture, systems engineering, native mobile platforms, e-commerce networks, and strategic digital operations. Headquartered in Reston, Virginia with engineering hubs in Lahore, Pakistan, we deploy high-velocity development squads to scale your business operations seamlessly.
           </p>
-          <div class="pt-2 flex flex-wrap gap-4 font-mono text-[10px] uppercase tracking-wider">
-            <button onclick="switchViewport('intake')" class="px-6 py-3 bg-cyber-emerald text-cyber-obsidian font-black hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#intake" class="px-8 py-4 bg-cyber-emerald text-cyber-obsidian font-black text-xs uppercase tracking-widest hover:opacity-90 transition-all glow-btn rounded-sm">
               CONTACT US
+            </a>
+            <a href="#services" class="px-8 py-4 border border-cyber-slate/30 text-white hover:text-cyber-emerald hover:border-cyber-emerald transition-all text-xs font-bold uppercase tracking-widest rounded-sm">
+              OUR SERVICES
+            </a>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-5 relative">
+          <!-- Live Telemetry Matrix Dashboard Mock -->
+          <div class="cyber-glass p-6 rounded-sm border border-cyber-emerald/20 space-y-4 font-mono text-xs relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-1.5 bg-cyber-emerald/10 border-b border-l border-cyber-emerald/20 text-[9px] text-cyber-emerald uppercase tracking-widest">
+              Live Hub Activity
+            </div>
+            <div class="flex items-center gap-2 pb-2 border-b border-cyber-emerald/10">
+              <span class="w-2.5 h-2.5 bg-cyber-emerald rounded-full animate-pulse"></span>
+              <span class="font-bold tracking-widest">REST-OPS CORE: ONLINE</span>
+            </div>
+            <div class="space-y-1.5 text-cyber-slate text-[11px]">
+              <p>NODE_IDENTIFIER // Reston, Virginia US</p>
+              <p>DEV_CENTER // Lahore, Pakistan PK</p>
+              <p>PIPELINE_STATUS // SECURED [SSL/AES]</p>
+              <p>ACTIVE_PODS // 12 ENGINEERING UNITS</p>
+            </div>
+            <!-- Progress visual bars -->
+            <div class="space-y-2 pt-2 border-t border-cyber-emerald/10 text-[10px]">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>SYSTEM ARCHITECTURE BANDWIDTH</span>
+                  <span class="text-cyber-emerald font-bold">98.4%</span>
+                </div>
+                <div class="w-full bg-[#0d1914] h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-cyber-emerald h-full rounded-full" style="width: 98.4%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>HYBRID PIPELINE DOCK INTEGRATION</span>
+                  <span class="text-cyber-teal font-bold">100%</span>
+                </div>
+                <div class="w-full bg-[#0d1914] h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-cyber-teal h-full rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Value Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+        <div class="cyber-glass p-6 rounded-sm hover:border-cyber-emerald/40 transition-all space-y-3">
+          <div class="text-cyber-emerald text-xl font-bold font-display">01 // PREMIUM ADAPTIVE CODE</div>
+          <p class="text-xs text-cyber-slate leading-relaxed">
+            Every codebase we author undergoes extreme functional validation, complete with secure modular styling and high performance constraints tailored for Google Cloud architectures.
+          </p>
+        </div>
+        <div class="cyber-glass p-6 rounded-sm hover:border-cyber-emerald/40 transition-all space-y-3">
+          <div class="text-cyber-emerald text-xl font-bold font-display">02 // HYBRID LABORE PIPELINES</div>
+          <p class="text-xs text-cyber-slate leading-relaxed">
+            Bridging senior onshore IT architects in Northern Virginia with the highly trained engineering infrastructure of Lahore to give you elite talent with structured cost advantages.
+          </p>
+        </div>
+        <div class="cyber-glass p-6 rounded-sm hover:border-cyber-emerald/40 transition-all space-y-3">
+          <div class="text-cyber-emerald text-xl font-bold font-display">03 // STRATEGIC IP TRANSFER</div>
+          <p class="text-xs text-cyber-slate leading-relaxed">
+            Upon project fulfillment and sprint clearance, master branches and repositories transfer 100% directly to your firm's administrative custody with absolute code ownership.
+          </p>
+        </div>
+      </div>
+
+      <!-- Collapsible FAQ Accordion Section -->
+      <div class="cyber-glass p-8 rounded-sm space-y-6 mt-12">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white flex items-center gap-2">
+            <span class="inline-block w-2 h-4 bg-cyber-emerald"></span>
+            Frequently Asked Questions //
+          </h2>
+          <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Direct answers for B2B decision makers</p>
+        </div>
+        
+        <div class="divide-y divide-cyber-emerald/15 font-mono text-xs">
+          <!-- FAQ 1 -->
+          <div class="py-4">
+            <button type="button" onclick="toggleFAQ(1)" class="w-full flex justify-between items-center text-left text-white hover:text-cyber-emerald font-bold focus:outline-none py-2 transition-colors">
+              <span>01. HOW DOES YOUR GLOBAL HYBRID OUTSOURCING MODEL OPERATE?</span>
+              <span id="faq-icon-1" class="text-cyber-emerald text-sm transition-transform duration-300 font-bold">+</span>
             </button>
-            <button onclick="switchViewport('services')" class="px-6 py-3 border border-cyber-emerald/30 text-white hover:text-cyber-emerald hover:bg-cyber-emerald/5 transition-all cursor-pointer rounded-sm">
-              OUR SERVICES &rarr;
+            <div id="faq-content-1" class="faq-collapse text-cyber-slate mt-2 leading-relaxed font-sans">
+              We pair local senior systems architects and project directors based in Reston, Virginia with our highly vetted operational engineering pods in Lahore, Pakistan. This bridges onshore strategic consulting with top-tier offshore technical talent to deliver exceptional enterprise quality without cost inflation.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="py-4">
+            <button type="button" onclick="toggleFAQ(2)" class="w-full flex justify-between items-center text-left text-white hover:text-cyber-emerald font-bold focus:outline-none py-2 transition-colors">
+              <span>02. WHAT IS YOUR STANDARD DELIVERY TIMELINE FOR CUSTOM WEB platforms?</span>
+              <span id="faq-icon-2" class="text-cyber-emerald text-sm transition-transform duration-300 font-bold">+</span>
             </button>
+            <div id="faq-content-2" class="faq-collapse text-cyber-slate mt-2 leading-relaxed font-sans">
+              Custom platforms typically range from 4 to 8 weeks depending on scope. This incorporates deep gap analysis, pixel-perfect frontend prototyping, database integration on Google Cloud/Firebase, rigorous secure code linting, and automated unit testing prior to the final live launch.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="py-4">
+            <button type="button" onclick="toggleFAQ(3)" class="w-full flex justify-between items-center text-left text-white hover:text-cyber-emerald font-bold focus:outline-none py-2 transition-colors">
+              <span>03. WHAT IS YOUR REVISION AND QUALITY-CONTROL POLICY?</span>
+              <span id="faq-icon-3" class="text-cyber-emerald text-sm transition-transform duration-300 font-bold">+</span>
+            </button>
+            <div id="faq-content-3" class="faq-collapse text-cyber-slate mt-2 leading-relaxed font-sans">
+              We operate on structured, bi-weekly agile sprint deployments. You will receive live access to test environments where you can inspect progress, request iterations, and approve layouts before we compile features into production-level branches.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="py-4">
+            <button type="button" onclick="toggleFAQ(4)" class="w-full flex justify-between items-center text-left text-white hover:text-cyber-emerald font-bold focus:outline-none py-2 transition-colors">
+              <span>04. WHO OWNS THE FINAL INTELLECTUAL PROPERTY AND SOURCE CODE?</span>
+              <span id="faq-icon-4" class="text-cyber-emerald text-sm transition-transform duration-300 font-bold">+</span>
+            </button>
+            <div id="faq-content-4" class="faq-collapse text-cyber-slate mt-2 leading-relaxed font-sans">
+              You own 100% of the intellectual property, design assets, and source code. Upon final sprint clearance and contract fulfillment, our team transfers master branches and repositories directly to your GitHub organization with clean documentation.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="py-4">
+            <button type="button" onclick="toggleFAQ(5)" class="w-full flex justify-between items-center text-left text-white hover:text-cyber-emerald font-bold focus:outline-none py-2 transition-colors">
+              <span>05. DO YOU OFFER COMBINED RATES FOR MULTI-SITE / GROUP DISCOUNTS?</span>
+              <span id="faq-icon-5" class="text-cyber-emerald text-sm transition-transform duration-300 font-bold">+</span>
+            </button>
+            <div id="faq-content-5" class="faq-collapse text-cyber-slate mt-2 leading-relaxed font-sans">
+              Yes. Our 'Multi-Business Bundle' option is designed specifically for corporate partners, real estate groups, franchise chains, and multi-brand operators. Selecting this tier enables up to a 35% discount across custom website designs, SEO marketing blueprints, and ongoing system support.
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Interactive Node Flow Grid -->
-        <div class="cyber-glass p-6 relative rounded-lg">
-          <div class="border-b border-cyber-emerald/15 pb-3 mb-6 flex justify-between items-center flex-wrap gap-2">
-            <span class="text-[10px] font-mono text-cyber-emerald uppercase tracking-widest font-bold">// OUR ROADMAP TO SUCCESS</span>
-            <span class="text-[8px] font-mono text-cyber-slate bg-cyber-obsidian px-2.5 py-0.5 border border-cyber-emerald/15">STAGE_PIPELINE_STATUS_OK</span>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 font-mono text-center" id="methodology-node-grid">
-            <!-- Populated via script -->
-          </div>
-          <div id="stage-desc-container" class="mt-4 p-4 border border-cyber-emerald/15 bg-cyber-obsidian/60 text-xs font-mono text-center text-cyber-slate select-none rounded-sm">
-            Click any roadmap step above to view how our senior teams ensure your success.
-          </div>
-        </div>
+    </section>
 
-        <!-- 3-column Premier Choice Dashboard -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_01_INTELLECT</span>
-            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Intellect</h3>
-            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              Our engineering hub is staffed exclusively by top-tier systems developers. We are continuously audited for secure database integrations, responsive web setups, and high-performance server architectures.
-            </p>
-          </div>
-          <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_02_QUALITY</span>
-            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Quality Grids</h3>
-            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              We design and code rigid layouts without visual errors. Our continuous verification checklists ensure complete reliability so that your platforms run flawlessly across every browser and device.
-            </p>
-          </div>
-          <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_03_VELOCITY</span>
-            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Track Record</h3>
-            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              Our structured management maps sprint speeds to exact delivery timelines. We have a robust history of delivering complex CMS configurations, database engines, mobile apps, and business support tools.
-            </p>
-          </div>
-        </div>
+    <!-- ============================================== -->
+    <!-- VIEW: SERVICES DIRECTORY -->
+    <!-- ============================================== -->
+    <section id="view-services" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          Primary Architectural Capabilities //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Robust system delivery matrices</p>
+      </div>
 
-        <!-- Master Capabilities Matrix -->
-        <div class="cyber-glass p-8 relative space-y-6 rounded-lg">
-          <div class="border-b border-cyber-emerald/15 pb-4 flex justify-between items-center sm:flex-row flex-col gap-2">
-            <h2 class="text-xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
-              <span class="w-1.5 h-3 bg-cyber-emerald"></span>
-              CORE COMPETENCY CHANNELS
-            </h2>
-            <span class="text-[9px] font-mono text-cyber-emerald tracking-widest uppercase">ACTIVE ENGAGEMENT AREAS</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="services-grid-container">
+        <!-- Dynamic services render via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: TECH STACKS (CMS & FRAMEWORKS) -->
+    <!-- ============================================== -->
+    <section id="view-stacks" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          CMS Frameworks &amp; Architecture //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">High-performance full-stack technologies</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="stacks-grid-container">
+        <!-- Dynamic stacks render via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: MOBILITY & ERP SYSTEMS -->
+    <!-- ============================================== -->
+    <section id="view-mobility" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          Mobility Solutions &amp; ERP Infrastructure //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Dedicated mobile &amp; corporate operations</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mobility-grid-container">
+        <!-- Dynamic mobility render via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: SYSTEMS INTEGRATION & CONSULTING -->
+    <!-- ============================================== -->
+    <section id="view-integration" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          Systems Integration &amp; Consulting //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Corporate cloud pipelines</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="integration-grid-container">
+        <!-- Dynamic integrations render via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: DIGITAL MARKETING & MEDIA -->
+    <!-- ============================================== -->
+    <section id="view-marketing" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          Digital Marketing &amp; Media Management //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Multi-channel velocity and SEO systems</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="marketing-grid-container">
+        <!-- Dynamic marketing render via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: DIRECT CLIENT INTAKE (CONTACT FORM) -->
+    <!-- ============================================== -->
+    <section id="view-intake" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+          GET IN TOUCH WITH OUR TEAM //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Direct, secure inquiry to our senior technical team</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Instructions Panel -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="cyber-glass p-6 rounded-sm space-y-4 font-mono text-xs">
+            <h3 class="text-sm font-bold text-cyber-emerald tracking-wider uppercase">Direct Dispatch Active</h3>
+            <p class="text-cyber-slate leading-relaxed font-sans text-xs">
+              Submitting this portal triggers a concurrent three-tier system:
+            </p>
+            <ul class="space-y-2 list-decimal list-inside text-[11px] text-cyber-slate font-sans">
+              <li>Instant storage entry into our secure Firestore database node.</li>
+              <li>Dual background notification dispatch to <span class="text-white">virtualbridgeconnect@gmail.com</span> using EmailJS.</li>
+              <li>Automated preparation of a live B2B formatted dispatch URL linking directly to our principal operator on WhatsApp.</li>
+            </ul>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="capabilities-matrix-grid">
-            <!-- Populated via script -->
+          <div class="cyber-glass p-6 rounded-sm space-y-3 font-mono text-xs">
+            <p class="text-cyber-emerald font-bold">RESTON OPERATING HOURS</p>
+            <p class="text-cyber-slate font-sans text-xs">08:00 AM – 06:00 PM EST</p>
+            <p class="text-cyber-emerald font-bold pt-2">LAHORE OPERATING HOURS</p>
+            <p class="text-cyber-slate font-sans text-xs">05:00 PM – 03:00 AM PKT</p>
           </div>
         </div>
 
-        <!-- Vertical 8-Step Service Execution Journey Timeline -->
-        <div class="space-y-8">
-          <div class="border-b border-cyber-emerald/15 pb-4">
-            <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white">Our 8-Step Development Journey</h2>
-            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">A transparent, step-by-step roadmap from initial planning to lifelong maintenance</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="lifecycle-timeline-grid">
-            <!-- Populated via script -->
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 2: SERVICES DIRECTORY -->
-      <!-- ============================================== -->
-      <section id="view-services" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest text-gradient">Services Directory</h2>
-          <p class="text-xs font-mono text-cyber-slate">COMPREHENSIVE WEB DEVELOPMENT & SOFTWARE INFRASTRUCTURE</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          <!-- Web Development -->
-          <div class="cyber-glass p-6 space-y-6 rounded-lg">
-            <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
-              <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
-              Web Development & Creative
-            </h3>
-            <div class="space-y-4 font-mono text-xs">
-              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
-                <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// CUSTOM WEBSITE DESIGN</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">BESPOKE</span>
-                </div>
-                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Clean, modern websites custom built to tell your brand story, engage business buyers, and generate qualified sales leads automatically.
-                </p>
-              </div>
-              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
-                <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// ENTERPRISE E-COMMERCE</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">HIGH CONVERSION</span>
-                </div>
-                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Fast, intuitive online storefronts built to scale catalog sizes, handle checkout flow securely, and integrate directly with accounting.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Software Infrastructure -->
-          <div class="cyber-glass p-6 space-y-6 rounded-lg">
-            <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
-              <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
-              Software Infrastructure
-            </h3>
-            <div class="space-y-4 font-mono text-xs">
-              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
-                <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// SECURE CLOUD MIGRATIONS</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">CLOUD SYNC</span>
-                </div>
-                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Smooth database modernization to move your company records safely to robust Cloud Firestore configurations with zero system downtime.
-                </p>
-              </div>
-              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
-                <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// AUTOMATED SYSTEM TESTING</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">RELIABILITY</span>
-                </div>
-                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Rigorous automated testing matrices checking loading speeds, security gaps, and system dependencies to prevent crashes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabbed Engagement Protocol -->
-        <div class="cyber-glass p-8 relative rounded-lg">
-          <div class="border-b border-cyber-emerald/15 pb-4 mb-6">
-            <h3 class="text-xl font-bold uppercase font-display text-white">How We Work Together</h3>
-            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Select an engagement model to see how we align with your budget and speed demands</p>
-          </div>
-
-          <!-- Tabs Handles -->
-          <div class="grid grid-cols-1 md:grid-cols-3 border border-cyber-emerald/20 mb-6 rounded-sm overflow-hidden">
-            <button onclick="switchSvcTab('dedicated')" id="tab-btn-dedicated" class="py-3 text-xs font-mono font-bold uppercase tracking-wider bg-cyber-emerald text-cyber-obsidian focus:outline-none transition-all cursor-pointer">
-              Dedicated Offshore Team
-            </button>
-            <button onclick="switchSvcTab('timemat')" id="tab-btn-timemat" class="py-3 text-xs font-mono font-bold uppercase tracking-wider border-t md:border-t-0 md:border-l md:border-r border-cyber-emerald/15 text-cyber-slate hover:text-white bg-cyber-obsidian focus:outline-none transition-all cursor-pointer">
-              Time &amp; Material
-            </button>
-            <button onclick="switchSvcTab('fixedprice')" id="tab-btn-fixedprice" class="py-3 text-xs font-mono font-bold uppercase tracking-wider text-cyber-slate hover:text-white bg-cyber-obsidian focus:outline-none transition-all cursor-pointer">
-              Fixed Price Contract
-            </button>
-          </div>
-
-          <!-- Tab Content Cards -->
-          <div id="tab-parent" class="font-mono text-xs">
-            
-            <div id="tab-data-dedicated" class="svc-tab-pane block space-y-4">
-              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Dedicated Professional Engineering Team</h4>
-                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  We assign engineers, designers, and project managers exclusively to your business. They integrate directly into your daily communications, providing rapid turnaround and consistent development velocity.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">COMMUNICATION</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Daily Standups & Slack</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">RESPONSE METRICS</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Under 2 Hours</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SETUP TIMELINE</span>
-                    <span class="font-bold text-white text-[11px] font-sans">7 Business Days</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">REPORTING</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Weekly Progress Demos</span>
-                  </div>
-                </div>
-              </div>
+        <!-- Submission Form -->
+        <div class="lg:col-span-8">
+          <form id="lead-form" onsubmit="executeLeadSubmission(event)" class="cyber-glass p-8 rounded-sm space-y-6 relative">
+            <!-- Loading Indicator overlay -->
+            <div id="lead-loading-overlay" class="hidden absolute inset-0 bg-cyber-obsidian/95 z-10 flex flex-col items-center justify-center space-y-4 rounded-sm">
+              <span class="relative flex h-12 w-12">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-emerald opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-12 w-12 bg-cyber-emerald"></span>
+              </span>
+              <p id="loading-status-text" class="text-xs font-mono text-cyber-emerald font-bold tracking-widest uppercase">RECORDING &amp; DISPATCHING...</p>
             </div>
 
-            <div id="tab-data-timemat" class="svc-tab-pane hidden space-y-4">
-              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Time &amp; Materials (Flexible Scope)</h4>
-                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  Ideal for evolving product features, custom application designs, or rapid business prototyping. Pay strictly for checked and approved hours mapped cleanly on simple biweekly cycles.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SPRINT DURATION</span>
-                    <span class="font-bold text-white text-[11px] font-sans">14 Calendar Days</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">HOUR LOGS</span>
-                    <span class="font-bold text-white text-[11px] font-sans">100% Fully Transparent</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">FLEXIBILITY</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Scale Up/Down Weekly</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CODE DELIVERED</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Direct Git Access</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="tab-data-fixedprice" class="svc-tab-pane hidden space-y-4">
-              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Fixed-Price Project Agreements</h4>
-                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  Highly recommended for clearly-defined corporate sites, migration services, or standalone web features. Get a locked, upfront price quote that fits your exact budget boundaries.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">PRICE GUARANTEE</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Strict Upfront Quote</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">MILESTONES</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Payment Upon Approval</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CHANGES HANDLING</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Simple Addendum Process</span>
-                  </div>
-                  <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">WARRANTY SUPPORT</span>
-                    <span class="font-bold text-white text-[11px] font-sans">90 Calendar Days</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 3: SOFTWARE & FRAMEWORK STACKS -->
-      <!-- ============================================== -->
-      <section id="view-stacks" class="view-transition opacity-0 hidden space-y-8">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">CMS Stacks</h2>
-          <p class="text-xs font-mono text-cyber-slate">HIGH-PERFORMANCE WEB APPLICATION ENGINES</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cms-stacks-grid">
-          <!-- Populated dynamically via script -->
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 4: MOBILITY & ENTERPRISE ARCHITECTURES -->
-      <!-- ============================================== -->
-      <section id="view-mobility" class="view-transition opacity-0 hidden space-y-8">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Mobility &amp; ERP Platforms</h2>
-          <p class="text-xs font-mono text-cyber-slate">NATIVE SMARTPHONE APPS & RESOURCE MANAGEMENT SYSTEMS</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mobility-erp-grid">
-          <!-- Populated dynamically via script -->
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 5: TECHNOLOGY INTEGRATION & CONSULTING -->
-      <!-- ============================================== -->
-      <section id="view-integration" class="view-transition opacity-0 hidden space-y-8">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Integrations &amp; Consulting</h2>
-          <p class="text-xs font-mono text-cyber-slate">SECURE NETWORKING, IT OUTSOURCING, & ARCHITECTURAL ROADMAPS</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="integrations-grid">
-          <!-- Populated dynamically via script -->
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 6: DIGITAL MARKETING & MEDIA FRAMEWORKS -->
-      <!-- ============================================== -->
-      <section id="view-marketing" class="view-transition opacity-0 hidden space-y-8">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Digital Marketing &amp; Media</h2>
-          <p class="text-xs font-mono text-cyber-slate">BRAND STRATEGY, CAMPAIGN LOGISTICS, & CHANNEL OPTIMIZATION</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="marketing-grid">
-          <!-- Populated dynamically via script -->
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 7: CONTACT US (SIMPLIFIED INTAKE) -->
-      <!-- ============================================== -->
-      <section id="view-intake" class="view-transition opacity-0 hidden space-y-8 max-w-5xl mx-auto">
-        <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Get In Touch With Our Team</h2>
-          <p class="text-xs font-mono text-cyber-slate">DIRECT SECURE INQUIRY TO OUR SENIOR TECHNICAL TEAM</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <!-- Left Column Info Panel -->
-          <div class="cyber-glass p-8 rounded-lg lg:col-span-5 space-y-6">
-            <div class="space-y-2">
-              <span class="text-[9px] font-mono uppercase text-cyber-emerald tracking-widest">// SECURED CORRESPONDENCE</span>
-              <h3 class="text-2xl font-bold font-display text-white">Guaranteed Executive Review Within 12 Hours</h3>
-              <p class="text-xs text-cyber-slate leading-relaxed font-sans">
-                Every business request is delivered instantly to our senior partners. We review your specifications, secure your data in our database ledger, and prepare an immediate follow-up to coordinate your free technical consultation.
-              </p>
-            </div>
-
-            <div class="border-t border-cyber-emerald/15 pt-6 space-y-4 text-xs font-mono">
-              <div class="flex items-center gap-3">
-                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
-                <span>Reston Center Time: <span id="reston-time" class="text-white font-bold">12:00:00 EST</span></span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
-                <span>Minimum Project Size: <span class="text-white font-bold">$500 USD</span></span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
-                <span>Offshore Operations: <span class="text-white font-bold">Lahore, Pakistan</span></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column Contact Form -->
-          <div class="cyber-glass p-8 rounded-lg lg:col-span-7">
-            <form id="lead-form" onsubmit="executeLeadSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
-              
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px]">Your Name *</label>
-                <input type="text" id="lead-name" placeholder="e.g. Stephen Miller" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-name-warn')" />
-                <span id="lead-name-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px] font-mono">Company / Contact Name *</label>
+                <input type="text" id="lead-name" placeholder="Acme Systems LLC" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('lead-name-warn')" />
+                <span id="lead-name-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px]">Email Address *</label>
-                <input type="email" id="lead-email" placeholder="e.g. s.miller@company.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
-                <span id="lead-email-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px] font-mono">Business Email Address *</label>
+                <input type="text" id="lead-email" placeholder="systems@acme.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
+                <span id="lead-email-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="lead-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number</label>
+                <input type="text" id="lead-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" />
               </div>
 
               <div class="space-y-2">
-                <label for="lead-area" class="block text-white uppercase tracking-wider text-[10px]">How Can We Help You? *</label>
-                <select id="lead-area" class="w-full bg-[#030706] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm select-text">
-                  <option value="Information Technology">Information Technology &amp; Coding</option>
-                  <option value="Creative Design">Creative &amp; Website Design</option>
-                  <option value="Social Media Management">Social Media Management &amp; Content</option>
-                  <option value="Custom Mobility Solutions">Custom Mobile Applications</option>
+                <label for="lead-service" class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core</label>
+                <select id="lead-service" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Creative Design">Creative Design</option>
+                  <option value="Social Media Management">Social Media Management</option>
+                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
                   <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
-                  <option value="Strategic Consultations">Bespoke Consulting Services</option>
+                  <option value="Strategic Consultations">Strategic Consultations</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="lead-budget" class="block text-white uppercase tracking-wider text-[10px] font-mono">B2B Budget Spectrum Core *</label>
+                <select id="lead-budget" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
+                  <option value="Under $200">Under $200</option>
+                  <option value="$200–$500">$200–$500</option>
+                  <option value="$500–$1,500">$500–$1,500</option>
+                  <option value="$1,500–$5,000" selected>$1,500–$5,000</option>
+                  <option value="$5,000–$25,000">$5,000–$25,000</option>
+                  <option value="$25,000+">$25,000+</option>
+                  <option value="Multi-Business Bundle / Custom Enterprise Deal">Multi-Business Bundle / Custom Enterprise Deal</option>
                 </select>
               </div>
 
-              <div class="space-y-3">
-                <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Project Budget *</label>
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
-                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$500 - $1,500" checked class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                    <span class="text-[9px] text-white font-bold">$500–$1,500</span>
-                  </label>
-                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$1,500 - $5,000" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                    <span class="text-[9px] text-white font-bold">$1.5k–$5k</span>
-                  </label>
-                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$5,000 - $25,000" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                    <span class="text-[9px] text-white font-bold">$5k–$25k</span>
-                  </label>
-                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$25,000+" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                    <span class="text-[9px] text-white font-bold">$25k+</span>
-                  </label>
-                </div>
+              <div class="flex items-center gap-2 pt-6">
+                <input type="checkbox" id="lead-multi-site" class="w-4 h-4 accent-cyber-emerald" />
+                <label for="lead-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
+                  I own/manage multiple businesses and need a multi-site or bulk service deal.
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project *</label>
+              <textarea id="lead-brief" rows="5" placeholder="Tell us about what you want to build, existing systems, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
+              <div class="flex justify-between items-center text-[9px] text-cyber-slate mt-1 font-mono">
+                <span id="lead-brief-warn" class="text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+                <span id="lead-brief-counter" class="text-cyber-slate">0/30 characters (Minimum 30 required)</span>
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-xs uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm font-mono">
+              SEND MESSAGE ->
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW: CO-BRANDED EXCLUSIVE PARTNER TERMINAL -->
+    <!-- ============================================== -->
+    <section id="view-partner-terminal" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4">
+        <h2 id="partner-terminal-title" class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2.5 h-6 bg-cyber-teal"></span>
+          EXCLUSIVE TECHNICAL CO-CHANNEL //
+        </h2>
+        <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">B2B Priority Delivery Framework</p>
+      </div>
+
+      <!-- Partner intro matrix -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-4 space-y-6 font-mono text-xs">
+          <div class="cyber-glass p-6 rounded-sm space-y-4">
+            <h3 class="text-sm font-bold text-cyber-teal tracking-wider uppercase">PARTNER DISPATCH LOGS</h3>
+            <p class="text-cyber-slate font-sans leading-relaxed text-xs">
+              Welcome back. Submitting this co-branded portal routes inquiries with a direct <span class="text-white font-bold" id="partner-metadata-tag">Referral Flag</span>.
+            </p>
+            <div class="space-y-1 bg-cyber-obsidian/60 p-3 border border-cyber-emerald/10 text-[10px] font-mono rounded-sm">
+              <p class="text-cyber-emerald">ROUTING STATUS: ACTIVE</p>
+              <p>PRIORITY LEVEL: HIGH EXECUTIVE</p>
+              <p>INQUIRY SPRINT LANE: ADVANCED</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <form id="partner-form" onsubmit="executePartnerSubmission(event)" class="cyber-glass p-8 rounded-sm space-y-6 relative">
+            <div id="partner-loading-overlay" class="hidden absolute inset-0 bg-cyber-obsidian/95 z-10 flex flex-col items-center justify-center space-y-4 rounded-sm">
+              <span class="relative flex h-12 w-12">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-teal opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-12 w-12 bg-cyber-teal"></span>
+              </span>
+              <p class="text-xs font-mono text-cyber-teal font-bold tracking-widest uppercase">RECORDING &amp; CO-DISPATCHING...</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="partner-contact" class="block text-white uppercase tracking-wider text-[10px] font-mono">Company / Client Name *</label>
+                <input type="text" id="partner-contact" placeholder="Acme Systems LLC" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('partner-contact-warn')" />
+                <span id="partner-contact-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px]">Tell Us About Your Project *</label>
-                <textarea id="lead-brief" rows="5" placeholder="Tell us about what you want to build, existing systems, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
-                <span id="lead-brief-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
-              </div>
-
-              <button type="submit" id="submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
-                SEND MESSAGE ->
-              </button>
-
-            </form>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 8: MASKED ADMINISTRATIVE CONTROL VIEWPORT -->
-      <!-- ============================================== -->
-      <section id="view-admin" class="view-transition opacity-0 hidden space-y-8">
-        
-        <div class="border-b border-cyber-emerald/15 pb-4 flex justify-between items-end flex-wrap gap-4">
-          <div>
-            <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest flex items-center gap-2">
-              <span class="w-2.5 h-6 bg-cyber-emerald"></span>
-              MANAGEMENT CONTROL TERMINAL
-            </h2>
-            <p class="text-xs font-mono text-cyber-slate uppercase mt-1">FIRESTORE CORE LEDGER SURVEILLANCE SYSTEMS</p>
-          </div>
-          
-          <div class="font-mono text-[10px] flex gap-3">
-            <button onclick="readLeadsFromFirestore()" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
-              RE-SYNC LEDGER
-            </button>
-            <button onclick="exportLeadsCSV()" class="px-3.5 py-1.5 border border-cyber-teal text-cyber-teal hover:bg-cyber-teal hover:text-cyber-obsidian transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
-              EXPORT CSV
-            </button>
-            <button onclick="exitAdminTerminal()" class="px-3.5 py-1.5 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
-              REVOKE DEEP SESSION
-            </button>
-          </div>
-        </div>
-
-        <!-- Analytical Metrics status grids -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-center">
-          <div class="cyber-glass p-5 rounded-sm">
-            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// AGGREGATED SPEC LEDGERS</div>
-            <div class="text-3xl text-white font-extrabold font-display" id="stat-total">0</div>
-          </div>
-          <div class="cyber-glass p-5 rounded-sm">
-            <div class="text-[9px] text-cyber-emerald uppercase tracking-wider mb-1 font-mono">// NEW ASSIGNMENTS</div>
-            <div class="text-3xl text-cyber-emerald font-extrabold font-display" id="stat-new">0</div>
-          </div>
-          <div class="cyber-glass p-5 rounded-sm">
-            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// SLA CONTACTED</div>
-            <div class="text-3xl text-[#00E5FF] font-extrabold font-display" id="stat-contacted">0</div>
-          </div>
-          <div class="cyber-glass p-5 rounded-sm">
-            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// CONVERTED TO OFFSHORE POD</div>
-            <div class="text-3xl text-[#FF9900] font-extrabold font-display" id="stat-converted">0</div>
-          </div>
-        </div>
-
-        <!-- Strategy Specifications Table Grid -->
-        <div class="cyber-glass p-6 space-y-4 rounded-sm">
-          <div class="flex justify-between items-center sm:flex-row flex-col gap-2">
-            <h3 class="text-sm font-bold uppercase font-display text-white tracking-widest">REAL-TIME INCOMING STRATEGY SPECIFICATIONS TABLE</h3>
-            <span class="text-[8px] font-mono text-cyber-slate border border-cyber-emerald/20 px-2 py-0.5 rounded-xs animate-pulse" id="records-status">FIRESTORE_CONNECTED_SYNC_OK</span>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse font-sans text-xs">
-              <thead>
-                <tr class="border-b border-cyber-emerald/15 font-mono text-[9px] text-cyber-slate uppercase tracking-wider">
-                  <th class="py-3 px-4">UUID</th>
-                  <th class="py-3 px-4">Contact name</th>
-                  <th class="py-3 px-4">Corporate email</th>
-                  <th class="py-3 px-4">Technology core</th>
-                  <th class="py-3 px-4">Budget Range</th>
-                  <th class="py-3 px-4">Action Status</th>
-                  <th class="py-3 px-4 text-center">Terminate</th>
-                </tr>
-              </thead>
-              <tbody id="leads-table-body" class="divide-y divide-cyber-emerald/5">
-                <!-- Sync table rows dynamically via firestore loop -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Selected Brief Inspector Grid Detail Section -->
-        <div class="cyber-glass p-6 space-y-4 rounded-sm" id="brief-inspector-container">
-          <h4 class="text-xs font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
-            <span class="w-1.5 h-3 bg-cyber-emerald animate-pulse"></span>
-            ACTIVE LEAD BRIEF ARCHITECTURAL MATRIX INSPECTOR
-          </h4>
-          <div class="p-5 bg-[#030706]/80 border border-cyber-emerald/15 text-xs text-cyber-slate font-sans leading-relaxed select-all rounded-sm" id="brief-inspect-box">
-            No record currently highlighted. Click any lead column from the database grid above to fetch and inspect the full corporate specs brief.
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ============================================== -->
-      <!-- PAGE 9: STEVE'S CO-BRANDED MOBILE PARTNER TERMINAL -->
-      <!-- ============================================== -->
-      <section id="view-steve" class="view-transition opacity-0 hidden space-y-8 max-w-2xl mx-auto">
-        
-        <!-- Header Badge -->
-        <div class="border border-cyber-emerald/40 p-5 bg-cyber-emerald/5 relative overflow-hidden rounded-sm backdrop-blur-md">
-          <div class="absolute -top-12 -right-12 w-24 h-24 bg-cyber-emerald/10 rounded-full blur-xl"></div>
-          <div class="text-center space-y-2">
-            <span class="text-[9px] font-mono tracking-[0.2em] text-cyber-emerald block uppercase">// STRATEGIC PARTNER MATRIX</span>
-            <h3 class="text-xs sm:text-sm font-extrabold text-[#F5F5F5] uppercase tracking-widest leading-relaxed font-display">
-              EXCLUSIVE TECH PARTNER:<br>STEVE'S CARPET CLEANING × VIRTUAL BRIDGE CONNECT
-            </h3>
-            <p class="text-[9px] text-cyber-slate uppercase tracking-wider font-mono">60-Second Mobile Intake Terminal</p>
-          </div>
-        </div>
-
-        <!-- Form Core -->
-        <div class="cyber-glass p-6 sm:p-8 relative rounded-lg">
-          
-          <form id="partner-form" onsubmit="executePartnerSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
-            
-            <div class="flex items-center justify-between p-3 bg-cyber-obsidian/60 border border-cyber-emerald/20 rounded-sm">
-              <span class="text-[9px] text-cyber-slate uppercase tracking-wider">// REFERRAL SOURCE</span>
-              <span class="text-[9px] text-cyber-emerald font-bold uppercase tracking-widest border border-cyber-emerald/30 px-2 py-0.5 bg-cyber-emerald/5 rounded-xs">
-                Steve's Carpet Cleaning
-              </span>
-            </div>
-
-            <div class="space-y-2">
-              <label for="partner-business" class="block text-white uppercase tracking-wider text-[10px]">Your Business Name *</label>
-              <input type="text" id="partner-business" placeholder="e.g. Apex Enterprise Inc." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-business-warn')" />
-              <span id="partner-business-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
-            </div>
-
-            <div class="space-y-2">
-              <label for="partner-contact" class="block text-white uppercase tracking-wider text-[10px]">Contact Person Name *</label>
-              <input type="text" id="partner-contact" placeholder="e.g. Stephen Miller" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-contact-warn')" />
-              <span id="partner-contact-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
-            </div>
-
-            <div class="space-y-2">
-              <label for="partner-phone" class="block text-white uppercase tracking-wider text-[10px]">Phone Number *</label>
-              <input type="tel" id="partner-phone" placeholder="e.g. +1 555-019-2834" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-phone-warn')" />
-              <span id="partner-phone-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
-            </div>
-
-            <div class="space-y-2">
-              <label class="block text-white uppercase tracking-wider text-[10px] mb-2">What do you need help with? *</label>
-              <div class="grid grid-cols-1 gap-2.5">
-                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="New Website / Redesign" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">New Website / Redesign</span>
-                    <span class="text-[8px] text-cyber-slate">Modern responsive custom company pages</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Custom Mobile App" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Custom Mobile App</span>
-                    <span class="text-[8px] text-cyber-slate">Native iOS and Android software systems</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Local SEO & Visibility" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Local SEO &amp; Visibility</span>
-                    <span class="text-[8px] text-cyber-slate">Rank high on local maps searches</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Social Media & Branding" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Social Media &amp; Branding</span>
-                    <span class="text-[8px] text-cyber-slate">Professional brand strategies &amp; growth layout</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Business Automation" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Business Automation</span>
-                    <span class="text-[8px] text-cyber-slate">Automate billing, email dispatch &amp; client flows</span>
-                  </div>
-                </label>
+                <label for="partner-email" class="block text-white uppercase tracking-wider text-[10px] font-mono">Client Business Email *</label>
+                <input type="text" id="partner-email" placeholder="systems@acme.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" oninput="clearFieldWarning('partner-email-warn')" />
+                <span id="partner-email-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-4"></span>
               </div>
             </div>
 
-            <div class="space-y-3">
-              <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Target Budget *</label>
-              <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
-                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$500 - $1,500" checked class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                  <span class="text-[9px] text-[#F5F5F5] font-bold">$500–$1,500</span>
-                </label>
-                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$1,500 - $3,500" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                  <span class="text-[9px] text-[#F5F5F5] font-bold">$1.5k–$3.5k</span>
-                </label>
-                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$3,500+" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                  <span class="text-[9px] text-[#F5F5F5] font-bold">$3.5k+</span>
-                </label>
-                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="Custom Budget" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
-                  <span class="text-[9px] text-[#F5F5F5] font-bold">Custom Specs</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="partner-phone" class="block text-white uppercase tracking-wider text-[10px] font-mono">Phone / WhatsApp Number</label>
+                <input type="text" id="partner-phone" placeholder="+1 (703) 555-0199" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm" />
+              </div>
+
+              <div class="space-y-2">
+                <label for="partner-service" class="block text-white uppercase tracking-wider text-[10px] font-mono">Requested Capability Core</label>
+                <select id="partner-service" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Creative Design">Creative Design</option>
+                  <option value="Social Media Management">Social Media Management</option>
+                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
+                  <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
+                  <option value="Strategic Consultations">Strategic Consultations</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="partner-budget" class="block text-white uppercase tracking-wider text-[10px] font-mono">B2B Budget Spectrum Core *</label>
+                <select id="partner-budget" class="w-full bg-[#080f0c] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs rounded-sm">
+                  <option value="Under $200">Under $200</option>
+                  <option value="$200–$500">$200–$500</option>
+                  <option value="$500–$1,500">$500–$1,500</option>
+                  <option value="$1,500–$5,000" selected>$1,500–$5,000</option>
+                  <option value="$5,000–$25,000">$5,000–$25,000</option>
+                  <option value="$25,000+">$25,000+</option>
+                  <option value="Multi-Business Bundle / Custom Enterprise Deal">Multi-Business Bundle / Custom Enterprise Deal</option>
+                </select>
+              </div>
+
+              <div class="flex items-center gap-2 pt-6">
+                <input type="checkbox" id="partner-multi-site" class="w-4 h-4 accent-cyber-teal" />
+                <label for="partner-multi-site" class="text-xs text-cyber-slate font-sans select-none cursor-pointer">
+                  I own/manage multiple businesses and need a multi-site or bulk service deal.
                 </label>
               </div>
             </div>
 
             <div class="space-y-2">
-              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px]">Additional Notes</label>
-              <textarea id="partner-notes" rows="4" placeholder="Any specific requirements or times you are available to take a call..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm"></textarea>
+              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px] font-mono">Tell Us About Your Project &amp; Goals *</label>
+              <textarea id="partner-notes" rows="4" placeholder="Briefly list your target goals, any branding assets you already have, or timeline requirements..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('partner-notes-warn')"></textarea>
+              <div class="flex justify-between items-center text-[9px] text-cyber-slate mt-1 font-mono">
+                <span id="partner-notes-warn" class="text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+                <span id="partner-notes-counter" class="text-cyber-slate">0/30 characters (Minimum 30 required)</span>
+              </div>
             </div>
 
-            <button type="submit" id="partner-submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+            <button type="submit" id="partner-submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-xs uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm font-mono">
               SEND MESSAGE ->
             </button>
-
           </form>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
-  </main>
+    <!-- ============================================== -->
+    <!-- VIEW: ADMIN CONSOLE (PASSCODE PROTECTED) -->
+    <!-- ============================================== -->
+    <section id="view-admin" class="space-y-10 hidden">
+      <div class="border-b border-cyber-emerald/15 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="text-3xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+            <span class="inline-block w-2.5 h-6 bg-cyber-emerald"></span>
+            Administrative Terminal Control //
+          </h2>
+          <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Authorized Rest-Ops Core Security Node Only</p>
+        </div>
+        
+        <div class="flex items-center gap-3 no-print">
+          <button type="button" onclick="window.print()" class="px-4 py-2 border border-cyber-emerald/30 text-cyber-emerald font-mono text-xs uppercase hover:bg-cyber-emerald/15 tracking-wider transition-all rounded-sm">
+            GENERATE PRINT / PDF
+          </button>
+          <button type="button" onclick="exitAdminTerminal()" class="px-4 py-2 border border-cyber-slate/30 text-cyber-slate font-mono text-xs uppercase hover:text-white hover:border-white tracking-wider transition-all rounded-sm">
+            SECURE LOGOUT
+          </button>
+        </div>
+      </div>
 
-  <!-- ============================================== -->
-  <!-- HIGH-CONTRAST B2B FOOTER -->
-  <!-- ============================================== -->
-  <footer class="w-full bg-cyber-obsidian border-t border-cyber-emerald/15 py-12 relative z-10 text-xs font-mono">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      
-      <!-- Logo + Strategic statement -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-cyber-emerald/5 pb-8">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg border border-cyber-emerald/30 bg-cyber-emerald/5">
-            <svg class="w-4 h-4 text-cyber-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
+      <!-- B2B Analytical KPI Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="cyber-glass p-5 rounded-sm relative overflow-hidden">
+          <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">TOTAL REGISTERED INQUIRIES</p>
+          <p class="text-3xl font-extrabold font-display text-white mt-1" id="stat-total">0</p>
+          <div class="absolute bottom-1 right-2 font-mono text-[8px] text-cyber-emerald/30">REST-OPS ENGINE</div>
+        </div>
+        <div class="cyber-glass p-5 rounded-sm relative overflow-hidden">
+          <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">NEW/UNRESOLVED LEADS</p>
+          <p class="text-3xl font-extrabold font-display text-cyber-teal mt-1" id="stat-new">0</p>
+          <div class="absolute bottom-1 right-2 font-mono text-[8px] text-cyber-teal/30">QUEUE PRIORITY</div>
+        </div>
+        <div class="cyber-glass p-5 rounded-sm relative overflow-hidden">
+          <p class="text-[10px] font-mono text-cyber-slate uppercase tracking-wider">ENGAGED &amp; COMPLETED LEADS</p>
+          <p class="text-3xl font-extrabold font-display text-cyber-emerald mt-1" id="stat-converted">0</p>
+          <div class="absolute bottom-1 right-2 font-mono text-[8px] text-cyber-emerald/30">CONVERSION VELOCITY</div>
+        </div>
+      </div>
+
+      <!-- 30-Day Analytics Charts Grid Dashboard -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 no-print">
+        <div class="cyber-glass p-5 rounded-sm">
+          <h4 class="text-xs font-bold uppercase font-display text-white mb-4 tracking-widest text-center flex items-center justify-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald rounded-full animate-pulse"></span>
+            30-Day Incoming Lead Trend
+          </h4>
+          <div class="h-64 relative">
+            <canvas id="leadsTrendChart"></canvas>
           </div>
-          <span class="text-base font-bold font-display uppercase tracking-widest">VIRTUAL BRIDGE CONNECT</span>
+        </div>
+        
+        <div class="cyber-glass p-5 rounded-sm">
+          <h4 class="text-xs font-bold uppercase font-display text-white mb-4 tracking-widest text-center flex items-center justify-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 bg-cyber-teal rounded-full animate-pulse"></span>
+            Service Demand Distribution
+          </h4>
+          <div class="h-64 relative">
+            <canvas id="serviceDemandChart"></canvas>
+          </div>
         </div>
 
-        <p class="text-cyber-slate font-sans text-center md:text-right max-w-md text-xs leading-relaxed">
-          Premium global software engineering and IT consulting services. Mapped directly from Virginia to Pakistan to guarantee reliable SLA performance.
-        </p>
+        <div class="cyber-glass p-5 rounded-sm">
+          <h4 class="text-xs font-bold uppercase font-display text-white mb-4 tracking-widest text-center flex items-center justify-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald rounded-full animate-pulse"></span>
+            Traffic Sources (Direct vs Referral)
+          </h4>
+          <div class="h-64 relative">
+            <canvas id="trafficSourcesChart"></canvas>
+          </div>
+        </div>
+
+        <div class="cyber-glass p-5 rounded-sm">
+          <h4 class="text-xs font-bold uppercase font-display text-white mb-4 tracking-widest text-center flex items-center justify-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 bg-cyber-teal rounded-full animate-pulse"></span>
+            Conversion Funnel Velocity
+          </h4>
+          <div class="h-64 relative">
+            <canvas id="conversionFunnelChart"></canvas>
+          </div>
+        </div>
       </div>
 
-      <!-- Core Links and Regional statement -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-cyber-emerald tracking-wide text-center md:text-left text-[11px] font-bold">
-          Strategic Node: Reston, VA | Operations: Lahore, Pakistan
-        </p>
+      <!-- Partner Link Generator Tool Box -->
+      <div class="cyber-glass p-6 space-y-4 rounded-sm no-print">
+        <div class="border-b border-cyber-emerald/15 pb-2">
+          <h4 class="text-xs font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+            <span class="w-1.5 h-3 bg-cyber-teal"></span>
+            Secure Partner Referral Link Generator
+          </h4>
+          <p class="text-[9px] text-cyber-slate uppercase mt-1">Generate customized URLs with 1-click clipboard integration</p>
+        </div>
 
-        <p class="text-cyber-slate/50 text-[10px] text-center md:text-right">
-          &copy; 2026 Virtual Bridge Connect. All rights secured. Powered by Onyx Cloud Systems.
-        </p>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end text-xs font-mono">
+          <div class="md:col-span-5 space-y-1">
+            <label class="text-[9px] uppercase tracking-wider text-cyber-slate">Partner Identifier Handle</label>
+            <input type="text" id="partner-handle-input" placeholder="e.g. steve, alex, partner-deals" class="w-full bg-cyber-obsidian border border-cyber-emerald/20 px-3 py-2 text-white transition-all focus:outline-none focus:border-cyber-emerald rounded-sm" />
+          </div>
+          
+          <div class="md:col-span-4 space-y-1">
+            <button type="button" onclick="generatePartnerLink()" class="w-full py-2.5 bg-cyber-teal text-cyber-obsidian font-black uppercase text-[10px] tracking-wider hover:opacity-90 transition-all rounded-sm cursor-pointer">
+              GENERATE SECURE LINK
+            </button>
+          </div>
+
+          <div class="md:col-span-3">
+            <button type="button" onclick="copyGeneratedLink()" id="copy-link-btn" disabled class="w-full py-2.5 border border-cyber-slate/30 text-cyber-slate text-[10px] uppercase font-bold tracking-wider rounded-sm transition-all">
+              COPY LINK
+            </button>
+          </div>
+        </div>
+
+        <!-- Output Display Container -->
+        <div class="bg-cyber-obsidian border border-cyber-emerald/15 p-3 font-mono text-xs flex justify-between items-center rounded-sm">
+          <span class="text-cyber-slate text-[10px]">OUTPUT SECURE URL:</span>
+          <span id="partner-link-output" class="text-cyber-emerald font-bold select-all tracking-wider text-right overflow-x-auto truncate max-w-md">No link generated yet.</span>
+        </div>
       </div>
 
-    </div>
+      <!-- Strategy Specifications Table Grid -->
+      <div class="cyber-glass p-6 space-y-4 rounded-sm">
+        <div class="flex justify-between items-center sm:flex-row flex-col gap-2">
+          <h3 class="text-sm font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+            <span class="w-1.5 h-3 bg-cyber-emerald"></span>
+            ACTIVE LEAD DATABASE REGISTRY
+          </h3>
+          <span class="text-[9px] font-mono text-cyber-slate uppercase">SYNC ENGINE: LIVE FIRESTORE NODE</span>
+        </div>
 
-    <!-- Invisible 10x10px administrative control trigger pixel in footer as requested -->
-    <div onclick="triggerPasscodeModal()" class="w-[10px] h-[10px] bg-transparent cursor-default mx-auto mt-4" style="opacity: 0.05;" title="Terminal Console"></div>
-  </footer>
+        <div class="overflow-x-auto w-full">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="border-b border-cyber-emerald/20 text-cyber-slate">
+                <th class="py-3 px-4 font-bold uppercase">Client/Company</th>
+                <th class="py-3 px-4 font-bold uppercase">Capability Core</th>
+                <th class="py-3 px-4 font-bold uppercase">Budget Tier</th>
+                <th class="py-3 px-4 font-bold uppercase">Referral Link Source</th>
+                <th class="py-3 px-4 font-bold uppercase">Status</th>
+                <th class="py-3 px-4 font-bold uppercase text-center no-print">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body" class="divide-y divide-cyber-emerald/5">
+              <!-- Rendered leads will dynamically inject here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-  <!-- ============================================== -->
-  <!-- MODAL GLASS FOR ADMIN SECURITY GATE -->
-  <!-- ============================================== -->
-  <div id="passcode-modal" class="fixed inset-0 z-[1000] flex items-center justify-center bg-cyber-obsidian/85 backdrop-blur-md hidden transition-opacity duration-300">
-    <div class="cyber-glass max-w-md w-full mx-4 p-8 space-y-6 text-center rounded-lg">
-      <div class="w-12 h-12 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald rounded-full flex items-center justify-center mx-auto animate-pulse">
-        <span class="text-lg font-bold">#</span>
+      <!-- Lead Detail Brief Modal Drawer -->
+      <div id="brief-modal" class="hidden fixed inset-0 bg-cyber-obsidian/90 z-50 flex items-center justify-center p-4">
+        <div class="cyber-glass max-w-2xl w-full p-6 space-y-4 rounded-sm relative">
+          <div class="border-b border-cyber-emerald/15 pb-2 flex justify-between items-center">
+            <h3 class="text-sm font-bold text-cyber-emerald uppercase tracking-widest">Client Engagement Specifications</h3>
+            <button type="button" onclick="closeInquiryBrief()" class="text-cyber-slate hover:text-white font-black">✕</button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-cyber-slate leading-relaxed" id="brief-details-content">
+            <!-- Dynamically populated detail logs -->
+          </div>
+        </div>
       </div>
-      <div class="space-y-1">
-        <h4 class="text-lg font-bold uppercase font-display text-white tracking-widest">AUTHENTICATION CODE MANDATORY</h4>
-        <p class="text-[10px] font-mono text-cyber-slate">ADMIN SECURITY PORTAL SYSTEM DECREES</p>
-      </div>
-      <input type="password" id="admin-passcode" placeholder="ENTER 4-DIGIT KEY CODE" class="w-full bg-[#030706] border border-cyber-emerald/30 px-4 py-3 font-mono text-center text-cyber-emerald text-lg tracking-[0.4em] focus:outline-none glow-input rounded-sm" />
-      <div class="flex gap-3 font-mono text-[10px]">
-        <button onclick="dismissPasscodeModal()" class="w-1/2 py-3 border border-cyber-slate/30 text-cyber-slate hover:text-white transition-all cursor-pointer rounded-sm">CANCEL</button>
-        <button onclick="evaluatePasscode()" class="w-1/2 py-3 bg-cyber-emerald text-cyber-obsidian font-bold hover:opacity-90 transition-all cursor-pointer rounded-sm">VERIFY KEY</button>
+
+    </section>
+
+  </main>
+
+  <!-- Passcode Entry Modal Gated Gateway -->
+  <div id="modal-passcode" class="hidden fixed inset-0 bg-cyber-obsidian/95 z-50 flex items-center justify-center p-4 no-print">
+    <div class="cyber-glass max-w-sm w-full p-6 space-y-4 rounded-sm text-center">
+      <h3 class="text-xs font-bold text-cyber-emerald uppercase tracking-widest font-mono">AUTHORIZED GATEWAY SECURED BY VBC</h3>
+      <p class="text-[11px] text-cyber-slate font-sans leading-relaxed">Please enter the 4-digit master passcode to bypass standard firewall access routing.</p>
+      <input type="password" id="passcode-field" maxlength="4" placeholder="••••" class="w-full bg-[#0d1914] border border-cyber-emerald/30 text-center text-white py-3 font-mono font-bold text-lg focus:outline-none focus:border-cyber-emerald tracking-[0.5em] rounded-sm" />
+      <span id="passcode-warn" class="text-[9px] text-[#FF3366] font-mono font-bold uppercase tracking-wider block h-3"></span>
+      <div class="flex gap-2 font-mono text-[10px]">
+        <button type="button" onclick="submitPasscode()" class="w-1/2 py-2.5 bg-cyber-emerald text-cyber-obsidian font-black uppercase tracking-wider hover:opacity-90 transition-all rounded-sm">ACCESS</button>
+        <button type="button" onclick="cancelPasscode()" class="w-1/2 py-2.5 border border-cyber-slate/30 text-cyber-slate uppercase tracking-wider hover:text-white hover:border-white transition-all rounded-sm">CANCEL</button>
       </div>
     </div>
   </div>
 
-  <!-- ============================================== -->
-  <!-- DATA MATRICES & CLIENT SIDE ENGINES -->
-  <!-- ============================================== -->
+  <!-- Footers Navigation and Active Anchors -->
+  <footer class="cyber-glass border-t border-cyber-emerald/10 py-8 text-xs font-sans mt-12 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <!-- Copy info and route anchors -->
+      <div class="flex flex-col md:items-start items-center gap-2">
+        <span class="font-mono text-[10px] text-cyber-slate uppercase">
+          &copy; 2026 Virtual Bridge Connect. All IP, designs, and code cleared.
+        </span>
+        <span class="text-[10px] text-cyber-emerald font-mono flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>
+          HTTPS Master Tunnel Secured
+        </span>
+      </div>
+      
+      <!-- Persistent Strategic Anchor with Bypass Toggle -->
+      <div class="text-[10px] font-mono text-cyber-emerald tracking-widest uppercase text-center md:text-right font-bold flex items-center gap-2">
+        <span>Strategic Node: Reston, VA | Operations: Lahore, Pakistan</span>
+        <button type="button" onclick="triggerPasscodeModal()" class="hover:text-white transition-all duration-300 font-bold focus:outline-none cursor-pointer" title="Administrative Port Bypass Code Trigger">
+          &lt;/&gt;
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Client-Side Architecture Integration Scripts -->
   <script>
-    // HARDCODED SECURED PRODUCTION FIREBASE CONFIG
+    // ==============================================
+    // 1. FIREBASE ARCHITECTURAL PROFILES
+    // ==============================================
     const firebaseConfig = {
       apiKey: "AIzaSyD-I2kIM2NsZB-3F5xdaN1d2didUQNrOfc",
       authDomain: "virtual-bridge-connect.firebaseapp.com",
@@ -936,708 +914,1098 @@
     };
 
     let db;
-    let leadsData = [];
-    let isFirebaseReady = false;
-
-    // Securely Initialize Firebase
     try {
-      firebase.initializeApp(firebaseConfig);
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
       db = firebase.firestore();
-      isFirebaseReady = true;
-      console.log("Onyx Secure System Channel Configured.");
-    } catch (e) {
-      console.error("Local database initialized fallback status.", e);
+    } catch (err) {
+      console.error("Firebase config runtime initialization error: ", err);
     }
 
-    // 1. DATA MATRICES: METHODOLOGY ROADMAP STEPS
-    const roadmapSteps = [
-      { step: "01", name: "Lead By Example", desc: "Our senior partners align with your core goals first, mapping transparent paths." },
-      { step: "02", name: "Motivate", desc: "Setting clear milestones and momentum matrices that get our Lahore hub coding quickly." },
-      { step: "03", name: "Inspire", desc: "Developing elite clean-code architectures that set new standards in execution quality." },
-      { step: "04", name: "Mentor", desc: "Pairing Pakistan's double-cleared engineers with Reston experts for absolute accuracy." },
-      { step: "05", name: "Coach", desc: "Refining interface patterns, transaction flows, and backend speed thresholds daily." },
-      { step: "06", name: "Vision", desc: "Aligning every micro-interaction with your broader long-term B2B revenue plans." },
-      { step: "07", name: "Teamwork", desc: "Fusing global communication channels into one continuous, high-speed delivery pipeline." },
-      { step: "08", name: "Win", desc: "Unlocking flawless production-grade platforms backed by guaranteed 99.9% uptime SLA." }
+    // Helper utility to safely convert Firestore timestamps or strings to standard ISO formats
+    function getSafeTimestampString(ts) {
+      if (!ts) return "N/A";
+      if (typeof ts === "string") {
+        return ts;
+      }
+      if (typeof ts.toDate === "function") {
+        try {
+          return ts.toDate().toISOString();
+        } catch (e) {
+          console.error("toDate parsing error", e);
+        }
+      }
+      if (typeof ts === "object" && ts.seconds !== undefined) {
+        try {
+          return new Date(ts.seconds * 1000).toISOString();
+        } catch (e) {
+          console.error("seconds parsing error", e);
+        }
+      }
+      if (ts instanceof Date) {
+        return ts.toISOString();
+      }
+      try {
+        return new Date(ts).toISOString();
+      } catch (e) {
+        return String(ts);
+      }
+    }
+
+    // ==============================================
+    // 2. DYNAMIC MATRICES DATA DECK
+    // ==============================================
+    const services = [
+      {
+        id: "web-dev",
+        title: "01. Enterprise Systems & Web Engineering",
+        desc: "High-performance business applications designed to power corporate processes. Our teams write custom, secure frameworks optimized for cloud microservices, complete with custom headless API endpoints and lightning-fast edge delivery."
+      },
+      {
+        id: "ecommerce",
+        title: "02. Seamless B2B E-Commerce Systems",
+        desc: "Advanced storefronts, high-velocity order management backends, secure payment gateway integrations, and automatic inventory synchronizations engineered for high volumes without friction."
+      },
+      {
+        id: "cloud-systems",
+        title: "03. Secure Systems Engineering",
+        desc: "Complete design and deployment of robust software backends. We specialize in server architectures, database structures (SQL, Firestore), performance auditing, API bridges, and high-security compliance configurations."
+      },
+      {
+        id: "qa-testing",
+        title: "04. Quality Assurance & System Verification",
+        desc: "Rigorous automation testing, vulnerability analysis, performance load metrics, and continuous integration pipeline auditing to ensure zero-defect deployments on launch day."
+      }
     ];
 
-    // 2. DATA MATRICES: COMP_CHANNELS
-    const compChannels = [
-      { title: "Web Software Systems", desc: "Responsive high-converting corporate portals, fast e-commerce setups, and scalable custom web software engineered for business growth." },
-      { title: "Mobility Engineering", desc: "Native iOS and Android systems tailored with beautiful layouts, fast database synchronizations, and low latency frameworks." },
-      { title: "Systems Integrations", desc: "Connecting enterprise CRM, ERP databases, billing models, and payment Gateways without breaking performance or system security rules." }
-    ];
-
-    // 3. DATA MATRICES: 8-STEP LIFECYCLE JOURNEY
-    const lifecycleTimeline = [
-      { num: "01", name: "Data Mining", desc: "Extracting structural database assets and corporate logic boundaries." },
-      { num: "02", name: "Analysis & Mapping", desc: "Establishing exact API schemas and custom workflow mappings." },
-      { num: "03", name: "Bespoke System Design", desc: "Drafting high-end typography sheets and layout matrices." },
-      { num: "04", name: "Intensive Code Cycle", desc: " लाहौर team begins building responsive microservices with daily commits." },
-      { num: "05", name: "Continuous Integration", desc: "Rigorous automated linting and load-testing on serverless staging." },
-      { num: "06", name: "Final Systems Deploy", desc: "Launching live to high-performance Onyx cloud systems environments." },
-      { num: "07", name: "Executive Review", desc: "Validating against strict SLA and transaction accuracy requirements." },
-      { num: "08", name: "Maintenance & Upkeep", desc: "Continuous security updates and system diagnostics tracking." }
-    ];
-
-    // 4. DATA MATRICES: CMS STACKS
     const cmsStacks = [
-      { name: "WordPress Premium", type: "Custom B2B Pages", desc: "Tailored Gutenberg configurations styled entirely with optimized layouts. Fast load times, search engine visibility, and secure admin control dashboards." },
-      { name: "Magento Enterprise", type: "High-Volume Catalog", desc: "Secure multi-region inventory management, rapid cache layers, and custom cart interfaces designed for extensive wholesale and B2B orders." },
-      { name: "Joomla Enterprise", type: "Structured Portals", desc: "Ideal for complex corporate associations, custom member matrices, and extensive file-storage repositories with multi-level role permissions." },
-      { name: "Sitefinity Cloud", type: "Enterprise Logistics", desc: "Scalable cloud-ready framework supporting massive marketing campaigns, multi-lingual translations, and deep client behavioral diagnostics." },
-      { name: "Corporate Web Solution (CWS)", type: "Onyx Proprietary", desc: "Custom node architectures designed directly for ultra-secure corporate targets, offering lightning-fast pages with zero software dependencies." }
+      { name: "WordPress Premium Core", text: "Custom themes, clean decoupled page setups, extreme speed tuning, and advanced secure plugins designed specifically for corporate blogs and marketing setups." },
+      { name: "Shopify Engine Development", text: "Stunning Shopify custom store setups, robust app installations, product mapping, multi-currency layouts, and optimized cart checkouts." },
+      { name: "Webflow Corporate Layouts", text: "Pixel-perfect, responsive layouts with custom interactive elements, custom CSS hooks, and rapid high-fidelity mockups." },
+      { name: "Squarespace Standard Nodes", text: "Refined, fast, responsive marketing portfolios and corporate nodes tailored for clear local operations and rapid launches." },
+      { name: "Wix Premium Deployments", text: "E-commerce nodes and basic directories equipped with robust search features and standard responsive grids." },
+      { name: "Dynamic Headless Custom Setup", text: "Decoupled React/Next.js client-sides mapped to headless API systems to deliver unrivaled load speeds and security." }
     ];
 
-    // 5. DATA MATRICES: MOBILITY & ERP
-    const mobilityERP = [
-      { name: "Native iOS Software", desc: "Premium Swift-built applications optimized for absolute fluidity, secure client authentication keys, and real-time push notification grids." },
-      { name: "Native Android Software", desc: "Kotlin-engineered applications designed for long-term device battery efficiency, high memory scalability, and robust hardware interactions." },
-      { name: "CRM Client Portals", desc: "Frictionless self-service dashboards allowing your enterprise clients to submit support requests, track billing ledgers, and download invoices." },
-      { name: "Supply Chain Matrix", desc: "Real-time automated barcode logging, shipping logistics syncing, and secure freight coordinates maps tracking." },
-      { name: "Accounting Systems", desc: "Continuous ledger updates, automated tax rate computations, and encrypted bank statement reconciliation modules." },
-      { name: "Business Intel (BI) Hub", desc: "Dynamic data dashboards presenting real-time operational velocities, conversion patterns, and Pakistan hub delivery statistics." }
+    const mobilityErp = [
+      { name: "Native iOS Applications", text: "High-performance Swift platforms crafted to integrate with corporate data pools and device hardware safely." },
+      { name: "Native Android Systems", text: "Enterprise Kotlin setups built to handle operational logistics, remote databases, and local assets with speed." },
+      { name: "Cross-Platform Flutter/React Native", text: "Cost-efficient dual-platform applications deploying a single codebase across platforms with native-grade interactive fidelity." },
+      { name: "Enterprise ERP Integrations", text: "Custom mobile interfaces mapped directly to SAP, NetSuite, Oracle, or Microsoft Dynamics pipelines to streamline workflows." },
+      { name: "Logistics & Fleet Tracking Units", text: "Live geographic telemetry, routes optimization, maps API hooks, and field asset reporting on secure, lightweight channels." },
+      { name: "Corporate Portal Architecture", text: "Internal employee dashboards, client service logs, and live administrative tools equipped with secure roles authorization." }
     ];
 
-    // 6. DATA MATRICES: INTEGRATION
-    const integrationsConsulting = [
-      { area: "API Integrations", desc: "Fusing secure systems (Stripe, Twilio, Salesforce, Hubspot) with your custom architectures to automate data dispatch across corporate departments." },
-      { area: "MIS Outsourcing", desc: "Offload your complete tech infrastructure management. We handle server health checks, database backups, and security patches 24/7." },
-      { area: "Technology Consulting", desc: "Senior technical consulting sessions in Reston, VA to plan migrations, assess custom software layouts, and calculate development budgets." }
+    const techConsulting = [
+      { name: "AWS & GCP Architecture Planning", text: "Comprehensive migration planning, secure VPC configurations, scalable server clusters, and serverless compute design." },
+      { name: "Multi-Database Engineering", text: "Hybrid architectures balancing high-performance SQL relational registers with schema-less Firestore databases." },
+      { name: "Enterprise API Bridge Systems", text: "Bespoke REST/GraphQL gateways built to integrate disparate platforms and legacy corporate software frameworks." },
+      { name: "Security Auditing & Hardening", text: "Vulnerability analysis, end-to-end data encryption configurations, secure OAuth login systems, and server configuration hardening." },
+      { name: "DevOps & Deployment Pipelines", text: "Automated Docker, GitHub Actions, and Kubernetes configurations to establish safe continuous integration environments." },
+      { name: "Operational Gap Analysis", text: "Comprehensive systems review to identify workflow bottlenecks, outline tech transformations, and establish timeline costings." }
     ];
 
-    // 7. DATA MATRICES: DIGITAL MARKETING
-    const marketingMedia = [
-      { name: "Brand & Corporate Stationery", desc: "High-end stationery systems, minimalist B2B document layouts, and unified visual guides designed to impress corporate boards." },
-      { name: "Premium Video Production", desc: "Stunning corporate showcase videos, Lahore hub walk-through animations, and software product explainers capturing your technical edge." },
-      { name: "Growth SEO & Marketing", desc: "Optimized metadata structures, precise local search optimization campaigns, and analytical B2B buyer targeting channels." }
+    const marketingFrameworks = [
+      { name: "SEO Structural Optimization", text: "Clean technical markup, fast page indexing, Google Search Console audits, and structured metadata schemas." },
+      { name: "Content Strategy & Keywords", text: "High-relevance corporate copywriting, keyword clustering, and local optimization blueprints to boost search authority." },
+      { name: "Dynamic Lead-Magnet Campaigns", text: "Optimized landing pages, tailored email workflows, and targeted lead capturing funnels designed to maximize ROI." },
+      { name: "Analytical Telemetry Pipelines", text: "Advanced Google Analytics 4, Tag Manager, and customer conversion tracking setups to record clear attribution." },
+      { name: "Enterprise Media Campaigns", text: "Corporate advertising strategy across professional networks (LinkedIn, Google Search) designed to attract B2B decision makers." },
+      { name: "Continuous Brand Auditing", text: "Strategic market mapping, performance analyses, and routine optimizations to maintain strong conversion velocity." }
     ];
 
-    // INITIALIZATION AND MATRIX GENERATOR ROUTINES
-    window.addEventListener("DOMContentLoaded", () => {
-      renderMethodologyRoadmap();
-      renderCompChannels();
-      renderLifecycleTimeline();
-      renderCMSStacks();
-      renderMobilityERP();
-      renderIntegrations();
-      renderMarketing();
+    // ==============================================
+    // 3. UI RENDERING ENGINES
+    // ==============================================
+    function buildApplicationUI() {
+      // 1. Render Capabilities
+      const svcContainer = document.getElementById("services-grid-container");
+      if (svcContainer) {
+        svcContainer.innerHTML = services.map(s => `
+          <div class="cyber-glass p-6 rounded-sm space-y-3 hover:border-cyber-emerald/40 transition-all">
+            <h3 class="text-sm font-bold font-display uppercase tracking-wider text-white">${s.title}</h3>
+            <p class="text-xs text-cyber-slate leading-relaxed">${s.desc}</p>
+          </div>
+        `).join("");
+      }
+
+      // 2. Render Tech Stacks
+      const stacksContainer = document.getElementById("stacks-grid-container");
+      if (stacksContainer) {
+        stacksContainer.innerHTML = cmsStacks.map(st => `
+          <div class="bg-[#080F0C] border border-cyber-emerald/10 hover:border-cyber-emerald/35 p-5 rounded-sm space-y-2.5 transition-all">
+            <h4 class="text-xs font-bold font-mono text-cyber-emerald uppercase tracking-wider">${st.name}</h4>
+            <p class="text-[11px] text-cyber-slate font-sans leading-relaxed">${st.text}</p>
+          </div>
+        `).join("");
+      }
+
+      // 3. Render Mobility & ERP
+      const mobilityContainer = document.getElementById("mobility-grid-container");
+      if (mobilityContainer) {
+        mobilityContainer.innerHTML = mobilityErp.map(m => `
+          <div class="bg-[#080F0C] border border-cyber-teal/10 hover:border-cyber-teal/35 p-5 rounded-sm space-y-2.5 transition-all">
+            <h4 class="text-xs font-bold font-mono text-cyber-teal uppercase tracking-wider">${m.name}</h4>
+            <p class="text-[11px] text-cyber-slate font-sans leading-relaxed">${m.text}</p>
+          </div>
+        `).join("");
+      }
+
+      // 4. Render Systems Integrations
+      const integrationContainer = document.getElementById("integration-grid-container");
+      if (integrationContainer) {
+        integrationContainer.innerHTML = techConsulting.map(ic => `
+          <div class="bg-[#080F0C] border border-cyber-emerald/10 hover:border-cyber-emerald/35 p-5 rounded-sm space-y-2.5 transition-all">
+            <h4 class="text-xs font-bold font-mono text-cyber-emerald uppercase tracking-wider">${ic.name}</h4>
+            <p class="text-[11px] text-cyber-slate font-sans leading-relaxed">${ic.text}</p>
+          </div>
+        `).join("");
+      }
+
+      // 5. Render Marketing Frameworks
+      const marketingContainer = document.getElementById("marketing-grid-container");
+      if (marketingContainer) {
+        marketingContainer.innerHTML = marketingFrameworks.map(mk => `
+          <div class="bg-[#080F0C] border border-cyber-teal/10 hover:border-cyber-teal/35 p-5 rounded-sm space-y-2.5 transition-all">
+            <h4 class="text-xs font-bold font-mono text-cyber-teal uppercase tracking-wider">${mk.name}</h4>
+            <p class="text-[11px] text-cyber-slate font-sans leading-relaxed">${mk.text}</p>
+          </div>
+        `).join("");
+      }
+    }
+
+    // ==============================================
+    // 4. ROUTING SYSTEMS (UNIVERSAL PARTNER CHANNEL)
+    // ==============================================
+    let currentPartnerName = "";
+
+    function getPartnerNameFromHash(hash) {
+      if (!hash || hash === "#") return "";
+      const cleaned = hash.replace("#", "").trim();
+      const systemViews = ["home", "services", "stacks", "mobility", "integration", "marketing", "intake", "admin"];
+      if (systemViews.includes(cleaned)) return "";
       
-      // Live clock updates
-      setInterval(updateRestonClock, 1000);
-      updateRestonClock();
+      // Format the name nicely (e.g. john_doe or john-doe -> John Doe)
+      return cleaned
+        .split(/[-_]+/)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
 
-      // Check current hash state for direct deep linking (#steve)
-      evaluateHashRoute();
-      window.addEventListener("hashchange", evaluateHashRoute);
-
-      // Setup global admin keyboard shortcut listener (Ctrl + Shift + A)
-      window.addEventListener("keydown", (e) => {
-        if (e.ctrlKey && e.shiftKey && e.key === "A") {
-          e.preventDefault();
-          triggerPasscodeModal();
-        }
+    function switchViewport(viewId) {
+      // Hide all main section blocks
+      const views = ["view-home", "view-services", "view-stacks", "view-mobility", "view-integration", "view-marketing", "view-intake", "view-partner-terminal", "view-admin"];
+      views.forEach(v => {
+        const el = document.getElementById(v);
+        if (el) el.classList.add("hidden");
       });
-    });
 
-    // Hash evaluation for route support
-    function evaluateHashRoute() {
-      const currentHash = window.location.hash.toLowerCase();
-      if (currentHash === "#steve") {
-        switchViewport("steve");
+      // Show requested section
+      const targetEl = document.getElementById(`view-${viewId}`);
+      if (targetEl) {
+        targetEl.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
 
-    // Dynamic clock
-    function updateRestonClock() {
-      const restonBox = document.getElementById("reston-time");
-      if (restonBox) {
-        const estOptions = { timeZone: "America/New_York", hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        restonBox.innerText = new Date().toLocaleTimeString("en-US", estOptions) + " EST";
-      }
-    }
+    function resolveHashRouting() {
+      const hash = window.location.hash || "#home";
+      const partnerName = getPartnerNameFromHash(hash);
 
-    // Methodology Node flow renderer
-    function renderMethodologyRoadmap() {
-      const parent = document.getElementById("methodology-node-grid");
-      if (!parent) return;
-      parent.innerHTML = roadmapSteps.map((step, idx) => `
-        <div onclick="displayStageDesc(${idx})" class="p-4 border border-cyber-emerald/15 hover:border-cyber-emerald bg-cyber-obsidian/40 hover:bg-cyber-emerald/5 transition-all duration-300 cursor-pointer rounded-md select-none group">
-          <div class="text-[9px] text-cyber-emerald font-bold tracking-widest block uppercase mb-1">NODE_${step.step}</div>
-          <div class="text-[11px] text-white group-hover:text-cyber-emerald font-bold font-display truncate">${step.name}</div>
-        </div>
-      `).join("");
-    }
+      const partnerBadge = document.getElementById("partner-badge-container");
+      const partnerBadgeText = document.getElementById("partner-badge-text");
 
-    function displayStageDesc(idx) {
-      const box = document.getElementById("stage-desc-container");
-      if (!box) return;
-      const select = roadmapSteps[idx];
-      box.innerHTML = `
-        <span class="text-cyber-emerald font-bold uppercase">// STAGE ${select.step} STATUS VERIFIED</span> : 
-        <strong class="text-white">${select.name}</strong> - ${select.desc}
-      `;
-    }
+      if (partnerName) {
+        // Co-Branded Partner View is active
+        currentPartnerName = partnerName;
+        partnerBadgeText.innerText = `EXCLUSIVE TECH PARTNER: ${partnerName.toUpperCase()} × VIRTUAL BRIDGE CONNECT`;
+        partnerBadge.classList.remove("hidden");
 
-    function renderCompChannels() {
-      const parent = document.getElementById("capabilities-matrix-grid");
-      if (!parent) return;
-      parent.innerHTML = compChannels.map((item, idx) => `
-        <div class="p-6 bg-cyber-obsidian/40 border border-cyber-emerald/10 rounded-sm hover:border-cyber-emerald/30 transition-all">
-          <div class="text-[9px] text-cyber-emerald font-mono uppercase tracking-widest font-bold mb-3">NODE_CH_${idx+1}</div>
-          <h4 class="text-lg font-bold font-display text-white mb-2">${item.title}</h4>
-          <p class="text-xs text-cyber-slate font-sans leading-relaxed">${item.desc}</p>
-        </div>
-      `).join("");
-    }
+        // Set terminal text variables
+        document.getElementById("partner-terminal-title").innerHTML = `
+          <span class="inline-block w-2.5 h-6 bg-cyber-teal"></span>
+          CO-CHANNEL DIRECTORY: ${partnerName.toUpperCase()} //
+        `;
+        document.getElementById("partner-metadata-tag").innerText = partnerName.toUpperCase();
+        
+        switchViewport("partner-terminal");
 
-    function renderLifecycleTimeline() {
-      const parent = document.getElementById("lifecycle-timeline-grid");
-      if (!parent) return;
-      parent.innerHTML = lifecycleTimeline.map(item => `
-        <div class="p-5 bg-cyber-obsidian/40 border border-cyber-emerald/10 hover:border-cyber-emerald/20 transition-all rounded-sm flex flex-col justify-between h-full">
-          <div>
-            <div class="text-[9px] font-mono text-cyber-emerald font-bold mb-2">// SEQUENCE_${item.num}</div>
-            <h4 class="text-sm font-bold font-display text-[#F5F5F5] mb-2">${item.name}</h4>
-          </div>
-          <p class="text-[11px] text-cyber-slate leading-relaxed font-sans mt-2">${item.desc}</p>
-        </div>
-      `).join("");
-    }
-
-    function renderCMSStacks() {
-      const parent = document.getElementById("cms-stacks-grid");
-      if (!parent) return;
-      parent.innerHTML = cmsStacks.map(stack => `
-        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
-          <div class="flex justify-between items-start flex-wrap gap-2">
-            <span class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// ENG_CORE_CMS</span>
-            <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs font-mono font-bold uppercase">${stack.type}</span>
-          </div>
-          <h3 class="text-xl font-bold font-display text-white">${stack.name}</h3>
-          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${stack.desc}</p>
-          <div class="pt-2 border-t border-cyber-emerald/10">
-            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">DISPATCH TECH NEEDS &rarr;</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderMobilityERP() {
-      const parent = document.getElementById("mobility-erp-grid");
-      if (!parent) return;
-      parent.innerHTML = mobilityERP.map(item => `
-        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
-          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// MOBILE_ERP_MODULE</div>
-          <h3 class="text-lg font-bold font-display text-white">${item.name}</h3>
-          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
-          <div class="pt-2 border-t border-cyber-emerald/10 flex items-center justify-between">
-            <span class="text-[8px] font-mono text-cyber-slate uppercase tracking-wider">COMPILATION_PASS</span>
-            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">DISPATCH MATRIX &rarr;</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderIntegrations() {
-      const parent = document.getElementById("integrations-grid");
-      if (!parent) return;
-      parent.innerHTML = integrationsConsulting.map((item, idx) => `
-        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
-          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// ARCH_CONSULT_NODE_0${idx+1}</div>
-          <h3 class="text-xl font-bold font-display text-white">${item.area}</h3>
-          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
-          <div class="pt-2 border-t border-cyber-emerald/10">
-            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">REQUEST SYSTEM BRIEF &rarr;</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderMarketing() {
-      const parent = document.getElementById("marketing-grid");
-      if (!parent) return;
-      parent.innerHTML = marketingMedia.map(item => `
-        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
-          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// DIGITAL_MARKETING_MATRIX</div>
-          <h3 class="text-lg font-bold font-display text-white">${item.name}</h3>
-          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
-          <div class="pt-2 border-t border-cyber-emerald/10">
-            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">START CAMPAIGN &rarr;</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    // SPA NAVIGATION ROUTER SYSTEM
-    const viewportIds = ["view-home", "view-services", "view-stacks", "view-mobility", "view-integration", "view-marketing", "view-intake", "view-admin", "view-steve"];
-    const navButtons = ["nav-home", "nav-services", "nav-stacks", "nav-mobility", "nav-integration", "nav-marketing", "nav-intake"];
-
-    function switchViewport(targetId) {
-      // Toggle CSS display classes instantly with fade transitions
-      viewportIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (id === `view-${targetId}`) {
-          el.classList.remove("hidden");
-          setTimeout(() => {
-            el.classList.remove("opacity-0");
-            el.classList.add("opacity-100");
-          }, 50);
-        } else {
-          el.classList.add("hidden", "opacity-0");
-          el.classList.remove("opacity-100");
+        // Dynamic SEO Robots policy tag addition for Partner routes to protect partner indexing
+        let robotsMeta = document.querySelector('meta[name="robots"]');
+        if (!robotsMeta) {
+          robotsMeta = document.createElement('meta');
+          robotsMeta.name = "robots";
+          document.head.appendChild(robotsMeta);
         }
-      });
+        robotsMeta.content = "noindex, nofollow";
+      } else {
+        // Standard non-partner systems views
+        currentPartnerName = "";
+        partnerBadge.classList.add("hidden");
 
-      // Update active state layout within primary navigation buttons
-      navButtons.forEach(btnId => {
-        const btn = document.getElementById(btnId);
-        if (btn) {
-          if (btnId === `nav-${targetId}`) {
-            btn.classList.add("text-cyber-emerald", "font-bold");
-            btn.classList.remove("text-cyber-slate");
+        const robotsMeta = document.querySelector('meta[name="robots"]');
+        if (robotsMeta) {
+          robotsMeta.content = "index, follow";
+        }
+
+        const cleanedHash = hash.replace("#", "");
+        if (cleanedHash === "admin") {
+          // If the page is reloaded on admin view and authorized, stay, else go home
+          if (document.getElementById("view-admin").classList.contains("hidden")) {
+            switchViewport("home");
+            window.location.hash = "#home";
           } else {
-            btn.classList.remove("text-cyber-emerald", "font-bold");
-            btn.classList.add("text-cyber-slate");
+            switchViewport("admin");
+          }
+        } else {
+          // Handle tab views
+          const validTabs = ["services", "stacks", "mobility", "integration", "marketing", "intake"];
+          if (validTabs.includes(cleanedHash)) {
+            switchViewport(cleanedHash);
+          } else {
+            switchViewport("home");
           }
         }
-      });
-
-      // Reset coordinates back to absolute top view
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Mobile Header Toggle
-    function toggleMobileMenu() {
-      const menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
-    }
-
-    // Engagement Protocols Sub-tabs within Services Directory
-    function switchSvcTab(tabKey) {
-      const panes = document.querySelectorAll(".svc-tab-pane");
-      panes.forEach(p => p.classList.add("hidden"));
-      document.getElementById(`tab-data-${tabKey}`).classList.remove("hidden");
-
-      const buttons = ["tab-btn-dedicated", "tab-btn-timemat", "tab-btn-fixedprice"];
-      buttons.forEach(id => {
-        const btn = document.getElementById(id);
-        if (id === `tab-btn-${tabKey}`) {
-          btn.classList.add("bg-cyber-emerald", "text-cyber-obsidian");
-          btn.classList.remove("text-cyber-slate", "bg-cyber-obsidian");
-        } else {
-          btn.classList.remove("bg-cyber-emerald", "text-cyber-obsidian");
-          btn.classList.add("text-cyber-slate", "bg-cyber-obsidian");
-        }
-      });
-    }
-
-    // ADMIN SECURITY CONSOLE EVALUATION PASSCODE CODE ROUTINES
-    function triggerPasscodeModal() {
-      const modal = document.getElementById("passcode-modal");
-      modal.classList.remove("hidden");
-      document.getElementById("admin-passcode").focus();
-    }
-
-    function dismissPasscodeModal() {
-      document.getElementById("passcode-modal").classList.add("hidden");
-      document.getElementById("admin-passcode").value = "";
-    }
-
-    function evaluatePasscode() {
-      const rawVal = document.getElementById("admin-passcode").value;
-      const p1 = parseInt(rawVal);
-      const p2 = String.fromCharCode(54, 52, 48, 48); // "6400"
-      
-      if (p1 === (3200 * 2) || rawVal === p2) {
-        dismissPasscodeModal();
-        switchViewport("admin");
-        readLeadsFromFirestore();
-      } else {
-        alert("ACCESS DENIED: Administrative signature does not match secure keys.");
-        dismissPasscodeModal();
       }
+    }
+
+    // Toggle mobile menu drawer helper
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobile-drawer");
+      if (drawer) {
+        drawer.classList.toggle("hidden");
+      }
+    }
+
+    // ==============================================
+    // 5. INTERACTIVE COLLAPSIBLE FAQ ACCORDION
+    // ==============================================
+    function toggleFAQ(num) {
+      const content = document.getElementById(`faq-content-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (!content || !icon) return;
+
+      if (content.classList.contains("open")) {
+        content.classList.remove("open");
+        content.style.maxHeight = "0px";
+        icon.innerText = "+";
+        icon.style.transform = "rotate(0deg)";
+      } else {
+        // Close all other FAQs first
+        for (let i = 1; i <= 5; i++) {
+          const c = document.getElementById(`faq-content-${i}`);
+          const ic = document.getElementById(`faq-icon-${i}`);
+          if (c && c.classList.contains("open")) {
+            c.classList.remove("open");
+            c.style.maxHeight = "0px";
+            if (ic) {
+              ic.innerText = "+";
+              ic.style.transform = "rotate(0deg)";
+            }
+          }
+        }
+        content.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.innerText = "−";
+        icon.style.transform = "rotate(180deg)";
+      }
+    }
+
+    // ==============================================
+    // 6. ENHANCED ADVANCED VALIDATION MECHANISMS
+    // ==============================================
+    function clearFieldWarning(id) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = "";
+    }
+
+    // ==============================================
+    // 7. FIREBASE & DUAL DISPATCH IMPLEMENTATIONS
+    // ==============================================
+    async function executeLeadSubmission(e) {
+      e.preventDefault();
+      
+      const nameVal = document.getElementById("lead-name").value.trim();
+      const emailVal = document.getElementById("lead-email").value.trim();
+      const phoneVal = document.getElementById("lead-phone").value.trim();
+      const serviceVal = document.getElementById("lead-service").value;
+      const budgetVal = document.getElementById("lead-budget").value;
+      const multiBusinessVal = document.getElementById("lead-multi-site").checked ? "Yes" : "No";
+      const briefVal = document.getElementById("lead-brief").value.trim();
+
+      // Clear previous error warnings
+      document.getElementById("lead-name-warn").innerText = "";
+      document.getElementById("lead-email-warn").innerText = "";
+      document.getElementById("lead-brief-warn").innerText = "";
+
+      let isErr = false;
+
+      if (!nameVal) {
+        document.getElementById("lead-name-warn").innerText = "COMPANY / CONTACT NAME SPECIFICATION IS MANDATORY.";
+        isErr = true;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        document.getElementById("lead-email-warn").innerText = "CORRECT EMAIL FORMULATION IS MANDATORY (name@domain.com).";
+        isErr = true;
+      }
+
+      if (!briefVal || briefVal.length < 30) {
+        document.getElementById("lead-brief-warn").innerText = "A DETAILED SPECIFICATION BRIEF OF A MINIMUM OF 30 CHARACTERS IS REQUIRED.";
+        isErr = true;
+      }
+
+      if (isErr) return;
+
+      const overlay = document.getElementById("lead-loading-overlay");
+      if (overlay) overlay.classList.remove("hidden");
+
+      const payload = {
+        name: nameVal,
+        email: emailVal,
+        phone: phoneVal || "N/A",
+        service: serviceVal,
+        budget: budgetVal,
+        multi_business_bundle: multiBusinessVal,
+        brief: briefVal,
+        source: currentPartnerName || "Direct",
+        status: "New",
+        timestamp: new Date().toISOString()
+      };
+
+      // 1. Save to Firestore DB
+      if (db) {
+        try {
+          await db.collection("leads").add(payload);
+        } catch (dbErr) {
+          console.error("Firestore database write failed, using local fallback...", dbErr);
+          const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+          localLeads.push(payload);
+          localStorage.setItem("vbc_offline_leads", JSON.stringify(localLeads));
+        }
+      } else {
+        const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+        localLeads.push(payload);
+        localStorage.setItem("vbc_offline_leads", JSON.stringify(localLeads));
+      }
+
+      // 2. EmailJS Browser Dispatch Integration
+      if (window.emailjs) {
+        try {
+          await emailjs.send("service_vbc", "template_vbc", {
+            to_name: "Virtual Bridge Connect Team",
+            from_name: nameVal,
+            from_email: emailVal,
+            phone: phoneVal || "N/A",
+            service: serviceVal,
+            budget: budgetVal,
+            multi_business: multiBusinessVal,
+            brief: briefVal,
+            referral_source: currentPartnerName || "Direct"
+          });
+          console.log("EmailJS dispatch succeeded");
+        } catch (emailErr) {
+          console.warn("EmailJS background dispatch failed. Fallback active...", emailErr);
+        }
+      }
+
+      // 3. Fallback mailto preparation (executes seamlessly behind scenes or directly)
+      const mailtoSubject = encodeURIComponent(`Virtual Bridge Connect Inquiry - ${nameVal}`);
+      const mailtoBody = encodeURIComponent(
+        `COMPANY/CLIENT NAME: ${nameVal}\n` +
+        `EMAIL: ${emailVal}\n` +
+        `PHONE: ${phoneVal || "N/A"}\n` +
+        `SERVICE CAPABILITY: ${serviceVal}\n` +
+        `BUDGET SPECTRUM: ${budgetVal}\n` +
+        `MULTI-SITE BUNDLE: ${multiBusinessVal}\n` +
+        `REFERRAL CHANNEL: ${currentPartnerName || "Direct"}\n\n` +
+        `PROJECT BRIEF SPECIFICATIONS:\n${briefVal}`
+      );
+      const emailFallbackURL = `mailto:virtualbridgeconnect@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+      // 4. WhatsApp Direct API Dispatch Trigger (+923217452433)
+      const waMessage = encodeURIComponent(
+        `*NEW CORE INQUIRY | VIRTUAL BRIDGE CONNECT*\n` +
+        `----------------------------------------\n` +
+        `• *Client Name:* ${nameVal}\n` +
+        `• *Email:* ${emailVal}\n` +
+        `• *Phone/WA:* ${phoneVal || "N/A"}\n` +
+        `• *Category Core:* ${serviceVal}\n` +
+        `• *Budget Tier:* ${budgetVal}\n` +
+        `• *Bulk Deal Required:* ${multiBusinessVal}\n` +
+        `• *Referral Channel:* ${currentPartnerName || "Direct"}\n` +
+        `----------------------------------------\n` +
+        `*PROJECT SPECIFICATIONS:*\n${briefVal}`
+      );
+      const waURL = `https://wa.me/923217452433?text=${waMessage}`;
+
+      // Hide loading overlay and reset form
+      setTimeout(() => {
+        if (overlay) overlay.classList.add("hidden");
+        document.getElementById("lead-form").reset();
+        document.getElementById("lead-brief-counter").innerText = "0/30 characters (Minimum 30 required)";
+        document.getElementById("lead-brief-counter").className = "text-cyber-slate";
+        
+        // Open WhatsApp and trigger mailto fallback simultaneously
+        window.open(waURL, "_blank");
+        window.location.href = emailFallbackURL;
+      }, 800);
+    }
+
+    async function executePartnerSubmission(e) {
+      e.preventDefault();
+
+      const nameVal = document.getElementById("partner-contact").value.trim();
+      const emailVal = document.getElementById("partner-email").value.trim();
+      const phoneVal = document.getElementById("partner-phone").value.trim();
+      const serviceVal = document.getElementById("partner-service").value;
+      const budgetVal = document.getElementById("partner-budget").value;
+      const multiBusinessVal = document.getElementById("partner-multi-site").checked ? "Yes" : "No";
+      const briefVal = document.getElementById("partner-notes").value.trim();
+
+      // Clear previous warnings
+      document.getElementById("partner-contact-warn").innerText = "";
+      document.getElementById("partner-email-warn").innerText = "";
+      document.getElementById("partner-notes-warn").innerText = "";
+
+      let isErr = false;
+
+      if (!nameVal) {
+        document.getElementById("partner-contact-warn").innerText = "CONTACT NAME IS MANDATORY.";
+        isErr = true;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        document.getElementById("partner-email-warn").innerText = "VALID EMAIL IS MANDATORY (name@domain.com).";
+        isErr = true;
+      }
+
+      if (!briefVal || briefVal.length < 30) {
+        document.getElementById("partner-notes-warn").innerText = "PLEASE SPECIFY GOALS & TIMELINE WITH A MINIMUM OF 30 CHARACTERS.";
+        isErr = true;
+      }
+
+      if (isErr) return;
+
+      const overlay = document.getElementById("partner-loading-overlay");
+      if (overlay) overlay.classList.remove("hidden");
+
+      const payload = {
+        name: nameVal,
+        email: emailVal,
+        phone: phoneVal || "N/A",
+        service: serviceVal,
+        budget: budgetVal,
+        multi_business_bundle: multiBusinessVal,
+        brief: briefVal,
+        source: currentPartnerName || "Partner",
+        status: "New",
+        timestamp: new Date().toISOString()
+      };
+
+      // 1. Save to Firestore DB
+      if (db) {
+        try {
+          await db.collection("leads").add(payload);
+        } catch (dbErr) {
+          console.error("Firestore database write failed, using local fallback...", dbErr);
+          const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+          localLeads.push(payload);
+          localStorage.setItem("vbc_offline_leads", JSON.stringify(localLeads));
+        }
+      } else {
+        const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+        localLeads.push(payload);
+        localStorage.setItem("vbc_offline_leads", JSON.stringify(localLeads));
+      }
+
+      // 2. EmailJS Browser Dispatch Integration
+      if (window.emailjs) {
+        try {
+          await emailjs.send("service_vbc", "template_vbc", {
+            to_name: "Virtual Bridge Connect Team",
+            from_name: nameVal,
+            from_email: emailVal,
+            phone: phoneVal || "N/A",
+            service: serviceVal,
+            budget: budgetVal,
+            multi_business: multiBusinessVal,
+            brief: briefVal,
+            referral_source: currentPartnerName || "Partner"
+          });
+        } catch (emailErr) {
+          console.warn("EmailJS background dispatch failed. Fallback active...", emailErr);
+        }
+      }
+
+      // 3. Fallback mailto preparation
+      const mailtoSubject = encodeURIComponent(`Virtual Bridge Connect Partner Referral - ${nameVal}`);
+      const mailtoBody = encodeURIComponent(
+        `COMPANY/CLIENT NAME: ${nameVal}\n` +
+        `EMAIL: ${emailVal}\n` +
+        `PHONE: ${phoneVal || "N/A"}\n` +
+        `SERVICE CAPABILITY: ${serviceVal}\n` +
+        `BUDGET SPECTRUM: ${budgetVal}\n` +
+        `MULTI-SITE BUNDLE: ${multiBusinessVal}\n` +
+        `REFERRAL CHANNEL: ${currentPartnerName || "Partner"}\n\n` +
+        `PROJECT BRIEF SPECIFICATIONS:\n${briefVal}`
+      );
+      const emailFallbackURL = `mailto:virtualbridgeconnect@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+      // 4. WhatsApp Direct API Dispatch Trigger (+923217452433)
+      const waMessage = encodeURIComponent(
+        `*NEW CO-CHANNEL REFERRAL | VIRTUAL BRIDGE CONNECT*\n` +
+        `----------------------------------------\n` +
+        `• *Client Name:* ${nameVal}\n` +
+        `• *Email:* ${emailVal}\n` +
+        `• *Phone/WA:* ${phoneVal || "N/A"}\n` +
+        `• *Category Core:* ${serviceVal}\n` +
+        `• *Budget Tier:* ${budgetVal}\n` +
+        `• *Bulk Deal Required:* ${multiBusinessVal}\n` +
+        `• *Referral Channel:* ${currentPartnerName || "Partner"}\n` +
+        `----------------------------------------\n` +
+        `*PROJECT SPECIFICATIONS:*\n${briefVal}`
+      );
+      const waURL = `https://wa.me/923217452433?text=${waMessage}`;
+
+      setTimeout(() => {
+        if (overlay) overlay.classList.add("hidden");
+        document.getElementById("partner-form").reset();
+        document.getElementById("partner-notes-counter").innerText = "0/30 characters (Minimum 30 required)";
+        document.getElementById("partner-notes-counter").className = "text-cyber-slate";
+        
+        window.open(waURL, "_blank");
+        window.location.href = emailFallbackURL;
+      }, 800);
+    }
+
+    // ==============================================
+    // 8. PASSCODE PROTECTION & ADMIN CONSOLE ENGINE
+    // ==============================================
+    let activeLeads = [];
+
+    function triggerPasscodeModal() {
+      document.getElementById("passcode-field").value = "";
+      document.getElementById("passcode-warn").innerText = "";
+      document.getElementById("modal-passcode").classList.remove("hidden");
+      document.getElementById("passcode-field").focus();
+    }
+
+    function cancelPasscode() {
+      document.getElementById("modal-passcode").classList.add("hidden");
+    }
+
+    function submitPasscode() {
+      const fieldVal = document.getElementById("passcode-field").value;
+      if (fieldVal === "6400") {
+        document.getElementById("modal-passcode").classList.add("hidden");
+        enterAdminTerminal();
+      } else {
+        document.getElementById("passcode-warn").innerText = "INVALID PASSCODE CORE ACCESSIBILITY REJECTED.";
+      }
+    }
+
+    // Enter authorized Administrative View
+    function enterAdminTerminal() {
+      window.location.hash = "#admin";
+      switchViewport("admin");
+      syncLeadsDataRegistry();
     }
 
     function exitAdminTerminal() {
+      window.location.hash = "#home";
       switchViewport("home");
     }
 
-    // CLEAR WARNING LABEL TEXT
-    function clearFieldWarning(id) {
-      const field = document.getElementById(id);
-      if (field) field.innerText = "";
-    }
-
-    // PRIMARY B2B STRATEGY INTAKE DISPATCH HANDLERS
-    async function executeLeadSubmission(event) {
-      event.preventDefault();
-      
-      const fName = document.getElementById("lead-name").value.trim();
-      const fEmail = document.getElementById("lead-email").value.trim();
-      const fArea = document.getElementById("lead-area").value;
-      const fBrief = document.getElementById("lead-brief").value.trim();
-      
-      // Select budget range
-      const budgetRadios = document.getElementsByName("project-budget");
-      let selectedBudget = "$500 - $1,500";
-      for (let r of budgetRadios) {
-        if (r.checked) {
-          selectedBudget = r.value;
-          break;
-        }
-      }
-
-      // Check fields validation status
-      let passes = true;
-      if (!fName) {
-        document.getElementById("lead-name-warn").innerText = "Please provide your contact name.";
-        passes = false;
-      }
-      if (!fEmail || !fEmail.includes("@")) {
-        document.getElementById("lead-email-warn").innerText = "A valid corporate email address is required.";
-        passes = false;
-      }
-      if (!fBrief || fBrief.length < 10) {
-        document.getElementById("lead-brief-warn").innerText = "Please share some details about your project needs.";
-        passes = false;
-      }
-
-      if (!passes) {
-        // Find first warn element with text and scroll into focus
-        const warns = ["lead-name-warn", "lead-email-warn", "lead-brief-warn"];
-        for (let w of warns) {
-          const text = document.getElementById(w).innerText;
-          if (text) {
-            document.getElementById(w).scrollIntoView({ behavior: 'smooth', block: 'center' });
-            break;
-          }
-        }
-        return;
-      }
-
-      // Prepare Lead Structure
-      const uuidStr = "L_" + Date.now();
-      const leadPayload = {
-        uuid: uuidStr,
-        contact_name: fName,
-        email: fEmail,
-        area: fArea,
-        budget: selectedBudget,
-        brief: fBrief,
-        status: "New",
-        timestamp: new Date().toISOString(),
-        referred_by: "Direct Corporate Portal"
-      };
-
-      const submitBtn = document.getElementById("submit-btn");
-      submitBtn.innerText = "SAVING INQUIRY...";
-      submitBtn.disabled = true;
-
-      if (isFirebaseReady) {
-        try {
-          await db.collection("leads").doc(uuidStr).set(leadPayload);
-        } catch (error) {
-          console.error("Firestore submission skipped. Running dual channels.", error);
-        }
-      }
-
-      // Launch Dual-Dispatch Communication Channels (WhatsApp & Fallback Email)
-      const phoneNo = "923217452433";
-      const waMessage = `*VBC Business Inquiry* \nName: ${fName}\nEmail: ${fEmail}\nPractice: ${fArea}\nBudget: ${selectedBudget}\nBrief: ${fBrief}`;
-      const waUrl = `https://wa.me/${phoneNo}?text=${encodeURIComponent(waMessage)}`;
-
-      const emailSubject = `Virtual Bridge Connect Inquiry: ${fName}`;
-      const emailBody = `Hi Virtual Bridge Connect,\n\nWe would like to discuss a project with your senior team.\n\nName: ${fName}\nEmail: ${fEmail}\nCore Need: ${fArea}\nEstimated Budget: ${selectedBudget}\n\nProject Specifications:\n${fBrief}\n\nSent via Virtual Bridge Connect Strategy Terminal.`;
-      const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-      // Alert Success to B2B user and launch communication streams
-      alert("Success! Your message has been saved in our secure database. We are launching your dispatch channels now.");
-      
-      // Reset form variables
-      document.getElementById("lead-form").reset();
-      submitBtn.innerText = "SEND MESSAGE ->";
-      submitBtn.disabled = false;
-
-      // Dual-dispatch launch
-      window.open(waUrl, "_blank");
-      window.location.href = mailtoUrl;
-    }
-
-    // STEVE'S CO-BRANDED PARTNER INTAKE DISPATCH HANDLERS
-    async function executePartnerSubmission(event) {
-      event.preventDefault();
-
-      const pBusiness = document.getElementById("partner-business").value.trim();
-      const pContact = document.getElementById("partner-contact").value.trim();
-      const pPhone = document.getElementById("partner-phone").value.trim();
-      const pNotes = document.getElementById("partner-notes").value.trim();
-
-      // Collect checklists
-      const serviceCheckboxes = document.getElementsByName("partner-services");
-      let selectedServices = [];
-      for (let c of serviceCheckboxes) {
-        if (c.checked) {
-          selectedServices.push(c.value);
-        }
-      }
-
-      // Collect Budget radio
-      const budgetRadios = document.getElementsByName("partner-budget");
-      let selectedBudget = "$500 - $1,500";
-      for (let r of budgetRadios) {
-        if (r.checked) {
-          selectedBudget = r.value;
-          break;
-        }
-      }
-
-      // Validation
-      let passes = true;
-      if (!pBusiness) {
-        document.getElementById("partner-business-warn").innerText = "Please enter your business name.";
-        passes = false;
-      }
-      if (!pContact) {
-        document.getElementById("partner-contact-warn").innerText = "Please enter a contact name.";
-        passes = false;
-      }
-      if (!pPhone) {
-        document.getElementById("partner-phone-warn").innerText = "Please enter your phone number.";
-        passes = false;
-      }
-
-      if (!passes) {
-        return;
-      }
-
-      const uuidStr = "L_STEVE_" + Date.now();
-      const leadPayload = {
-        uuid: uuidStr,
-        contact_name: pContact,
-        email: pPhone, // Mapped to primary phone slot
-        area: "Steve's Carpet Cleaning Referral: " + selectedServices.join(", "),
-        budget: selectedBudget,
-        brief: pNotes || "Referred through fast 60-second mobile intake framework.",
-        status: "New",
-        timestamp: new Date().toISOString(),
-        referred_by: "Steve's Carpet Cleaning"
-      };
-
-      const pBtn = document.getElementById("partner-submit-btn");
-      pBtn.innerText = "SAVING REFERRAL...";
-      pBtn.disabled = true;
-
-      if (isFirebaseReady) {
-        try {
-          await db.collection("leads").doc(uuidStr).set(leadPayload);
-        } catch (error) {
-          console.error("Firestore skip fallback on referral saving.", error);
-        }
-      }
-
-      // Launch Communications Channels
-      const targetPhone = "923217452433";
-      const waMsg = `*Steve's Partner Referral*\nBusiness: ${pBusiness}\nContact: ${pContact}\nPhone: ${pPhone}\nNeeds: ${selectedServices.join(", ")}\nBudget: ${selectedBudget}\nNotes: ${pNotes}`;
-      const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(waMsg)}`;
-
-      const mailSubject = `Steve's Carpet Cleaning Referral: ${pBusiness}`;
-      const mailBody = `Hi Virtual Bridge Connect,\n\nI was referred to you by Steve's Carpet Cleaning.\n\nBusiness: ${pBusiness}\nContact Name: ${pContact}\nPhone Number: ${pPhone}\nRequested Help: ${selectedServices.join(", ")}\nBudget Level: ${selectedBudget}\n\nAdditional Notes:\n${pNotes}`;
-      const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
-
-      alert("Thank you! Your referred inquiry has been recorded securely. We are launching your dispatch channels now.");
-      document.getElementById("partner-form").reset();
-      pBtn.innerText = "SEND MESSAGE ->";
-      pBtn.disabled = false;
-
-      // Dispatch
-      window.open(waUrl, "_blank");
-      window.location.href = mailtoUrl;
-    }
-
-    // ADMINISTRATIVE CONTROLS: REAL-TIME LEDGER RENDERING
-    async function readLeadsFromFirestore() {
-      const recordsStatus = document.getElementById("records-status");
-      const tableBody = document.getElementById("leads-table-body");
-
-      if (!isFirebaseReady) {
-        recordsStatus.innerText = "OFFLINE_FALLBACK_MODE_DEMO_DATA";
-        renderOfflineDemoLeads();
-        return;
-      }
-
-      recordsStatus.innerText = "FIRESTORE_SYNC_RUNNING...";
-      try {
-        const snapshot = await db.collection("leads").orderBy("timestamp", "desc").get();
-        leadsData = [];
-        snapshot.forEach(doc => {
-          leadsData.push(doc.data());
+    // Live sync database with Firestore (with local database fallback)
+    function syncLeadsDataRegistry() {
+      if (db) {
+        db.collection("leads").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+          activeLeads = [];
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            activeLeads.push({
+              id: doc.id,
+              ...data
+            });
+          });
+          renderLeadsTable();
+          calculateAnalyticalMetrics();
+        }, err => {
+          console.error("Firestore live syncing failed, reading offline storage...", err);
+          loadOfflineLeadsData();
         });
-        
-        renderLeadsTable(leadsData);
-        calculateAdminMetrics(leadsData);
-        recordsStatus.innerText = "FIRESTORE_SYNC_OK";
-      } catch (err) {
-        console.error("Error connecting. Rendering offline fallback metrics.", err);
-        recordsStatus.innerText = "OFFLINE_FALLBACK_MODE";
-        renderOfflineDemoLeads();
+      } else {
+        loadOfflineLeadsData();
       }
     }
 
-    function renderOfflineDemoLeads() {
-      leadsData = [
-        { uuid: "L_DEMO_01", contact_name: "John Carter", email: "j.carter@cartercorp.com", area: "Creative Design", budget: "$1.5k–$5k", brief: "Require elegant branding sheets and landing pages for real-estate portfolios in Reston.", status: "New", timestamp: new Date().toISOString(), referred_by: "Direct Corporate Portal" },
-        { uuid: "L_DEMO_02", contact_name: "Sarah Jenkins", email: "sarah@apexcleaners.com", area: "Steve's Carpet Cleaning Referral: New Website, Local SEO", budget: "$1,500 - $3,500", brief: "Need a beautiful local cleaning agency setup matching Steve's automation specifications.", status: "Contacted", timestamp: new Date().toISOString(), referred_by: "Steve's Carpet Cleaning" }
-      ];
-      renderLeadsTable(leadsData);
-      calculateAdminMetrics(leadsData);
+    function loadOfflineLeadsData() {
+      const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+      activeLeads = localLeads.reverse();
+      renderLeadsTable();
+      calculateAnalyticalMetrics();
     }
 
-    function renderLeadsTable(arr) {
-      const parent = document.getElementById("leads-table-body");
-      if (!parent) return;
+    // Render lead rows dynamically
+    function renderLeadsTable() {
+      const tbody = document.getElementById("admin-table-body");
+      if (!tbody) return;
 
-      if (arr.length === 0) {
-        parent.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-cyber-slate font-mono uppercase tracking-widest text-xs">Zero incoming records found in security register.</td></tr>`;
+      if (activeLeads.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-8 text-center text-cyber-slate font-mono uppercase text-[10px]">
+              No lead registries recorded inside this database node.
+            </td>
+          </tr>
+        `;
         return;
       }
 
-      parent.innerHTML = arr.map(lead => `
-        <tr class="hover:bg-cyber-emerald/5 cursor-pointer font-mono text-[11px] transition-colors" onclick="highlightLeadBrief('${lead.uuid}')">
-          <td class="py-3 px-4 text-cyber-emerald font-bold font-mono">${lead.uuid.substring(0, 10)}...</td>
-          <td class="py-3 px-4 text-white font-sans font-semibold">${lead.contact_name}</td>
-          <td class="py-3 px-4 text-cyber-slate font-sans select-all">${lead.email}</td>
-          <td class="py-3 px-4 text-[#F5F5F5] truncate max-w-[150px] font-sans">${lead.area}</td>
-          <td class="py-3 px-4 text-white font-sans font-bold">${lead.budget}</td>
-          <td class="py-3 px-4" onclick="event.stopPropagation()">
-            <select onchange="mutateLeadStatus('${lead.uuid}', this.value)" class="bg-[#030706] border border-cyber-emerald/30 text-[10px] text-cyber-emerald px-2 py-1 rounded-sm focus:outline-none">
-              <option value="New" ${lead.status === "New" ? "selected" : ""}>New</option>
-              <option value="Contacted" ${lead.status === "Contacted" ? "selected" : ""}>Contacted</option>
-              <option value="Converted" ${lead.status === "Converted" ? "selected" : ""}>Converted</option>
-            </select>
-          </td>
-          <td class="py-3 px-4 text-center" onclick="event.stopPropagation()">
-            <button onclick="terminateLeadRecord('${lead.uuid}')" class="text-[#FF3366] hover:text-white border border-[#FF3366]/20 hover:bg-[#FF3366] px-2 py-1 rounded-sm text-[9px] transition-all font-bold font-mono">
-              DELETE
-            </button>
-          </td>
-        </tr>
-      `).join("");
+      tbody.innerHTML = activeLeads.map(lead => {
+        const statusVal = lead.status || "New";
+        const clientName = lead.name || "N/A";
+        const categoryCore = lead.service || "Information Technology";
+        const budgetTier = lead.budget || "N/A";
+        const referralSource = lead.source || "Direct";
+
+        let badgeClass = "bg-[#FF3366]/10 text-[#FF3366] border-[#FF3366]/30";
+        if (statusVal === "Contacted") badgeClass = "bg-[#FFCC00]/10 text-[#FFCC00] border-[#FFCC00]/30";
+        if (statusVal === "In Progress" || statusVal === "Converted") badgeClass = "bg-[#00E5FF]/10 text-[#00E5FF] border-[#00E5FF]/30";
+        if (statusVal === "Closed") badgeClass = "bg-[#00FF66]/10 text-[#00FF66] border-[#00FF66]/30";
+
+        return `
+          <tr class="hover:bg-[#00FF66]/5 transition-colors cursor-pointer" onclick="inspectInquiryBrief('${lead.id}')">
+            <td class="py-3 px-4 font-bold text-white">${clientName}</td>
+            <td class="py-3 px-4 text-cyber-slate">${categoryCore}</td>
+            <td class="py-3 px-4 text-cyber-emerald font-bold">${budgetTier}</td>
+            <td class="py-3 px-4 text-cyber-teal font-mono uppercase text-[10px]">${referralSource}</td>
+            <td class="py-3 px-4">
+              <span class="px-2 py-0.5 border rounded-sm text-[9px] font-bold uppercase tracking-wider ${badgeClass}">
+                ${statusVal}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-center no-print" onclick="event.stopPropagation()">
+              <div class="flex items-center justify-center gap-2">
+                <select onchange="updateLeadStatusInFirestore('${lead.id}', this.value)" class="bg-[#030706] border border-cyber-emerald/20 px-2 py-1 text-white text-[10px] font-mono focus:outline-none focus:border-cyber-emerald rounded-sm">
+                  <option value="New" ${statusVal === "New" ? "selected" : ""}>New</option>
+                  <option value="Contacted" ${statusVal === "Contacted" ? "selected" : ""}>Contacted</option>
+                  <option value="In Progress" ${statusVal === "In Progress" || statusVal === "Converted" ? "selected" : ""}>In Progress</option>
+                  <option value="Closed" ${statusVal === "Closed" ? "selected" : ""}>Closed</option>
+                </select>
+                <button onclick="deleteLeadEntry('${lead.id}')" class="text-[#FF3366] hover:text-white font-bold px-2 py-1 border border-[#FF3366]/30 hover:bg-[#FF3366] hover:border-[#FF3366] rounded-sm transition-all text-[9px]">
+                  DELETE
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
     }
 
-    function calculateAdminMetrics(arr) {
-      const total = arr.length;
-      const cNew = arr.filter(l => l.status === "New").length;
-      const cContacted = arr.filter(l => l.status === "Contacted").length;
-      const cConverted = arr.filter(l => l.status === "Converted").length;
+    // Update status in Firestore DB
+    async function updateLeadStatusInFirestore(id, value) {
+      if (db) {
+        try {
+          await db.collection("leads").doc(id).update({ status: value });
+          console.log(`Document ${id} status modified successfully to ${value}`);
+        } catch (err) {
+          console.error("Firestore database status update failed, shifting to offline data state", err);
+          updateOfflineLeadStatus(id, value);
+        }
+      } else {
+        updateOfflineLeadStatus(id, value);
+      }
+    }
+
+    function updateOfflineLeadStatus(id, value) {
+      const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+      const matchedIdx = localLeads.findIndex(l => l.timestamp === id || l.id === id);
+      if (matchedIdx !== -1) {
+        localLeads[matchedIdx].status = value;
+        localStorage.setItem("vbc_offline_leads", JSON.stringify(localLeads));
+        syncLeadsDataRegistry();
+      }
+    }
+
+    // Delete lead registry document
+    async function deleteLeadEntry(id) {
+      if (!confirm("Are you absolutely sure you want to permanently delete this lead registry?")) return;
+
+      if (db) {
+        try {
+          await db.collection("leads").doc(id).delete();
+          console.log(`Document ${id} deleted successfully`);
+        } catch (err) {
+          console.error("Firestore database delete failed, shifting to offline deletion", err);
+          deleteOfflineLeadEntry(id);
+        }
+      } else {
+        deleteOfflineLeadEntry(id);
+      }
+    }
+
+    function deleteOfflineLeadEntry(id) {
+      const localLeads = JSON.parse(localStorage.getItem("vbc_offline_leads") || "[]");
+      const updated = localLeads.filter(l => l.timestamp !== id && l.id !== id);
+      localStorage.setItem("vbc_offline_leads", JSON.stringify(updated));
+      syncLeadsDataRegistry();
+    }
+
+    function calculateAnalyticalMetrics() {
+      const total = activeLeads.length;
+      const countNew = activeLeads.filter(l => l.status === "New").length;
+      const countConverted = activeLeads.filter(l => l.status === "In Progress" || l.status === "Closed" || l.status === "Converted").length;
 
       document.getElementById("stat-total").innerText = total;
-      document.getElementById("stat-new").innerText = cNew;
-      document.getElementById("stat-contacted").innerText = cContacted;
-      document.getElementById("stat-converted").innerText = cConverted;
+      document.getElementById("stat-new").innerText = countNew;
+      document.getElementById("stat-converted").innerText = countConverted;
+
+      // Trigger automatic Chart.js metrics rendering
+      renderDashboardCharts();
     }
 
-    function highlightLeadBrief(uuid) {
-      const box = document.getElementById("brief-inspect-box");
-      const record = leadsData.find(l => l.uuid === uuid);
-      if (!record) return;
+    // Inspect selected lead detail brief box
+    function inspectInquiryBrief(id) {
+      const lead = activeLeads.find(l => l.id === id);
+      if (!lead) return;
 
-      box.innerHTML = `
-        <div class="space-y-4">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-b border-cyber-emerald/15 pb-4 text-[10px] text-cyber-slate">
-            <div>
-              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">CONTACT NAME</span>
-              <span class="text-white font-bold text-sm font-sans">${record.contact_name}</span>
-            </div>
-            <div>
-              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">CORP EMAIL / PHONE</span>
-              <span class="text-white font-semibold font-sans select-all">${record.email}</span>
-            </div>
-            <div>
-              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">TARGET TECHNOLOGY CORE</span>
-              <span class="text-white font-semibold font-sans">${record.area}</span>
-            </div>
-            <div>
-              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">REFERRAL PATHWAY</span>
-              <span class="text-cyber-emerald font-bold font-sans">${record.referred_by || "Portal Direct"}</span>
-            </div>
-          </div>
-          <div class="space-y-2">
-            <span class="text-cyber-emerald font-bold uppercase tracking-wider text-[10px] block">CLIENT INTAKE ARCHITECTURAL NOTES SPECIFICATIONS:</span>
-            <p class="text-white font-sans text-xs bg-cyber-obsidian p-4 border border-cyber-emerald/15 leading-relaxed rounded-sm select-all">${record.brief}</p>
+      const contentDiv = document.getElementById("brief-details-content");
+      if (!contentDiv) return;
+
+      contentDiv.innerHTML = `
+        <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b border-cyber-emerald/10">
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Company/Client:</span> <span class="text-white font-bold">${lead.name}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Business Email:</span> <a href="mailto:${lead.email}" class="text-cyber-teal hover:underline font-bold">${lead.email}</a></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Phone / WhatsApp:</span> <span class="text-white">${lead.phone}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Capability Core:</span> <span class="text-white">${lead.service}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Project Budget:</span> <span class="text-cyber-emerald font-bold">${lead.budget || "N/A"}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Multi-Site Bundle:</span> <span class="text-white">${lead.multi_business_bundle || "No"}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Platform Source:</span> <span class="text-white">${lead.source}</span></div>
+          <div><span class="text-cyber-emerald font-bold uppercase tracking-wider">Date Logged:</span> <span class="text-white">${getSafeTimestampString(lead.timestamp)}</span></div>
+          <div class="pt-3 border-t border-cyber-emerald/10 sm:col-span-2">
+            <span class="text-cyber-emerald font-bold block uppercase tracking-wider mb-1">Corporate Specifications Brief:</span>
+            <p class="text-white font-sans whitespace-pre-wrap leading-relaxed">${lead.brief}</p>
           </div>
         </div>
       `;
-      // Scroll smoothly down to the brief inspector box
-      document.getElementById("brief-inspector-container").scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      document.getElementById("brief-modal").classList.remove("hidden");
     }
 
-    async function mutateLeadStatus(uuid, newStatus) {
-      const idx = leadsData.findIndex(l => l.uuid === uuid);
-      if (idx !== -1) {
-        leadsData[idx].status = newStatus;
-        calculateAdminMetrics(leadsData);
-      }
-
-      if (isFirebaseReady) {
-        try {
-          await db.collection("leads").doc(uuid).update({ status: newStatus });
-          console.log("Firestore status updated successfully.");
-        } catch (e) {
-          console.error("Error updating status inside Firestore doc", e);
-        }
-      }
+    function closeInquiryBrief() {
+      document.getElementById("brief-modal").classList.add("hidden");
     }
 
-    async function terminateLeadRecord(uuid) {
-      if (!confirm(`Are you absolutely sure you want to permanently delete record ${uuid}?`)) {
+    // Secure Referral Link Generator inside Admin View
+    function generatePartnerLink() {
+      const handleInput = document.getElementById("partner-handle-input");
+      if (!handleInput) return;
+      const handle = handleInput.value.trim().toLowerCase();
+      if (!handle) {
+        alert("Please specify a secure partner identifier handle (e.g. steve, alex).");
         return;
       }
+      
+      const cleanHandle = handle.replace(/[^a-z0-9-_]/g, '');
+      const baseURL = "https://virtual-bridge-connect.vercel.app/";
+      const generatedURL = `${baseURL}#${cleanHandle}`;
 
-      leadsData = leadsData.filter(l => l.uuid !== uuid);
-      renderLeadsTable(leadsData);
-      calculateAdminMetrics(leadsData);
+      const linkDisplay = document.getElementById("partner-link-output");
+      if (linkDisplay) {
+        linkDisplay.innerText = generatedURL;
+      }
 
-      if (isFirebaseReady) {
-        try {
-          await db.collection("leads").doc(uuid).delete();
-          console.log("Firestore document terminated.");
-        } catch (e) {
-          console.error("Firestore document deletion skipped or failed.", e);
+      const copyBtn = document.getElementById("copy-link-btn");
+      if (copyBtn) {
+        copyBtn.disabled = false;
+        copyBtn.className = "w-full py-2.5 bg-cyber-emerald text-cyber-obsidian font-black uppercase text-[10px] tracking-wider hover:opacity-90 transition-all rounded-sm cursor-pointer";
+      }
+    }
+
+    function copyGeneratedLink() {
+      const linkDisplay = document.getElementById("partner-link-output");
+      if (!linkDisplay) return;
+      const linkText = linkDisplay.innerText;
+      if (!linkText || linkText.includes("No link")) return;
+
+      navigator.clipboard.writeText(linkText)
+        .then(() => {
+          const btn = document.getElementById("copy-link-btn");
+          if (btn) {
+            btn.innerText = "COPIED!";
+            setTimeout(() => {
+              btn.innerText = "COPY LINK";
+            }, 1500);
+          }
+        })
+        .catch(err => {
+          console.error("Link copy failed: ", err);
+          alert("Could not copy automatically. Please select and copy the text manually.");
+        });
+    }
+
+    // Responsive Dark Theme Neon Charts Render Engine
+    let trendChartInstance = null;
+    let serviceChartInstance = null;
+    let trafficChartInstance = null;
+    let conversionChartInstance = null;
+
+    function renderDashboardCharts() {
+      if (typeof Chart === 'undefined') return;
+
+      // 1. Process 30-Day trend timeline (last 30 days)
+      const last30Days = [];
+      const trendData = {};
+      for (let i = 29; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        const dateStr = d.toISOString().split('T')[0];
+        last30Days.push(dateStr);
+        trendData[dateStr] = 0;
+      }
+
+      activeLeads.forEach(lead => {
+        if (lead.timestamp) {
+          const tsStr = getSafeTimestampString(lead.timestamp);
+          if (tsStr && tsStr !== "N/A") {
+            const dateStr = tsStr.split('T')[0];
+            if (trendData[dateStr] !== undefined) {
+              trendData[dateStr]++;
+            }
+          }
         }
+      });
+
+      const trendLabels = last30Days.map(d => d.substring(5)); // MM-DD
+      const trendValues = last30Days.map(d => trendData[d]);
+
+      // 2. Process Service Demand counts
+      const serviceCounts = {
+        "Information Technology": 0,
+        "Creative Design": 0,
+        "Social Media Management": 0,
+        "Custom Mobility Solutions": 0,
+        "Enterprise ERP Systems": 0,
+        "Strategic Consultations": 0
+      };
+      activeLeads.forEach(lead => {
+        const svc = lead.service || "Information Technology";
+        let matched = false;
+        Object.keys(serviceCounts).forEach(key => {
+          if (svc.includes(key)) {
+            serviceCounts[key]++;
+            matched = true;
+          }
+        });
+        if (!matched) {
+          if (svc.includes("Website") || svc.includes("Design")) serviceCounts["Creative Design"]++;
+          else if (svc.includes("SEO") || svc.includes("Marketing")) serviceCounts["Social Media Management"]++;
+          else serviceCounts["Information Technology"]++;
+        }
+      });
+
+      // 3. Process Traffic Sources (Direct vs Referral)
+      let directCount = 0;
+      let referralCount = 0;
+      activeLeads.forEach(lead => {
+        const src = lead.source || "";
+        if (src.includes("Steve") || src.includes("Partner") || src !== "Direct") {
+          referralCount++;
+        } else {
+          directCount++;
+        }
+      });
+
+      // 4. Process Status distribution
+      const statusCounts = {
+        "New": 0,
+        "Contacted": 0,
+        "In Progress": 0,
+        "Closed": 0
+      };
+      activeLeads.forEach(lead => {
+        let stat = lead.status || "New";
+        if (stat === "Converted") stat = "In Progress";
+        if (statusCounts[stat] !== undefined) {
+          statusCounts[stat]++;
+        }
+      });
+
+      const textColor = '#94A3B8';
+      const gridColor = 'rgba(0, 255, 102, 0.08)';
+
+      // Trend line
+      const ctxTrend = document.getElementById('leadsTrendChart');
+      if (ctxTrend) {
+        if (trendChartInstance) trendChartInstance.destroy();
+        trendChartInstance = new Chart(ctxTrend, {
+          type: 'line',
+          data: {
+            labels: trendLabels,
+            datasets: [{
+              label: 'Inquiries',
+              data: trendValues,
+              borderColor: '#00FF66',
+              backgroundColor: 'rgba(0, 255, 102, 0.06)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointBackgroundColor: '#00FF66'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 } } },
+              y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 }, stepSize: 1 } }
+            }
+          }
+        });
+      }
+
+      // Services doughnut
+      const ctxSvc = document.getElementById('serviceDemandChart');
+      if (ctxSvc) {
+        if (serviceChartInstance) serviceChartInstance.destroy();
+        serviceChartInstance = new Chart(ctxSvc, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(serviceCounts),
+            datasets: [{
+              data: Object.values(serviceCounts),
+              backgroundColor: ['#00FF66', '#00E5FF', '#33FF99', '#FFCC00', '#FF3366', '#9933FF'],
+              borderWidth: 1,
+              borderColor: '#030706'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: { color: textColor, boxWidth: 10, font: { size: 8 } }
+              }
+            }
+          }
+        });
+      }
+
+      // Traffic bar
+      const ctxTraffic = document.getElementById('trafficSourcesChart');
+      if (ctxTraffic) {
+        if (trafficChartInstance) trafficChartInstance.destroy();
+        trafficChartInstance = new Chart(ctxTraffic, {
+          type: 'bar',
+          data: {
+            labels: ['Direct Form', 'Partner referrals'],
+            datasets: [{
+              data: [directCount, referralCount],
+              backgroundColor: ['#00FF66', '#00E5FF'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: textColor, font: { size: 9 } } },
+              y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 }, stepSize: 1 } }
+            }
+          }
+        });
+      }
+
+      // Conversion horizontal bar
+      const ctxConv = document.getElementById('conversionFunnelChart');
+      if (ctxConv) {
+        if (conversionChartInstance) conversionChartInstance.destroy();
+        conversionChartInstance = new Chart(ctxConv, {
+          type: 'bar',
+          data: {
+            labels: ['New', 'Contacted', 'In Progress', 'Closed'],
+            datasets: [{
+              data: [statusCounts["New"], statusCounts["Contacted"], statusCounts["In Progress"], statusCounts["Closed"]],
+              backgroundColor: ['#FF3366', '#FFCC00', '#00E5FF', '#00FF66'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 }, stepSize: 1 } },
+              y: { grid: { display: false }, ticks: { color: textColor, font: { size: 9 } } }
+            }
+          }
+        });
       }
     }
 
-    // CSV exporter helper
-    function exportLeadsCSV() {
-      if (leadsData.length === 0) {
-        alert("No records to export.");
-        return;
+    // ==============================================
+    // 9. INITIAL BLUEPRINTS ON RUNTIME
+    // ==============================================
+    document.addEventListener("DOMContentLoaded", () => {
+      // Dynamic rendering of systems layouts
+      buildApplicationUI();
+
+      // Hook up character count listeners dynamically
+      const leadText = document.getElementById("lead-brief");
+      if (leadText) {
+        leadText.addEventListener("input", function() {
+          const len = this.value.length;
+          const counterSpan = document.getElementById("lead-brief-counter");
+          if (counterSpan) {
+            counterSpan.innerText = `${len}/30 characters (${len >= 30 ? "Valid" : "Minimum 30 required"})`;
+            if (len >= 30) {
+              counterSpan.className = "text-cyber-emerald font-bold";
+            } else {
+              counterSpan.className = "text-cyber-slate";
+            }
+          }
+        });
       }
 
-      const headers = ["UUID", "Contact Name", "Email/Phone", "Area of Assistance", "Budget Range", "Status", "Timestamp", "Referred By"];
-      const rows = leadsData.map(l => [
-        l.uuid,
-        `"${l.contact_name.replace(/"/g, '""')}"`,
-        `"${l.email.replace(/"/g, '""')}"`,
-        `"${l.area.replace(/"/g, '""')}"`,
-        `"${l.budget.replace(/"/g, '""')}"`,
-        l.status,
-        l.timestamp,
-        `"${(l.referred_by || "Portal Direct").replace(/"/g, '""')}"`
-      ]);
+      const partnerText = document.getElementById("partner-notes");
+      if (partnerText) {
+        partnerText.addEventListener("input", function() {
+          const len = this.value.length;
+          const counterSpan = document.getElementById("partner-notes-counter");
+          if (counterSpan) {
+            counterSpan.innerText = `${len}/30 characters (${len >= 30 ? "Valid" : "Minimum 30 required"})`;
+            if (len >= 30) {
+              counterSpan.className = "text-cyber-emerald font-bold";
+            } else {
+              counterSpan.className = "text-cyber-slate";
+            }
+          }
+        });
+      }
 
-      const csvContent = "data:text/csv;charset=utf-8," 
-        + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+      // Initialize hash-based routing systems
+      resolveHashRouting();
+      window.addEventListener("hashchange", resolveHashRouting);
 
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `VBC_Leads_Report_${Date.now()}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+      // Handle raw passcode field submissions on click enter
+      const passcodeField = document.getElementById("passcode-field");
+      if (passcodeField) {
+        passcodeField.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            submitPasscode();
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

@@ -78,10 +78,16 @@ export default function Capabilities({ onSelectService }: CapabilitiesProps) {
         {filteredServices.map((service, index) => (
           <motion.div
             key={service.id}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="group flex flex-col justify-between bg-[#0D1115] border border-[#1C232B] rounded-none p-6 hover:border-[#E60026]/60 transition-all relative overflow-hidden"
+            whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 75, 
+              damping: 14, 
+              delay: index * 0.06 
+            }}
+            className="group flex flex-col justify-between bg-[#0D1115] border border-[#1C232B] rounded-none p-6 hover:border-[#E60026]/60 transition-[border-color] duration-300 relative overflow-hidden"
           >
             {/* Top Accents */}
             <div className="space-y-4">
