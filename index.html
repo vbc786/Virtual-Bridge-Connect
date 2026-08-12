@@ -156,8 +156,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Stacked Bridge Node Logo -->
       <a href="#home" class="flex items-center gap-3 group focus:outline-none">
-        <div class="relative w-12 h-12 flex items-center justify-center bg-cyber-obsidian border border-cyber-emerald/30 rounded-md overflow-hidden p-1.5 transition-all group-hover:border-cyber-emerald">
-          <img src="https://virtual-bridge-connect.vercel.app/logo.png" alt="VBC Node" class="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(0,255,102,0.6)]" referrerpolicy="no-referrer" />
+        <div class="relative w-12 h-12 flex items-center justify-center bg-cyber-obsidian border border-cyber-emerald/30 rounded-md p-1.5 transition-all group-hover:border-cyber-emerald shadow-[0_0_12px_rgba(0,255,102,0.15)] group-hover:shadow-[0_0_18px_rgba(0,255,102,0.3)]">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-cyber-emerald filter drop-shadow-[0_0_8px_rgba(0,255,102,0.6)]" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Curved bridge deck -->
+            <path d="M15 75 C30 45, 70 45, 85 75" class="stroke-cyber-emerald" />
+            <!-- Lower arch support -->
+            <path d="M15 75 Q50 35 85 75" stroke-dasharray="3 3" stroke-width="2" class="stroke-cyber-teal" opacity="0.8" />
+            <!-- Vertical cable suspensions -->
+            <line x1="33" y1="62" x2="33" y2="75" stroke-width="2" />
+            <line x1="50" y1="57" x2="50" y2="75" stroke-width="2" />
+            <line x1="67" y1="62" x2="67" y2="75" stroke-width="2" />
+            <!-- Connected network node points -->
+            <circle cx="15" cy="75" r="6" class="fill-cyber-obsidian stroke-cyber-emerald" stroke-width="3" />
+            <circle cx="50" cy="57" r="6" class="fill-cyber-obsidian stroke-cyber-teal" stroke-width="3" />
+            <circle cx="85" cy="75" r="6" class="fill-cyber-obsidian stroke-cyber-emerald" stroke-width="3" />
+            <circle cx="33" cy="62" r="4.5" class="fill-cyber-obsidian stroke-cyber-emerald" stroke-width="2.5" />
+            <circle cx="67" cy="62" r="4.5" class="fill-cyber-obsidian stroke-cyber-emerald" stroke-width="2.5" />
+          </svg>
         </div>
         <div class="flex flex-col">
           <span class="text-sm font-bold uppercase tracking-widest font-display text-white group-hover:text-cyber-emerald transition-colors">
@@ -1955,12 +1970,73 @@
     // ==============================================
     // 9. INITIAL BLUEPRINTS ON RUNTIME
     // ==============================================
+    function validateLeadForm() {
+      const nameVal = document.getElementById("lead-name")?.value.trim() || "";
+      const emailVal = document.getElementById("lead-email")?.value.trim() || "";
+      const briefVal = document.getElementById("lead-brief")?.value.trim() || "";
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && briefVal.length >= 30;
+      const btn = document.getElementById("submit-btn");
+      if (btn) {
+        btn.disabled = !isValid;
+        if (isValid) {
+          btn.classList.remove("opacity-40", "cursor-not-allowed");
+          btn.classList.add("cursor-pointer", "glow-btn");
+        } else {
+          btn.classList.add("opacity-40", "cursor-not-allowed");
+          btn.classList.remove("cursor-pointer", "glow-btn");
+        }
+      }
+    }
+
+    function validatePartnerForm() {
+      const nameVal = document.getElementById("partner-contact")?.value.trim() || "";
+      const emailVal = document.getElementById("partner-email")?.value.trim() || "";
+      const briefVal = document.getElementById("partner-notes")?.value.trim() || "";
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      const isValid = nameVal.length > 0 && emailRegex.test(emailVal) && briefVal.length >= 30;
+      const btn = document.getElementById("partner-submit-btn");
+      if (btn) {
+        btn.disabled = !isValid;
+        if (isValid) {
+          btn.classList.remove("opacity-40", "cursor-not-allowed");
+          btn.classList.add("cursor-pointer", "glow-btn");
+        } else {
+          btn.classList.add("opacity-40", "cursor-not-allowed");
+          btn.classList.remove("cursor-pointer", "glow-btn");
+        }
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       // Dynamic rendering of systems layouts
       buildApplicationUI();
 
-      // Hook up character count listeners dynamically
+      // Set initial disabled state for buttons
+      validateLeadForm();
+      validatePartnerForm();
+
+      // Hook up character count and form validation listeners dynamically
+      const leadNameInput = document.getElementById("lead-name");
+      const leadEmailInput = document.getElementById("lead-email");
       const leadText = document.getElementById("lead-brief");
+
+      if (leadNameInput) leadNameInput.addEventListener("input", validateLeadForm);
+      if (leadEmailInput) {
+        leadEmailInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("lead-email-warn");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (leadEmailInput.value && !emailRegex.test(leadEmailInput.value)) {
+            if (warnSpan) warnSpan.innerText = "Please enter a valid email (name@domain.com)";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validateLeadForm();
+        });
+      }
+
       if (leadText) {
         leadText.addEventListener("input", function() {
           const len = this.value.length;
@@ -1973,10 +2049,28 @@
               counterSpan.className = "text-cyber-slate";
             }
           }
+          validateLeadForm();
         });
       }
 
+      const partnerContactInput = document.getElementById("partner-contact");
+      const partnerEmailInput = document.getElementById("partner-email");
       const partnerText = document.getElementById("partner-notes");
+
+      if (partnerContactInput) partnerContactInput.addEventListener("input", validatePartnerForm);
+      if (partnerEmailInput) {
+        partnerEmailInput.addEventListener("input", () => {
+          const warnSpan = document.getElementById("partner-email-warn");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (partnerEmailInput.value && !emailRegex.test(partnerEmailInput.value)) {
+            if (warnSpan) warnSpan.innerText = "Please enter a valid email (name@domain.com)";
+          } else {
+            if (warnSpan) warnSpan.innerText = "";
+          }
+          validatePartnerForm();
+        });
+      }
+
       if (partnerText) {
         partnerText.addEventListener("input", function() {
           const len = this.value.length;
@@ -1989,6 +2083,7 @@
               counterSpan.className = "text-cyber-slate";
             }
           }
+          validatePartnerForm();
         });
       }
 
