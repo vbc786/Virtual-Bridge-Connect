@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtual Bridge Connect | Technical Systems Architecture Gateway</title>
+  <title>Virtual Bridge Connect | High-Performance Technical Systems Architecture</title>
   
-  <!-- Browser Favicon Links -->
-  <link rel="icon" type="image/png" href="vbc Logo_2.png" sizes="16x16 32x32 48x48" />
-  <link rel="apple-touch-icon" href="vbc Logo_2.png" />
-  
-  <!-- Typography (Inter + Space Grotesk) -->
+  <!-- Browser Favicon using Inline SVG for modern vector rendering without external image dependencies -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300FF66' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'/%3E%3C/svg%3E" />
+
+  <!-- Typography (Space Grotesk + Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <!-- Firebase Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -46,10 +45,10 @@
   </script>
 
   <style>
-    /* RADICAL MODERN DESIGN SYSTEM */
+    /* HIGH-CONTRAST NEON MODERN DESIGN SYSTEM */
     body {
       background-color: #030706;
-      background-image: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.12), transparent 70%);
+      background-image: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.08), transparent 70%);
       background-attachment: fixed;
     }
     
@@ -66,7 +65,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 255, 102, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: -1;
     }
@@ -77,14 +76,14 @@
       width: 700px;
       height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%);
       pointer-events: none;
       z-index: -1;
     }
 
     /* Glassmorphism Components */
     .cyber-glass {
-      background: rgba(13, 25, 20, 0.65);
+      background: rgba(10, 20, 15, 0.65);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border: 1px solid rgba(0, 255, 102, 0.18);
@@ -142,15 +141,6 @@
     .view-transition {
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-4px); }
-      75% { transform: translateX(4px); }
-    }
-    .shake-anim {
-      animation: shake 0.3s ease-in-out;
-    }
   </style>
 </head>
 <body class="h-full flex flex-col justify-between font-sans bg-[#030706] text-white selection:bg-cyber-emerald selection:text-cyber-obsidian antialiased overflow-x-hidden min-h-screen relative">
@@ -165,10 +155,10 @@
   <header class="w-full bg-[#0d1914]/65 sticky top-0 z-[100] backdrop-blur-xl border-b border-cyber-emerald/15">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
       
-      <!-- Brand Logo Alignment -->
+      <!-- Brand Custom Logo SVG & Title Alignment -->
       <div class="flex items-center justify-between w-full md:w-auto gap-3">
         <a href="#" onclick="switchViewport('home')" class="flex items-center gap-3 select-none hover:shadow-[0_0_20px_rgba(0,255,102,0.25)] border border-transparent hover:border-cyber-emerald/40 rounded px-2 py-1 transition-all duration-300">
-          <!-- Minimalist abstract network bridge node icon -->
+          <!-- Minimalist Glowing Vector Network Bridge Node Icon -->
           <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg border border-cyber-emerald/30 bg-cyber-emerald/5 relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-tr from-cyber-emerald/20 to-transparent opacity-50"></div>
             <svg class="w-5 h-5 text-cyber-emerald relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -179,7 +169,7 @@
             <span class="text-xl font-extrabold tracking-tight text-white hover:text-cyber-emerald transition-colors uppercase font-display leading-none">
               VIRTUAL BRIDGE<span class="text-cyber-emerald">//</span>CONNECT
             </span>
-            <span class="text-[8px] font-mono uppercase tracking-[0.25em] text-cyber-slate mt-1 leading-none">Global enterprise outsource matrices</span>
+            <span class="text-[8px] font-mono uppercase tracking-[0.25em] text-cyber-slate mt-1 leading-none">High-performance technical systems</span>
           </div>
         </a>
         
@@ -204,19 +194,14 @@
         <span class="text-cyber-emerald/20">/</span>
         <button onclick="switchViewport('marketing')" id="nav-marketing" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">marketing</button>
         <span class="text-cyber-emerald/20">/</span>
-        <button onclick="switchViewport('intake')" id="nav-intake" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian font-bold transition-all ml-1.5 rounded-sm">INTAKE REGISTRY</button>
+        <button onclick="switchViewport('intake')" id="nav-intake" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian font-bold transition-all ml-1.5 rounded-sm">CONTACT US</button>
       </nav>
 
       <!-- Security layer indicators -->
       <div class="hidden lg:flex items-center gap-4">
         <div class="flex items-center gap-2 px-3 py-1.5 border border-cyber-emerald/15 text-[9px] font-mono text-cyber-slate bg-cyber-obsidian">
           <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald animate-pulse"></span>
-          <span>AURORA MATRIX DECREE</span>
-        </div>
-
-        <!-- MASKED GATEWAY TRIGGER - INVISIBLE 10x10 PIXEL -->
-        <div id="invisible-admin-gateway" onclick="triggerPasscodeModal()" class="w-[10px] h-[10px] bg-transparent cursor-default relative">
-          <div class="absolute inset-0 bg-transparent"></div>
+          <span>SECURED SESSION PORTAL</span>
         </div>
       </div>
     </div>
@@ -229,8 +214,7 @@
       <button onclick="switchViewport('mobility'); toggleMobileMenu()" class="w-full py-4 block">mobility & erp</button>
       <button onclick="switchViewport('integration'); toggleMobileMenu()" class="w-full py-4 block">integrations</button>
       <button onclick="switchViewport('marketing'); toggleMobileMenu()" class="w-full py-4 block">marketing</button>
-      <button onclick="switchViewport('intake'); toggleMobileMenu()" class="w-full py-4 block bg-cyber-emerald text-cyber-obsidian font-bold">INTAKE REGISTRY</button>
-      <button onclick="triggerPasscodeModal(); toggleMobileMenu()" class="w-full py-3 block text-cyber-slate/50 text-[10px]">Administrative key entry</button>
+      <button onclick="switchViewport('intake'); toggleMobileMenu()" class="w-full py-4 block bg-cyber-emerald text-cyber-obsidian font-bold">CONTACT US</button>
     </div>
   </header>
 
@@ -241,11 +225,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- ============================================== -->
-      <!-- PAGE 1: THE HIGH-TICKET HOMEPAGE -->
+      <!-- PAGE 1: THE HOMEPAGE -->
       <!-- ============================================== -->
       <section id="view-home" class="view-transition opacity-100 block space-y-20">
         
-        <!-- Large high-ticket gradient hero -->
+        <!-- Simplified high-contrast hero with B2B friendly copy -->
         <div class="max-w-5xl space-y-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyber-emerald/30 text-[9px] font-mono tracking-widest text-cyber-emerald uppercase bg-cyber-emerald/5">
             <span class="inline-block w-1 h-1 bg-cyber-emerald animate-ping"></span>
@@ -255,14 +239,14 @@
             Intensive, Comprehensive & Pioneering Global IT Outsourcing.
           </h1>
           <p class="text-sm sm:text-base text-cyber-slate max-w-2xl font-normal leading-relaxed">
-            Architecturally optimized infrastructure modules connecting high-load corporate hubs in Reston, VA to deep technical delivery teams in Lahore, Pakistan. Full transparency. Guaranteed delivery SLA.
+            Reliable, secure software engineering and design solutions. We connect high-load corporate hubs in Reston, VA to our deep technical delivery teams in Lahore, Pakistan to build, scale, and maintain your systems with absolute clarity.
           </p>
           <div class="pt-2 flex flex-wrap gap-4 font-mono text-[10px] uppercase tracking-wider">
             <button onclick="switchViewport('intake')" class="px-6 py-3 bg-cyber-emerald text-cyber-obsidian font-black hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
-              DISPATCH STRATEGY BRIEF
+              CONTACT US
             </button>
             <button onclick="switchViewport('services')" class="px-6 py-3 border border-cyber-emerald/30 text-white hover:text-cyber-emerald hover:bg-cyber-emerald/5 transition-all cursor-pointer rounded-sm">
-              EXPLORE PRACTICE CORE &rarr;
+              OUR SERVICES &rarr;
             </button>
           </div>
         </div>
@@ -270,38 +254,38 @@
         <!-- Interactive Node Flow Grid -->
         <div class="cyber-glass p-6 relative rounded-lg">
           <div class="border-b border-cyber-emerald/15 pb-3 mb-6 flex justify-between items-center flex-wrap gap-2">
-            <span class="text-[10px] font-mono text-cyber-emerald uppercase tracking-widest font-bold">// SYSTEM APPROACH METHODOLOGY SEQUENCE MATRIX</span>
+            <span class="text-[10px] font-mono text-cyber-emerald uppercase tracking-widest font-bold">// OUR ROADMAP TO SUCCESS</span>
             <span class="text-[8px] font-mono text-cyber-slate bg-cyber-obsidian px-2.5 py-0.5 border border-cyber-emerald/15">STAGE_PIPELINE_STATUS_OK</span>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 font-mono text-center" id="methodology-node-grid">
-            <!-- Populated via script to conserve token budget -->
+            <!-- Populated via script -->
           </div>
           <div id="stage-desc-container" class="mt-4 p-4 border border-cyber-emerald/15 bg-cyber-obsidian/60 text-xs font-mono text-center text-cyber-slate select-none rounded-sm">
-            Click any methodology stage above to inspect its live SLA operational directives.
+            Click any roadmap step above to view how our senior teams ensure your success.
           </div>
         </div>
 
         <!-- 3-column Premier Choice Dashboard -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_01_INTELLECT</span>
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_01_INTELLECT</span>
             <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Intellect</h3>
             <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              Pakistan delivery hub staffed exclusively by high-tier double-cleared systems developers. Continuously audited for high-density microservices architectures, reactive state engines, and secure protocols.
+              Our engineering hub is staffed exclusively by top-tier systems developers. We are continuously audited for secure database integrations, responsive web setups, and high-performance server architectures.
             </p>
           </div>
           <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_02_QUALITY</span>
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_02_QUALITY</span>
             <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Quality Grids</h3>
             <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              Rigid layout structures without visual anomalies. Continuous automated compilation checklists ensure complete code reliability. No truncated routines enter our deployment gateways.
+              We design and code rigid layouts without visual errors. Our continuous verification checklists ensure complete reliability so that your platforms run flawlessly across every browser and device.
             </p>
           </div>
           <div class="cyber-glass p-8 relative rounded-lg">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_03_VELOCITY</span>
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">CORE_VALUE_03_VELOCITY</span>
             <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Track Record</h3>
             <p class="text-xs text-cyber-slate leading-relaxed font-normal">
-              Complete monitoring mapping operational velocities to precise delivery sprints. Comprehensive support for static pages, high concurrency APIs, CRM structures, and mobile platforms.
+              Our structured management maps sprint speeds to exact delivery timelines. We have a robust history of delivering complex CMS configurations, database engines, mobile apps, and business support tools.
             </p>
           </div>
         </div>
@@ -311,63 +295,63 @@
           <div class="border-b border-cyber-emerald/15 pb-4 flex justify-between items-center sm:flex-row flex-col gap-2">
             <h2 class="text-xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
               <span class="w-1.5 h-3 bg-cyber-emerald"></span>
-              MASTER CAPABILITIES MATRIX
+              CORE COMPETENCY CHANNELS
             </h2>
-            <span class="text-[9px] font-mono text-cyber-emerald tracking-widest uppercase">ACTIVE ENGAGEMENT CORES</span>
+            <span class="text-[9px] font-mono text-cyber-emerald tracking-widest uppercase">ACTIVE ENGAGEMENT AREAS</span>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="capabilities-matrix-grid">
-            <!-- Dynamically populated via script -->
+            <!-- Populated via script -->
           </div>
         </div>
 
         <!-- Vertical 8-Step Service Execution Journey Timeline -->
         <div class="space-y-8">
           <div class="border-b border-cyber-emerald/15 pb-4">
-            <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white">Global Delivery Lifecycle Protocol</h2>
-            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">8 discrete operational checkpoints from preliminary data mining to legacy upkeep</p>
+            <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white">Our 8-Step Development Journey</h2>
+            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">A transparent, step-by-step roadmap from initial planning to lifelong maintenance</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="lifecycle-timeline-grid">
-            <!-- Dynamically populated via script -->
+            <!-- Populated via script -->
           </div>
         </div>
 
       </section>
 
       <!-- ============================================== -->
-      <!-- PAGE 2: THE CAPABILITIES DIRECTORY -->
+      <!-- PAGE 2: SERVICES DIRECTORY -->
       <!-- ============================================== -->
       <section id="view-services" class="view-transition opacity-0 hidden space-y-12">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest text-gradient">Capabilities Directory</h2>
-          <p class="text-xs font-mono text-cyber-slate">STRUCTURED DIRECTORIES OF SECURED TECH PRACTICES</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest text-gradient">Services Directory</h2>
+          <p class="text-xs font-mono text-cyber-slate">COMPREHENSIVE WEB DEVELOPMENT & SOFTWARE INFRASTRUCTURE</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          <!-- Web Practice Areas -->
+          <!-- Web Development -->
           <div class="cyber-glass p-6 space-y-6 rounded-lg">
             <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
               <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
-              Web Practice Directories
+              Web Development & Creative
             </h3>
             <div class="space-y-4 font-mono text-xs">
               <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// BE-SPOKE SYSTEM COMPOSITION</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">ENTERPRISE SYSTEM</span>
+                  <span class="font-bold font-display tracking-wide">// CUSTOM WEBSITE DESIGN</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">BESPOKE</span>
                 </div>
                 <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Clean, production-grade custom architectures initialized directly on serverless and full-stack runtime layers.
+                  Clean, modern websites custom built to tell your brand story, engage business buyers, and generate qualified sales leads automatically.
                 </p>
               </div>
               <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// E-COMMERCE ENGINES</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">HIGH LOAD</span>
+                  <span class="font-bold font-display tracking-wide">// ENTERPRISE E-COMMERCE</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">HIGH CONVERSION</span>
                 </div>
                 <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Fast transaction setups containing high catalog caches and fully secured inventory pipeline layers.
+                  Fast, intuitive online storefronts built to scale catalog sizes, handle checkout flow securely, and integrate directly with accounting.
                 </p>
               </div>
             </div>
@@ -377,25 +361,25 @@
           <div class="cyber-glass p-6 space-y-6 rounded-lg">
             <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
               <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
-              Software Practice Directories
+              Software Infrastructure
             </h3>
             <div class="space-y-4 font-mono text-xs">
               <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// SECURE ENTERPRISE CLOUD SYNC</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">MIGRATIONS</span>
+                  <span class="font-bold font-display tracking-wide">// SECURE CLOUD MIGRATIONS</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">CLOUD SYNC</span>
                 </div>
                 <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Flawless database transformations migrating legacy physical setups direct to scalable Cloud Firestore backends without data loss.
+                  Smooth database modernization to move your company records safely to robust Cloud Firestore configurations with zero system downtime.
                 </p>
               </div>
               <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold font-display tracking-wide">// REAL-TIME INTEGRATIONS & TESTING</span>
-                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">AUTOMATED DATA</span>
+                  <span class="font-bold font-display tracking-wide">// AUTOMATED SYSTEM TESTING</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">RELIABILITY</span>
                 </div>
                 <p class="text-cyber-slate font-sans leading-relaxed text-xs">
-                  Validating throughput with load metrics, latency analyses, and verified regression checklists.
+                  Rigorous automated testing matrices checking loading speeds, security gaps, and system dependencies to prevent crashes.
                 </p>
               </div>
             </div>
@@ -405,8 +389,8 @@
         <!-- Tabbed Engagement Protocol -->
         <div class="cyber-glass p-8 relative rounded-lg">
           <div class="border-b border-cyber-emerald/15 pb-4 mb-6">
-            <h3 class="text-xl font-bold uppercase font-display text-white">Engagement Protocols Blueprint</h3>
-            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Select visual node option to view operational targets and SLA specs</p>
+            <h3 class="text-xl font-bold uppercase font-display text-white">How We Work Together</h3>
+            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Select an engagement model to see how we align with your budget and speed demands</p>
           </div>
 
           <!-- Tabs Handles -->
@@ -427,26 +411,26 @@
             
             <div id="tab-data-dedicated" class="svc-tab-pane block space-y-4">
               <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Dedicated offshore engineering model</h4>
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Dedicated Professional Engineering Team</h4>
                 <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  We assign custom Pakistan-based system builders specifically scaled to your technology constraints. High priority Slack, secure environments, and daily sprint schedules directly integrated into your Reston workflow.
+                  We assign engineers, designers, and project managers exclusively to your business. They integrate directly into your daily communications, providing rapid turnaround and consistent development velocity.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SLA CRITERIA</span>
-                    <span class="font-bold text-white text-[11px] font-sans">99.9% Sync Accuracy</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">COMMUNICATION</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Daily Standups & Slack</span>
                   </div>
                   <div>
                     <span class="text-cyber-emerald block uppercase tracking-wider font-bold">RESPONSE METRICS</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Less than 2 Hours</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Under 2 Hours</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">PROVISION LEAD</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SETUP TIMELINE</span>
                     <span class="font-bold text-white text-[11px] font-sans">7 Business Days</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">AUDIT MATRIX</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Sprints Status Weekly</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">REPORTING</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Weekly Progress Demos</span>
                   </div>
                 </div>
               </div>
@@ -454,26 +438,26 @@
 
             <div id="tab-data-timemat" class="svc-tab-pane hidden space-y-4">
               <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Time &amp; Materials Execution Framework</h4>
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Time &amp; Materials (Flexible Scope)</h4>
                 <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  Ideal for volatile application shapes, rapid custom prototypes, or scalable integration modules. Fully transparent invoice ledger logs mapped securely on standard biweekly sprint cycles.
+                  Ideal for evolving product features, custom application designs, or rapid business prototyping. Pay strictly for checked and approved hours mapped cleanly on simple biweekly cycles.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SPRINT INTERVALS</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SPRINT DURATION</span>
                     <span class="font-bold text-white text-[11px] font-sans">14 Calendar Days</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">TRACKING PORTAL</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Hour Logs Transparency</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">HOUR LOGS</span>
+                    <span class="font-bold text-white text-[11px] font-sans">100% Fully Transparent</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">POD CHANGE INTERVAL</span>
-                    <span class="font-bold text-white text-[11px] font-sans">48 Hours SLA</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">FLEXIBILITY</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Scale Up/Down Weekly</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CODE CHECKS</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Continuous Deployment</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CODE DELIVERED</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Direct Git Access</span>
                   </div>
                 </div>
               </div>
@@ -481,25 +465,25 @@
 
             <div id="tab-data-fixedprice" class="svc-tab-pane hidden space-y-4">
               <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
-                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Fixed-Price Technical Agreements</h4>
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Fixed-Price Project Agreements</h4>
                 <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
-                  Highly recommended for well-specified custom CMS modules, enterprise ERP migration architectures, or standalone technical portal products. Zero billing exceeds mapped budgets unless user creates formal scope alterations.
+                  Highly recommended for clearly-defined corporate sites, migration services, or standalone web features. Get a locked, upfront price quote that fits your exact budget boundaries.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">BUDGET BOUNDARY</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Strict Cost Caps</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">PRICE GUARANTEE</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Strict Upfront Quote</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">DELIVERY SINK</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Milestone Locked</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">MILESTONES</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Payment Upon Approval</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SCOPE ALTERATION GATE</span>
-                    <span class="font-bold text-white text-[11px] font-sans">Formal Specification Gate</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CHANGES HANDLING</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Simple Addendum Process</span>
                   </div>
                   <div>
-                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">Post-Launch Support</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">WARRANTY SUPPORT</span>
                     <span class="font-bold text-white text-[11px] font-sans">90 Calendar Days</span>
                   </div>
                 </div>
@@ -515,24 +499,24 @@
       <!-- ============================================== -->
       <section id="view-stacks" class="view-transition opacity-0 hidden space-y-8">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Open-Source CMS Stacks</h2>
-          <p class="text-xs font-mono text-cyber-slate">HIGH-PERFORMANCE WEB APPLICATION ENGINE SPECS</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">CMS Stacks</h2>
+          <p class="text-xs font-mono text-cyber-slate">HIGH-PERFORMANCE WEB APPLICATION ENGINES</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cms-stacks-grid">
-          <!-- Dynamic CMS Content Grid -->
+          <!-- Populated dynamically via script -->
         </div>
       </section>
 
       <!-- ============================================== -->
-      <!-- PAGE 4: MOBILITY & CUSTOM ENTERPRISE ARCHITECTURES -->
+      <!-- PAGE 4: MOBILITY & ENTERPRISE ARCHITECTURES -->
       <!-- ============================================== -->
       <section id="view-mobility" class="view-transition opacity-0 hidden space-y-8">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Mobility &amp; Custom ERP Engines</h2>
-          <p class="text-xs font-mono text-cyber-slate">ENTERPRISE OS PORTALS & SYSTEMS PIPELINES</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Mobility &amp; ERP Platforms</h2>
+          <p class="text-xs font-mono text-cyber-slate">NATIVE SMARTPHONE APPS & RESOURCE MANAGEMENT SYSTEMS</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mobility-erp-grid">
-          <!-- Dynamic Mobility Content Grid -->
+          <!-- Populated dynamically via script -->
         </div>
       </section>
 
@@ -541,34 +525,34 @@
       <!-- ============================================== -->
       <section id="view-integration" class="view-transition opacity-0 hidden space-y-8">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Systems Integration &amp; Consulting</h2>
-          <p class="text-xs font-mono text-cyber-slate">SLA-SURVEILLED MIS INFRASTRUCTURE ARCHITECTURES</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Integrations &amp; Consulting</h2>
+          <p class="text-xs font-mono text-cyber-slate">SECURE NETWORKING, IT OUTSOURCING, & ARCHITECTURAL ROADMAPS</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="integrations-grid">
-          <!-- Dynamic Integration Content Grid -->
+          <!-- Populated dynamically via script -->
         </div>
       </section>
 
       <!-- ============================================== -->
-      <!-- PAGE 6: DIGITAL MARKETING & SOCIAL MEDIA FRAMEWORKS -->
+      <!-- PAGE 6: DIGITAL MARKETING & MEDIA FRAMEWORKS -->
       <!-- ============================================== -->
       <section id="view-marketing" class="view-transition opacity-0 hidden space-y-8">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Digital Marketing &amp; Branding</h2>
-          <p class="text-xs font-mono text-cyber-slate">CAMPAIGN LEDGERS & METADATA FLOW CHANNELS</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Digital Marketing &amp; Media</h2>
+          <p class="text-xs font-mono text-cyber-slate">BRAND STRATEGY, CAMPAIGN LOGISTICS, & CHANNEL OPTIMIZATION</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="marketing-grid">
-          <!-- Dynamic Marketing Content Grid -->
+          <!-- Populated dynamically via script -->
         </div>
       </section>
 
       <!-- ============================================== -->
-      <!-- PAGE 7: STRATEGY INTAKE TERMINAL (MAIN CONTACT) -->
+      <!-- PAGE 7: CONTACT US (SIMPLIFIED INTAKE) -->
       <!-- ============================================== -->
       <section id="view-intake" class="view-transition opacity-0 hidden space-y-8 max-w-5xl mx-auto">
         <div class="border-b border-cyber-emerald/15 pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Strategy Intake Terminal</h2>
-          <p class="text-xs font-mono text-cyber-slate">DIRECT SECURE INTAKE FORM TO LAHORE METRIC CORE</p>
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Get In Touch With Our Team</h2>
+          <p class="text-xs font-mono text-cyber-slate">DIRECT SECURE INQUIRY TO OUR SENIOR TECHNICAL TEAM</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -576,10 +560,10 @@
           <!-- Left Column Info Panel -->
           <div class="cyber-glass p-8 rounded-lg lg:col-span-5 space-y-6">
             <div class="space-y-2">
-              <span class="text-[9px] font-mono uppercase text-cyber-emerald tracking-widest">// DEEP ENVELOPE SECURED</span>
+              <span class="text-[9px] font-mono uppercase text-cyber-emerald tracking-widest">// SECURED CORRESPONDENCE</span>
               <h3 class="text-2xl font-bold font-display text-white">Guaranteed Executive Review Within 12 Hours</h3>
               <p class="text-xs text-cyber-slate leading-relaxed font-sans">
-                Every validated submission is mapped straight to our high-priority database ledger. If validation checkpoints pass, our core managing partner triggers an emergency WhatsApp brief and pre-formats your concurrent email draft automatically.
+                Every business request is delivered instantly to our senior partners. We review your specifications, secure your data in our database ledger, and prepare an immediate follow-up to coordinate your free technical consultation.
               </p>
             </div>
 
@@ -590,11 +574,11 @@
               </div>
               <div class="flex items-center gap-3">
                 <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
-                <span>Minimum Budget Floor: <span class="text-white font-bold">$500 USD</span></span>
+                <span>Minimum Project Size: <span class="text-white font-bold">$500 USD</span></span>
               </div>
               <div class="flex items-center gap-3">
                 <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
-                <span>Operations Base: <span class="text-white font-bold">Lahore, PK</span></span>
+                <span>Offshore Operations: <span class="text-white font-bold">Lahore, Pakistan</span></span>
               </div>
             </div>
           </div>
@@ -604,55 +588,59 @@
             <form id="lead-form" onsubmit="executeLeadSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
               
               <div class="space-y-2">
-                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px]">Contact Person Name *</label>
+                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px]">Your Name *</label>
                 <input type="text" id="lead-name" placeholder="e.g. Stephen Miller" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-name-warn')" />
                 <span id="lead-name-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px]">Corporate Email Address *</label>
-                <input type="email" id="lead-email" placeholder="e.g. s.miller@enterprise.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
+                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px]">Email Address *</label>
+                <input type="email" id="lead-email" placeholder="e.g. s.miller@company.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
                 <span id="lead-email-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-area" class="block text-white uppercase tracking-wider text-[10px]">Primary Outsourcing Practice *</label>
+                <label for="lead-area" class="block text-white uppercase tracking-wider text-[10px]">How Can We Help You? *</label>
                 <select id="lead-area" class="w-full bg-[#030706] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm select-text">
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Creative Design">Creative Design</option>
-                  <option value="Social Media Management">Social Media Management</option>
-                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
+                  <option value="Information Technology">Information Technology &amp; Coding</option>
+                  <option value="Creative Design">Creative &amp; Website Design</option>
+                  <option value="Social Media Management">Social Media Management &amp; Content</option>
+                  <option value="Custom Mobility Solutions">Custom Mobile Applications</option>
                   <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
-                  <option value="Strategic Consultations">Strategic Consultations</option>
+                  <option value="Strategic Consultations">Bespoke Consulting Services</option>
                 </select>
               </div>
 
               <div class="space-y-3">
-                <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Target Budget Range *</label>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$500 - $5,000" checked class="w-4 h-4 accent-cyber-emerald shrink-0" />
-                    <span class="text-[10px] text-white font-bold">$500 – $5k</span>
+                <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Project Budget *</label>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
+                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$500 - $1,500" checked class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                    <span class="text-[9px] text-white font-bold">$500–$1,500</span>
                   </label>
-                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$5,000 - $25,000" class="w-4 h-4 accent-cyber-emerald shrink-0" />
-                    <span class="text-[10px] text-white font-bold">$5k – $25k</span>
+                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$1,500 - $5,000" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                    <span class="text-[9px] text-white font-bold">$1.5k–$5k</span>
                   </label>
-                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
-                    <input type="radio" name="project-budget" value="$25,000+" class="w-4 h-4 accent-cyber-emerald shrink-0" />
-                    <span class="text-[10px] text-white font-bold">$25k+</span>
+                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$5,000 - $25,000" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                    <span class="text-[9px] text-white font-bold">$5k–$25k</span>
+                  </label>
+                  <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$25,000+" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                    <span class="text-[9px] text-white font-bold">$25k+</span>
                   </label>
                 </div>
               </div>
 
               <div class="space-y-2">
-                <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px]">Project Architectural Specifications Brief *</label>
-                <textarea id="lead-brief" rows="5" placeholder="Please outline your technical stack demands, core business workflows, timelines, and primary database integrations..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
+                <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px]">Tell Us About Your Project *</label>
+                <textarea id="lead-brief" rows="5" placeholder="Tell us about what you want to build, existing systems, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
                 <span id="lead-brief-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
               <button type="submit" id="submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
-                INITIALIZE AND DISPATCH BRIEF &rarr;
+                SEND MESSAGE ->
               </button>
 
             </form>
@@ -678,6 +666,9 @@
           <div class="font-mono text-[10px] flex gap-3">
             <button onclick="readLeadsFromFirestore()" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
               RE-SYNC LEDGER
+            </button>
+            <button onclick="exportLeadsCSV()" class="px-3.5 py-1.5 border border-cyber-teal text-cyber-teal hover:bg-cyber-teal hover:text-cyber-obsidian transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
+              EXPORT CSV
             </button>
             <button onclick="exitAdminTerminal()" class="px-3.5 py-1.5 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
               REVOKE DEEP SESSION
@@ -799,74 +790,72 @@
                   <input type="checkbox" name="partner-services" value="New Website / Redesign" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
                   <div class="flex flex-col">
                     <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">New Website / Redesign</span>
-                    <span class="text-[9px] text-cyber-slate">Custom modern corporate web portals</span>
+                    <span class="text-[8px] text-cyber-slate">Modern responsive custom company pages</span>
                   </div>
                 </label>
                 <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Custom App Development" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <input type="checkbox" name="partner-services" value="Custom Mobile App" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
                   <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Custom App &amp; Software</span>
-                    <span class="text-[9px] text-cyber-slate">Custom workflows and database automation</span>
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Custom Mobile App</span>
+                    <span class="text-[8px] text-cyber-slate">Native iOS and Android software systems</span>
                   </div>
                 </label>
                 <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Local SEO & Google Maps" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <input type="checkbox" name="partner-services" value="Local SEO & Visibility" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
                   <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Local SEO &amp; Maps</span>
-                    <span class="text-[9px] text-cyber-slate">Optimizing local citation systems</span>
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Local SEO &amp; Visibility</span>
+                    <span class="text-[8px] text-cyber-slate">Rank high on local maps searches</span>
                   </div>
                 </label>
                 <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
-                  <input type="checkbox" name="partner-services" value="Automation / Other" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <input type="checkbox" name="partner-services" value="Social Media & Branding" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
                   <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Automation &amp; AI Tools</span>
-                    <span class="text-[9px] text-cyber-slate">General consultation and performance tasks</span>
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Social Media &amp; Branding</span>
+                    <span class="text-[8px] text-cyber-slate">Professional brand strategies &amp; growth layout</span>
                   </div>
                 </label>
-              </div>
-              <span id="partner-services-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
-            </div>
-
-            <div class="space-y-2">
-              <label class="block text-white uppercase tracking-wider text-[10px] mb-2">Estimated Monthly/Project Budget *</label>
-              <div class="grid grid-cols-1 gap-2.5">
-                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$500 - $1,500" checked class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
+                  <input type="checkbox" name="partner-services" value="Business Automation" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
                   <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$500 – $1,500</span>
-                    <span class="text-[9px] text-cyber-slate">Baseline modern business portal solution</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$1,500 - $3,500" class="w-4 h-4 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$1,500 – $3,500</span>
-                    <span class="text-[9px] text-cyber-slate">Multi-page framework &amp; automated lead setups</span>
-                  </div>
-                </label>
-                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
-                  <input type="radio" name="partner-budget" value="$3,500+" class="w-4 h-4 accent-cyber-emerald shrink-0" />
-                  <div class="flex flex-col">
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$3,500+</span>
-                    <span class="text-[9px] text-cyber-slate">Complete customized high-load platform development</span>
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Business Automation</span>
+                    <span class="text-[8px] text-cyber-slate">Automate billing, email dispatch &amp; client flows</span>
                   </div>
                 </label>
               </div>
             </div>
 
-            <div class="space-y-2">
-              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px]">Optional Project Notes / Outline</label>
-              <textarea id="partner-notes" rows="4" placeholder="Briefly describe your objectives, existing system, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm"></textarea>
+            <div class="space-y-3">
+              <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Target Budget *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
+                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$500 - $1,500" checked class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                  <span class="text-[9px] text-[#F5F5F5] font-bold">$500–$1,500</span>
+                </label>
+                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$1,500 - $3,500" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                  <span class="text-[9px] text-[#F5F5F5] font-bold">$1.5k–$3.5k</span>
+                </label>
+                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$3,500+" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                  <span class="text-[9px] text-[#F5F5F5] font-bold">$3.5k+</span>
+                </label>
+                <label class="border border-cyber-emerald/20 p-2.5 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-1.5 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="Custom Budget" class="w-3.5 h-3.5 accent-cyber-emerald shrink-0" />
+                  <span class="text-[9px] text-[#F5F5F5] font-bold">Custom Specs</span>
+                </label>
+              </div>
             </div>
 
-            <div>
-              <button type="submit" id="partner-submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
-                SUBMIT PARTNER INTAKE
-              </button>
+            <div class="space-y-2">
+              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px]">Additional Notes</label>
+              <textarea id="partner-notes" rows="4" placeholder="Any specific requirements or times you are available to take a call..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm"></textarea>
             </div>
+
+            <button type="submit" id="partner-submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+              SEND MESSAGE ->
+            </button>
 
           </form>
-
         </div>
       </section>
 
@@ -874,70 +863,69 @@
   </main>
 
   <!-- ============================================== -->
-  <!-- HIGH-TECH ACCESS PASSCODE MODAL -->
+  <!-- HIGH-CONTRAST B2B FOOTER -->
   <!-- ============================================== -->
-  <div id="passcode-modal" class="fixed inset-0 bg-black/95 flex items-center justify-center z-[150] select-none text-xs font-mono hidden backdrop-blur-md">
-    <div class="border border-cyber-emerald/30 p-8 max-w-md w-full bg-[#030907]/90 backdrop-blur-lg space-y-6 relative m-4 rounded-sm">
+  <footer class="w-full bg-cyber-obsidian border-t border-cyber-emerald/15 py-12 relative z-10 text-xs font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
-      <div class="text-center space-y-2">
-        <h3 class="text-white font-black tracking-widest uppercase font-display">ENTER ACCESS CODE</h3>
-        <p class="text-[9px] text-cyber-emerald uppercase tracking-wider animate-pulse font-mono">// Session Encrypted with Zero-Knowledge Logic</p>
+      <!-- Logo + Strategic statement -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-cyber-emerald/5 pb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg border border-cyber-emerald/30 bg-cyber-emerald/5">
+            <svg class="w-4 h-4 text-cyber-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <span class="text-base font-bold font-display uppercase tracking-widest">VIRTUAL BRIDGE CONNECT</span>
+        </div>
+
+        <p class="text-cyber-slate font-sans text-center md:text-right max-w-md text-xs leading-relaxed">
+          Premium global software engineering and IT consulting services. Mapped directly from Virginia to Pakistan to guarantee reliable SLA performance.
+        </p>
       </div>
 
-      <div class="space-y-2">
-        <label for="admin-passcode-field" class="block text-white text-[9px] uppercase tracking-wider">SECURE DIGITAL KEY:</label>
-        <input type="password" id="admin-passcode-field" placeholder="ENTER SECURED DECREE KEY..." class="w-full bg-cyber-obsidian border border-cyber-emerald/20 px-4 py-3 text-white text-center tracking-[0.25em] font-extrabold focus:outline-none glow-input text-sm rounded-sm" onkeydown="listenPasscodeKeypress(event)" />
-        <p id="passcode-error-tag" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider text-center h-4"></p>
+      <!-- Core Links and Regional statement -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-cyber-emerald tracking-wide text-center md:text-left text-[11px] font-bold">
+          Strategic Node: Reston, VA | Operations: Lahore, Pakistan
+        </p>
+
+        <p class="text-cyber-slate/50 text-[10px] text-center md:text-right">
+          &copy; 2026 Virtual Bridge Connect. All rights secured. Powered by Onyx Cloud Systems.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
-        <button onclick="submitPasscodeAuthentication()" class="py-2.5 bg-cyber-emerald text-cyber-obsidian font-black uppercase text-[10px] tracking-widest hover:opacity-90 transition-all text-center cursor-pointer rounded-sm">
-          AUTHORIZE
-        </button>
-        <button onclick="closePasscodeModal()" class="py-2.5 border border-cyber-emerald/20 text-cyber-slate hover:text-white uppercase text-[10px] tracking-widest transition-all text-center cursor-pointer rounded-sm">
-          CANCEL CLOSE
-        </button>
-      </div>
-
-      <div class="text-center pt-2">
-        <span class="text-[8px] text-cyber-slate/40 font-mono tracking-widest uppercase">PROV LEVEL 5 SLA GATE</span>
-      </div>
     </div>
-  </div>
 
-  <!-- ============================================== -->
-  <!-- LIVE DYNAMIC TRANSACTION PROGRESS INTAKE PANEL -->
-  <!-- ============================================== -->
-  <div id="status-overlay" class="fixed inset-0 bg-[#030706]/95 flex flex-col items-center justify-center z-[200] space-y-4 font-mono select-none hidden">
-    <div class="w-12 h-12 border-2 border-t-cyber-emerald border-r-transparent border-b-cyber-emerald border-l-transparent rounded-full animate-spin"></div>
-    <p id="status-text" class="text-xs text-cyber-emerald uppercase tracking-widest animate-pulse">// INITIALIZING SECURE FIRESTORE WRITE CHANNELS...</p>
-  </div>
-
-  <!-- ============================================== -->
-  <!-- SECURE PERSISTENT EDITORIAL FOOTER -->
-  <!-- ============================================== -->
-  <footer class="w-full bg-[#030706]/95 border-t border-cyber-emerald/15 py-6 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[9px] font-mono uppercase tracking-[0.15em] text-cyber-slate">
-      <div>
-        &copy; 2026 Virtual Bridge Connect. All matrix systems reserved.
-      </div>
-      
-      <!-- Unified Strategic Nodes Indicator -->
-      <div class="text-white font-extrabold tracking-widest font-display">
-        Strategic Node: Reston, VA <span class="text-cyber-emerald px-1">|</span> Operations: Lahore, Pakistan
-      </div>
-
-      <div class="flex items-center gap-2 text-[8px] text-cyber-slate/50">
-        <span>GRID OVERHAUL BUILD v10.0.0_SLA</span>
-      </div>
-    </div>
+    <!-- Invisible 10x10px administrative control trigger pixel in footer as requested -->
+    <div onclick="triggerPasscodeModal()" class="w-[10px] h-[10px] bg-transparent cursor-default mx-auto mt-4" style="opacity: 0.05;" title="Terminal Console"></div>
   </footer>
 
   <!-- ============================================== -->
-  <!-- CUSTOM DYNAMIC SYSTEM JAVASCRIPT BLOCK -->
+  <!-- MODAL GLASS FOR ADMIN SECURITY GATE -->
+  <!-- ============================================== -->
+  <div id="passcode-modal" class="fixed inset-0 z-[1000] flex items-center justify-center bg-cyber-obsidian/85 backdrop-blur-md hidden transition-opacity duration-300">
+    <div class="cyber-glass max-w-md w-full mx-4 p-8 space-y-6 text-center rounded-lg">
+      <div class="w-12 h-12 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald rounded-full flex items-center justify-center mx-auto animate-pulse">
+        <span class="text-lg font-bold">#</span>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-lg font-bold uppercase font-display text-white tracking-widest">AUTHENTICATION CODE MANDATORY</h4>
+        <p class="text-[10px] font-mono text-cyber-slate">ADMIN SECURITY PORTAL SYSTEM DECREES</p>
+      </div>
+      <input type="password" id="admin-passcode" placeholder="ENTER 4-DIGIT KEY CODE" class="w-full bg-[#030706] border border-cyber-emerald/30 px-4 py-3 font-mono text-center text-cyber-emerald text-lg tracking-[0.4em] focus:outline-none glow-input rounded-sm" />
+      <div class="flex gap-3 font-mono text-[10px]">
+        <button onclick="dismissPasscodeModal()" class="w-1/2 py-3 border border-cyber-slate/30 text-cyber-slate hover:text-white transition-all cursor-pointer rounded-sm">CANCEL</button>
+        <button onclick="evaluatePasscode()" class="w-1/2 py-3 bg-cyber-emerald text-cyber-obsidian font-bold hover:opacity-90 transition-all cursor-pointer rounded-sm">VERIFY KEY</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- DATA MATRICES & CLIENT SIDE ENGINES -->
   <!-- ============================================== -->
   <script>
-    // HARDCODED PRODUCTION FIREBASE CLIENT ENVIRONMENT CONFIG
+    // HARDCODED SECURED PRODUCTION FIREBASE CONFIG
     const firebaseConfig = {
       apiKey: "AIzaSyD-I2kIM2NsZB-3F5xdaN1d2didUQNrOfc",
       authDomain: "virtual-bridge-connect.firebaseapp.com",
@@ -947,791 +935,709 @@
       appId: "1:476621311085:web:75a023d76444a4d633c364"
     };
 
-    // Initialize Cloud FireStore with fallback mapping
-    let dbInstance = null;
+    let db;
+    let leadsData = [];
+    let isFirebaseReady = false;
+
+    // Securely Initialize Firebase
     try {
       firebase.initializeApp(firebaseConfig);
-      dbInstance = firebase.firestore();
-      console.log("Firestore matrix channel synchronized completely.");
-    } catch (err) {
-      console.error("Firebase platform validation failed: ", err);
+      db = firebase.firestore();
+      isFirebaseReady = true;
+      console.log("Onyx Secure System Channel Configured.");
+    } catch (e) {
+      console.error("Local database initialized fallback status.", e);
     }
 
-    const WHATSAPP_NUMBER = "923217452433";
-    let adminAuthorized = false;
+    // 1. DATA MATRICES: METHODOLOGY ROADMAP STEPS
+    const roadmapSteps = [
+      { step: "01", name: "Lead By Example", desc: "Our senior partners align with your core goals first, mapping transparent paths." },
+      { step: "02", name: "Motivate", desc: "Setting clear milestones and momentum matrices that get our Lahore hub coding quickly." },
+      { step: "03", name: "Inspire", desc: "Developing elite clean-code architectures that set new standards in execution quality." },
+      { step: "04", name: "Mentor", desc: "Pairing Pakistan's double-cleared engineers with Reston experts for absolute accuracy." },
+      { step: "05", name: "Coach", desc: "Refining interface patterns, transaction flows, and backend speed thresholds daily." },
+      { step: "06", name: "Vision", desc: "Aligning every micro-interaction with your broader long-term B2B revenue plans." },
+      { step: "07", name: "Teamwork", desc: "Fusing global communication channels into one continuous, high-speed delivery pipeline." },
+      { step: "08", name: "Win", desc: "Unlocking flawless production-grade platforms backed by guaranteed 99.9% uptime SLA." }
+    ];
 
-    // ACTIVE STATE ROUTING ENGINE
-    function switchViewport(targetId) {
-      const viewIds = ['home', 'services', 'stacks', 'mobility', 'integration', 'marketing', 'intake', 'admin', 'steve'];
+    // 2. DATA MATRICES: COMP_CHANNELS
+    const compChannels = [
+      { title: "Web Software Systems", desc: "Responsive high-converting corporate portals, fast e-commerce setups, and scalable custom web software engineered for business growth." },
+      { title: "Mobility Engineering", desc: "Native iOS and Android systems tailored with beautiful layouts, fast database synchronizations, and low latency frameworks." },
+      { title: "Systems Integrations", desc: "Connecting enterprise CRM, ERP databases, billing models, and payment Gateways without breaking performance or system security rules." }
+    ];
+
+    // 3. DATA MATRICES: 8-STEP LIFECYCLE JOURNEY
+    const lifecycleTimeline = [
+      { num: "01", name: "Data Mining", desc: "Extracting structural database assets and corporate logic boundaries." },
+      { num: "02", name: "Analysis & Mapping", desc: "Establishing exact API schemas and custom workflow mappings." },
+      { num: "03", name: "Bespoke System Design", desc: "Drafting high-end typography sheets and layout matrices." },
+      { num: "04", name: "Intensive Code Cycle", desc: " लाहौर team begins building responsive microservices with daily commits." },
+      { num: "05", name: "Continuous Integration", desc: "Rigorous automated linting and load-testing on serverless staging." },
+      { num: "06", name: "Final Systems Deploy", desc: "Launching live to high-performance Onyx cloud systems environments." },
+      { num: "07", name: "Executive Review", desc: "Validating against strict SLA and transaction accuracy requirements." },
+      { num: "08", name: "Maintenance & Upkeep", desc: "Continuous security updates and system diagnostics tracking." }
+    ];
+
+    // 4. DATA MATRICES: CMS STACKS
+    const cmsStacks = [
+      { name: "WordPress Premium", type: "Custom B2B Pages", desc: "Tailored Gutenberg configurations styled entirely with optimized layouts. Fast load times, search engine visibility, and secure admin control dashboards." },
+      { name: "Magento Enterprise", type: "High-Volume Catalog", desc: "Secure multi-region inventory management, rapid cache layers, and custom cart interfaces designed for extensive wholesale and B2B orders." },
+      { name: "Joomla Enterprise", type: "Structured Portals", desc: "Ideal for complex corporate associations, custom member matrices, and extensive file-storage repositories with multi-level role permissions." },
+      { name: "Sitefinity Cloud", type: "Enterprise Logistics", desc: "Scalable cloud-ready framework supporting massive marketing campaigns, multi-lingual translations, and deep client behavioral diagnostics." },
+      { name: "Corporate Web Solution (CWS)", type: "Onyx Proprietary", desc: "Custom node architectures designed directly for ultra-secure corporate targets, offering lightning-fast pages with zero software dependencies." }
+    ];
+
+    // 5. DATA MATRICES: MOBILITY & ERP
+    const mobilityERP = [
+      { name: "Native iOS Software", desc: "Premium Swift-built applications optimized for absolute fluidity, secure client authentication keys, and real-time push notification grids." },
+      { name: "Native Android Software", desc: "Kotlin-engineered applications designed for long-term device battery efficiency, high memory scalability, and robust hardware interactions." },
+      { name: "CRM Client Portals", desc: "Frictionless self-service dashboards allowing your enterprise clients to submit support requests, track billing ledgers, and download invoices." },
+      { name: "Supply Chain Matrix", desc: "Real-time automated barcode logging, shipping logistics syncing, and secure freight coordinates maps tracking." },
+      { name: "Accounting Systems", desc: "Continuous ledger updates, automated tax rate computations, and encrypted bank statement reconciliation modules." },
+      { name: "Business Intel (BI) Hub", desc: "Dynamic data dashboards presenting real-time operational velocities, conversion patterns, and Pakistan hub delivery statistics." }
+    ];
+
+    // 6. DATA MATRICES: INTEGRATION
+    const integrationsConsulting = [
+      { area: "API Integrations", desc: "Fusing secure systems (Stripe, Twilio, Salesforce, Hubspot) with your custom architectures to automate data dispatch across corporate departments." },
+      { area: "MIS Outsourcing", desc: "Offload your complete tech infrastructure management. We handle server health checks, database backups, and security patches 24/7." },
+      { area: "Technology Consulting", desc: "Senior technical consulting sessions in Reston, VA to plan migrations, assess custom software layouts, and calculate development budgets." }
+    ];
+
+    // 7. DATA MATRICES: DIGITAL MARKETING
+    const marketingMedia = [
+      { name: "Brand & Corporate Stationery", desc: "High-end stationery systems, minimalist B2B document layouts, and unified visual guides designed to impress corporate boards." },
+      { name: "Premium Video Production", desc: "Stunning corporate showcase videos, Lahore hub walk-through animations, and software product explainers capturing your technical edge." },
+      { name: "Growth SEO & Marketing", desc: "Optimized metadata structures, precise local search optimization campaigns, and analytical B2B buyer targeting channels." }
+    ];
+
+    // INITIALIZATION AND MATRIX GENERATOR ROUTINES
+    window.addEventListener("DOMContentLoaded", () => {
+      renderMethodologyRoadmap();
+      renderCompChannels();
+      renderLifecycleTimeline();
+      renderCMSStacks();
+      renderMobilityERP();
+      renderIntegrations();
+      renderMarketing();
       
-      viewIds.forEach(id => {
-        const sect = document.getElementById('view-' + id);
-        if (sect) {
-          if (id === targetId) {
-            sect.classList.remove('hidden');
-            setTimeout(() => {
-              sect.classList.remove('opacity-0');
-              sect.classList.add('opacity-100');
-            }, 50);
-          } else {
-            sect.classList.add('opacity-0');
-            sect.classList.remove('opacity-100');
-            sect.classList.add('hidden');
-          }
-        }
+      // Live clock updates
+      setInterval(updateRestonClock, 1000);
+      updateRestonClock();
 
-        // Active header tab indicator update
-        const navBtn = document.getElementById('nav-' + id);
-        if (navBtn) {
-          if (id === targetId) {
-            navBtn.classList.add('text-cyber-emerald', 'font-bold', 'border-b', 'border-cyber-emerald/50');
-            navBtn.classList.remove('text-cyber-slate');
-          } else {
-            navBtn.classList.remove('text-cyber-emerald', 'font-bold', 'border-b', 'border-cyber-emerald/50');
-            navBtn.classList.add('text-cyber-slate');
-          }
+      // Check current hash state for direct deep linking (#steve)
+      evaluateHashRoute();
+      window.addEventListener("hashchange", evaluateHashRoute);
+
+      // Setup global admin keyboard shortcut listener (Ctrl + Shift + A)
+      window.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === "A") {
+          e.preventDefault();
+          triggerPasscodeModal();
         }
       });
-
-      // Scroll viewport back instantly to coordinates zero
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-
-    // Toggle menu controls on mobile views
-    function toggleMobileMenu() {
-      const pane = document.getElementById('mobile-menu');
-      if (pane.classList.contains('hidden')) {
-        pane.classList.remove('hidden');
-      } else {
-        pane.classList.add('hidden');
-      }
-    }
-
-    // Tab switcher on Engagement Protocols
-    function switchSvcTab(paneId) {
-      const ids = ['dedicated', 'timemat', 'fixedprice'];
-      ids.forEach(id => {
-        const btn = document.getElementById('tab-btn-' + id);
-        const data = document.getElementById('tab-data-' + id);
-        
-        if (id === paneId) {
-          btn.classList.add('bg-cyber-emerald', 'text-cyber-obsidian');
-          btn.classList.remove('text-cyber-slate', 'bg-cyber-obsidian');
-          data.classList.remove('hidden');
-          data.classList.add('block');
-        } else {
-          btn.classList.remove('bg-cyber-emerald', 'text-cyber-obsidian');
-          btn.classList.add('text-cyber-slate', 'bg-cyber-obsidian');
-          data.classList.add('hidden');
-          data.classList.remove('block');
-        }
-      });
-    }
-
-    // Interactive methodology stage selector details mapping
-    const stageDetails = {
-      1: "<strong>STAGE 01 // LEAD BY EXAMPLE:</strong> Establishing high-end technical benchmarks, leading with robust modular architectures and pristine clean code guidelines across Reston and Lahore divisions.",
-      2: "<strong>STAGE 02 // MOTIVATE:</strong> Driving high operational velocities, keeping teams deeply integrated into tactical database synchronizations and daily delivery SLAs.",
-      3: "<strong>STAGE 03 // INSPIRE:</strong> Promoting visual breakthrough structures, ensuring zero shadow layout elements meet Astra Premium design parameters with luxury aurora glow accents.",
-      4: "<strong>STAGE 04 // MENTOR:</strong> Secure technical instruction and architectural tutoring, elevating system developers on solid TLS key tunnels and strict sanitization rules.",
-      5: "<strong>STAGE 05 // COACH:</strong> Directing functional rehearsal sprints, coaching developers during extensive compilation grids and validated entry checkpoints.",
-      6: "<strong>STAGE 06 // VISION:</strong> Charting out global resource scaling pathways, aligning business telemetry dashboards and scalable mobile configurations.",
-      7: "<strong>STAGE 07 // TEAMWORK:</strong> Full collaborative cohesion, routing synchronized Slack matrices and unified operations directly to client departments.",
-      8: "<strong>STAGE 08 // WIN:</strong> Unleashing completely built final deliverables, secure Firestore database access rules, and achieving superior operational performance records."
-    };
-
-    function selectStageNode(stageNum) {
-      const container = document.getElementById('stage-desc-container');
-      if (!container) return;
-      
-      const desc = stageDetails[stageNum] || "Click any methodology stage above to inspect its live SLA operational directives.";
-      container.innerHTML = `<span class="text-cyber-emerald transition-all duration-300 block">${desc}</span>`;
-      
-      // Update highlights in grid list
-      for (let i = 1; i <= 8; i++) {
-        const node = document.getElementById('node-stage-' + i);
-        if (node) {
-          if (i === stageNum) {
-            node.classList.add('border-cyber-emerald', 'bg-cyber-emerald/10');
-            node.classList.remove('border-cyber-emerald/20', 'bg-cyber-obsidian/40');
-          } else {
-            node.classList.remove('border-cyber-emerald', 'bg-cyber-emerald/10');
-            node.classList.add('border-cyber-emerald/20', 'bg-cyber-obsidian/40');
-          }
-        }
-      }
-    }
-
-    // CMS and Capability redirects
-    function quickFillForm(practiceArea) {
-      const sel = document.getElementById('lead-area');
-      if (sel) {
-        sel.value = practiceArea;
-      }
-      switchViewport('intake');
-    }
-
-    // Reston VA Local timezone timekeeper
-    function startOperationalTimekeeper() {
-      const element = document.getElementById('reston-time');
-      const keeper = () => {
-        if (!element) return;
-        const options = {
-          timeZone: "America/New_York",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false
-        };
-        const formatter = new Intl.DateTimeFormat([], options);
-        element.innerText = formatter.format(new Date()) + " EST";
-      };
-      keeper();
-      setInterval(keeper, 1000);
-    }
-    startOperationalTimekeeper();
-
-    // Clearance warns trigger
-    function clearFieldWarning(id) {
-      const text = document.getElementById(id);
-      if (text) text.innerText = "";
-    }
-
-    // MAIN DIRECT FIRESTORE INTAKE MATRIX & DUAL WHATSAPP/EMAIL REDIRECTS
-    async function executeLeadSubmission(e) {
-      e.preventDefault();
-      
-      const nameIn = document.getElementById('lead-name');
-      const emailIn = document.getElementById('lead-email');
-      const areaIn = document.getElementById('lead-area');
-      const briefIn = document.getElementById('lead-brief');
-      const budgetIn = document.querySelector('input[name="project-budget"]:checked');
-
-      const nameW = document.getElementById('lead-name-warn');
-      const emailW = document.getElementById('lead-email-warn');
-      const briefW = document.getElementById('lead-brief-warn');
-
-      let isValid = true;
-
-      if (nameIn.value.trim().length < 2) {
-        nameW.innerText = "WARNING // Name must contain minimum 2 characters.";
-        isValid = false;
-      } else {
-        nameW.innerText = "";
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailIn.value.trim())) {
-        emailW.innerText = "WARNING // Please input a mathematically valid corporate email address.";
-        isValid = false;
-      } else {
-        emailW.innerText = "";
-      }
-
-      if (briefIn.value.trim().length < 25) {
-        briefW.innerText = "WARNING // Architectural specs brief must exceed 25 characters minimum threshold.";
-        isValid = false;
-      } else {
-        briefW.innerText = "";
-      }
-
-      if (!isValid) return;
-
-      const overlay = document.getElementById('status-overlay');
-      const textNode = document.getElementById('status-text');
-
-      overlay.classList.remove('hidden');
-      textNode.innerText = "INITIALIZING FIRESTORE INTEGRAL WRITE SYSTEM...";
-
-      const leadPayload = {
-        name: nameIn.value.trim(),
-        email: emailIn.value.trim(),
-        area: areaIn.value,
-        budget: budgetIn ? budgetIn.value : "$500 - $5,000",
-        brief: briefIn.value.trim(),
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        status: "New"
-      };
-
-      try {
-        if (dbInstance) {
-          textNode.innerText = "SYNCING STRATEGY METRIC DIRECTLY TO CLOUD INTERFACE...";
-          await dbInstance.collection('leads').add(leadPayload);
-          console.log("Lead metrics registered completely.");
-        } else {
-          console.warn("Firestore collection link unavailable - fallback mode active.");
-        }
-
-        textNode.innerText = "METRIC LOGGED. REDIRECTING SECURE WHATSAPP ROUTER CHANNEL...";
-        
-        const briefOutline = 
-`*VIRTUAL BRIDGE CONNECT - STRATEGY BRIEF DISPATCH*
-• *Contact Specialist ID:* ${leadPayload.name}
-• *Authentication Email:* ${leadPayload.email}
-• *Assigned Technology Center:* ${leadPayload.area}
-• *Target Budget Constraint:* ${leadPayload.budget}
-• *Architectural Brief specs:* 
-${leadPayload.brief}
-
-_Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Operations System_`;
-
-        const encodedOut = encodeURIComponent(briefOutline);
-        const redirectUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedOut}`;
-
-        const emailSubject = encodeURIComponent(`VBC New System Strategy Brief: ${leadPayload.name}`);
-        const emailBody = encodeURIComponent(briefOutline);
-        const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-        nameIn.value = "";
-        emailIn.value = "";
-        briefIn.value = "";
-
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          window.open(redirectUrl, '_blank');
-          setTimeout(() => {
-            window.location.href = mailtoUrl;
-          }, 600);
-        }, 1200);
-
-      } catch (err) {
-        console.error("Firestore submission failure logged: ", err);
-        textNode.innerText = "WRITE MATRIX INCOMPLETE. DISPATCHING DUAL DIRECT PORTAL...";
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          const briefOutline = `*VBC OUTSOURCE INTAKE FALLBACK*\n• Name: ${leadPayload.name}\n• Email: ${leadPayload.email}\n• Area: ${leadPayload.area}\n• Budget: ${leadPayload.budget}\n• Spec Brief: ${leadPayload.brief}`;
-          const encodedOut = encodeURIComponent(briefOutline);
-          window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedOut}`, '_blank');
-          
-          const emailSubject = encodeURIComponent(`VBC Outsource Intake Fallback: ${leadPayload.name}`);
-          const emailBody = encodeURIComponent(briefOutline);
-          const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-          setTimeout(() => {
-            window.location.href = mailtoUrl;
-          }, 600);
-        }, 1500);
-      }
-    }
-
-    // ============================================== -->
-    // ADMIN PASSCODE & ZERO KNOWLEDGE AUTHENTICATOR -->
-    // ============================================== -->
-    function triggerPasscodeModal() {
-      const modal = document.getElementById('passcode-modal');
-      const input = document.getElementById('admin-passcode-field');
-      const error = document.getElementById('passcode-error-tag');
-      
-      if (modal) {
-        error.innerText = "";
-        input.value = "";
-        modal.classList.remove('hidden');
-        input.focus();
-      }
-    }
-
-    function closePasscodeModal() {
-      const modal = document.getElementById('passcode-modal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function listenPasscodeKeypress(e) {
-      if (e.key === 'Enter') submitPasscodeAuthentication();
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-        e.preventDefault();
-        triggerPasscodeModal();
-      }
     });
 
-    function submitPasscodeAuthentication() {
-      const input = document.getElementById('admin-passcode-field').value.trim();
-      const error = document.getElementById('passcode-error-tag');
+    // Hash evaluation for route support
+    function evaluateHashRoute() {
+      const currentHash = window.location.hash.toLowerCase();
+      if (currentHash === "#steve") {
+        switchViewport("steve");
+      }
+    }
 
-      const byteCheck = String.fromCharCode(54, 52, 48, 48); // "6400"
-      const mathVal = parseInt(input);
+    // Dynamic clock
+    function updateRestonClock() {
+      const restonBox = document.getElementById("reston-time");
+      if (restonBox) {
+        const estOptions = { timeZone: "America/New_York", hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        restonBox.innerText = new Date().toLocaleTimeString("en-US", estOptions) + " EST";
+      }
+    }
 
-      if (mathVal === (3200 * 2) && input === byteCheck) {
-        adminAuthorized = true;
-        closePasscodeModal();
-        switchViewport('admin');
+    // Methodology Node flow renderer
+    function renderMethodologyRoadmap() {
+      const parent = document.getElementById("methodology-node-grid");
+      if (!parent) return;
+      parent.innerHTML = roadmapSteps.map((step, idx) => `
+        <div onclick="displayStageDesc(${idx})" class="p-4 border border-cyber-emerald/15 hover:border-cyber-emerald bg-cyber-obsidian/40 hover:bg-cyber-emerald/5 transition-all duration-300 cursor-pointer rounded-md select-none group">
+          <div class="text-[9px] text-cyber-emerald font-bold tracking-widest block uppercase mb-1">NODE_${step.step}</div>
+          <div class="text-[11px] text-white group-hover:text-cyber-emerald font-bold font-display truncate">${step.name}</div>
+        </div>
+      `).join("");
+    }
+
+    function displayStageDesc(idx) {
+      const box = document.getElementById("stage-desc-container");
+      if (!box) return;
+      const select = roadmapSteps[idx];
+      box.innerHTML = `
+        <span class="text-cyber-emerald font-bold uppercase">// STAGE ${select.step} STATUS VERIFIED</span> : 
+        <strong class="text-white">${select.name}</strong> - ${select.desc}
+      `;
+    }
+
+    function renderCompChannels() {
+      const parent = document.getElementById("capabilities-matrix-grid");
+      if (!parent) return;
+      parent.innerHTML = compChannels.map((item, idx) => `
+        <div class="p-6 bg-cyber-obsidian/40 border border-cyber-emerald/10 rounded-sm hover:border-cyber-emerald/30 transition-all">
+          <div class="text-[9px] text-cyber-emerald font-mono uppercase tracking-widest font-bold mb-3">NODE_CH_${idx+1}</div>
+          <h4 class="text-lg font-bold font-display text-white mb-2">${item.title}</h4>
+          <p class="text-xs text-cyber-slate font-sans leading-relaxed">${item.desc}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderLifecycleTimeline() {
+      const parent = document.getElementById("lifecycle-timeline-grid");
+      if (!parent) return;
+      parent.innerHTML = lifecycleTimeline.map(item => `
+        <div class="p-5 bg-cyber-obsidian/40 border border-cyber-emerald/10 hover:border-cyber-emerald/20 transition-all rounded-sm flex flex-col justify-between h-full">
+          <div>
+            <div class="text-[9px] font-mono text-cyber-emerald font-bold mb-2">// SEQUENCE_${item.num}</div>
+            <h4 class="text-sm font-bold font-display text-[#F5F5F5] mb-2">${item.name}</h4>
+          </div>
+          <p class="text-[11px] text-cyber-slate leading-relaxed font-sans mt-2">${item.desc}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderCMSStacks() {
+      const parent = document.getElementById("cms-stacks-grid");
+      if (!parent) return;
+      parent.innerHTML = cmsStacks.map(stack => `
+        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
+          <div class="flex justify-between items-start flex-wrap gap-2">
+            <span class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// ENG_CORE_CMS</span>
+            <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs font-mono font-bold uppercase">${stack.type}</span>
+          </div>
+          <h3 class="text-xl font-bold font-display text-white">${stack.name}</h3>
+          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${stack.desc}</p>
+          <div class="pt-2 border-t border-cyber-emerald/10">
+            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">DISPATCH TECH NEEDS &rarr;</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderMobilityERP() {
+      const parent = document.getElementById("mobility-erp-grid");
+      if (!parent) return;
+      parent.innerHTML = mobilityERP.map(item => `
+        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
+          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// MOBILE_ERP_MODULE</div>
+          <h3 class="text-lg font-bold font-display text-white">${item.name}</h3>
+          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
+          <div class="pt-2 border-t border-cyber-emerald/10 flex items-center justify-between">
+            <span class="text-[8px] font-mono text-cyber-slate uppercase tracking-wider">COMPILATION_PASS</span>
+            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">DISPATCH MATRIX &rarr;</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderIntegrations() {
+      const parent = document.getElementById("integrations-grid");
+      if (!parent) return;
+      parent.innerHTML = integrationsConsulting.map((item, idx) => `
+        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
+          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// ARCH_CONSULT_NODE_0${idx+1}</div>
+          <h3 class="text-xl font-bold font-display text-white">${item.area}</h3>
+          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
+          <div class="pt-2 border-t border-cyber-emerald/10">
+            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">REQUEST SYSTEM BRIEF &rarr;</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderMarketing() {
+      const parent = document.getElementById("marketing-grid");
+      if (!parent) return;
+      parent.innerHTML = marketingMedia.map(item => `
+        <div class="cyber-glass p-6 relative rounded-lg space-y-4">
+          <div class="text-[9px] font-mono text-cyber-emerald uppercase tracking-wider">// DIGITAL_MARKETING_MATRIX</div>
+          <h3 class="text-lg font-bold font-display text-white">${item.name}</h3>
+          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${item.desc}</p>
+          <div class="pt-2 border-t border-cyber-emerald/10">
+            <button onclick="switchViewport('intake')" class="text-[9px] font-mono uppercase text-cyber-emerald hover:text-white transition-colors cursor-pointer font-bold">START CAMPAIGN &rarr;</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // SPA NAVIGATION ROUTER SYSTEM
+    const viewportIds = ["view-home", "view-services", "view-stacks", "view-mobility", "view-integration", "view-marketing", "view-intake", "view-admin", "view-steve"];
+    const navButtons = ["nav-home", "nav-services", "nav-stacks", "nav-mobility", "nav-integration", "nav-marketing", "nav-intake"];
+
+    function switchViewport(targetId) {
+      // Toggle CSS display classes instantly with fade transitions
+      viewportIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (id === `view-${targetId}`) {
+          el.classList.remove("hidden");
+          setTimeout(() => {
+            el.classList.remove("opacity-0");
+            el.classList.add("opacity-100");
+          }, 50);
+        } else {
+          el.classList.add("hidden", "opacity-0");
+          el.classList.remove("opacity-100");
+        }
+      });
+
+      // Update active state layout within primary navigation buttons
+      navButtons.forEach(btnId => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          if (btnId === `nav-${targetId}`) {
+            btn.classList.add("text-cyber-emerald", "font-bold");
+            btn.classList.remove("text-cyber-slate");
+          } else {
+            btn.classList.remove("text-cyber-emerald", "font-bold");
+            btn.classList.add("text-cyber-slate");
+          }
+        }
+      });
+
+      // Reset coordinates back to absolute top view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mobile Header Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+
+    // Engagement Protocols Sub-tabs within Services Directory
+    function switchSvcTab(tabKey) {
+      const panes = document.querySelectorAll(".svc-tab-pane");
+      panes.forEach(p => p.classList.add("hidden"));
+      document.getElementById(`tab-data-${tabKey}`).classList.remove("hidden");
+
+      const buttons = ["tab-btn-dedicated", "tab-btn-timemat", "tab-btn-fixedprice"];
+      buttons.forEach(id => {
+        const btn = document.getElementById(id);
+        if (id === `tab-btn-${tabKey}`) {
+          btn.classList.add("bg-cyber-emerald", "text-cyber-obsidian");
+          btn.classList.remove("text-cyber-slate", "bg-cyber-obsidian");
+        } else {
+          btn.classList.remove("bg-cyber-emerald", "text-cyber-obsidian");
+          btn.classList.add("text-cyber-slate", "bg-cyber-obsidian");
+        }
+      });
+    }
+
+    // ADMIN SECURITY CONSOLE EVALUATION PASSCODE CODE ROUTINES
+    function triggerPasscodeModal() {
+      const modal = document.getElementById("passcode-modal");
+      modal.classList.remove("hidden");
+      document.getElementById("admin-passcode").focus();
+    }
+
+    function dismissPasscodeModal() {
+      document.getElementById("passcode-modal").classList.add("hidden");
+      document.getElementById("admin-passcode").value = "";
+    }
+
+    function evaluatePasscode() {
+      const rawVal = document.getElementById("admin-passcode").value;
+      const p1 = parseInt(rawVal);
+      const p2 = String.fromCharCode(54, 52, 48, 48); // "6400"
+      
+      if (p1 === (3200 * 2) || rawVal === p2) {
+        dismissPasscodeModal();
+        switchViewport("admin");
         readLeadsFromFirestore();
       } else {
-        error.innerText = "AUTHENTICATION DECREE DENIED // SECURE DECREE MISMATCH";
-        const fieldEl = document.getElementById('admin-passcode-field');
-        fieldEl.classList.add('shake-anim');
-        setTimeout(() => fieldEl.classList.remove('shake-anim'), 300);
+        alert("ACCESS DENIED: Administrative signature does not match secure keys.");
+        dismissPasscodeModal();
       }
     }
 
     function exitAdminTerminal() {
-      adminAuthorized = false;
-      switchViewport('home');
+      switchViewport("home");
     }
 
-    // ============================================== -->
-    // ADMIN DASHBOARD FIRESTORE SYNC & UPDATE ACTIONS
-    // ============================================== -->
-    let cachedLeads = [];
+    // CLEAR WARNING LABEL TEXT
+    function clearFieldWarning(id) {
+      const field = document.getElementById(id);
+      if (field) field.innerText = "";
+    }
 
-    async function readLeadsFromFirestore() {
-      if (!adminAuthorized) return;
+    // PRIMARY B2B STRATEGY INTAKE DISPATCH HANDLERS
+    async function executeLeadSubmission(event) {
+      event.preventDefault();
       
-      const tableBody = document.getElementById('leads-table-body');
-      const counterTotal = document.getElementById('stat-total');
-      const counterNew = document.getElementById('stat-new');
-      const counterContacted = document.getElementById('stat-contacted');
-      const counterConverted = document.getElementById('stat-converted');
-
-      if (!tableBody) return;
-      tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-cyber-slate font-mono uppercase tracking-widest animate-pulse">Syncing corporate ledger metrics...</td></tr>`;
-
-      if (!dbInstance) {
-        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest font-mono">FIRESTORE CORE CONNECTION UNAVAILABLE</td></tr>`;
-        return;
-      }
-
-      try {
-        const querySnapshot = await dbInstance.collection('leads').orderBy('timestamp', 'desc').get();
-        cachedLeads = [];
-        tableBody.innerHTML = "";
-
-        let aggTotal = 0;
-        let aggNew = 0;
-        let aggContacted = 0;
-        let aggConverted = 0;
-
-        querySnapshot.forEach(doc => {
-          const item = doc.data();
-          item.id = doc.id;
-          cachedLeads.push(item);
-
-          aggTotal++;
-          if (item.status === 'New') aggNew++;
-          else if (item.status === 'Contacted') aggContacted++;
-          else if (item.status === 'Converted') aggConverted++;
-
-          const row = document.createElement('tr');
-          row.className = "hover:bg-cyber-emerald/5 cursor-pointer border-b border-cyber-emerald/10 transition-all text-cyber-slate font-sans select-text";
-          row.onclick = () => highlightBriefDetails(item.id);
-
-          row.innerHTML = `
-            <td class="py-3 px-4 text-white text-[11px] font-bold font-mono">${item.id.substring(0,6)}...</td>
-            <td class="py-3 px-4 font-bold text-white font-sans">${item.name}</td>
-            <td class="py-3 px-4">${item.email}</td>
-            <td class="py-3 px-4 text-cyber-emerald font-mono">${item.area}</td>
-            <td class="py-3 px-4 font-bold text-white font-sans">${item.budget}</td>
-            <td class="py-3 px-4" onclick="event.stopPropagation()">
-              <select 
-                class="bg-cyber-obsidian text-[10px] text-white border border-cyber-emerald/30 focus:border-cyber-emerald px-2 py-1 font-mono uppercase rounded-sm" 
-                onchange="updateActionStatus('${item.id}', this.value)"
-              >
-                <option value="New" ${item.status === 'New' ? 'selected' : ''}>New Input</option>
-                <option value="Contacted" ${item.status === 'Contacted' ? 'selected' : ''}>SLA Contacted</option>
-                <option value="Converted" ${item.status === 'Converted' ? 'selected' : ''}>Converted Pod</option>
-              </select>
-            </td>
-            <td class="py-3 px-4 text-center" onclick="event.stopPropagation()">
-              <button onclick="executeMatrixDestry('${item.id}')" class="px-2 py-1 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all text-[8px] font-bold uppercase rounded-sm">
-                DESTRY
-              </button>
-            </td>
-          `;
-          tableBody.appendChild(row);
-        });
-
-        counterTotal.innerText = aggTotal;
-        counterNew.innerText = aggNew;
-        counterContacted.innerText = aggContacted;
-        counterConverted.innerText = aggConverted;
-
-        if (aggTotal === 0) {
-          tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-cyber-slate select-none italic font-mono uppercase">No records logged inside Firestore yet.</td></tr>`;
+      const fName = document.getElementById("lead-name").value.trim();
+      const fEmail = document.getElementById("lead-email").value.trim();
+      const fArea = document.getElementById("lead-area").value;
+      const fBrief = document.getElementById("lead-brief").value.trim();
+      
+      // Select budget range
+      const budgetRadios = document.getElementsByName("project-budget");
+      let selectedBudget = "$500 - $1,500";
+      for (let r of budgetRadios) {
+        if (r.checked) {
+          selectedBudget = r.value;
+          break;
         }
-
-      } catch (err) {
-        console.error("Leads retrieval crash logged: ", err);
-        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest">ERROR PIPING DATA CHANNELS: ${err.message}</td></tr>`;
       }
-    }
 
-    function highlightBriefDetails(docId) {
-      const inspectBox = document.getElementById('brief-inspect-box');
-      const lead = cachedLeads.find(l => l.id === docId);
-
-      if (inspectBox && lead) {
-        inspectBox.innerHTML = `
-          <div class="space-y-3 font-mono">
-            <div class="grid grid-cols-2 gap-4 border-b border-cyber-emerald/15 pb-2 text-[10px] text-cyber-emerald">
-              <div>DOCUMENT REFERENCE ID: <span class="text-white">${lead.id}</span></div>
-              <div class="text-right">BUDGET DESIGNATION: <span class="text-white">${lead.budget}</span></div>
-            </div>
-            ${lead.referred_by ? `
-              <div class="p-2.5 bg-cyber-emerald/5 border border-cyber-emerald/20 text-cyber-emerald font-bold rounded-sm uppercase text-[9px]">
-                REFERRED VIA: ${lead.referred_by}
-              </div>
-            ` : ''}
-            <div>
-              <span class="text-white font-bold tracking-widest block text-[10px]">CORP OFFICER NAME:</span>
-              <p class="font-sans text-white text-sm font-semibold">${lead.name}</p>
-            </div>
-            <div>
-              <span class="text-white font-bold tracking-widest block text-[10px]">OUTSOURCE PRACTICE CENTER:</span>
-              <p class="font-sans text-white text-sm font-semibold">${lead.area}</p>
-            </div>
-            <div>
-              <span class="text-white font-bold tracking-widest block text-[10px]">PROJECT ARCHITECTURAL BRIEF:</span>
-              <p class="font-sans text-white leading-relaxed text-xs p-3 bg-cyber-obsidian/80 border border-cyber-emerald/15 mt-1 whitespace-pre-wrap select-all rounded-sm">${lead.brief}</p>
-            </div>
-          </div>
-        `;
+      // Check fields validation status
+      let passes = true;
+      if (!fName) {
+        document.getElementById("lead-name-warn").innerText = "Please provide your contact name.";
+        passes = false;
       }
-    }
-
-    async function updateActionStatus(docId, newStatus) {
-      if (!dbInstance) return;
-      try {
-        await dbInstance.collection('leads').doc(docId).update({ status: newStatus });
-        console.log(`Document matrix ${docId} action status persisted: ${newStatus}`);
-        readLeadsFromFirestore();
-      } catch (err) {
-        console.error("Firestore action write crash: ", err);
-        alert("Firestore transaction failed: " + err.message);
+      if (!fEmail || !fEmail.includes("@")) {
+        document.getElementById("lead-email-warn").innerText = "A valid corporate email address is required.";
+        passes = false;
       }
-    }
+      if (!fBrief || fBrief.length < 10) {
+        document.getElementById("lead-brief-warn").innerText = "Please share some details about your project needs.";
+        passes = false;
+      }
 
-    async function executeMatrixDestry(docId) {
-      if (!confirm("Confirm complete permanent deletion of technical specification matrix? This action is non-reversible.")) {
+      if (!passes) {
+        // Find first warn element with text and scroll into focus
+        const warns = ["lead-name-warn", "lead-email-warn", "lead-brief-warn"];
+        for (let w of warns) {
+          const text = document.getElementById(w).innerText;
+          if (text) {
+            document.getElementById(w).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            break;
+          }
+        }
         return;
       }
-      if (!dbInstance) return;
 
-      try {
-        await dbInstance.collection('leads').doc(docId).delete();
-        console.log(`Lead matrix deleted physically: ${docId}`);
-        document.getElementById('brief-inspect-box').innerHTML = "No record currently highlighted. Click any lead column from the database grid above to fetch and inspect the full corporate specs brief.";
-        readLeadsFromFirestore();
-      } catch (err) {
-        console.error("Firestore destruction error logged: ", err);
-        alert("Failed to destroy node entries: " + err.message);
-      }
-    }
-
-    // ============================================== -->
-    // CO-BRANDED PARTNER TERMINAL ENGINE (STEVE'S) ->
-    // ============================================== -->
-    async function executePartnerSubmission(e) {
-      e.preventDefault();
-      
-      const busIn = document.getElementById('partner-business');
-      const contactIn = document.getElementById('partner-contact');
-      const phoneIn = document.getElementById('partner-phone');
-      const notesIn = document.getElementById('partner-notes');
-      
-      const busW = document.getElementById('partner-business-warn');
-      const contactW = document.getElementById('partner-contact-warn');
-      const phoneW = document.getElementById('partner-phone-warn');
-      const servicesW = document.getElementById('partner-services-warn');
-
-      const checkedSvcs = [];
-      const checkboxEls = document.querySelectorAll('input[name="partner-services"]:checked');
-      checkboxEls.forEach(el => checkedSvcs.push(el.value));
-
-      const budgetIn = document.querySelector('input[name="partner-budget"]:checked');
-      const selectedBudget = budgetIn ? budgetIn.value : "$500 - $1,500";
-
-      let isValid = true;
-
-      if (busIn.value.trim().length < 2) {
-        busW.innerText = "WARNING // Business Name must contain minimum 2 characters.";
-        isValid = false;
-      } else {
-        busW.innerText = "";
-      }
-
-      if (contactIn.value.trim().length < 2) {
-        contactW.innerText = "WARNING // Contact Person Name must contain minimum 2 characters.";
-        isValid = false;
-      } else {
-        contactW.innerText = "";
-      }
-
-      if (phoneIn.value.trim().length < 5) {
-        phoneW.innerText = "WARNING // Phone Number must be valid.";
-        isValid = false;
-      } else {
-        phoneW.innerText = "";
-      }
-
-      if (checkedSvcs.length === 0) {
-        servicesW.innerText = "WARNING // Please select at least one technology practice area.";
-        isValid = false;
-      } else {
-        servicesW.innerText = "";
-      }
-
-      if (!isValid) return;
-
-      const overlay = document.getElementById('status-overlay');
-      const textNode = document.getElementById('status-text');
-
-      overlay.classList.remove('hidden');
-      textNode.innerText = "INITIALIZING PARTNER LEAD SUBMISSION...";
-
-      const partnerPayload = {
-        name: contactIn.value.trim(),
-        businessName: busIn.value.trim(),
-        email: "steve-partner-channel@vbc.com",
-        phone: phoneIn.value.trim(),
-        area: "Partner: " + checkedSvcs.join(', '),
+      // Prepare Lead Structure
+      const uuidStr = "L_" + Date.now();
+      const leadPayload = {
+        uuid: uuidStr,
+        contact_name: fName,
+        email: fEmail,
+        area: fArea,
         budget: selectedBudget,
-        brief: notesIn.value.trim() || "Steve referral channel specs brief requested.",
-        referred_by: "Steve's Carpet Cleaning",
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        status: "New"
+        brief: fBrief,
+        status: "New",
+        timestamp: new Date().toISOString(),
+        referred_by: "Direct Corporate Portal"
       };
 
-      try {
-        if (dbInstance) {
-          textNode.innerText = "WRITING PARTNER LEAD TO CLOUD FIRESTORE LEDGER...";
-          await dbInstance.collection('leads').add(partnerPayload);
-          console.log("Partner lead logged completely.");
+      const submitBtn = document.getElementById("submit-btn");
+      submitBtn.innerText = "SAVING INQUIRY...";
+      submitBtn.disabled = true;
+
+      if (isFirebaseReady) {
+        try {
+          await db.collection("leads").doc(uuidStr).set(leadPayload);
+        } catch (error) {
+          console.error("Firestore submission skipped. Running dual channels.", error);
         }
-
-        textNode.innerText = "METRIC LOGGED. REDIRECTING PARTNER WHATSAPP CORRIDOR...";
-
-        const whatsappMsg = `Hi VBC! I was referred by Steve's Carpet Cleaning. Business: ${partnerPayload.businessName}, Contact: ${partnerPayload.name}, Phone: ${partnerPayload.phone}, Services: ${checkedSvcs.join(', ')}, Budget: ${partnerPayload.budget}, Notes: ${partnerPayload.brief}`;
-        const encodedMsg = encodeURIComponent(whatsappMsg);
-        const redirectUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}`;
-
-        const emailSubject = encodeURIComponent(`NEW PARTNER LEAD: Steve's Carpet Cleaning - ${partnerPayload.businessName}`);
-        const emailBody = encodeURIComponent(whatsappMsg);
-        const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-        busIn.value = "";
-        contactIn.value = "";
-        phoneIn.value = "";
-        notesIn.value = "";
-        checkboxEls.forEach(el => el.checked = false);
-
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          window.open(redirectUrl, '_blank');
-          setTimeout(() => {
-            window.location.href = mailtoUrl;
-          }, 600);
-        }, 1200);
-
-      } catch (err) {
-        console.error("Partner Firestore write failed: ", err);
-        textNode.innerText = "WRITE MATRIX INCOMPLETE. DISPATCHING DIRECT CORRIDORS...";
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          const whatsappMsg = `Hi VBC! I was referred by Steve's Carpet Cleaning. Business: ${partnerPayload.businessName}, Contact: ${partnerPayload.name}, Phone: ${partnerPayload.phone}, Services: ${checkedSvcs.join(', ')}, Budget: ${partnerPayload.budget}, Notes: ${partnerPayload.brief}`;
-          const encodedMsg = encodeURIComponent(whatsappMsg);
-          window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}`, '_blank');
-
-          const emailSubject = encodeURIComponent(`NEW PARTNER LEAD: Steve's Carpet Cleaning - ${partnerPayload.businessName}`);
-          const emailBody = encodeURIComponent(whatsappMsg);
-          const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-          setTimeout(() => {
-            window.location.href = mailtoUrl;
-          }, 600);
-        }, 1500);
       }
-    }
 
-    // ============================================== -->
-    // STATIC DATA MATRICES & DYNAMIC GENERATION CORE ->
-    // ============================================== -->
-    const methodologies = [
-      { id: 1, name: "Lead By Example" },
-      { id: 2, name: "Motivate" },
-      { id: 3, name: "Inspire" },
-      { id: 4, name: "Mentor" },
-      { id: 5, name: "Coach" },
-      { id: 6, name: "Vision" },
-      { id: 7, name: "Teamwork" },
-      { id: 8, name: "Win" }
-    ];
+      // Launch Dual-Dispatch Communication Channels (WhatsApp & Fallback Email)
+      const phoneNo = "923217452433";
+      const waMessage = `*VBC Business Inquiry* \nName: ${fName}\nEmail: ${fEmail}\nPractice: ${fArea}\nBudget: ${selectedBudget}\nBrief: ${fBrief}`;
+      const waUrl = `https://wa.me/${phoneNo}?text=${encodeURIComponent(waMessage)}`;
 
-    const capabilities = [
-      { name: "Information Technology", desc: "Decoupled server clusters, high priority REST APIs, custom routing proxies, AWS orchestration systems, and highly validated database pipelines.", area: "Information Technology" },
-      { name: "Creative Design", desc: "Inverted editorial UI style parameters, high precision stationery designs, robust multi-screen visual systems, and corporate motion media setups.", area: "Creative Design" },
-      { name: "Social Media Management", desc: "Analytical automation nodes mapping publication matrices, target executive pipeline filters, and custom metadata tracking registries.", area: "Social Media Management" }
-    ];
+      const emailSubject = `Virtual Bridge Connect Inquiry: ${fName}`;
+      const emailBody = `Hi Virtual Bridge Connect,\n\nWe would like to discuss a project with your senior team.\n\nName: ${fName}\nEmail: ${fEmail}\nCore Need: ${fArea}\nEstimated Budget: ${selectedBudget}\n\nProject Specifications:\n${fBrief}\n\nSent via Virtual Bridge Connect Strategy Terminal.`;
+      const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-    const cmsStacks = [
-      { name: "WordPress Core Suite", desc: "Enterprise custom publishing networks built on secure theme configurations and headless REST APIs.", area: "WordPress Core Suite" },
-      { name: "Magento Enterprise Framework", desc: "Scalable e-commerce infrastructure with dynamic Redis caches and fast database setups.", area: "Magento Enterprise Framework" },
-      { name: "Joomla Technical Portal", desc: "Custom content structures with rigid permission systems and robust multi-language capabilities.", area: "Joomla Technical Portal" },
-      { name: "Sitefinity Custom Grid", desc: "Secure enterprise multisite frameworks integrated with high-load ASP.NET systems.", area: "Sitefinity Custom Grid" },
-      { name: "Corporate Web Solution (CWS)", desc: "Custom modular frameworks built for high-security intranets and corporate directories.", area: "Corporate Web Solution (CWS)" }
-    ];
-
-    const mobilityERP = [
-      { name: "iOS Ecosystem Portal", desc: "Swift-based native setups with robust offline caches, CoreData syncs, and Apple Pay checkouts.", area: "iOS Ecosystem Portal" },
-      { name: "Android Native Engine", desc: "Kotlin applications leveraging modern Jetpack Compose layouts and encrypted SQLite local storage.", area: "Android Native Engine" },
-      { name: "Enterprise CRM Module", desc: "Centralized client lifecycle registers with automated notification pipelines and sales funnel tracking.", area: "Enterprise CRM Module" },
-      { name: "Material Supply Chain Tracker", desc: "Real-time inventory logging systems integrated with barcode scanners and automated reorder points.", area: "Material Supply Chain Tracker" },
-      { name: "Resource & Material Planning", desc: "Intelligent factory load balancing indices mapping operational capacity to customer order queues.", area: "Resource & Material Planning" },
-      { name: "Advanced Corporate Accounting", desc: "Double-entry general ledgers with automated tax calculation profiles and multi-currency registers.", area: "Advanced Corporate Accounting" },
-      { name: "Business Intelligence Console", desc: "Dynamic data visualization panels utilizing fast REST aggregations for live executive telemetry.", area: "Business Intelligence Console" }
-    ];
-
-    const integrationsConsulting = [
-      { name: "Technical Integration Blueprints", desc: "Seamless interconnectivity between physical ERP structures, secure API gateways, and serverless background tasks." },
-      { name: "MIS Outsource Surveillance", desc: "Rigid continuous operation checks, uptime analytics trackers, and dedicated Pakistani team oversight protocols." },
-      { name: "Operational Consulting Roadmaps", desc: "High-value business strategy mapping executing complete legacy software upgrades and structural audits." }
-    ];
-
-    const marketingBranding = [
-      { name: "Corporate Stationery Matrix", desc: "High-end corporate branding guidelines, beautiful business card layouts, secure letterhead grids, and print assets." },
-      { name: "Video Multimedia Production", desc: "Professional high-definition corporate promotional videos, commercial campaign trailer editing, and audio overlays." },
-      { name: "12-Column Social Campaign", desc: "Rigorous continuous social channel scheduling systems mapping executive publishing grids and metadata tracking." }
-    ];
-
-    const lifecycleSteps = [
-      { stage: "01", name: "Data Mining & Spec Analysis", desc: "Deep analysis of enterprise code specs, and legacy information parameters before structure design." },
-      { stage: "02", name: "Requirements Matrix Mapping", desc: "Precise operational specs translation mapping security configurations, databases, and structural schema bounds." },
-      { stage: "03", name: "System Wireframes Prototyping", desc: "Designing clean zero shadow layouts utilizing precise editorial alignment grids and interactive mock-ups." },
-      { stage: "04", name: "Interactive Frontend Development", desc: "Clean code implementations utilizing fast dynamic routing protocols, modern type-strip scripts, and assets caches." },
-      { stage: "05", name: "Comprehensive Unit Testing", desc: "Thorough compilation checks verifying inputs validation layers, Firestore actions, and rendering bounds." },
-      { stage: "06", name: "Global Dispatch Deployment", desc: "Provisioning Cloud DNS grids, live Firestore rules publishing, and deploying code elements securely." },
-      { stage: "07", name: "System Retrospective Logs", desc: "Comprehensive review mapping live data velocities and metrics logs back to enterprise requirements blocks." },
-      { stage: "08", name: "Perpetual Upkeep & Maintenance", desc: "Continuous uptime surveillance, real-time database schema validation, and regular priority structural optimization." }
-    ];
-
-    // Card grid generator
-    function generateUIAndData() {
-      // methodology grid
-      const methGrid = document.getElementById('methodology-node-grid');
-      methGrid.innerHTML = methodologies.map(m => `
-        <div id="node-stage-${m.id}" onclick="selectStageNode(${m.id})" class="border border-cyber-emerald/20 p-3 hover:border-cyber-emerald/60 transition-all bg-cyber-obsidian/40 cursor-pointer rounded-sm active:bg-cyber-emerald/10 select-none">
-          <div class="text-[8px] text-cyber-slate font-bold">STAGE 0${m.id}</div>
-          <div class="text-[10px] uppercase text-white font-black mt-1 font-display">${m.name}</div>
-        </div>
-      `).join('');
-
-      // capabilities matrix grid
-      const capGrid = document.getElementById('capabilities-matrix-grid');
-      capGrid.innerHTML = capabilities.map((c, idx) => `
-        <div class="bg-cyber-obsidian/40 p-6 border border-cyber-emerald/15 hover:border-cyber-emerald/50 transition-all flex flex-col justify-between space-y-4 rounded-sm">
-          <div class="space-y-3">
-            <span class="text-[9px] font-mono text-cyber-slate block">// CORESPECS_0${idx + 1}</span>
-            <h4 class="text-lg font-bold text-white font-display">${c.name}</h4>
-            <p class="text-xs text-cyber-slate leading-relaxed">${c.desc}</p>
-          </div>
-          <button onclick="quickFillForm('${c.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left cursor-pointer uppercase tracking-wider font-bold">
-            COMMENCE MODULE &rarr;
-          </button>
-        </div>
-      `).join('');
-
-      // lifecycle steps timeline
-      const lifeGrid = document.getElementById('lifecycle-timeline-grid');
-      lifeGrid.innerHTML = lifecycleSteps.map(step => `
-        <div class="cyber-glass p-5 space-y-2 hover:border-cyber-emerald/50 transition-all rounded-sm">
-          <div class="text-[9px] font-mono text-cyber-emerald font-bold">LIFECYCLE // MODULE ${step.stage}</div>
-          <h4 class="text-base font-bold text-white font-display">${step.name}</h4>
-          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${step.desc}</p>
-        </div>
-      `).join('');
-
-      // cms stacks grid
-      const cmsGrid = document.getElementById('cms-stacks-grid');
-      cmsGrid.innerHTML = cmsStacks.map((s, idx) => `
-        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <span class="text-[9px] font-mono text-cyber-teal block">// ID_CMS_0${idx + 1}</span>
-            <h4 class="text-lg font-bold text-white font-display tracking-tight">${s.name}</h4>
-            <p class="text-xs text-cyber-slate leading-relaxed">${s.desc}</p>
-          </div>
-          <button onclick="quickFillForm('${s.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
-            COMMENCE MODULE &rarr;
-          </button>
-        </div>
-      `).join('');
-
-      // mobility erp grid
-      const mobGrid = document.getElementById('mobility-erp-grid');
-      mobGrid.innerHTML = mobilityERP.map((m, idx) => `
-        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <span class="text-[9px] font-mono text-cyber-teal block">// ID_MOBILITY_0${idx + 1}</span>
-            <h4 class="text-lg font-bold text-white font-display tracking-tight">${m.name}</h4>
-            <p class="text-xs text-cyber-slate leading-relaxed">${m.desc}</p>
-          </div>
-          <button onclick="quickFillForm('${m.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
-            COMMENCE MODULE &rarr;
-          </button>
-        </div>
-      `).join('');
-
-      // integrations grid
-      const intGrid = document.getElementById('integrations-grid');
-      intGrid.innerHTML = integrationsConsulting.map((i, idx) => `
-        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <span class="text-[9px] font-mono text-cyber-teal block">// ID_INTEGRATE_0${idx + 1}</span>
-            <h4 class="text-lg font-bold text-white font-display tracking-tight">${i.name}</h4>
-            <p class="text-xs text-cyber-slate leading-relaxed">${i.desc}</p>
-          </div>
-          <button onclick="quickFillForm('Systems Integration')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
-            COMMENCE MODULE &rarr;
-          </button>
-        </div>
-      `).join('');
-
-      // marketing grid
-      const mktGrid = document.getElementById('marketing-grid');
-      mktGrid.innerHTML = marketingBranding.map((m, idx) => `
-        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <span class="text-[9px] font-mono text-cyber-teal block">// ID_MARKETING_0${idx + 1}</span>
-            <h4 class="text-lg font-bold text-white font-display tracking-tight">${m.name}</h4>
-            <p class="text-xs text-cyber-slate leading-relaxed">${m.desc}</p>
-          </div>
-          <button onclick="quickFillForm('Social Media Management')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
-            COMMENCE MODULE &rarr;
-          </button>
-        </div>
-      `).join('');
-    }
-
-    // Initialize UI markup on bootstrap
-    generateUIAndData();
-
-    // Hybrid paths and hash router
-    function handlePathAndHashRoute() {
-      const path = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
+      // Alert Success to B2B user and launch communication streams
+      alert("Success! Your message has been saved in our secure database. We are launching your dispatch channels now.");
       
-      if (path.endsWith('/steve') || path.endsWith('/steve/') || hash === '#steve') {
-        switchViewport('steve');
-      } else if (hash === '#services') {
-        switchViewport('services');
-      } else if (hash === '#stacks') {
-        switchViewport('stacks');
-      } else if (hash === '#mobility') {
-        switchViewport('mobility');
-      } else if (hash === '#integration') {
-        switchViewport('integration');
-      } else if (hash === '#marketing') {
-        switchViewport('marketing');
-      } else if (hash === '#intake') {
-        switchViewport('intake');
-      } else if (hash === '#admin') {
-        switchViewport('admin');
-      } else {
-        switchViewport('home');
+      // Reset form variables
+      document.getElementById("lead-form").reset();
+      submitBtn.innerText = "SEND MESSAGE ->";
+      submitBtn.disabled = false;
+
+      // Dual-dispatch launch
+      window.open(waUrl, "_blank");
+      window.location.href = mailtoUrl;
+    }
+
+    // STEVE'S CO-BRANDED PARTNER INTAKE DISPATCH HANDLERS
+    async function executePartnerSubmission(event) {
+      event.preventDefault();
+
+      const pBusiness = document.getElementById("partner-business").value.trim();
+      const pContact = document.getElementById("partner-contact").value.trim();
+      const pPhone = document.getElementById("partner-phone").value.trim();
+      const pNotes = document.getElementById("partner-notes").value.trim();
+
+      // Collect checklists
+      const serviceCheckboxes = document.getElementsByName("partner-services");
+      let selectedServices = [];
+      for (let c of serviceCheckboxes) {
+        if (c.checked) {
+          selectedServices.push(c.value);
+        }
+      }
+
+      // Collect Budget radio
+      const budgetRadios = document.getElementsByName("partner-budget");
+      let selectedBudget = "$500 - $1,500";
+      for (let r of budgetRadios) {
+        if (r.checked) {
+          selectedBudget = r.value;
+          break;
+        }
+      }
+
+      // Validation
+      let passes = true;
+      if (!pBusiness) {
+        document.getElementById("partner-business-warn").innerText = "Please enter your business name.";
+        passes = false;
+      }
+      if (!pContact) {
+        document.getElementById("partner-contact-warn").innerText = "Please enter a contact name.";
+        passes = false;
+      }
+      if (!pPhone) {
+        document.getElementById("partner-phone-warn").innerText = "Please enter your phone number.";
+        passes = false;
+      }
+
+      if (!passes) {
+        return;
+      }
+
+      const uuidStr = "L_STEVE_" + Date.now();
+      const leadPayload = {
+        uuid: uuidStr,
+        contact_name: pContact,
+        email: pPhone, // Mapped to primary phone slot
+        area: "Steve's Carpet Cleaning Referral: " + selectedServices.join(", "),
+        budget: selectedBudget,
+        brief: pNotes || "Referred through fast 60-second mobile intake framework.",
+        status: "New",
+        timestamp: new Date().toISOString(),
+        referred_by: "Steve's Carpet Cleaning"
+      };
+
+      const pBtn = document.getElementById("partner-submit-btn");
+      pBtn.innerText = "SAVING REFERRAL...";
+      pBtn.disabled = true;
+
+      if (isFirebaseReady) {
+        try {
+          await db.collection("leads").doc(uuidStr).set(leadPayload);
+        } catch (error) {
+          console.error("Firestore skip fallback on referral saving.", error);
+        }
+      }
+
+      // Launch Communications Channels
+      const targetPhone = "923217452433";
+      const waMsg = `*Steve's Partner Referral*\nBusiness: ${pBusiness}\nContact: ${pContact}\nPhone: ${pPhone}\nNeeds: ${selectedServices.join(", ")}\nBudget: ${selectedBudget}\nNotes: ${pNotes}`;
+      const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(waMsg)}`;
+
+      const mailSubject = `Steve's Carpet Cleaning Referral: ${pBusiness}`;
+      const mailBody = `Hi Virtual Bridge Connect,\n\nI was referred to you by Steve's Carpet Cleaning.\n\nBusiness: ${pBusiness}\nContact Name: ${pContact}\nPhone Number: ${pPhone}\nRequested Help: ${selectedServices.join(", ")}\nBudget Level: ${selectedBudget}\n\nAdditional Notes:\n${pNotes}`;
+      const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+      alert("Thank you! Your referred inquiry has been recorded securely. We are launching your dispatch channels now.");
+      document.getElementById("partner-form").reset();
+      pBtn.innerText = "SEND MESSAGE ->";
+      pBtn.disabled = false;
+
+      // Dispatch
+      window.open(waUrl, "_blank");
+      window.location.href = mailtoUrl;
+    }
+
+    // ADMINISTRATIVE CONTROLS: REAL-TIME LEDGER RENDERING
+    async function readLeadsFromFirestore() {
+      const recordsStatus = document.getElementById("records-status");
+      const tableBody = document.getElementById("leads-table-body");
+
+      if (!isFirebaseReady) {
+        recordsStatus.innerText = "OFFLINE_FALLBACK_MODE_DEMO_DATA";
+        renderOfflineDemoLeads();
+        return;
+      }
+
+      recordsStatus.innerText = "FIRESTORE_SYNC_RUNNING...";
+      try {
+        const snapshot = await db.collection("leads").orderBy("timestamp", "desc").get();
+        leadsData = [];
+        snapshot.forEach(doc => {
+          leadsData.push(doc.data());
+        });
+        
+        renderLeadsTable(leadsData);
+        calculateAdminMetrics(leadsData);
+        recordsStatus.innerText = "FIRESTORE_SYNC_OK";
+      } catch (err) {
+        console.error("Error connecting. Rendering offline fallback metrics.", err);
+        recordsStatus.innerText = "OFFLINE_FALLBACK_MODE";
+        renderOfflineDemoLeads();
       }
     }
-    
-    window.addEventListener('hashchange', handlePathAndHashRoute);
-    window.addEventListener('load', handlePathAndHashRoute);
-  </script>
 
+    function renderOfflineDemoLeads() {
+      leadsData = [
+        { uuid: "L_DEMO_01", contact_name: "John Carter", email: "j.carter@cartercorp.com", area: "Creative Design", budget: "$1.5k–$5k", brief: "Require elegant branding sheets and landing pages for real-estate portfolios in Reston.", status: "New", timestamp: new Date().toISOString(), referred_by: "Direct Corporate Portal" },
+        { uuid: "L_DEMO_02", contact_name: "Sarah Jenkins", email: "sarah@apexcleaners.com", area: "Steve's Carpet Cleaning Referral: New Website, Local SEO", budget: "$1,500 - $3,500", brief: "Need a beautiful local cleaning agency setup matching Steve's automation specifications.", status: "Contacted", timestamp: new Date().toISOString(), referred_by: "Steve's Carpet Cleaning" }
+      ];
+      renderLeadsTable(leadsData);
+      calculateAdminMetrics(leadsData);
+    }
+
+    function renderLeadsTable(arr) {
+      const parent = document.getElementById("leads-table-body");
+      if (!parent) return;
+
+      if (arr.length === 0) {
+        parent.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-cyber-slate font-mono uppercase tracking-widest text-xs">Zero incoming records found in security register.</td></tr>`;
+        return;
+      }
+
+      parent.innerHTML = arr.map(lead => `
+        <tr class="hover:bg-cyber-emerald/5 cursor-pointer font-mono text-[11px] transition-colors" onclick="highlightLeadBrief('${lead.uuid}')">
+          <td class="py-3 px-4 text-cyber-emerald font-bold font-mono">${lead.uuid.substring(0, 10)}...</td>
+          <td class="py-3 px-4 text-white font-sans font-semibold">${lead.contact_name}</td>
+          <td class="py-3 px-4 text-cyber-slate font-sans select-all">${lead.email}</td>
+          <td class="py-3 px-4 text-[#F5F5F5] truncate max-w-[150px] font-sans">${lead.area}</td>
+          <td class="py-3 px-4 text-white font-sans font-bold">${lead.budget}</td>
+          <td class="py-3 px-4" onclick="event.stopPropagation()">
+            <select onchange="mutateLeadStatus('${lead.uuid}', this.value)" class="bg-[#030706] border border-cyber-emerald/30 text-[10px] text-cyber-emerald px-2 py-1 rounded-sm focus:outline-none">
+              <option value="New" ${lead.status === "New" ? "selected" : ""}>New</option>
+              <option value="Contacted" ${lead.status === "Contacted" ? "selected" : ""}>Contacted</option>
+              <option value="Converted" ${lead.status === "Converted" ? "selected" : ""}>Converted</option>
+            </select>
+          </td>
+          <td class="py-3 px-4 text-center" onclick="event.stopPropagation()">
+            <button onclick="terminateLeadRecord('${lead.uuid}')" class="text-[#FF3366] hover:text-white border border-[#FF3366]/20 hover:bg-[#FF3366] px-2 py-1 rounded-sm text-[9px] transition-all font-bold font-mono">
+              DELETE
+            </button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function calculateAdminMetrics(arr) {
+      const total = arr.length;
+      const cNew = arr.filter(l => l.status === "New").length;
+      const cContacted = arr.filter(l => l.status === "Contacted").length;
+      const cConverted = arr.filter(l => l.status === "Converted").length;
+
+      document.getElementById("stat-total").innerText = total;
+      document.getElementById("stat-new").innerText = cNew;
+      document.getElementById("stat-contacted").innerText = cContacted;
+      document.getElementById("stat-converted").innerText = cConverted;
+    }
+
+    function highlightLeadBrief(uuid) {
+      const box = document.getElementById("brief-inspect-box");
+      const record = leadsData.find(l => l.uuid === uuid);
+      if (!record) return;
+
+      box.innerHTML = `
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-b border-cyber-emerald/15 pb-4 text-[10px] text-cyber-slate">
+            <div>
+              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">CONTACT NAME</span>
+              <span class="text-white font-bold text-sm font-sans">${record.contact_name}</span>
+            </div>
+            <div>
+              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">CORP EMAIL / PHONE</span>
+              <span class="text-white font-semibold font-sans select-all">${record.email}</span>
+            </div>
+            <div>
+              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">TARGET TECHNOLOGY CORE</span>
+              <span class="text-white font-semibold font-sans">${record.area}</span>
+            </div>
+            <div>
+              <span class="text-cyber-emerald font-bold uppercase tracking-wider block">REFERRAL PATHWAY</span>
+              <span class="text-cyber-emerald font-bold font-sans">${record.referred_by || "Portal Direct"}</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <span class="text-cyber-emerald font-bold uppercase tracking-wider text-[10px] block">CLIENT INTAKE ARCHITECTURAL NOTES SPECIFICATIONS:</span>
+            <p class="text-white font-sans text-xs bg-cyber-obsidian p-4 border border-cyber-emerald/15 leading-relaxed rounded-sm select-all">${record.brief}</p>
+          </div>
+        </div>
+      `;
+      // Scroll smoothly down to the brief inspector box
+      document.getElementById("brief-inspector-container").scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    async function mutateLeadStatus(uuid, newStatus) {
+      const idx = leadsData.findIndex(l => l.uuid === uuid);
+      if (idx !== -1) {
+        leadsData[idx].status = newStatus;
+        calculateAdminMetrics(leadsData);
+      }
+
+      if (isFirebaseReady) {
+        try {
+          await db.collection("leads").doc(uuid).update({ status: newStatus });
+          console.log("Firestore status updated successfully.");
+        } catch (e) {
+          console.error("Error updating status inside Firestore doc", e);
+        }
+      }
+    }
+
+    async function terminateLeadRecord(uuid) {
+      if (!confirm(`Are you absolutely sure you want to permanently delete record ${uuid}?`)) {
+        return;
+      }
+
+      leadsData = leadsData.filter(l => l.uuid !== uuid);
+      renderLeadsTable(leadsData);
+      calculateAdminMetrics(leadsData);
+
+      if (isFirebaseReady) {
+        try {
+          await db.collection("leads").doc(uuid).delete();
+          console.log("Firestore document terminated.");
+        } catch (e) {
+          console.error("Firestore document deletion skipped or failed.", e);
+        }
+      }
+    }
+
+    // CSV exporter helper
+    function exportLeadsCSV() {
+      if (leadsData.length === 0) {
+        alert("No records to export.");
+        return;
+      }
+
+      const headers = ["UUID", "Contact Name", "Email/Phone", "Area of Assistance", "Budget Range", "Status", "Timestamp", "Referred By"];
+      const rows = leadsData.map(l => [
+        l.uuid,
+        `"${l.contact_name.replace(/"/g, '""')}"`,
+        `"${l.email.replace(/"/g, '""')}"`,
+        `"${l.area.replace(/"/g, '""')}"`,
+        `"${l.budget.replace(/"/g, '""')}"`,
+        l.status,
+        l.timestamp,
+        `"${(l.referred_by || "Portal Direct").replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = "data:text/csv;charset=utf-8," 
+        + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `VBC_Leads_Report_${Date.now()}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </body>
 </html>
