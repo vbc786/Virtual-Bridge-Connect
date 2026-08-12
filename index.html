@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-[#030907]">
+<html lang="en" class="h-full bg-[#030706]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Virtual Bridge Connect | Technical Systems Architecture Gateway</title>
   
-  <!-- Geometric Tech Editorial Typography -->
+  <!-- Browser Favicon Links -->
+  <link rel="icon" type="image/png" href="vbc Logo_2.png" sizes="16x16 32x32 48x48" />
+  <link rel="apple-touch-icon" href="vbc Logo_2.png" />
+  
+  <!-- Typography (Inter + Space Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Firebase Compat Framework SDKs -->
+  <!-- Firebase Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
-  <!-- Tailwind CSS Framework CDN Loading -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -22,20 +26,19 @@
       theme: {
         extend: {
           colors: {
-            astra: {
-              obsidian: '#030907',
-              abyss: '#000000',
-              aurora: '#00FF66',
-              glow: 'rgba(0, 255, 102, 0.15)',
-              ink: '#F5F5F5',
-              gray: '#8A9994',
-              border: '#1A2E26',
-              card: '#08120D'
+            cyber: {
+              obsidian: '#030706',
+              abyss: '#080F0C',
+              emerald: '#00FF66',
+              teal: '#00E5FF',
+              highEmerald: '#00CC52',
+              slate: '#94A3B8'
             }
           },
           fontFamily: {
-            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'SFMono-Regular', 'Menlo', 'monospace'],
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
       }
@@ -43,376 +46,327 @@
   </script>
 
   <style>
-    /* Absolute 0px Rigid Tech Architecture */
-    * {
-      border-radius: 0px !important;
-      box-shadow: none !important;
+    /* RADICAL MODERN DESIGN SYSTEM */
+    body {
+      background-color: #030706;
+      background-image: radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.12), transparent 70%);
+      background-attachment: fixed;
     }
     
     ::selection {
       background-color: #00FF66;
-      color: #000000;
+      color: #030706;
     }
 
-    /* Aura glow transitions and active border effects */
+    /* Ambient background glow spheres */
+    .glow-sphere-1 {
+      position: fixed;
+      top: -10%;
+      left: 15%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 255, 102, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .glow-sphere-2 {
+      position: fixed;
+      bottom: -10%;
+      right: 10%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Glassmorphism Components */
+    .cyber-glass {
+      background: rgba(13, 25, 20, 0.65);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(0, 255, 102, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cyber-glass:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 255, 102, 0.45);
+      box-shadow: 0 0 30px rgba(0, 255, 102, 0.35);
+    }
+
     .glow-input:focus {
       border-color: #00FF66 !important;
       outline: none;
-      box-shadow: 0 0 10px rgba(0, 255, 102, 0.2) !important;
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.3) !important;
+    }
+
+    .glow-btn {
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .glow-btn:hover {
       border-color: #00FF66 !important;
       background-color: #00FF66 !important;
-      color: #000000 !important;
-      box-shadow: 0 0 15px rgba(0, 255, 102, 0.35) !important;
+      color: #030706 !important;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.35) !important;
+      transform: translateY(-2px);
     }
 
-    /* Custom tracking scrollbar matching the cyber palette */
+    .text-gradient {
+      background: linear-gradient(135deg, #FFFFFF 40%, #00FF66 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scrollbar override */
     ::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #000000;
-      border-left: 1px solid #1A2E26;
+      background: #030706;
     }
     ::-webkit-scrollbar-thumb {
+      background: rgba(0, 255, 102, 0.3);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
       background: #00FF66;
     }
 
     .view-transition {
-      transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes pulse-aurora {
-      0%, 100% { opacity: 0.15; transform: scale(1.0); }
-      50% { opacity: 0.25; transform: scale(1.05); }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
     }
-    .aurora-ambient-glow {
-      animation: pulse-aurora 8s infinite ease-in-out;
+    .shake-anim {
+      animation: shake 0.3s ease-in-out;
     }
   </style>
 </head>
-<body class="h-full flex flex-col justify-between font-sans bg-astra-abyss text-astra-ink selection:bg-astra-aurora selection:text-astra-obsidian antialiased overflow-x-hidden min-h-screen relative">
+<body class="h-full flex flex-col justify-between font-sans bg-[#030706] text-white selection:bg-cyber-emerald selection:text-cyber-obsidian antialiased overflow-x-hidden min-h-screen relative">
+
+  <!-- Fixed background gradients -->
+  <div class="glow-sphere-1"></div>
+  <div class="glow-sphere-2"></div>
 
   <!-- ============================================== -->
-  <!-- AMBIENT GEOMETRIC AURORA BACKDOP GLOWS -->
+  <!-- STICKY GLASS HEADER -->
   <!-- ============================================== -->
-  <div class="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-astra-aurora/5 blur-[120px] pointer-events-none aurora-ambient-glow z-0"></div>
-  <div class="absolute bottom-[20%] right-[-100px] w-[600px] h-[600px] rounded-full bg-astra-aurora/5 blur-[150px] pointer-events-none aurora-ambient-glow z-0" style="animation-delay: 3s;"></div>
-
-  <!-- ============================================== -->
-  <!-- PREMIUM HEADER NAV FRAME -->
-  <!-- ============================================== -->
-  <header class="w-full bg-astra-obsidian border-b border-astra-border sticky top-0 z-[100] backdrop-blur-md">
+  <header class="w-full bg-[#0d1914]/65 sticky top-0 z-[100] backdrop-blur-xl border-b border-cyber-emerald/15">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
       
-      <!-- Logo Matrix -->
-      <div class="flex items-center justify-between w-full md:w-auto">
-        <a href="#" onclick="switchViewport('home')" class="flex flex-col select-none">
-          <span class="text-xl font-extrabold tracking-tight text-[#F5F5F5] hover:text-astra-aurora transition-colors uppercase font-mono leading-none">
-            VIRTUAL BRIDGE<span class="text-astra-aurora">//</span>CONNECT
-          </span>
-          <span class="text-[8px] font-mono uppercase tracking-[0.25em] text-astra-gray mt-1 leading-none">Global enterprise outsource matrices</span>
+      <!-- Brand Logo Alignment -->
+      <div class="flex items-center justify-between w-full md:w-auto gap-3">
+        <a href="#" onclick="switchViewport('home')" class="flex items-center gap-3 select-none hover:shadow-[0_0_20px_rgba(0,255,102,0.25)] border border-transparent hover:border-cyber-emerald/40 rounded px-2 py-1 transition-all duration-300">
+          <!-- Minimalist abstract network bridge node icon -->
+          <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg border border-cyber-emerald/30 bg-cyber-emerald/5 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-emerald/20 to-transparent opacity-50"></div>
+            <svg class="w-5 h-5 text-cyber-emerald relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white hover:text-cyber-emerald transition-colors uppercase font-display leading-none">
+              VIRTUAL BRIDGE<span class="text-cyber-emerald">//</span>CONNECT
+            </span>
+            <span class="text-[8px] font-mono uppercase tracking-[0.25em] text-cyber-slate mt-1 leading-none">Global enterprise outsource matrices</span>
+          </div>
         </a>
         
-        <!-- Mobile Navigation Trigger -->
-        <button onclick="toggleMobileMenu()" class="md:hidden text-xs font-mono border border-astra-border px-3 py-1 bg-astra-card hover:bg-[#08120D] text-astra-aurora flex items-center gap-1.5 focus:outline-none">
+        <!-- Mobile Nav Hamburger -->
+        <button onclick="toggleMobileMenu()" class="md:hidden text-xs font-mono border border-cyber-emerald/20 px-3 py-1.5 bg-cyber-obsidian hover:bg-cyber-emerald/10 text-cyber-emerald flex items-center gap-1.5 focus:outline-none transition-all">
           MENU
-          <span class="inline-block w-1.5 h-1.5 bg-astra-aurora animate-pulse"></span>
+          <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald animate-pulse"></span>
         </button>
       </div>
 
-      <!-- Desktop Navigation Interface -->
-      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 xl:gap-2 text-[10px] font-mono uppercase tracking-widest text-astra-gray">
-        <button onclick="switchViewport('home')" id="nav-home" class="px-2.5 py-1.5 transition-colors text-astra-aurora font-bold">home</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('services')" id="nav-services" class="px-2.5 py-1.5 transition-colors hover:text-astra-aurora">services</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('stacks')" id="nav-stacks" class="px-2.5 py-1.5 transition-colors hover:text-astra-aurora">cms stacks</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('mobility')" id="nav-mobility" class="px-2.5 py-1.5 transition-colors hover:text-astra-aurora">mobility & erp</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('integration')" id="nav-integration" class="px-2.5 py-1.5 transition-colors hover:text-astra-aurora">integrations</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('marketing')" id="nav-marketing" class="px-2.5 py-1.5 transition-colors hover:text-astra-aurora">marketing</button>
-        <span class="text-astra-border">/</span>
-        <button onclick="switchViewport('intake')" id="nav-intake" class="px-3.5 py-1.5 border border-astra-aurora text-astra-aurora hover:bg-astra-aurora hover:text-astra-obsidian font-bold transition-all ml-1.5">INTAKE REGISTRY</button>
+      <!-- Desktop Navigation -->
+      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 xl:gap-2 text-[10px] font-mono uppercase tracking-widest text-cyber-slate">
+        <button onclick="switchViewport('home')" id="nav-home" class="px-2.5 py-1.5 transition-colors text-cyber-emerald font-bold">home</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('services')" id="nav-services" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">services</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('stacks')" id="nav-stacks" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">cms stacks</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('mobility')" id="nav-mobility" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">mobility & erp</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('integration')" id="nav-integration" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">integrations</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('marketing')" id="nav-marketing" class="px-2.5 py-1.5 transition-colors hover:text-cyber-emerald">marketing</button>
+        <span class="text-cyber-emerald/20">/</span>
+        <button onclick="switchViewport('intake')" id="nav-intake" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian font-bold transition-all ml-1.5 rounded-sm">INTAKE REGISTRY</button>
       </nav>
 
-      <!-- System Status Indicators and Masked Admin Action trigger -->
+      <!-- Security layer indicators -->
       <div class="hidden lg:flex items-center gap-4">
-        <div class="flex items-center gap-2 px-3 py-1.5 border border-astra-border text-[9px] font-mono text-astra-gray bg-astra-card">
-          <span class="inline-block w-1.5 h-1.5 bg-astra-aurora animate-pulse"></span>
-          <span>AURORA LAYER ENCRYPTED</span>
+        <div class="flex items-center gap-2 px-3 py-1.5 border border-cyber-emerald/15 text-[9px] font-mono text-cyber-slate bg-cyber-obsidian">
+          <span class="inline-block w-1.5 h-1.5 bg-cyber-emerald animate-pulse"></span>
+          <span>AURORA MATRIX DECREE</span>
         </div>
 
-        <!-- MASKED GATEWAY TRIGGER - UNLABELLED 10x10 PIXEL FRAME -->
-        <div 
-          id="invisible-admin-gateway"
-          onclick="triggerPasscodeModal()"
-          class="w-[10px] h-[10px] bg-transparent cursor-default relative"
-        >
+        <!-- MASKED GATEWAY TRIGGER - INVISIBLE 10x10 PIXEL -->
+        <div id="invisible-admin-gateway" onclick="triggerPasscodeModal()" class="w-[10px] h-[10px] bg-transparent cursor-default relative">
           <div class="absolute inset-0 bg-transparent"></div>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-astra-border bg-astra-card text-xs font-mono divide-y divide-astra-border uppercase tracking-widest text-center">
-      <button onclick="switchViewport('home'); toggleMobileMenu()" class="w-full py-4 block text-astra-aurora font-bold">home</button>
+    <!-- Mobile Drawer Panel -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-cyber-emerald/15 bg-cyber-obsidian/95 text-xs font-mono divide-y divide-cyber-emerald/15 uppercase tracking-widest text-center">
+      <button onclick="switchViewport('home'); toggleMobileMenu()" class="w-full py-4 block text-cyber-emerald font-bold">home</button>
       <button onclick="switchViewport('services'); toggleMobileMenu()" class="w-full py-4 block">services</button>
       <button onclick="switchViewport('stacks'); toggleMobileMenu()" class="w-full py-4 block">cms stacks</button>
       <button onclick="switchViewport('mobility'); toggleMobileMenu()" class="w-full py-4 block">mobility & erp</button>
       <button onclick="switchViewport('integration'); toggleMobileMenu()" class="w-full py-4 block">integrations</button>
       <button onclick="switchViewport('marketing'); toggleMobileMenu()" class="w-full py-4 block">marketing</button>
-      <button onclick="switchViewport('intake'); toggleMobileMenu()" class="w-full py-4 block bg-astra-aurora text-astra-obsidian font-bold">INTAKE REGISTRY</button>
-      <button onclick="triggerPasscodeModal(); toggleMobileMenu()" class="w-full py-3 block text-astra-gray/50 text-[10px]">Administrative key entry</button>
+      <button onclick="switchViewport('intake'); toggleMobileMenu()" class="w-full py-4 block bg-cyber-emerald text-cyber-obsidian font-bold">INTAKE REGISTRY</button>
+      <button onclick="triggerPasscodeModal(); toggleMobileMenu()" class="w-full py-3 block text-cyber-slate/50 text-[10px]">Administrative key entry</button>
     </div>
   </header>
 
   <!-- ============================================== -->
-  <!-- MAIN SYSTEM OUTPUT REGION -->
+  <!-- MAIN VIEWPORT GRID LAYER -->
   <!-- ============================================== -->
   <main class="flex-grow py-8 md:py-16 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- ============================================== -->
-      <!-- VIEW 1: THE HIGH-TICKET HOMEPAGE -->
+      <!-- PAGE 1: THE HIGH-TICKET HOMEPAGE -->
       <!-- ============================================== -->
       <section id="view-home" class="view-transition opacity-100 block space-y-20">
         
-        <!-- Premium Product Header -->
+        <!-- Large high-ticket gradient hero -->
         <div class="max-w-5xl space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 border border-astra-aurora/30 text-[9px] font-mono tracking-widest text-astra-aurora uppercase bg-astra-aurora/5">
-            <span class="inline-block w-1 h-1 bg-astra-aurora animate-ping"></span>
+          <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyber-emerald/30 text-[9px] font-mono tracking-widest text-cyber-emerald uppercase bg-cyber-emerald/5">
+            <span class="inline-block w-1 h-1 bg-cyber-emerald animate-ping"></span>
             <span>HIGH-VELOCITY TRANS-GLOBAL DELIVERY PIPELINES</span>
           </div>
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-sans tracking-tighter text-white font-extrabold leading-[1.0]">
-            Intensive, Comprehensive & Pioneering <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-astra-aurora to-white">Global IT Outsourcing</span>.
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display tracking-tight text-white font-extrabold leading-[1.0] text-gradient">
+            Intensive, Comprehensive & Pioneering Global IT Outsourcing.
           </h1>
-          <p class="text-sm sm:text-base text-astra-gray max-w-2xl font-normal leading-relaxed">
+          <p class="text-sm sm:text-base text-cyber-slate max-w-2xl font-normal leading-relaxed">
             Architecturally optimized infrastructure modules connecting high-load corporate hubs in Reston, VA to deep technical delivery teams in Lahore, Pakistan. Full transparency. Guaranteed delivery SLA.
           </p>
           <div class="pt-2 flex flex-wrap gap-4 font-mono text-[10px] uppercase tracking-wider">
-            <button onclick="switchViewport('intake')" class="px-6 py-3 bg-astra-aurora text-astra-obsidian font-black hover:opacity-90 transition-all glow-btn cursor-pointer">
+            <button onclick="switchViewport('intake')" class="px-6 py-3 bg-cyber-emerald text-cyber-obsidian font-black hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
               DISPATCH STRATEGY BRIEF
             </button>
-            <button onclick="switchViewport('services')" class="px-6 py-3 border border-astra-border text-astra-ink hover:text-white hover:bg-astra-card transition-all cursor-pointer">
+            <button onclick="switchViewport('services')" class="px-6 py-3 border border-cyber-emerald/30 text-white hover:text-cyber-emerald hover:bg-cyber-emerald/5 transition-all cursor-pointer rounded-sm">
               EXPLORE PRACTICE CORE &rarr;
             </button>
           </div>
         </div>
 
-        <!-- 8-Stage Sequential Execution Path -->
-        <div class="border border-astra-border bg-astra-card p-6 relative">
-          <div class="border-b border-astra-border pb-3 mb-6 flex justify-between items-center flex-wrap gap-2">
-            <span class="text-[10px] font-mono text-astra-aurora uppercase tracking-widest font-bold">SYSTEM APPROACH METHODOLOGY SEQUENCE MATRIX</span>
-            <span class="text-[8px] font-mono text-astra-gray bg-astra-obsidian px-2.5 py-0.5 border border-astra-border">STAGE_PIPELINE_STATUS_OK</span>
+        <!-- Interactive Node Flow Grid -->
+        <div class="cyber-glass p-6 relative rounded-lg">
+          <div class="border-b border-cyber-emerald/15 pb-3 mb-6 flex justify-between items-center flex-wrap gap-2">
+            <span class="text-[10px] font-mono text-cyber-emerald uppercase tracking-widest font-bold">// SYSTEM APPROACH METHODOLOGY SEQUENCE MATRIX</span>
+            <span class="text-[8px] font-mono text-cyber-slate bg-cyber-obsidian px-2.5 py-0.5 border border-cyber-emerald/15">STAGE_PIPELINE_STATUS_OK</span>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 font-mono text-center">
-            <div onclick="selectStageNode(1)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 01</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Lead By Example</div>
-            </div>
-            <div onclick="selectStageNode(2)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 02</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Motivate</div>
-            </div>
-            <div onclick="selectStageNode(3)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 03</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Inspire</div>
-            </div>
-            <div onclick="selectStageNode(4)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 04</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Mentor</div>
-            </div>
-            <div onclick="selectStageNode(5)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 05</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Coach</div>
-            </div>
-            <div onclick="selectStageNode(6)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 06</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Vision</div>
-            </div>
-            <div onclick="selectStageNode(7)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-gray font-bold">STAGE 07</div>
-              <div class="text-[10px] uppercase text-white font-black mt-1">Teamwork</div>
-            </div>
-            <div onclick="selectStageNode(8)" class="border border-astra-border p-3 hover:border-astra-aurora transition-all bg-astra-obsidian cursor-pointer active:bg-astra-aurora/10">
-              <div class="text-[8px] text-astra-aurora font-bold">STAGE 08</div>
-              <div class="text-[10px] uppercase text-astra-aurora font-black mt-1">Win</div>
-            </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 font-mono text-center" id="methodology-node-grid">
+            <!-- Populated via script to conserve token budget -->
           </div>
-          <!-- Interactive Stage Descriptor Target -->
-          <div id="stage-desc-container" class="mt-4 p-4 border border-astra-border bg-astra-obsidian text-xs font-mono text-center text-astra-gray select-none">
+          <div id="stage-desc-container" class="mt-4 p-4 border border-cyber-emerald/15 bg-cyber-obsidian/60 text-xs font-mono text-center text-cyber-slate select-none rounded-sm">
             Click any methodology stage above to inspect its live SLA operational directives.
           </div>
         </div>
 
-        <!-- 3-Column Premier Choice Dashboard -->
+        <!-- 3-column Premier Choice Dashboard -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-astra-card p-8 border border-astra-border hover:border-astra-aurora/30 transition-all relative">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-astra-aurora">C_NODE_01_INTELLECT</span>
-            <h3 class="text-2xl font-bold font-sans text-white mt-3 mb-3">Intellect</h3>
-            <p class="text-xs text-astra-gray leading-relaxed font-normal">
-               Pakistan delivery hub staffed exclusively by high-tier double-cleared systems developers. Continuously audited for high-density microservices architectures, reactive state engines, and secure protocols.
+          <div class="cyber-glass p-8 relative rounded-lg">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_01_INTELLECT</span>
+            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Intellect</h3>
+            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
+              Pakistan delivery hub staffed exclusively by high-tier double-cleared systems developers. Continuously audited for high-density microservices architectures, reactive state engines, and secure protocols.
             </p>
           </div>
-          <div class="bg-astra-card p-8 border border-astra-border hover:border-astra-aurora/30 transition-all relative">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-astra-aurora">C_NODE_02_QUALITY</span>
-            <h3 class="text-2xl font-bold font-sans text-white mt-3 mb-3">Quality Grids</h3>
-            <p class="text-xs text-astra-gray leading-relaxed font-normal">
-               Rigid layout structures without visual anomalies. Continuous automated compilation checklists ensure complete code reliability. No truncated routines enter our deployment gateways.
+          <div class="cyber-glass p-8 relative rounded-lg">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_02_QUALITY</span>
+            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Quality Grids</h3>
+            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
+              Rigid layout structures without visual anomalies. Continuous automated compilation checklists ensure complete code reliability. No truncated routines enter our deployment gateways.
             </p>
           </div>
-          <div class="bg-astra-card p-8 border border-astra-border hover:border-astra-aurora/30 transition-all relative">
-            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-astra-aurora">C_NODE_03_VELOCITY</span>
-            <h3 class="text-2xl font-bold font-sans text-white mt-3 mb-3">Track Record</h3>
-            <p class="text-xs text-astra-gray leading-relaxed font-normal">
-               Complete monitoring mapping operational velocities to precise delivery sprints. Comprehensive support for static pages, high concurrency APIs, CRM structures, and mobile platforms.
+          <div class="cyber-glass p-8 relative rounded-lg">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-cyber-emerald">C_NODE_03_VELOCITY</span>
+            <h3 class="text-2xl font-bold font-display text-white mt-3 mb-3">Track Record</h3>
+            <p class="text-xs text-cyber-slate leading-relaxed font-normal">
+              Complete monitoring mapping operational velocities to precise delivery sprints. Comprehensive support for static pages, high concurrency APIs, CRM structures, and mobile platforms.
             </p>
           </div>
         </div>
 
         <!-- Master Capabilities Matrix -->
-        <div class="border border-astra-border p-8 bg-astra-card relative space-y-6">
-          <div class="border-b border-astra-border pb-4 flex justify-between items-center sm:flex-row flex-col gap-2">
-            <h2 class="text-xl font-bold uppercase font-mono text-white tracking-widest flex items-center gap-2">
-              <span class="w-1.5 h-3 bg-astra-aurora"></span>
+        <div class="cyber-glass p-8 relative space-y-6 rounded-lg">
+          <div class="border-b border-cyber-emerald/15 pb-4 flex justify-between items-center sm:flex-row flex-col gap-2">
+            <h2 class="text-xl font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+              <span class="w-1.5 h-3 bg-cyber-emerald"></span>
               MASTER CAPABILITIES MATRIX
             </h2>
-            <span class="text-[9px] font-mono text-astra-aurora tracking-widest uppercase">ACTIVE ENGAGEMENT CORES</span>
+            <span class="text-[9px] font-mono text-cyber-emerald tracking-widest uppercase">ACTIVE ENGAGEMENT CORES</span>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-astra-obsidian p-6 border border-astra-border hover:border-astra-aurora/30 transition-all flex flex-col justify-between space-y-4">
-              <div class="space-y-3">
-                <span class="text-[9px] font-mono text-astra-gray block">// CORESPECS_01</span>
-                <h4 class="text-lg font-bold text-white font-sans">Information Technology</h4>
-                <p class="text-xs text-astra-gray leading-relaxed">
-                  Decoupled server clusters, high priority REST APIs, custom routing proxies, AWS orchestration systems, and highly validated database pipelines.
-                </p>
-              </div>
-              <button onclick="quickFillForm('Information Technology')" class="text-[10px] font-mono text-astra-aurora hover:underline text-left cursor-pointer uppercase tracking-wider">
-                COMMENCE MODULE &rarr;
-              </button>
-            </div>
-
-            <div class="bg-astra-obsidian p-6 border border-astra-border hover:border-astra-aurora/30 transition-all flex flex-col justify-between space-y-4">
-              <div class="space-y-3">
-                <span class="text-[9px] font-mono text-astra-gray block">// CORESPECS_02</span>
-                <h4 class="text-lg font-bold text-white font-sans">Creative Design</h4>
-                <p class="text-xs text-astra-gray leading-relaxed">
-                  Inverted editorial UI style parameters, high precision stationery designs, robust multi-screen visual systems, and corporate motion media setups.
-                </p>
-              </div>
-              <button onclick="quickFillForm('Creative Design')" class="text-[10px] font-mono text-astra-aurora hover:underline text-left cursor-pointer uppercase tracking-wider">
-                COMMENCE MODULE &rarr;
-              </button>
-            </div>
-
-            <div class="bg-astra-obsidian p-6 border border-astra-border hover:border-astra-aurora/30 transition-all flex flex-col justify-between space-y-4">
-              <div class="space-y-3">
-                <span class="text-[9px] font-mono text-astra-gray block">// CORESPECS_03</span>
-                <h4 class="text-lg font-bold text-white font-sans">Social Media Management</h4>
-                <p class="text-xs text-astra-gray leading-relaxed">
-                  Analytical automation nodes mapping publication matrices, target executive pipeline filters, and custom metadata tracking registries.
-                </p>
-              </div>
-              <button onclick="quickFillForm('Social Media Management')" class="text-[10px] font-mono text-astra-aurora hover:underline text-left cursor-pointer uppercase tracking-wider">
-                COMMENCE MODULE &rarr;
-              </button>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="capabilities-matrix-grid">
+            <!-- Dynamically populated via script -->
           </div>
         </div>
 
         <!-- Vertical 8-Step Service Execution Journey Timeline -->
         <div class="space-y-8">
-          <div class="border-b border-astra-border pb-4">
-            <h2 class="text-2xl font-bold uppercase tracking-widest font-mono text-white">Global Delivery Lifecycle Protocol</h2>
-            <p class="text-[10px] font-mono text-astra-gray uppercase mt-1">8 discrete operational checkpoints from preliminary data mining to legacy upkeep</p>
+          <div class="border-b border-cyber-emerald/15 pb-4">
+            <h2 class="text-2xl font-bold uppercase tracking-widest font-display text-white">Global Delivery Lifecycle Protocol</h2>
+            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">8 discrete operational checkpoints from preliminary data mining to legacy upkeep</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 01</div>
-              <h4 class="text-base font-bold text-white font-sans">Data Mining & Spec Analysis</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Deep analysis of enterprise code specs, and legacy information parameters before structure design.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 02</div>
-              <h4 class="text-base font-bold text-white font-sans">Requirements Matrix Mapping</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Precise operational specs translation mapping security configurations, databases, and structural schema bounds.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 03</div>
-              <h4 class="text-base font-bold text-white font-sans">System Wireframes Prototyping</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Designing clean zero shadow layouts utilizing precise editorial alignment grids and interactive mock-ups.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 04</div>
-              <h4 class="text-base font-bold text-white font-sans">Interactive Frontend Development</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Clean code implementations utilizing fast dynamic routing protocols, modern type-strip scripts, and assets caches.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 05</div>
-              <h4 class="text-base font-bold text-white font-sans">Comprehensive Unit Testing</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Thorough compilation checks verifying inputs validation layers, Firestore actions, and rendering bounds.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 06</div>
-              <h4 class="text-base font-bold text-white font-sans">Global Dispatch Deployment</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Provisioning Cloud DNS grids, live Firestore rules publishing, and deploying code elements securely.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 07</div>
-              <h4 class="text-base font-bold text-white font-sans">System Retrospective Logs</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Comprehensive review mapping live data velocities and metrics logs back to enterprise requirements blocks.</p>
-            </div>
-            <div class="border border-astra-border p-5 space-y-2 bg-astra-card hover:border-astra-aurora/30 transition-all">
-              <div class="text-[9px] font-mono text-astra-aurora font-bold">LIFECYCLE // MODULE 08</div>
-              <h4 class="text-base font-bold text-white font-sans">Perpetual Upkeep & Maintenance</h4>
-              <p class="text-xs text-astra-gray leading-relaxed">Continuous uptime surveillance, real-time database schema validation, and regular priority structural optimization.</p>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="lifecycle-timeline-grid">
+            <!-- Dynamically populated via script -->
           </div>
         </div>
 
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 2: THE CAPABILITIES DIRECTORY (SERVICES) -->
+      <!-- PAGE 2: THE CAPABILITIES DIRECTORY -->
       <!-- ============================================== -->
       <section id="view-services" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">Capabilities Directory</h2>
-          <p class="text-xs font-mono text-astra-gray">STRUCTURED DIRECTORIES OF SECURED TECH PRACTICES</p>
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest text-gradient">Capabilities Directory</h2>
+          <p class="text-xs font-mono text-cyber-slate">STRUCTURED DIRECTORIES OF SECURED TECH PRACTICES</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           <!-- Web Practice Areas -->
-          <div class="border border-astra-border p-6 space-y-6 bg-astra-card">
-            <h3 class="text-lg font-bold uppercase font-mono text-white flex items-center gap-2">
-              <span class="inline-block w-1.5 h-3 bg-astra-aurora"></span>
+          <div class="cyber-glass p-6 space-y-6 rounded-lg">
+            <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
+              <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
               Web Practice Directories
             </h3>
             <div class="space-y-4 font-mono text-xs">
-              <div class="p-4 bg-astra-obsidian border border-astra-border hover:border-astra-aurora/30 transition-all space-y-2">
+              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold">// BE-SPOKE SYSTEM COMPOSITION</span>
-                  <span class="text-[8px] bg-astra-aurora/10 text-astra-aurora px-2 py-0.5 border border-astra-aurora/20">ENTERPRISE SYSTEM</span>
+                  <span class="font-bold font-display tracking-wide">// BE-SPOKE SYSTEM COMPOSITION</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">ENTERPRISE SYSTEM</span>
                 </div>
-                <p class="text-astra-gray font-sans leading-relaxed text-xs">
+                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
                   Clean, production-grade custom architectures initialized directly on serverless and full-stack runtime layers.
                 </p>
               </div>
-              <div class="p-4 bg-astra-obsidian border border-astra-border hover:border-astra-aurora/30 transition-all space-y-2">
+              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold">// E-COMMERCE ENGINES</span>
-                  <span class="text-[8px] bg-astra-aurora/10 text-astra-aurora px-2 py-0.5 border border-astra-aurora/20">HIGH LOAD</span>
+                  <span class="font-bold font-display tracking-wide">// E-COMMERCE ENGINES</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">HIGH LOAD</span>
                 </div>
-                <p class="text-astra-gray font-sans leading-relaxed text-xs">
+                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
                   Fast transaction setups containing high catalog caches and fully secured inventory pipeline layers.
                 </p>
               </div>
@@ -420,27 +374,27 @@
           </div>
 
           <!-- Software Infrastructure -->
-          <div class="border border-astra-border p-6 space-y-6 bg-astra-card">
-            <h3 class="text-lg font-bold uppercase font-mono text-white flex items-center gap-2">
-              <span class="inline-block w-1.5 h-3 bg-astra-aurora"></span>
+          <div class="cyber-glass p-6 space-y-6 rounded-lg">
+            <h3 class="text-lg font-bold uppercase font-display text-white flex items-center gap-2">
+              <span class="inline-block w-1.5 h-3 bg-cyber-emerald"></span>
               Software Practice Directories
             </h3>
             <div class="space-y-4 font-mono text-xs">
-              <div class="p-4 bg-astra-obsidian border border-astra-border hover:border-astra-aurora/30 transition-all space-y-2">
+              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold">// SECURE ENTERPRISE CLOUD SYNC</span>
-                  <span class="text-[8px] bg-astra-aurora/10 text-astra-aurora px-2 py-0.5 border border-astra-aurora/20">MIGRATIONS</span>
+                  <span class="font-bold font-display tracking-wide">// SECURE ENTERPRISE CLOUD SYNC</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">MIGRATIONS</span>
                 </div>
-                <p class="text-astra-gray font-sans leading-relaxed text-xs">
+                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
                   Flawless database transformations migrating legacy physical setups direct to scalable Cloud Firestore backends without data loss.
                 </p>
               </div>
-              <div class="p-4 bg-astra-obsidian border border-astra-border hover:border-astra-aurora/30 transition-all space-y-2">
+              <div class="p-4 bg-cyber-obsidian/60 border border-cyber-emerald/15 hover:border-cyber-emerald/40 transition-all space-y-2 rounded-sm">
                 <div class="flex justify-between items-center text-[#F5F5F5] flex-wrap gap-2">
-                  <span class="font-bold">// REAL-TIME INTEGRATIONS & TESTING</span>
-                  <span class="text-[8px] bg-astra-aurora/10 text-astra-aurora px-2 py-0.5 border border-astra-aurora/20">AUTOMATED DATA</span>
+                  <span class="font-bold font-display tracking-wide">// REAL-TIME INTEGRATIONS & TESTING</span>
+                  <span class="text-[8px] bg-cyber-emerald/10 text-cyber-emerald px-2 py-0.5 border border-cyber-emerald/20 rounded-xs">AUTOMATED DATA</span>
                 </div>
-                <p class="text-astra-gray font-sans leading-relaxed text-xs">
+                <p class="text-cyber-slate font-sans leading-relaxed text-xs">
                   Validating throughput with load metrics, latency analyses, and verified regression checklists.
                 </p>
               </div>
@@ -448,22 +402,22 @@
           </div>
         </div>
 
-        <!-- Tabbed Engagement Protocol component -->
-        <div class="border border-astra-border p-8 bg-astra-card relative">
-          <div class="border-b border-astra-border pb-4 mb-6">
-            <h3 class="text-xl font-bold uppercase font-mono text-white">Engagement Protocols Blueprint</h3>
-            <p class="text-[10px] font-mono text-astra-gray uppercase mt-1">Select visual node option to view operational targets and SLA specs</p>
+        <!-- Tabbed Engagement Protocol -->
+        <div class="cyber-glass p-8 relative rounded-lg">
+          <div class="border-b border-cyber-emerald/15 pb-4 mb-6">
+            <h3 class="text-xl font-bold uppercase font-display text-white">Engagement Protocols Blueprint</h3>
+            <p class="text-[10px] font-mono text-cyber-slate uppercase mt-1">Select visual node option to view operational targets and SLA specs</p>
           </div>
 
           <!-- Tabs Handles -->
-          <div class="grid grid-cols-1 md:grid-cols-3 border border-astra-border mb-6">
-            <button onclick="switchSvcTab('dedicated')" id="tab-btn-dedicated" class="py-3 text-xs font-mono font-bold uppercase tracking-wider bg-astra-aurora text-astra-obsidian focus:outline-none transition-all cursor-pointer">
+          <div class="grid grid-cols-1 md:grid-cols-3 border border-cyber-emerald/20 mb-6 rounded-sm overflow-hidden">
+            <button onclick="switchSvcTab('dedicated')" id="tab-btn-dedicated" class="py-3 text-xs font-mono font-bold uppercase tracking-wider bg-cyber-emerald text-cyber-obsidian focus:outline-none transition-all cursor-pointer">
               Dedicated Offshore Team
             </button>
-            <button onclick="switchSvcTab('timemat')" id="tab-btn-timemat" class="py-3 text-xs font-mono font-bold uppercase tracking-wider border-t md:border-t-0 md:border-l md:border-r border-astra-border text-astra-gray hover:text-white bg-astra-obsidian focus:outline-none transition-all cursor-pointer">
+            <button onclick="switchSvcTab('timemat')" id="tab-btn-timemat" class="py-3 text-xs font-mono font-bold uppercase tracking-wider border-t md:border-t-0 md:border-l md:border-r border-cyber-emerald/15 text-cyber-slate hover:text-white bg-cyber-obsidian focus:outline-none transition-all cursor-pointer">
               Time &amp; Material
             </button>
-            <button onclick="switchSvcTab('fixedprice')" id="tab-btn-fixedprice" class="py-3 text-xs font-mono font-bold uppercase tracking-wider text-astra-gray hover:text-white bg-astra-obsidian focus:outline-none transition-all cursor-pointer">
+            <button onclick="switchSvcTab('fixedprice')" id="tab-btn-fixedprice" class="py-3 text-xs font-mono font-bold uppercase tracking-wider text-cyber-slate hover:text-white bg-cyber-obsidian focus:outline-none transition-all cursor-pointer">
               Fixed Price Contract
             </button>
           </div>
@@ -471,85 +425,82 @@
           <!-- Tab Content Cards -->
           <div id="tab-parent" class="font-mono text-xs">
             
-            <!-- Tab Pod -->
             <div id="tab-data-dedicated" class="svc-tab-pane block space-y-4">
-              <div class="bg-astra-obsidian p-6 border border-astra-border">
-                <h4 class="text-base font-bold text-white uppercase font-mono mb-2">Dedicated offshore engineering model</h4>
-                <p class="text-xs text-astra-gray font-sans mb-4 leading-relaxed">
+              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Dedicated offshore engineering model</h4>
+                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
                   We assign custom Pakistan-based system builders specifically scaled to your technology constraints. High priority Slack, secure environments, and daily sprint schedules directly integrated into your Reston workflow.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-astra-border text-[9px] text-astra-gray">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">SLA CRITERIA</span>
-                    <span class="font-bold text-white text-[11px]">99.9% Sync Accuracy</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SLA CRITERIA</span>
+                    <span class="font-bold text-white text-[11px] font-sans">99.9% Sync Accuracy</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">RESPONSE METRICS</span>
-                    <span class="font-bold text-white text-[11px]">Less than 2 Hours</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">RESPONSE METRICS</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Less than 2 Hours</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">PROVISION LEAD</span>
-                    <span class="font-bold text-white text-[11px]">7 Business Days</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">PROVISION LEAD</span>
+                    <span class="font-bold text-white text-[11px] font-sans">7 Business Days</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">AUDIT MATRIX</span>
-                    <span class="font-bold text-white text-[11px]">Sprints Status Weekly</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">AUDIT MATRIX</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Sprints Status Weekly</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Tab T&M -->
             <div id="tab-data-timemat" class="svc-tab-pane hidden space-y-4">
-              <div class="bg-astra-obsidian p-6 border border-astra-border">
-                <h4 class="text-base font-bold text-white uppercase font-mono mb-2">Time &amp; Materials Execution Framework</h4>
-                <p class="text-xs text-astra-gray font-sans mb-4 leading-relaxed">
+              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Time &amp; Materials Execution Framework</h4>
+                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
                   Ideal for volatile application shapes, rapid custom prototypes, or scalable integration modules. Fully transparent invoice ledger logs mapped securely on standard biweekly sprint cycles.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-astra-border text-[9px] text-astra-gray">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">SPRINT INTERVALS</span>
-                    <span class="font-bold text-white text-[11px]">14 Calendar Days</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SPRINT INTERVALS</span>
+                    <span class="font-bold text-white text-[11px] font-sans">14 Calendar Days</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">TRACKING PORTAL</span>
-                    <span class="font-bold text-white text-[11px]">Hour Logs Transparency</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">TRACKING PORTAL</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Hour Logs Transparency</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">POD CHANGE INTERVAL</span>
-                    <span class="font-bold text-white text-[11px]">48 Hours SLA</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">POD CHANGE INTERVAL</span>
+                    <span class="font-bold text-white text-[11px] font-sans">48 Hours SLA</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">CODE CHECKS</span>
-                    <span class="font-bold text-white text-[11px]">Continuous Deployment</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">CODE CHECKS</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Continuous Deployment</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Tab Fixed -->
             <div id="tab-data-fixedprice" class="svc-tab-pane hidden space-y-4">
-              <div class="bg-astra-obsidian p-6 border border-astra-border">
-                <h4 class="text-base font-bold text-white uppercase font-mono mb-2">Fixed-Price Technical Agreements</h4>
-                <p class="text-xs text-astra-gray font-sans mb-4 leading-relaxed">
+              <div class="bg-cyber-obsidian/60 p-6 border border-cyber-emerald/15 rounded-sm">
+                <h4 class="text-base font-bold text-white uppercase font-display mb-2">Fixed-Price Technical Agreements</h4>
+                <p class="text-xs text-cyber-slate font-sans mb-4 leading-relaxed">
                   Highly recommended for well-specified custom CMS modules, enterprise ERP migration architectures, or standalone technical portal products. Zero billing exceeds mapped budgets unless user creates formal scope alterations.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-astra-border text-[9px] text-astra-gray">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-emerald/15 text-[9px] text-cyber-slate">
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">BUDGET BOUNDARY</span>
-                    <span class="font-bold text-white text-[11px]">Strict Cost Caps</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">BUDGET BOUNDARY</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Strict Cost Caps</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">DELIVERY SINK</span>
-                    <span class="font-bold text-white text-[11px]">Milestone Locked</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">DELIVERY SINK</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Milestone Locked</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">SCOPE ALTERATION GATE</span>
-                    <span class="font-bold text-white text-[11px]">Formal Specification Gate</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">SCOPE ALTERATION GATE</span>
+                    <span class="font-bold text-white text-[11px] font-sans">Formal Specification Gate</span>
                   </div>
                   <div>
-                    <span class="text-astra-aurora block uppercase tracking-wider">Post-Launch Support</span>
-                    <span class="font-bold text-white text-[11px]">90 Calendar Days</span>
+                    <span class="text-cyber-emerald block uppercase tracking-wider font-bold">Post-Launch Support</span>
+                    <span class="font-bold text-white text-[11px] font-sans">90 Calendar Days</span>
                   </div>
                 </div>
               </div>
@@ -557,526 +508,178 @@
 
           </div>
         </div>
-
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 3: SOFTWARE & FRAMEWORK STACKS (OPEN-SOURCE CMS) -->
+      <!-- PAGE 3: SOFTWARE & FRAMEWORK STACKS -->
       <!-- ============================================== -->
-      <section id="view-stacks" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">CMS Customization Matrix</h2>
-          <p class="text-xs font-mono text-astra-gray">MODULAR EXTENSION LOGIC FOR HISTORIC OPEN SOURCE SYSTEMS</p>
+      <section id="view-stacks" class="view-transition opacity-0 hidden space-y-8">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Open-Source CMS Stacks</h2>
+          <p class="text-xs font-mono text-cyber-slate">HIGH-PERFORMANCE WEB APPLICATION ENGINE SPECS</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-xs">
-          
-          <div class="bg-astra-card p-6 border border-astra-border hover:border-astra-aurora/35 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-                <span class="font-bold text-astra-aurora uppercase tracking-wider">WP // DASBLOG</span>
-                <span class="text-[8px] bg-white/5 px-1.5 py-0.5 mt-1 border border-astra-border text-astra-gray uppercase">CMS CUSTOM</span>
-              </div>
-              <h4 class="text-lg font-bold text-white font-sans uppercase">WordPress & dasBlog</h4>
-              <p class="text-xs font-sans text-astra-gray leading-relaxed">
-                Seamless custom plugins integration, headless structural templates, enterprise theme components development, and complex reverse proxies logic deployment.
-              </p>
-            </div>
-            <button onclick="quickFillForm('WordPress & dasBlog')" class="mt-6 text-[10px] text-left underline font-bold uppercase tracking-widest text-astra-aurora hover:text-white cursor-pointer transition-all">
-              INITIATE STACK INTEGRATION &rarr;
-            </button>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border hover:border-astra-aurora/35 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-                <span class="font-bold text-astra-aurora uppercase tracking-wider">MAGE // PLATFORM</span>
-                <span class="text-[8px] bg-white/5 px-1.5 py-0.5 mt-1 border border-astra-border text-astra-gray uppercase">TRANSACTIONAL</span>
-              </div>
-              <h4 class="text-lg font-bold text-white font-sans uppercase">Magento Enterprise Systems</h4>
-              <p class="text-xs font-sans text-astra-gray leading-relaxed">
-                High concurrency checkout structures, ERP pricing maps integration, robust multi-language catalogs, and advanced SQL inventory speed improvements.
-              </p>
-            </div>
-            <button onclick="quickFillForm('Magento Enterprise Systems')" class="mt-6 text-[10px] text-left underline font-bold uppercase tracking-widest text-astra-aurora hover:text-white cursor-pointer transition-all">
-              INITIATE STACK INTEGRATION &rarr;
-            </button>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border hover:border-astra-aurora/35 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-                <span class="font-bold text-astra-aurora uppercase tracking-wider">JOOMLA // DNN</span>
-                <span class="text-[8px] bg-white/5 px-1.5 py-0.5 mt-1 border border-astra-border text-astra-gray uppercase">PORTALS CORE</span>
-              </div>
-              <h4 class="text-lg font-bold text-white font-sans uppercase">Joomla & DotNetNuke Nodes</h4>
-              <p class="text-xs font-sans text-astra-gray leading-relaxed">
-                Intensive security overrides implementation, secure database mapping wrappers, legacy .NET frameworks upgrade, and custom permissions routing design.
-              </p>
-            </div>
-            <button onclick="quickFillForm('Joomla & DotNetNuke Nodes')" class="mt-6 text-[10px] text-left underline font-bold uppercase tracking-widest text-astra-aurora hover:text-white cursor-pointer transition-all">
-              INITIATE STACK INTEGRATION &rarr;
-            </button>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border hover:border-astra-aurora/35 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-                <span class="font-bold text-astra-aurora uppercase tracking-wider">TELERIK // YAF</span>
-                <span class="text-[8px] bg-white/5 px-1.5 py-0.5 mt-1 border border-astra-border text-astra-gray uppercase">FORUM METRIC</span>
-              </div>
-              <h4 class="text-lg font-bold text-white font-sans uppercase">Sitefinity & YetAnotherForum</h4>
-              <p class="text-xs font-sans text-astra-gray leading-relaxed">
-                Advanced corporate intranets configured on Telerik, custom DotNet integration layers, YetAnotherForum modular setups, and user permissions mappings.
-              </p>
-            </div>
-            <button onclick="quickFillForm('Sitefinity & YetAnotherForum')" class="mt-6 text-[10px] text-left underline font-bold uppercase tracking-widest text-astra-aurora hover:text-white cursor-pointer transition-all">
-              INITIATE STACK INTEGRATION &rarr;
-            </button>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border hover:border-astra-aurora/35 transition-all flex flex-col justify-between lg:col-span-2">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-                <span class="font-bold text-astra-aurora uppercase tracking-wider">CWS // PROPRIETARY</span>
-                <span class="text-[8px] bg-white/5 px-1.5 py-0.5 mt-1 border border-astra-border text-astra-gray uppercase">ACTIVE ENTERPRISE SOLUTION</span>
-              </div>
-              <h4 class="text-lg font-bold text-white font-sans uppercase">Corporate Web Solution (CWS)</h4>
-              <p class="text-xs font-sans text-astra-gray leading-relaxed">
-                Our own proprietary ultra-high-end full stack web model. Employs advanced database configurations, direct Cloud CDN assets cachers, micro-second routing speeds, and deep analytics boards. Formulated for high scale enterprise entities.
-              </p>
-            </div>
-            <button onclick="quickFillForm('Corporate Web Solution (CWS)')" class="mt-6 text-[10px] text-left underline font-bold uppercase tracking-widest text-astra-aurora hover:text-white cursor-pointer transition-all">
-              INITIATE STACK INTEGRATION &rarr;
-            </button>
-          </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cms-stacks-grid">
+          <!-- Dynamic CMS Content Grid -->
         </div>
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 4: MOBILITY & CUSTOM ENTERPRISE ARCHITECTURES -->
+      <!-- PAGE 4: MOBILITY & CUSTOM ENTERPRISE ARCHITECTURES -->
       <!-- ============================================== -->
-      <section id="view-mobility" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">Mobility &amp; Custom ERP</h2>
-          <p class="text-xs font-mono text-astra-gray">NATIVE MOBILE INFRASTRUCTURE AND GLOBAL RESOURCE PLANNING</p>
+      <section id="view-mobility" class="view-transition opacity-0 hidden space-y-8">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Mobility &amp; Custom ERP Engines</h2>
+          <p class="text-xs font-mono text-cyber-slate">ENTERPRISE OS PORTALS & SYSTEMS PIPELINES</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-xs">
-          
-          <div class="border border-astra-border p-6 bg-astra-card space-y-4 hover:border-astra-aurora/35 transition-all">
-            <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-              <span class="text-white font-bold tracking-wider">// APPLE REAL-TIME APPS</span>
-              <span class="text-[8px] bg-white/5 px-1.5 py-0.5 border border-astra-border text-astra-aurora">SWIFT / OFF-LINE SYNC</span>
-            </div>
-            <h4 class="text-lg font-bold font-sans text-white uppercase font-mono">iOS Ecosystems</h4>
-            <ul class="space-y-2 text-xs text-astra-gray font-sans list-disc list-inside">
-              <li>Responsive Swift layouts with native memory persistence hooks</li>
-              <li>Encrypted localized transport models (TLS 1.3 key tunnels)</li>
-              <li>Fully mapped API response protocols designed for high redundancy caching</li>
-            </ul>
-          </div>
-
-          <div class="border border-astra-border p-6 bg-astra-card space-y-4 hover:border-astra-aurora/35 transition-all">
-            <div class="flex justify-between items-center border-b border-astra-border pb-2 flex-wrap gap-2">
-              <span class="text-white font-bold tracking-wider">// GOOGLE RUNTIME SERVICES</span>
-              <span class="text-[8px] bg-white/5 px-1.5 py-0.5 border border-astra-border text-astra-aurora">KOTLIN / JETPACK</span>
-            </div>
-            <h4 class="text-lg font-bold font-sans text-white uppercase font-mono">Android Runtimes</h4>
-            <ul class="space-y-2 text-xs text-astra-gray font-sans list-disc list-inside">
-              <li>Jetpack Compose state machines with offline-first room models</li>
-              <li>Background services syncing Firestore database logs securely</li>
-              <li>Rigid visual scaling checklists targeting intensive multi-device setups</li>
-            </ul>
-          </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mobility-erp-grid">
+          <!-- Dynamic Mobility Content Grid -->
         </div>
-
-        <!-- Custom ERP Checklist matrix -->
-        <div class="border border-astra-border p-8 space-y-6 bg-astra-card">
-          <div class="border-b border-astra-border pb-4">
-            <h3 class="text-xl font-bold uppercase font-mono text-white">Custom ERP Integration Panels</h3>
-            <p class="text-[10px] font-mono text-astra-gray uppercase mt-1">Direct modules designed for high transactional stability</p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono text-xs">
-            <div class="border border-astra-border p-4 bg-astra-obsidian space-y-2 hover:border-astra-aurora/20 transition-all">
-              <div class="text-[8px] font-mono text-white/50">// CORE ERP UNIT 01</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono">CRM</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Dynamic customer records management, trace logs, and billing matrices.</p>
-            </div>
-            <div class="border border-astra-border p-4 bg-astra-obsidian space-y-2 hover:border-astra-aurora/20 transition-all">
-              <div class="text-[8px] font-mono text-white/50">// CORE ERP UNIT 02</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono">Supply Chain</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Transit tracing, stock level checks, the automation of re-order limits.</p>
-            </div>
-            <div class="border border-astra-border p-4 bg-astra-obsidian space-y-2 hover:border-astra-aurora/20 transition-all">
-              <div class="text-[8px] font-mono text-white/50">// CORE ERP UNIT 03</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono">Material Planning</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Material resources tracking matrices with clear availability warnings.</p>
-            </div>
-            <div class="border border-astra-border p-4 bg-astra-obsidian space-y-2 hover:border-astra-aurora/20 transition-all">
-              <div class="text-[8px] font-mono text-white/50">// CORE ERP UNIT 04</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono">Accounting</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Double-entry accounting, real-time tax code generation, and billing.</p>
-            </div>
-            <div class="border border-astra-border p-4 bg-astra-obsidian space-y-2 hover:border-astra-aurora/20 transition-all">
-              <div class="text-[8px] font-mono text-white/50">// CORE ERP UNIT 05</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono">BI Consoles</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Business telemetry dashboards, predictive growth estimators, and status logs.</p>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 5: TECHNOLOGY INTEGRATION & CONSULTING SCHEMATICS -->
+      <!-- PAGE 5: TECHNOLOGY INTEGRATION & CONSULTING -->
       <!-- ============================================== -->
-      <section id="view-integration" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">Integration &amp; Consulting</h2>
-          <p class="text-xs font-mono text-astra-gray">EXECUTIVE BLUEPRINTS AND SECURITY SCHEMATICS</p>
+      <section id="view-integration" class="view-transition opacity-0 hidden space-y-8">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Systems Integration &amp; Consulting</h2>
+          <p class="text-xs font-mono text-cyber-slate">SLA-SURVEILLED MIS INFRASTRUCTURE ARCHITECTURES</p>
         </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          <div class="lg:col-span-7 border border-astra-border p-6 bg-astra-card space-y-6 flex flex-col justify-between">
-            <h3 class="text-xl font-bold uppercase font-mono text-white flex items-center gap-2">
-              <span class="inline-block w-1.5 h-3 bg-astra-aurora"></span>
-              Technical Integration Blueprint
-            </h3>
-
-            <div class="border-l border-astra-aurora pl-4 space-y-4 font-mono text-xs text-astra-gray">
-              <div>
-                <span class="text-white font-bold block mb-1">1. SECURE METADATA TUNNELLING</span>
-                <p class="text-xs font-sans leading-relaxed">Using high privacy REST-APIs and encrypted database tunnels directly linked to your enterprise schema.</p>
-              </div>
-              <div>
-                <span class="text-white font-bold block mb-1">2. TYPE-VALIDATING EDGE INTERACTION</span>
-                <p class="text-xs font-sans leading-relaxed">Filters incoming transactions, validates metadata layers, and automatically triggers failure rollbacks on bad payloads.</p>
-              </div>
-              <div>
-                <span class="text-white font-bold block mb-1">3. PERSISTENT SYSTEM CACHES</span>
-                <p class="text-xs font-sans leading-relaxed">Underpins transactions securely via highly scalable Cloud Firestore collections for instant user access.</p>
-              </div>
-            </div>
-
-            <!-- Highly Stylized ASCII Architecture Topology Mapping -->
-            <div class="p-4 bg-black border border-astra-border text-[9px] font-mono text-astra-aurora select-all overflow-x-auto whitespace-pre">
-[CLIENT SYSTEM] ---> (HTTPS TUNNEL EXPLICIT) ---> [VBC FIREWALL REVERSE PROXY]
-                                                           |
-                    +--------------------------------------+--------------------------------------+
-                    |                                                                             |
-     [FIRESTORE TRANSACTION LOGGING]                                              [WHATSAPP DISPATCH GATEWAY]
-            </div>
-          </div>
-
-          <div class="lg:col-span-5 bg-astra-card p-8 border border-astra-border flex flex-col justify-between space-y-6">
-            <div class="space-y-4">
-              <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-astra-aurora">// SYSTEM OUTSOURCING SCHEME</span>
-              <h3 class="text-2xl font-bold font-sans text-white leading-tight uppercase font-mono">Total System Surveillance</h3>
-              <p class="text-xs text-astra-gray leading-relaxed font-normal">
-                Outsource entire platform management, ongoing SQL schema adjustments, database optimization setups, and uptime checks directly to VBC teams. Total service mapping guaranteed under stringent SLA agreements, managed 24/7.
-              </p>
-            </div>
-            <button onclick="quickFillForm('Total System Surveillance & MIS')" class="w-full py-3 border border-astra-border hover:border-astra-aurora text-white text-[10px] font-mono font-bold uppercase tracking-widest text-center transition-all cursor-pointer">
-              DISPATCH ASSIGNMENT MATRIX &rarr;
-            </button>
-          </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="integrations-grid">
+          <!-- Dynamic Integration Content Grid -->
         </div>
-
-        <!-- Consulting Phase Sequence Roadmap -->
-        <div class="border border-astra-border p-8 bg-astra-card space-y-6">
-          <h3 class="text-xl font-bold uppercase font-mono text-white text-center">Operational Consulting Roadmap</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
-            <div class="p-5 border border-astra-border bg-astra-obsidian text-center hover:border-astra-aurora/30 transition-all">
-              <div class="text-astra-aurora font-black tracking-widest mb-1.5">PHASE I</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono mb-2">Architectural Assessment</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Auditing transaction latency limits, database queries structures, security gaps, and legacy coding practices.</p>
-            </div>
-            <div class="p-5 border border-astra-border bg-astra-obsidian text-center hover:border-astra-aurora/30 transition-all">
-              <div class="text-astra-aurora font-black tracking-widest mb-1.5">PHASE II</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono mb-2">Systems Refinement</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Developing tailored integration routes, creating lightweight mobile schemas, and coding secure Firestore parameters.</p>
-            </div>
-            <div class="p-5 border border-astra-border bg-astra-obsidian text-center hover:border-astra-aurora/30 transition-all">
-              <div class="text-astra-aurora font-black tracking-widest mb-1.5">PHASE III</div>
-              <h5 class="text-sm font-bold text-white uppercase font-mono mb-2">SLA Delivery handoff</h5>
-              <p class="text-xs text-astra-gray font-sans leading-relaxed">Executing seamless code updates, training technical personnel, and initializing perpetual health-check matrices.</p>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 6: DIGITAL MARKETING & SOCIAL MEDIA FRAMEWORKS -->
+      <!-- PAGE 6: DIGITAL MARKETING & SOCIAL MEDIA FRAMEWORKS -->
       <!-- ============================================== -->
-      <section id="view-marketing" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">Marketing &amp; Branding</h2>
-          <p class="text-xs font-mono text-astra-gray">EXECUTIVE MEDIA BRANDING AND CAMPAIGN PIPELINES</p>
+      <section id="view-marketing" class="view-transition opacity-0 hidden space-y-8">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Digital Marketing &amp; Branding</h2>
+          <p class="text-xs font-mono text-cyber-slate">CAMPAIGN LEDGERS & METADATA FLOW CHANNELS</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
-          
-          <div class="bg-astra-card p-6 border border-astra-border space-y-4 hover:border-astra-aurora/30 transition-all">
-            <div class="border-b border-astra-border pb-2 flex justify-between items-center">
-              <span class="text-white font-bold">// CORPORATE STATIONERY</span>
-              <span class="text-[8px] border border-astra-border text-astra-aurora px-1 uppercase">GEOMETRIC</span>
-            </div>
-            <h4 class="text-base font-bold text-white uppercase font-mono font-sans">Corporate Stationery</h4>
-            <p class="text-xs text-astra-gray font-sans leading-relaxed">
-              Engineering professional corporate branding including cards, structured envelopes layouts, invoice sheets, presentation templates, and comprehensive color matrix definitions.
-            </p>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border space-y-4 hover:border-astra-aurora/30 transition-all">
-            <div class="border-b border-astra-border pb-2 flex justify-between items-center">
-              <span class="text-white font-bold">// VIDEO MULTIMEDIA PRODUCTION</span>
-              <span class="text-[8px] border border-astra-border text-astra-aurora px-1 uppercase">PRODUCTION</span>
-            </div>
-            <h4 class="text-base font-bold text-white uppercase font-mono font-sans">Video Multimedia Production</h4>
-            <p class="text-xs text-astra-gray font-sans leading-relaxed">
-              Formulating extreme clarity banner layouts, commercial video scripts, multi-channel streams rendering architectures, and optimized animation setups.
-            </p>
-          </div>
-
-          <div class="bg-astra-card p-6 border border-astra-border space-y-4 hover:border-astra-aurora/30 transition-all">
-            <div class="border-b border-astra-border pb-2 flex justify-between items-center">
-              <span class="text-white font-bold">// DATA MATRIX</span>
-              <span class="text-[8px] border border-astra-border text-astra-aurora px-1 uppercase">CAMPAIGNS</span>
-            </div>
-            <h4 class="text-base font-bold text-white uppercase font-mono font-sans">Advanced Analytics Dashboard</h4>
-            <p class="text-xs text-astra-gray font-sans leading-relaxed">
-              Deploying campaign trackers across key corporate indexes, calculating audience retention averages, and monitoring execution milestones in real-time.
-            </p>
-          </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="marketing-grid">
+          <!-- Dynamic Marketing Content Grid -->
         </div>
-
-        <!-- 12-Column Social Campaign Framework Dashboard -->
-        <div class="border border-astra-border p-8 bg-astra-card space-y-6">
-          <div class="border-b border-astra-border pb-3">
-            <h3 class="text-xl font-bold uppercase font-mono text-white">12-column Social Framework</h3>
-            <p class="text-[10px] font-mono text-astra-gray uppercase mt-1">Grid alignment of social targets, content channels, and performance indices</p>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse text-xs font-mono text-astra-gray">
-              <thead>
-                <tr class="border-b border-astra-border text-white text-[10px] uppercase">
-                  <th class="py-3 px-4">// MODULE SEC</th>
-                  <th class="py-3 px-4">PUBLISHING VENUE</th>
-                  <th class="py-3 px-4">AUDIENCE SEGMENT</th>
-                  <th class="py-3 px-4">INTEGRATION INTERVALS</th>
-                  <th class="py-3 px-4 text-right">TARGET KPI</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-white/5 bg-black/30">
-                <tr class="hover:bg-astra-obsidian hover:text-white transition-all">
-                  <td class="py-3.5 px-4 font-bold text-white">01</td>
-                  <td class="py-3.5 px-4 font-bold text-astra-aurora">Executive LinkedIn Pulse</td>
-                  <td class="py-3.5 px-4">Enterprise Reston Decision Makers</td>
-                  <td class="py-3.5 px-4">Bi-weekly Cadence</td>
-                  <td class="py-3.5 px-4 text-right font-bold text-white">2.5% CTR Target</td>
-                </tr>
-                <tr class="hover:bg-astra-obsidian hover:text-white transition-all">
-                  <td class="py-3.5 px-4 font-bold text-white">02</td>
-                  <td class="py-3.5 px-4 font-bold text-astra-aurora">YouTube Video Tech Manuals</td>
-                  <td class="py-3.5 px-4">Architects & Engineering Leads</td>
-                  <td class="py-3.5 px-4">Weekly Publication</td>
-                  <td class="py-3.5 px-4 text-right font-bold text-white">15m Average Watch</td>
-                </tr>
-                <tr class="hover:bg-astra-obsidian hover:text-white transition-all">
-                  <td class="py-3.5 px-4 font-bold text-white">03</td>
-                  <td class="py-3.5 px-4 font-bold text-astra-aurora font-bold">Medium Technical Spotlights</td>
-                  <td class="py-3.5 px-4">Software Developers & QA Teams</td>
-                  <td class="py-3.5 px-4">Monthly Deep-Dive</td>
-                  <td class="py-3.5 px-4 text-right font-bold text-white">5k Readership SLA</td>
-                </tr>
-                <tr class="hover:bg-astra-obsidian hover:text-white transition-all">
-                  <td class="py-3.5 px-4 font-bold text-white">04</td>
-                  <td class="py-3.5 px-4 font-bold text-astra-aurora">Real-time Twitter Tech Bits</td>
-                  <td class="py-3.5 px-4">Global IT Outsource Ecosystem</td>
-                  <td class="py-3.5 px-4">Daily Quick Reports</td>
-                  <td class="py-3.5 px-4 text-right font-bold text-white">12% Growth Index</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 7: STRATEGY INTAKE TERMINAL (CONTACT FORM) -->
+      <!-- PAGE 7: STRATEGY INTAKE TERMINAL (MAIN CONTACT) -->
       <!-- ============================================== -->
-      <section id="view-intake" class="view-transition opacity-0 hidden space-y-12">
-        <div class="border-b border-astra-border pb-4">
-          <h2 class="text-3xl font-extrabold uppercase font-mono text-white tracking-widest">Strategy Intake Terminal</h2>
-          <p class="text-xs font-mono text-astra-gray">SUBMIT PROJECT SPECIFICATIONS SECURELY FOR STRUCTURAL LOGGING</p>
+      <section id="view-intake" class="view-transition opacity-0 hidden space-y-8 max-w-5xl mx-auto">
+        <div class="border-b border-cyber-emerald/15 pb-4">
+          <h2 class="text-3xl font-extrabold uppercase font-display text-gradient text-white tracking-widest">Strategy Intake Terminal</h2>
+          <p class="text-xs font-mono text-cyber-slate">DIRECT SECURE INTAKE FORM TO LAHORE METRIC CORE</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <!-- Urgent SLA Mapped Response Left Panel -->
-          <div class="lg:col-span-5 border border-astra-aurora/35 p-6 bg-astra-aurora/5 flex flex-col justify-between space-y-8 relative">
-            <div class="absolute top-2 right-2 flex items-center gap-1 font-mono text-[8px] px-2 py-0.5 border border-astra-aurora bg-astra-obsidian text-astra-aurora animate-pulse">
-              <span>SLA ACTIVE_QUEUE</span>
-            </div>
-
-            <div class="space-y-4">
-              <span class="text-[9px] font-mono tracking-widest text-astra-aurora block uppercase">// METRIC SYSTEM EMERGENCY HANDSHAKE</span>
-              <h3 class="text-3xl font-bold font-sans text-white uppercase font-mono leading-tight">Guaranteed Executive Review Within 12 Hours</h3>
-              <p class="text-xs text-astra-gray leading-relaxed font-normal">
-                Your submitted strategy specifications enter a high priority monitoring queue instantly. A certified system developer in Lahore executes preliminary data mining and contacts your Reston division within 12 standard layout hours.
+          <!-- Left Column Info Panel -->
+          <div class="cyber-glass p-8 rounded-lg lg:col-span-5 space-y-6">
+            <div class="space-y-2">
+              <span class="text-[9px] font-mono uppercase text-cyber-emerald tracking-widest">// DEEP ENVELOPE SECURED</span>
+              <h3 class="text-2xl font-bold font-display text-white">Guaranteed Executive Review Within 12 Hours</h3>
+              <p class="text-xs text-cyber-slate leading-relaxed font-sans">
+                Every validated submission is mapped straight to our high-priority database ledger. If validation checkpoints pass, our core managing partner triggers an emergency WhatsApp brief and pre-formats your concurrent email draft automatically.
               </p>
             </div>
 
-            <div class="border-t border-astra-border pt-4 font-mono text-[10px] text-astra-gray space-y-2">
-              <div class="flex justify-between">
-                <span>RESTON GMT REFERENCE</span>
-                <span class="text-white text-[11px] font-bold" id="reston-time">-</span>
+            <div class="border-t border-cyber-emerald/15 pt-6 space-y-4 text-xs font-mono">
+              <div class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
+                <span>Reston Center Time: <span id="reston-time" class="text-white font-bold">12:00:00 EST</span></span>
               </div>
-              <div class="flex justify-between">
-                <span>LAHORE SERVICE STATUS</span>
-                <span class="text-astra-aurora text-[11px] font-bold uppercase">Active & Online</span>
+              <div class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
+                <span>Minimum Budget Floor: <span class="text-white font-bold">$500 USD</span></span>
               </div>
-              <div class="flex justify-between">
-                <span>ACTIVE SERVICE QUEUES</span>
-                <span class="text-white text-[11px] font-bold">2 Slots Available</span>
+              <div class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-cyber-emerald"></span>
+                <span>Operations Base: <span class="text-white font-bold">Lahore, PK</span></span>
               </div>
             </div>
           </div>
 
-          <!-- Strategy Specs Contact Form Right Panel -->
-          <div class="lg:col-span-7 border border-astra-border p-8 bg-astra-card relative">
-            
-            <form id="intake-form" onsubmit="executeLeadSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
+          <!-- Right Column Contact Form -->
+          <div class="cyber-glass p-8 rounded-lg lg:col-span-7">
+            <form id="lead-form" onsubmit="executeLeadSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
               
-              <!-- Name Input Field -->
               <div class="space-y-2">
-                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px]">Full Name / Corporate Officer</label>
-                <input 
-                  type="text" 
-                  id="lead-name" 
-                  placeholder="e.g. Stephen Miller, Director" 
-                  class="w-full bg-astra-obsidian border border-astra-border px-4 py-3 text-white transition-all focus:outline-none glow-input"
-                  oninput="clearFieldWarning('lead-name-warn')"
-                />
+                <label for="lead-name" class="block text-white uppercase tracking-wider text-[10px]">Contact Person Name *</label>
+                <input type="text" id="lead-name" placeholder="e.g. Stephen Miller" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-name-warn')" />
                 <span id="lead-name-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
-              <!-- Email Input Field -->
               <div class="space-y-2">
-                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px]">Corporate Email Address</label>
-                <input 
-                  type="email" 
-                  id="lead-email" 
-                  placeholder="e.g. s.miller@corpconnect.com" 
-                  class="w-full bg-astra-obsidian border border-astra-border px-4 py-3 text-white transition-all focus:outline-none glow-input"
-                  oninput="clearFieldWarning('lead-email-warn')"
-                />
+                <label for="lead-email" class="block text-white uppercase tracking-wider text-[10px]">Corporate Email Address *</label>
+                <input type="email" id="lead-email" placeholder="e.g. s.miller@enterprise.com" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('lead-email-warn')" />
                 <span id="lead-email-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
-              <!-- Core Practice Selection Dropdown -->
               <div class="space-y-2">
-                <label for="lead-area" class="block text-white uppercase tracking-wider text-[10px]">Core Practice Area Mappings</label>
-                <select 
-                  id="lead-area" 
-                  class="w-full bg-astra-obsidian border border-astra-border px-4 py-3 text-white transition-all focus:outline-none focus:border-astra-aurora"
-                >
-                  <option value="Enterprise IT Solutions">Enterprise IT Solutions</option>
-                  <option value="Creative, Design, & Multimedia">Creative, Design, & Multimedia</option>
+                <label for="lead-area" class="block text-white uppercase tracking-wider text-[10px]">Primary Outsourcing Practice *</label>
+                <select id="lead-area" class="w-full bg-[#030706] border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm select-text">
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Creative Design">Creative Design</option>
                   <option value="Social Media Management">Social Media Management</option>
-                  <option value="Custom Open Source CMS Stacks">Custom Open Source CMS Stacks</option>
-                  <option value="Mobility Systems & ERP Solutions">Mobility Systems & ERP Solutions</option>
+                  <option value="Custom Mobility Solutions">Custom Mobility Solutions</option>
+                  <option value="Enterprise ERP Systems">Enterprise ERP Systems</option>
+                  <option value="Strategic Consultations">Strategic Consultations</option>
                 </select>
-                <span class="block h-2"></span>
               </div>
 
-              <!-- Budget Matrix Selections -->
-              <div class="space-y-2">
-                <label class="block text-white uppercase tracking-wider text-[10px] mb-2">Project Budget Boundaries</label>
-                <div class="grid grid-cols-3 gap-3">
-                  <label class="border border-astra-border px-3 py-2.5 bg-astra-obsidian hover:border-astra-aurora transition-all flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="project-budget" value="$500 - $5k" checked class="accent-astra-aurora" />
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$500 – $5k</span>
+              <div class="space-y-3">
+                <label class="block text-white uppercase tracking-wider text-[10px]">Estimated Target Budget Range *</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$500 - $5,000" checked class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                    <span class="text-[10px] text-white font-bold">$500 – $5k</span>
                   </label>
-                  <label class="border border-astra-border px-3 py-2.5 bg-astra-obsidian hover:border-astra-aurora transition-all flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="project-budget" value="$5k - $20k" class="accent-astra-aurora" />
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$5k – $20k</span>
+                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$5,000 - $25,000" class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                    <span class="text-[10px] text-white font-bold">$5k – $25k</span>
                   </label>
-                  <label class="border border-astra-border px-3 py-2.5 bg-astra-obsidian hover:border-astra-aurora transition-all flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="project-budget" value="$20k+" class="accent-astra-aurora" />
-                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$20k+</span>
+                  <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian hover:border-cyber-emerald/50 transition-all flex items-center gap-2 cursor-pointer rounded-sm">
+                    <input type="radio" name="project-budget" value="$25,000+" class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                    <span class="text-[10px] text-white font-bold">$25k+</span>
                   </label>
                 </div>
-                <span class="block h-2"></span>
               </div>
 
-              <!-- Tech Specs Brief Area -->
               <div class="space-y-2">
-                <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px]">Project Architectural Brief specifications</label>
-                <textarea 
-                  id="lead-brief" 
-                  rows="4" 
-                  placeholder="Define your technological scope parameters in fine detail (min. 25 characters)..." 
-                  class="w-full bg-astra-obsidian border border-astra-border px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed"
-                  oninput="clearFieldWarning('lead-brief-warn')"
-                ></textarea>
+                <label for="lead-brief" class="block text-white uppercase tracking-wider text-[10px]">Project Architectural Specifications Brief *</label>
+                <textarea id="lead-brief" rows="5" placeholder="Please outline your technical stack demands, core business workflows, timelines, and primary database integrations..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm" oninput="clearFieldWarning('lead-brief-warn')"></textarea>
                 <span id="lead-brief-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
               </div>
 
-              <!-- Submission Call CTA -->
-              <div class="pt-2">
-                <button 
-                  type="submit" 
-                  id="intake-submit-btn"
-                  class="w-full py-4 bg-astra-aurora text-astra-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer"
-                >
-                  DISPATCH TO LAHORE METRICS CORE
-                </button>
-              </div>
+              <button type="submit" id="submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+                INITIALIZE AND DISPATCH BRIEF &rarr;
+              </button>
 
             </form>
-
-            <!-- Logging Status Overlay -->
-            <div id="status-overlay" class="absolute inset-0 bg-[#030907]/95 flex flex-col items-center justify-center space-y-4 text-center p-6 hidden z-50">
-              <span class="inline-block w-8 h-8 border-2 border-t-astra-aurora border-astra-border rounded-full animate-spin"></span>
-              <p class="font-mono text-xs uppercase tracking-widest text-[#F5F5F5]" id="status-text">INITIALIZING DATABASE ENCRYPTION LINK...</p>
-            </div>
-
           </div>
-        </div>
 
+        </div>
       </section>
 
       <!-- ============================================== -->
-      <!-- VIEW 8: MASKED ADMINISTRATIVE CONTROL VIEWPORT (PASSCODE) -->
+      <!-- PAGE 8: MASKED ADMINISTRATIVE CONTROL VIEWPORT -->
       <!-- ============================================== -->
-      <section id="view-admin" class="view-transition opacity-0 hidden space-y-12 select-none relative">
+      <section id="view-admin" class="view-transition opacity-0 hidden space-y-8">
         
-        <!-- Admin Dashboard Header -->
-        <div class="border-b border-astra-border pb-4 flex justify-between items-end flex-wrap gap-4">
+        <div class="border-b border-cyber-emerald/15 pb-4 flex justify-between items-end flex-wrap gap-4">
           <div>
-            <h2 class="text-3xl font-extrabold uppercase font-mono text-[#F5F5F5] tracking-widest flex items-center gap-2">
-              <span class="w-2.5 h-6 bg-astra-aurora"></span>
+            <h2 class="text-3xl font-extrabold uppercase font-display text-white tracking-widest flex items-center gap-2">
+              <span class="w-2.5 h-6 bg-cyber-emerald"></span>
               MANAGEMENT CONTROL TERMINAL
             </h2>
-            <p class="text-xs font-mono text-astra-aurora mt-1">SECURE ACCESS GRANTED // LIVE FIRESTORE BACKEND PIPES</p>
+            <p class="text-xs font-mono text-cyber-slate uppercase mt-1">FIRESTORE CORE LEDGER SURVEILLANCE SYSTEMS</p>
           </div>
           
-          <!-- Sync & Close actions -->
           <div class="font-mono text-[10px] flex gap-3">
-            <button onclick="readLeadsFromFirestore()" class="px-3.5 py-1.5 border border-astra-aurora text-astra-aurora hover:bg-astra-aurora hover:text-astra-obsidian transition-all focus:outline-none cursor-pointer font-bold">
+            <button onclick="readLeadsFromFirestore()" class="px-3.5 py-1.5 border border-cyber-emerald text-cyber-emerald hover:bg-cyber-emerald hover:text-cyber-obsidian transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
               RE-SYNC LEDGER
             </button>
-            <button onclick="exitAdminTerminal()" class="px-3.5 py-1.5 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all focus:outline-none cursor-pointer font-bold">
+            <button onclick="exitAdminTerminal()" class="px-3.5 py-1.5 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all focus:outline-none cursor-pointer font-bold rounded-sm">
               REVOKE DEEP SESSION
             </button>
           </div>
@@ -1084,130 +687,254 @@
 
         <!-- Analytical Metrics status grids -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-center">
-          <div class="border border-astra-border p-5 bg-astra-card">
-            <div class="text-[9px] text-astra-gray uppercase tracking-wider mb-1">AGGREGATED SPEC LEDGERS</div>
-            <div class="text-3xl text-white font-extrabold" id="stat-total">0</div>
+          <div class="cyber-glass p-5 rounded-sm">
+            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// AGGREGATED SPEC LEDGERS</div>
+            <div class="text-3xl text-white font-extrabold font-display" id="stat-total">0</div>
           </div>
-          <div class="border border-astra-border p-5 bg-astra-card">
-            <div class="text-[9px] text-astra-aurora uppercase tracking-wider mb-1">NEW ASSIGNMENTS</div>
-            <div class="text-3xl text-astra-aurora font-extrabold" id="stat-new">0</div>
+          <div class="cyber-glass p-5 rounded-sm">
+            <div class="text-[9px] text-cyber-emerald uppercase tracking-wider mb-1 font-mono">// NEW ASSIGNMENTS</div>
+            <div class="text-3xl text-cyber-emerald font-extrabold font-display" id="stat-new">0</div>
           </div>
-          <div class="border border-astra-border p-5 bg-astra-card">
-            <div class="text-[9px] text-astra-gray uppercase tracking-wider mb-1">SLA CONTACTED</div>
-            <div class="text-3xl text-[#00FFFF] font-extrabold" id="stat-contacted">0</div>
+          <div class="cyber-glass p-5 rounded-sm">
+            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// SLA CONTACTED</div>
+            <div class="text-3xl text-[#00E5FF] font-extrabold font-display" id="stat-contacted">0</div>
           </div>
-          <div class="border border-astra-border p-5 bg-astra-card">
-            <div class="text-[9px] text-astra-gray uppercase tracking-wider mb-1">CONVERTED TO OFFSHORE POD</div>
-            <div class="text-3xl text-[#FF9900] font-extrabold" id="stat-converted">0</div>
+          <div class="cyber-glass p-5 rounded-sm">
+            <div class="text-[9px] text-cyber-slate uppercase tracking-wider mb-1 font-mono">// CONVERTED TO OFFSHORE POD</div>
+            <div class="text-3xl text-[#FF9900] font-extrabold font-display" id="stat-converted">0</div>
           </div>
         </div>
 
-        <!-- Dynamic Live Leads Table -->
-        <div class="border border-astra-border bg-astra-card p-6 space-y-4">
+        <!-- Strategy Specifications Table Grid -->
+        <div class="cyber-glass p-6 space-y-4 rounded-sm">
           <div class="flex justify-between items-center sm:flex-row flex-col gap-2">
-            <h3 class="text-sm font-bold uppercase font-mono text-[#F5F5F5] tracking-widest">REAL-TIME INCOMING STRATEGY SPECIFICATIONS TABLE</h3>
-            <span class="text-[8px] font-mono text-astra-gray border border-astra-border px-2 py-0.5" id="records-status">FIRESTORE_CONNECTED_SYNC_OK</span>
+            <h3 class="text-sm font-bold uppercase font-display text-white tracking-widest">REAL-TIME INCOMING STRATEGY SPECIFICATIONS TABLE</h3>
+            <span class="text-[8px] font-mono text-cyber-slate border border-cyber-emerald/20 px-2 py-0.5 rounded-xs animate-pulse" id="records-status">FIRESTORE_CONNECTED_SYNC_OK</span>
           </div>
 
           <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse text-xs font-mono text-astra-gray">
+            <table class="w-full text-left border-collapse font-sans text-xs">
               <thead>
-                <tr class="border-b border-astra-border text-white text-[9px] uppercase tracking-wider">
-                  <th class="py-3 px-4">TIMESTAMP ID</th>
-                  <th class="py-3 px-4">CONTACT OFFICER</th>
-                  <th class="py-3 px-4">CORPORATE EMAIL</th>
-                  <th class="py-3 px-4">PRACTICE AREA</th>
-                  <th class="py-3 px-4">BUDGET</th>
-                  <th class="py-3 px-4">ACTION STATUS</th>
-                  <th class="py-3 px-4 text-center">DESTRY NODE</th>
+                <tr class="border-b border-cyber-emerald/15 font-mono text-[9px] text-cyber-slate uppercase tracking-wider">
+                  <th class="py-3 px-4">UUID</th>
+                  <th class="py-3 px-4">Contact name</th>
+                  <th class="py-3 px-4">Corporate email</th>
+                  <th class="py-3 px-4">Technology core</th>
+                  <th class="py-3 px-4">Budget Range</th>
+                  <th class="py-3 px-4">Action Status</th>
+                  <th class="py-3 px-4 text-center">Terminate</th>
                 </tr>
               </thead>
-              <tbody id="leads-table-body" class="divide-y divide-white/5 bg-black/30">
-                <!-- Records injected dynamically via JS logic -->
-                <tr>
-                  <td colspan="7" class="text-center py-8 text-astra-gray lowercase select-none italic font-mono">Loading data cells from Firestore cloud, synchronize key initiated...</td>
-                </tr>
+              <tbody id="leads-table-body" class="divide-y divide-cyber-emerald/5">
+                <!-- Sync table rows dynamically via firestore loop -->
               </tbody>
             </table>
           </div>
         </div>
 
         <!-- Selected Brief Inspector Grid Detail Section -->
-        <div class="border border-astra-border p-6 bg-astra-card space-y-4" id="brief-inspector-container">
-          <h4 class="text-xs font-bold uppercase font-mono text-[#F5F5F5] tracking-widest flex items-center gap-2">
-            <span class="w-1.5 h-3 bg-astra-aurora animate-pulse"></span>
+        <div class="cyber-glass p-6 space-y-4 rounded-sm" id="brief-inspector-container">
+          <h4 class="text-xs font-bold uppercase font-display text-white tracking-widest flex items-center gap-2">
+            <span class="w-1.5 h-3 bg-cyber-emerald animate-pulse"></span>
             ACTIVE LEAD BRIEF ARCHITECTURAL MATRIX INSPECTOR
           </h4>
-          <div class="p-5 bg-black border border-astra-border text-xs text-astra-gray font-sans leading-relaxed select-all" id="brief-inspect-box">
+          <div class="p-5 bg-[#030706]/80 border border-cyber-emerald/15 text-xs text-cyber-slate font-sans leading-relaxed select-all rounded-sm" id="brief-inspect-box">
             No record currently highlighted. Click any lead column from the database grid above to fetch and inspect the full corporate specs brief.
           </div>
         </div>
 
       </section>
 
+      <!-- ============================================== -->
+      <!-- PAGE 9: STEVE'S CO-BRANDED MOBILE PARTNER TERMINAL -->
+      <!-- ============================================== -->
+      <section id="view-steve" class="view-transition opacity-0 hidden space-y-8 max-w-2xl mx-auto">
+        
+        <!-- Header Badge -->
+        <div class="border border-cyber-emerald/40 p-5 bg-cyber-emerald/5 relative overflow-hidden rounded-sm backdrop-blur-md">
+          <div class="absolute -top-12 -right-12 w-24 h-24 bg-cyber-emerald/10 rounded-full blur-xl"></div>
+          <div class="text-center space-y-2">
+            <span class="text-[9px] font-mono tracking-[0.2em] text-cyber-emerald block uppercase">// STRATEGIC PARTNER MATRIX</span>
+            <h3 class="text-xs sm:text-sm font-extrabold text-[#F5F5F5] uppercase tracking-widest leading-relaxed font-display">
+              EXCLUSIVE TECH PARTNER:<br>STEVE'S CARPET CLEANING × VIRTUAL BRIDGE CONNECT
+            </h3>
+            <p class="text-[9px] text-cyber-slate uppercase tracking-wider font-mono">60-Second Mobile Intake Terminal</p>
+          </div>
+        </div>
+
+        <!-- Form Core -->
+        <div class="cyber-glass p-6 sm:p-8 relative rounded-lg">
+          
+          <form id="partner-form" onsubmit="executePartnerSubmission(event)" class="space-y-6 text-xs font-mono" novalidate>
+            
+            <div class="flex items-center justify-between p-3 bg-cyber-obsidian/60 border border-cyber-emerald/20 rounded-sm">
+              <span class="text-[9px] text-cyber-slate uppercase tracking-wider">// REFERRAL SOURCE</span>
+              <span class="text-[9px] text-cyber-emerald font-bold uppercase tracking-widest border border-cyber-emerald/30 px-2 py-0.5 bg-cyber-emerald/5 rounded-xs">
+                Steve's Carpet Cleaning
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <label for="partner-business" class="block text-white uppercase tracking-wider text-[10px]">Your Business Name *</label>
+              <input type="text" id="partner-business" placeholder="e.g. Apex Enterprise Inc." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-business-warn')" />
+              <span id="partner-business-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="space-y-2">
+              <label for="partner-contact" class="block text-white uppercase tracking-wider text-[10px]">Contact Person Name *</label>
+              <input type="text" id="partner-contact" placeholder="e.g. Stephen Miller" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-contact-warn')" />
+              <span id="partner-contact-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="space-y-2">
+              <label for="partner-phone" class="block text-white uppercase tracking-wider text-[10px]">Phone Number *</label>
+              <input type="tel" id="partner-phone" placeholder="e.g. +1 555-019-2834" class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input rounded-sm" oninput="clearFieldWarning('partner-phone-warn')" />
+              <span id="partner-phone-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-white uppercase tracking-wider text-[10px] mb-2">What do you need help with? *</label>
+              <div class="grid grid-cols-1 gap-2.5">
+                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
+                  <input type="checkbox" name="partner-services" value="New Website / Redesign" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">New Website / Redesign</span>
+                    <span class="text-[9px] text-cyber-slate">Custom modern corporate web portals</span>
+                  </div>
+                </label>
+                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
+                  <input type="checkbox" name="partner-services" value="Custom App Development" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Custom App &amp; Software</span>
+                    <span class="text-[9px] text-cyber-slate">Custom workflows and database automation</span>
+                  </div>
+                </label>
+                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
+                  <input type="checkbox" name="partner-services" value="Local SEO & Google Maps" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Local SEO &amp; Maps</span>
+                    <span class="text-[9px] text-cyber-slate">Optimizing local citation systems</span>
+                  </div>
+                </label>
+                <label class="border border-cyber-emerald/20 p-3.5 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-start gap-3 cursor-pointer rounded-sm">
+                  <input type="checkbox" name="partner-services" value="Automation / Other" class="w-4 h-4 mt-0.5 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">Automation &amp; AI Tools</span>
+                    <span class="text-[9px] text-cyber-slate">General consultation and performance tasks</span>
+                  </div>
+                </label>
+              </div>
+              <span id="partner-services-warn" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider block h-4"></span>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-white uppercase tracking-wider text-[10px] mb-2">Estimated Monthly/Project Budget *</label>
+              <div class="grid grid-cols-1 gap-2.5">
+                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$500 - $1,500" checked class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$500 – $1,500</span>
+                    <span class="text-[9px] text-cyber-slate">Baseline modern business portal solution</span>
+                  </div>
+                </label>
+                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$1,500 - $3,500" class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$1,500 – $3,500</span>
+                    <span class="text-[9px] text-cyber-slate">Multi-page framework &amp; automated lead setups</span>
+                  </div>
+                </label>
+                <label class="border border-cyber-emerald/20 p-3 bg-cyber-obsidian/40 hover:border-cyber-emerald/50 transition-all flex items-center gap-3 cursor-pointer rounded-sm">
+                  <input type="radio" name="partner-budget" value="$3,500+" class="w-4 h-4 accent-cyber-emerald shrink-0" />
+                  <div class="flex flex-col">
+                    <span class="text-[10px] uppercase text-[#F5F5F5] font-bold">$3,500+</span>
+                    <span class="text-[9px] text-cyber-slate">Complete customized high-load platform development</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="partner-notes" class="block text-white uppercase tracking-wider text-[10px]">Optional Project Notes / Outline</label>
+              <textarea id="partner-notes" rows="4" placeholder="Briefly describe your objectives, existing system, or timeline constraints..." class="w-full bg-[#0d1914]/40 border border-cyber-emerald/20 px-4 py-3 text-white transition-all focus:outline-none glow-input font-sans text-xs leading-relaxed rounded-sm"></textarea>
+            </div>
+
+            <div>
+              <button type="submit" id="partner-submit-btn" class="w-full py-4 bg-cyber-emerald text-cyber-obsidian font-extrabold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all glow-btn cursor-pointer rounded-sm">
+                SUBMIT PARTNER INTAKE
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </section>
+
     </div>
   </main>
 
   <!-- ============================================== -->
-  <!-- HIGH-TECH SECURE PASSWORD AUTHORIZATION MODAL -->
+  <!-- HIGH-TECH ACCESS PASSCODE MODAL -->
   <!-- ============================================== -->
-  <div id="passcode-modal" class="fixed inset-0 bg-[#000000]/95 flex items-center justify-center z-[150] select-none text-xs font-mono hidden">
-    <div class="border border-astra-aurora p-8 max-w-md w-full bg-[#030907] space-y-6 relative m-4">
+  <div id="passcode-modal" class="fixed inset-0 bg-black/95 flex items-center justify-center z-[150] select-none text-xs font-mono hidden backdrop-blur-md">
+    <div class="border border-cyber-emerald/30 p-8 max-w-md w-full bg-[#030907]/90 backdrop-blur-lg space-y-6 relative m-4 rounded-sm">
       
       <div class="text-center space-y-2">
-        <h3 class="text-white font-black tracking-widest uppercase">ENTER CRYPT METADATA ACCESS CODE</h3>
-        <p class="text-[9px] text-astra-aurora uppercase tracking-wider animate-pulse">Session Encrypted with Zero-Knowledge Logic</p>
+        <h3 class="text-white font-black tracking-widest uppercase font-display">ENTER ACCESS CODE</h3>
+        <p class="text-[9px] text-cyber-emerald uppercase tracking-wider animate-pulse font-mono">// Session Encrypted with Zero-Knowledge Logic</p>
       </div>
 
       <div class="space-y-2">
         <label for="admin-passcode-field" class="block text-white text-[9px] uppercase tracking-wider">SECURE DIGITAL KEY:</label>
-        <input 
-          type="password" 
-          id="admin-passcode-field" 
-          placeholder="ENTER SECURED DECREE KEY..." 
-          class="w-full bg-astra-obsidian border border-astra-border px-4 py-3 text-white text-center tracking-[0.25em] font-extrabold focus:outline-none glow-input text-sm"
-          onkeydown="listenPasscodeKeypress(event)"
-        />
+        <input type="password" id="admin-passcode-field" placeholder="ENTER SECURED DECREE KEY..." class="w-full bg-cyber-obsidian border border-cyber-emerald/20 px-4 py-3 text-white text-center tracking-[0.25em] font-extrabold focus:outline-none glow-input text-sm rounded-sm" onkeydown="listenPasscodeKeypress(event)" />
         <p id="passcode-error-tag" class="text-[9px] text-[#FF3366] font-bold uppercase tracking-wider text-center h-4"></p>
       </div>
 
       <div class="grid grid-cols-2 gap-3">
-        <button onclick="submitPasscodeAuthentication()" class="py-2.5 bg-astra-aurora text-astra-obsidian font-black uppercase text-[10px] tracking-widest hover:opacity-90 transition-all text-center cursor-pointer">
+        <button onclick="submitPasscodeAuthentication()" class="py-2.5 bg-cyber-emerald text-cyber-obsidian font-black uppercase text-[10px] tracking-widest hover:opacity-90 transition-all text-center cursor-pointer rounded-sm">
           AUTHORIZE
         </button>
-        <button onclick="closePasscodeModal()" class="py-2.5 border border-astra-border text-astra-gray hover:text-white uppercase text-[10px] tracking-widest transition-all text-center cursor-pointer">
+        <button onclick="closePasscodeModal()" class="py-2.5 border border-cyber-emerald/20 text-cyber-slate hover:text-white uppercase text-[10px] tracking-widest transition-all text-center cursor-pointer rounded-sm">
           CANCEL CLOSE
         </button>
       </div>
 
       <div class="text-center pt-2">
-        <span class="text-[8px] text-astra-gray/40 font-mono tracking-widest uppercase">PROV LEVEL 5 SLA GATE</span>
+        <span class="text-[8px] text-cyber-slate/40 font-mono tracking-widest uppercase">PROV LEVEL 5 SLA GATE</span>
       </div>
     </div>
   </div>
 
   <!-- ============================================== -->
-  <!-- SECURE PERSISTENT EDITORIAL FOOTER FRAME -->
+  <!-- LIVE DYNAMIC TRANSACTION PROGRESS INTAKE PANEL -->
   <!-- ============================================== -->
-  <footer class="w-full bg-astra-abyss border-t border-astra-border py-6 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[9px] font-mono uppercase tracking-[0.15em] text-astra-gray">
+  <div id="status-overlay" class="fixed inset-0 bg-[#030706]/95 flex flex-col items-center justify-center z-[200] space-y-4 font-mono select-none hidden">
+    <div class="w-12 h-12 border-2 border-t-cyber-emerald border-r-transparent border-b-cyber-emerald border-l-transparent rounded-full animate-spin"></div>
+    <p id="status-text" class="text-xs text-cyber-emerald uppercase tracking-widest animate-pulse">// INITIALIZING SECURE FIRESTORE WRITE CHANNELS...</p>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- SECURE PERSISTENT EDITORIAL FOOTER -->
+  <!-- ============================================== -->
+  <footer class="w-full bg-[#030706]/95 border-t border-cyber-emerald/15 py-6 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[9px] font-mono uppercase tracking-[0.15em] text-cyber-slate">
       <div>
         &copy; 2026 Virtual Bridge Connect. All matrix systems reserved.
       </div>
       
       <!-- Unified Strategic Nodes Indicator -->
-      <div class="text-white font-extrabold tracking-widest">
-        Strategic Node: Reston, VA <span class="text-astra-aurora px-1">|</span> Operations: Lahore, Pakistan
+      <div class="text-white font-extrabold tracking-widest font-display">
+        Strategic Node: Reston, VA <span class="text-cyber-emerald px-1">|</span> Operations: Lahore, Pakistan
       </div>
 
-      <div class="flex items-center gap-2 text-[8px] text-[#8A9994]/50">
-        <span>GRID BUILD v7.400_SLA</span>
+      <div class="flex items-center gap-2 text-[8px] text-cyber-slate/50">
+        <span>GRID OVERHAUL BUILD v10.0.0_SLA</span>
       </div>
     </div>
   </footer>
 
   <!-- ============================================== -->
-  <!-- CLIENT LOGIC, CORE SYSTEM ROUTING & FIREBASE -->
+  <!-- CUSTOM DYNAMIC SYSTEM JAVASCRIPT BLOCK -->
   <!-- ============================================== -->
   <script>
     // HARDCODED PRODUCTION FIREBASE CLIENT ENVIRONMENT CONFIG
@@ -1220,7 +947,7 @@
       appId: "1:476621311085:web:75a023d76444a4d633c364"
     };
 
-    // Lazy initialization of Cloud FireStore with fallback mapping
+    // Initialize Cloud FireStore with fallback mapping
     let dbInstance = null;
     try {
       firebase.initializeApp(firebaseConfig);
@@ -1233,16 +960,15 @@
     const WHATSAPP_NUMBER = "923217452433";
     let adminAuthorized = false;
 
-    // ACTIVE VIEW ROUTER PLATFORM CONTROL
+    // ACTIVE STATE ROUTING ENGINE
     function switchViewport(targetId) {
-      const viewIds = ['home', 'services', 'stacks', 'mobility', 'integration', 'marketing', 'intake', 'admin'];
+      const viewIds = ['home', 'services', 'stacks', 'mobility', 'integration', 'marketing', 'intake', 'admin', 'steve'];
       
       viewIds.forEach(id => {
         const sect = document.getElementById('view-' + id);
         if (sect) {
           if (id === targetId) {
             sect.classList.remove('hidden');
-            // Timeout to give dynamic transition delay
             setTimeout(() => {
               sect.classList.remove('opacity-0');
               sect.classList.add('opacity-100');
@@ -1254,20 +980,20 @@
           }
         }
 
-        // Active state formatting of desktop elements
+        // Active header tab indicator update
         const navBtn = document.getElementById('nav-' + id);
         if (navBtn) {
           if (id === targetId) {
-            navBtn.classList.add('text-astra-aurora', 'font-bold');
-            navBtn.classList.remove('text-astra-gray');
+            navBtn.classList.add('text-cyber-emerald', 'font-bold', 'border-b', 'border-cyber-emerald/50');
+            navBtn.classList.remove('text-cyber-slate');
           } else {
-            navBtn.classList.remove('text-astra-aurora', 'font-bold');
-            navBtn.classList.add('text-astra-gray');
+            navBtn.classList.remove('text-cyber-emerald', 'font-bold', 'border-b', 'border-cyber-emerald/50');
+            navBtn.classList.add('text-cyber-slate');
           }
         }
       });
 
-      // Scroll view back instantly to top boundaries
+      // Scroll viewport back instantly to coordinates zero
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
@@ -1281,7 +1007,7 @@
       }
     }
 
-    // ACTIVE TAB CONTROLS ON SERVICE ENGAGEMENTS BLUEPRINT
+    // Tab switcher on Engagement Protocols
     function switchSvcTab(paneId) {
       const ids = ['dedicated', 'timemat', 'fixedprice'];
       ids.forEach(id => {
@@ -1289,59 +1015,54 @@
         const data = document.getElementById('tab-data-' + id);
         
         if (id === paneId) {
-          // Visual Selected styling
-          btn.classList.add('bg-astra-aurora', 'text-astra-obsidian');
-          btn.classList.remove('text-astra-gray', 'bg-astra-obsidian');
+          btn.classList.add('bg-cyber-emerald', 'text-cyber-obsidian');
+          btn.classList.remove('text-cyber-slate', 'bg-cyber-obsidian');
           data.classList.remove('hidden');
           data.classList.add('block');
         } else {
-          btn.classList.remove('bg-astra-aurora', 'text-astra-obsidian');
-          btn.classList.add('text-astra-gray', 'bg-astra-obsidian');
+          btn.classList.remove('bg-cyber-emerald', 'text-cyber-obsidian');
+          btn.classList.add('text-cyber-slate', 'bg-cyber-obsidian');
           data.classList.add('hidden');
           data.classList.remove('block');
         }
       });
     }
 
-    // INTERACTIVE METHODOLOGY STAGE SELECTOR TOOL
+    // Interactive methodology stage selector details mapping
+    const stageDetails = {
+      1: "<strong>STAGE 01 // LEAD BY EXAMPLE:</strong> Establishing high-end technical benchmarks, leading with robust modular architectures and pristine clean code guidelines across Reston and Lahore divisions.",
+      2: "<strong>STAGE 02 // MOTIVATE:</strong> Driving high operational velocities, keeping teams deeply integrated into tactical database synchronizations and daily delivery SLAs.",
+      3: "<strong>STAGE 03 // INSPIRE:</strong> Promoting visual breakthrough structures, ensuring zero shadow layout elements meet Astra Premium design parameters with luxury aurora glow accents.",
+      4: "<strong>STAGE 04 // MENTOR:</strong> Secure technical instruction and architectural tutoring, elevating system developers on solid TLS key tunnels and strict sanitization rules.",
+      5: "<strong>STAGE 05 // COACH:</strong> Directing functional rehearsal sprints, coaching developers during extensive compilation grids and validated entry checkpoints.",
+      6: "<strong>STAGE 06 // VISION:</strong> Charting out global resource scaling pathways, aligning business telemetry dashboards and scalable mobile configurations.",
+      7: "<strong>STAGE 07 // TEAMWORK:</strong> Full collaborative cohesion, routing synchronized Slack matrices and unified operations directly to client departments.",
+      8: "<strong>STAGE 08 // WIN:</strong> Unleashing completely built final deliverables, secure Firestore database access rules, and achieving superior operational performance records."
+    };
+
     function selectStageNode(stageNum) {
       const container = document.getElementById('stage-desc-container');
       if (!container) return;
       
-      let descriptionStr = "";
-      switch (stageNum) {
-        case 1:
-          descriptionStr = "<strong>STAGE 01 // LEAD BY EXAMPLE:</strong> Establishing high-end technical benchmarks, leading with robust modular architectures and pristine clean code guidelines across Reston and Lahore divisions.";
-          break;
-        case 2:
-          descriptionStr = "<strong>STAGE 02 // MOTIVATE:</strong> Driving high operational velocities, keeping teams deeply integrated into tactical database synchronizations and daily delivery SLAs.";
-          break;
-        case 3:
-          descriptionStr = "<strong>STAGE 03 // INSPIRE:</strong> Promoting visual breakthrough structures, ensuring zero shadow layout elements meet Astra Premium design parameters with luxury aurora glow accents.";
-          break;
-        case 4:
-          descriptionStr = "<strong>STAGE 04 // MENTOR:</strong> Secure technical instruction and architectural tutoring, elevating system developers on solid TLS key tunnels and strict sanitization rules.";
-          break;
-        case 5:
-          descriptionStr = "<strong>STAGE 05 // COACH:</strong> Directing functional rehearsal sprints, coaching developers during extensive compilation grids and validated entry checkpoints.";
-          break;
-        case 6:
-          descriptionStr = "<strong>STAGE 06 // VISION:</strong> Charting out global resource scaling pathways, aligning business telemetry dashboards and scalable mobile configurations.";
-          break;
-        case 7:
-          descriptionStr = "<strong>STAGE 07 // TEAMWORK:</strong> Full collaborative cohesion, routing synchronized Slack matrices and unified operations directly to client departments.";
-          break;
-        case 8:
-          descriptionStr = "<strong>STAGE 08 // WIN:</strong> Unleashing completely built final deliverables, secure Firestore database access rules, and achieving superior operational performance records.";
-          break;
-        default:
-          descriptionStr = "Click any methodology stage above to inspect its live SLA operational directives.";
-      }
+      const desc = stageDetails[stageNum] || "Click any methodology stage above to inspect its live SLA operational directives.";
+      container.innerHTML = `<span class="text-cyber-emerald transition-all duration-300 block">${desc}</span>`;
       
-      container.innerHTML = `<span class="text-astra-aurora transition-all duration-300">${descriptionStr}</span>`;
+      // Update highlights in grid list
+      for (let i = 1; i <= 8; i++) {
+        const node = document.getElementById('node-stage-' + i);
+        if (node) {
+          if (i === stageNum) {
+            node.classList.add('border-cyber-emerald', 'bg-cyber-emerald/10');
+            node.classList.remove('border-cyber-emerald/20', 'bg-cyber-obsidian/40');
+          } else {
+            node.classList.remove('border-cyber-emerald', 'bg-cyber-emerald/10');
+            node.classList.add('border-cyber-emerald/20', 'bg-cyber-obsidian/40');
+          }
+        }
+      }
     }
 
-    // CMS STACK AND CAPABILITIES AUTOMATED INTAKE REDIRECT FILL SHORTCUTS
+    // CMS and Capability redirects
     function quickFillForm(practiceArea) {
       const sel = document.getElementById('lead-area');
       if (sel) {
@@ -1350,7 +1071,7 @@
       switchViewport('intake');
     }
 
-    // Reston VA Dynamic local clock routine
+    // Reston VA Local timezone timekeeper
     function startOperationalTimekeeper() {
       const element = document.getElementById('reston-time');
       const keeper = () => {
@@ -1370,13 +1091,13 @@
     }
     startOperationalTimekeeper();
 
-    // Verification clear warnings triggers
+    // Clearance warns trigger
     function clearFieldWarning(id) {
       const text = document.getElementById(id);
       if (text) text.innerText = "";
     }
 
-    // 5-FIELD USER INPUT MATRIX VALIDATION & FIRESTORE PUSH SYSTEM
+    // MAIN DIRECT FIRESTORE INTAKE MATRIX & DUAL WHATSAPP/EMAIL REDIRECTS
     async function executeLeadSubmission(e) {
       e.preventDefault();
       
@@ -1386,14 +1107,12 @@
       const briefIn = document.getElementById('lead-brief');
       const budgetIn = document.querySelector('input[name="project-budget"]:checked');
 
-      // Warning target containers
       const nameW = document.getElementById('lead-name-warn');
       const emailW = document.getElementById('lead-email-warn');
       const briefW = document.getElementById('lead-brief-warn');
 
       let isValid = true;
 
-      // Realtime validation criteria 
       if (nameIn.value.trim().length < 2) {
         nameW.innerText = "WARNING // Name must contain minimum 2 characters.";
         isValid = false;
@@ -1418,7 +1137,6 @@
 
       if (!isValid) return;
 
-      // If checks pass, proceed to initiate Firestore link 
       const overlay = document.getElementById('status-overlay');
       const textNode = document.getElementById('status-text');
 
@@ -1429,7 +1147,7 @@
         name: nameIn.value.trim(),
         email: emailIn.value.trim(),
         area: areaIn.value,
-        budget: budgetIn ? budgetIn.value : "$500 - $5k",
+        budget: budgetIn ? budgetIn.value : "$500 - $5,000",
         brief: briefIn.value.trim(),
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         status: "New"
@@ -1441,12 +1159,11 @@
           await dbInstance.collection('leads').add(leadPayload);
           console.log("Lead metrics registered completely.");
         } else {
-          console.warn("Firestore collection link unavailable - proceeding with direct client-side WhatsApp corridor.");
+          console.warn("Firestore collection link unavailable - fallback mode active.");
         }
 
         textNode.innerText = "METRIC LOGGED. REDIRECTING SECURE WHATSAPP ROUTER CHANNEL...";
         
-        // Compile complete textual outline bullet points list with URL Encoding
         const briefOutline = 
 `*VIRTUAL BRIDGE CONNECT - STRATEGY BRIEF DISPATCH*
 • *Contact Specialist ID:* ${leadPayload.name}
@@ -1461,22 +1178,17 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
         const encodedOut = encodeURIComponent(briefOutline);
         const redirectUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedOut}`;
 
-        // Compile concurrent email dispatch via mailto Link
         const emailSubject = encodeURIComponent(`VBC New System Strategy Brief: ${leadPayload.name}`);
         const emailBody = encodeURIComponent(briefOutline);
         const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-        // Complete form resets completely
         nameIn.value = "";
         emailIn.value = "";
         briefIn.value = "";
 
-        // Trigger safe dual dispatch interface
         setTimeout(() => {
           overlay.classList.add('hidden');
-          // Open WhatsApp first
           window.open(redirectUrl, '_blank');
-          // Then concurrently trigger mailto redirect to open mail client draft
           setTimeout(() => {
             window.location.href = mailtoUrl;
           }, 600);
@@ -1485,7 +1197,6 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       } catch (err) {
         console.error("Firestore submission failure logged: ", err);
         textNode.innerText = "WRITE MATRIX INCOMPLETE. DISPATCHING DUAL DIRECT PORTAL...";
-        // Direct safe dual redirect fallback even if Firebase fails
         setTimeout(() => {
           overlay.classList.add('hidden');
           const briefOutline = `*VBC OUTSOURCE INTAKE FALLBACK*\n• Name: ${leadPayload.name}\n• Email: ${leadPayload.email}\n• Area: ${leadPayload.area}\n• Budget: ${leadPayload.budget}\n• Spec Brief: ${leadPayload.brief}`;
@@ -1503,7 +1214,7 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
     }
 
     // ============================================== -->
-    // ZERO-KNOWLEDGE MASKED PASSCODE SYSTEM RETAINERS
+    // ADMIN PASSCODE & ZERO KNOWLEDGE AUTHENTICATOR -->
     // ============================================== -->
     function triggerPasscodeModal() {
       const modal = document.getElementById('passcode-modal');
@@ -1520,18 +1231,13 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
 
     function closePasscodeModal() {
       const modal = document.getElementById('passcode-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-      }
+      if (modal) modal.classList.add('hidden');
     }
 
     function listenPasscodeKeypress(e) {
-      if (e.key === 'Enter') {
-        submitPasscodeAuthentication();
-      }
+      if (e.key === 'Enter') submitPasscodeAuthentication();
     }
 
-    // Global listeners shortcuts (Ctrl + Shift + A) for Admin Gate
     window.addEventListener('keydown', (e) => {
       if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
         e.preventDefault();
@@ -1539,12 +1245,10 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       }
     });
 
-    // Zero-Knowledge authentication without clear display code check
     function submitPasscodeAuthentication() {
       const input = document.getElementById('admin-passcode-field').value.trim();
       const error = document.getElementById('passcode-error-tag');
 
-      // Math check validation equivalent to string "6400"
       const byteCheck = String.fromCharCode(54, 52, 48, 48); // "6400"
       const mathVal = parseInt(input);
 
@@ -1554,13 +1258,10 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
         switchViewport('admin');
         readLeadsFromFirestore();
       } else {
-        error.innerText = "AUTHENTICATION DECREE DENIED // WRONG SECURED DIGITAL KEY";
-        // Shake modal input to alert user
+        error.innerText = "AUTHENTICATION DECREE DENIED // SECURE DECREE MISMATCH";
         const fieldEl = document.getElementById('admin-passcode-field');
-        fieldEl.classList.add('shake');
-        setTimeout(() => {
-          fieldEl.classList.remove('shake');
-        }, 500);
+        fieldEl.classList.add('shake-anim');
+        setTimeout(() => fieldEl.classList.remove('shake-anim'), 300);
       }
     }
 
@@ -1570,7 +1271,7 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
     }
 
     // ============================================== -->
-    // ADMIN DASHBOARD PIPELINES AND RE-SYNC ROLES
+    // ADMIN DASHBOARD FIRESTORE SYNC & UPDATE ACTIONS
     // ============================================== -->
     let cachedLeads = [];
 
@@ -1584,10 +1285,10 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       const counterConverted = document.getElementById('stat-converted');
 
       if (!tableBody) return;
-      tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-astra-gray lowercase animate-pulse">Syncing data logs from Firestore system ledger...</td></tr>`;
+      tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-cyber-slate font-mono uppercase tracking-widest animate-pulse">Syncing corporate ledger metrics...</td></tr>`;
 
       if (!dbInstance) {
-        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest">FIRESTORE BACKING INSTANCE UNAVAILABLE</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest font-mono">FIRESTORE CORE CONNECTION UNAVAILABLE</td></tr>`;
         return;
       }
 
@@ -1606,28 +1307,24 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
           item.id = doc.id;
           cachedLeads.push(item);
 
-          // Update aggregated counter indices
           aggTotal++;
           if (item.status === 'New') aggNew++;
           else if (item.status === 'Contacted') aggContacted++;
           else if (item.status === 'Converted') aggConverted++;
 
-          const dateStr = item.timestamp ? new Date(item.timestamp.seconds * 1000).toLocaleDateString() : 'Active Queue';
-          
           const row = document.createElement('tr');
-          row.className = "hover:bg-astra-obsidian cursor-pointer border-b border-white/5 transition-all text-astra-gray select-text";
+          row.className = "hover:bg-cyber-emerald/5 cursor-pointer border-b border-cyber-emerald/10 transition-all text-cyber-slate font-sans select-text";
           row.onclick = () => highlightBriefDetails(item.id);
 
-          // Build dynamic state elements
           row.innerHTML = `
             <td class="py-3 px-4 text-white text-[11px] font-bold font-mono">${item.id.substring(0,6)}...</td>
-            <td class="py-3 px-4 font-bold text-[#F5F5F5] font-sans">${item.name}</td>
+            <td class="py-3 px-4 font-bold text-white font-sans">${item.name}</td>
             <td class="py-3 px-4">${item.email}</td>
-            <td class="py-3 px-4 text-astra-aurora">${item.area}</td>
-            <td class="py-3 px-4 font-bold text-white">${item.budget}</td>
+            <td class="py-3 px-4 text-cyber-emerald font-mono">${item.area}</td>
+            <td class="py-3 px-4 font-bold text-white font-sans">${item.budget}</td>
             <td class="py-3 px-4" onclick="event.stopPropagation()">
               <select 
-                class="bg-black text-[10px] text-white border border-astra-border focus:border-astra-aurora px-2 py-1 font-mono uppercase" 
+                class="bg-cyber-obsidian text-[10px] text-white border border-cyber-emerald/30 focus:border-cyber-emerald px-2 py-1 font-mono uppercase rounded-sm" 
                 onchange="updateActionStatus('${item.id}', this.value)"
               >
                 <option value="New" ${item.status === 'New' ? 'selected' : ''}>New Input</option>
@@ -1636,10 +1333,7 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
               </select>
             </td>
             <td class="py-3 px-4 text-center" onclick="event.stopPropagation()">
-              <button 
-                onclick="executeMatrixDestry('${item.id}')"
-                class="px-2 py-1 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all text-[8px] font-bold uppercase"
-              >
+              <button onclick="executeMatrixDestry('${item.id}')" class="px-2 py-1 border border-[#FF3366] text-[#FF3366] hover:bg-[#FF3366] hover:text-white transition-all text-[8px] font-bold uppercase rounded-sm">
                 DESTRY
               </button>
             </td>
@@ -1647,23 +1341,21 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
           tableBody.appendChild(row);
         });
 
-        // Set counters visual states
         counterTotal.innerText = aggTotal;
         counterNew.innerText = aggNew;
         counterContacted.innerText = aggContacted;
         counterConverted.innerText = aggConverted;
 
         if (aggTotal === 0) {
-          tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-astra-gray select-none italic">No incoming strategy briefs logged inside Firestore collection yet.</td></tr>`;
+          tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-cyber-slate select-none italic font-mono uppercase">No records logged inside Firestore yet.</td></tr>`;
         }
 
       } catch (err) {
         console.error("Leads retrieval crash logged: ", err);
-        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest">ERROR PIPING INPUT DATA CHANNELS: ${err.message}</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#FF3366] uppercase font-bold tracking-widest">ERROR PIPING DATA CHANNELS: ${err.message}</td></tr>`;
       }
     }
 
-    // Inspect detailed brief on active detail view panel 
     function highlightBriefDetails(docId) {
       const inspectBox = document.getElementById('brief-inspect-box');
       const lead = cachedLeads.find(l => l.id === docId);
@@ -1671,10 +1363,15 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       if (inspectBox && lead) {
         inspectBox.innerHTML = `
           <div class="space-y-3 font-mono">
-            <div class="grid grid-cols-2 gap-4 border-b border-astra-border pb-2 text-[10px] text-astra-aurora">
+            <div class="grid grid-cols-2 gap-4 border-b border-cyber-emerald/15 pb-2 text-[10px] text-cyber-emerald">
               <div>DOCUMENT REFERENCE ID: <span class="text-white">${lead.id}</span></div>
               <div class="text-right">BUDGET DESIGNATION: <span class="text-white">${lead.budget}</span></div>
             </div>
+            ${lead.referred_by ? `
+              <div class="p-2.5 bg-cyber-emerald/5 border border-cyber-emerald/20 text-cyber-emerald font-bold rounded-sm uppercase text-[9px]">
+                REFERRED VIA: ${lead.referred_by}
+              </div>
+            ` : ''}
             <div>
               <span class="text-white font-bold tracking-widest block text-[10px]">CORP OFFICER NAME:</span>
               <p class="font-sans text-white text-sm font-semibold">${lead.name}</p>
@@ -1685,22 +1382,18 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
             </div>
             <div>
               <span class="text-white font-bold tracking-widest block text-[10px]">PROJECT ARCHITECTURAL BRIEF:</span>
-              <p class="font-sans text-[#F5F5F5] leading-relaxed text-xs p-3 bg-astra-obsidian border border-astra-border mt-1 whitespace-pre-wrap select-all">${lead.brief}</p>
+              <p class="font-sans text-white leading-relaxed text-xs p-3 bg-cyber-obsidian/80 border border-cyber-emerald/15 mt-1 whitespace-pre-wrap select-all rounded-sm">${lead.brief}</p>
             </div>
           </div>
         `;
       }
     }
 
-    // Persist real-time dynamic Cloud Firestore status updates
     async function updateActionStatus(docId, newStatus) {
       if (!dbInstance) return;
       try {
-        await dbInstance.collection('leads').doc(docId).update({
-          status: newStatus
-        });
+        await dbInstance.collection('leads').doc(docId).update({ status: newStatus });
         console.log(`Document matrix ${docId} action status persisted: ${newStatus}`);
-        // Read database indexes directly to reload analytical summary indicators
         readLeadsFromFirestore();
       } catch (err) {
         console.error("Firestore action write crash: ", err);
@@ -1708,7 +1401,6 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       }
     }
 
-    // Terminate/delete entry from Firestore
     async function executeMatrixDestry(docId) {
       if (!confirm("Confirm complete permanent deletion of technical specification matrix? This action is non-reversible.")) {
         return;
@@ -1718,7 +1410,6 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
       try {
         await dbInstance.collection('leads').doc(docId).delete();
         console.log(`Lead matrix deleted physically: ${docId}`);
-        // Clear detail inspector state
         document.getElementById('brief-inspect-box').innerHTML = "No record currently highlighted. Click any lead column from the database grid above to fetch and inspect the full corporate specs brief.";
         readLeadsFromFirestore();
       } catch (err) {
@@ -1726,6 +1417,320 @@ _Guaranteed Emergency Review Under strict SLA framework parameters - Lahore Oper
         alert("Failed to destroy node entries: " + err.message);
       }
     }
+
+    // ============================================== -->
+    // CO-BRANDED PARTNER TERMINAL ENGINE (STEVE'S) ->
+    // ============================================== -->
+    async function executePartnerSubmission(e) {
+      e.preventDefault();
+      
+      const busIn = document.getElementById('partner-business');
+      const contactIn = document.getElementById('partner-contact');
+      const phoneIn = document.getElementById('partner-phone');
+      const notesIn = document.getElementById('partner-notes');
+      
+      const busW = document.getElementById('partner-business-warn');
+      const contactW = document.getElementById('partner-contact-warn');
+      const phoneW = document.getElementById('partner-phone-warn');
+      const servicesW = document.getElementById('partner-services-warn');
+
+      const checkedSvcs = [];
+      const checkboxEls = document.querySelectorAll('input[name="partner-services"]:checked');
+      checkboxEls.forEach(el => checkedSvcs.push(el.value));
+
+      const budgetIn = document.querySelector('input[name="partner-budget"]:checked');
+      const selectedBudget = budgetIn ? budgetIn.value : "$500 - $1,500";
+
+      let isValid = true;
+
+      if (busIn.value.trim().length < 2) {
+        busW.innerText = "WARNING // Business Name must contain minimum 2 characters.";
+        isValid = false;
+      } else {
+        busW.innerText = "";
+      }
+
+      if (contactIn.value.trim().length < 2) {
+        contactW.innerText = "WARNING // Contact Person Name must contain minimum 2 characters.";
+        isValid = false;
+      } else {
+        contactW.innerText = "";
+      }
+
+      if (phoneIn.value.trim().length < 5) {
+        phoneW.innerText = "WARNING // Phone Number must be valid.";
+        isValid = false;
+      } else {
+        phoneW.innerText = "";
+      }
+
+      if (checkedSvcs.length === 0) {
+        servicesW.innerText = "WARNING // Please select at least one technology practice area.";
+        isValid = false;
+      } else {
+        servicesW.innerText = "";
+      }
+
+      if (!isValid) return;
+
+      const overlay = document.getElementById('status-overlay');
+      const textNode = document.getElementById('status-text');
+
+      overlay.classList.remove('hidden');
+      textNode.innerText = "INITIALIZING PARTNER LEAD SUBMISSION...";
+
+      const partnerPayload = {
+        name: contactIn.value.trim(),
+        businessName: busIn.value.trim(),
+        email: "steve-partner-channel@vbc.com",
+        phone: phoneIn.value.trim(),
+        area: "Partner: " + checkedSvcs.join(', '),
+        budget: selectedBudget,
+        brief: notesIn.value.trim() || "Steve referral channel specs brief requested.",
+        referred_by: "Steve's Carpet Cleaning",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        status: "New"
+      };
+
+      try {
+        if (dbInstance) {
+          textNode.innerText = "WRITING PARTNER LEAD TO CLOUD FIRESTORE LEDGER...";
+          await dbInstance.collection('leads').add(partnerPayload);
+          console.log("Partner lead logged completely.");
+        }
+
+        textNode.innerText = "METRIC LOGGED. REDIRECTING PARTNER WHATSAPP CORRIDOR...";
+
+        const whatsappMsg = `Hi VBC! I was referred by Steve's Carpet Cleaning. Business: ${partnerPayload.businessName}, Contact: ${partnerPayload.name}, Phone: ${partnerPayload.phone}, Services: ${checkedSvcs.join(', ')}, Budget: ${partnerPayload.budget}, Notes: ${partnerPayload.brief}`;
+        const encodedMsg = encodeURIComponent(whatsappMsg);
+        const redirectUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}`;
+
+        const emailSubject = encodeURIComponent(`NEW PARTNER LEAD: Steve's Carpet Cleaning - ${partnerPayload.businessName}`);
+        const emailBody = encodeURIComponent(whatsappMsg);
+        const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+        busIn.value = "";
+        contactIn.value = "";
+        phoneIn.value = "";
+        notesIn.value = "";
+        checkboxEls.forEach(el => el.checked = false);
+
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          window.open(redirectUrl, '_blank');
+          setTimeout(() => {
+            window.location.href = mailtoUrl;
+          }, 600);
+        }, 1200);
+
+      } catch (err) {
+        console.error("Partner Firestore write failed: ", err);
+        textNode.innerText = "WRITE MATRIX INCOMPLETE. DISPATCHING DIRECT CORRIDORS...";
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          const whatsappMsg = `Hi VBC! I was referred by Steve's Carpet Cleaning. Business: ${partnerPayload.businessName}, Contact: ${partnerPayload.name}, Phone: ${partnerPayload.phone}, Services: ${checkedSvcs.join(', ')}, Budget: ${partnerPayload.budget}, Notes: ${partnerPayload.brief}`;
+          const encodedMsg = encodeURIComponent(whatsappMsg);
+          window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}`, '_blank');
+
+          const emailSubject = encodeURIComponent(`NEW PARTNER LEAD: Steve's Carpet Cleaning - ${partnerPayload.businessName}`);
+          const emailBody = encodeURIComponent(whatsappMsg);
+          const mailtoUrl = `mailto:virtualbridgeconnect@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+          setTimeout(() => {
+            window.location.href = mailtoUrl;
+          }, 600);
+        }, 1500);
+      }
+    }
+
+    // ============================================== -->
+    // STATIC DATA MATRICES & DYNAMIC GENERATION CORE ->
+    // ============================================== -->
+    const methodologies = [
+      { id: 1, name: "Lead By Example" },
+      { id: 2, name: "Motivate" },
+      { id: 3, name: "Inspire" },
+      { id: 4, name: "Mentor" },
+      { id: 5, name: "Coach" },
+      { id: 6, name: "Vision" },
+      { id: 7, name: "Teamwork" },
+      { id: 8, name: "Win" }
+    ];
+
+    const capabilities = [
+      { name: "Information Technology", desc: "Decoupled server clusters, high priority REST APIs, custom routing proxies, AWS orchestration systems, and highly validated database pipelines.", area: "Information Technology" },
+      { name: "Creative Design", desc: "Inverted editorial UI style parameters, high precision stationery designs, robust multi-screen visual systems, and corporate motion media setups.", area: "Creative Design" },
+      { name: "Social Media Management", desc: "Analytical automation nodes mapping publication matrices, target executive pipeline filters, and custom metadata tracking registries.", area: "Social Media Management" }
+    ];
+
+    const cmsStacks = [
+      { name: "WordPress Core Suite", desc: "Enterprise custom publishing networks built on secure theme configurations and headless REST APIs.", area: "WordPress Core Suite" },
+      { name: "Magento Enterprise Framework", desc: "Scalable e-commerce infrastructure with dynamic Redis caches and fast database setups.", area: "Magento Enterprise Framework" },
+      { name: "Joomla Technical Portal", desc: "Custom content structures with rigid permission systems and robust multi-language capabilities.", area: "Joomla Technical Portal" },
+      { name: "Sitefinity Custom Grid", desc: "Secure enterprise multisite frameworks integrated with high-load ASP.NET systems.", area: "Sitefinity Custom Grid" },
+      { name: "Corporate Web Solution (CWS)", desc: "Custom modular frameworks built for high-security intranets and corporate directories.", area: "Corporate Web Solution (CWS)" }
+    ];
+
+    const mobilityERP = [
+      { name: "iOS Ecosystem Portal", desc: "Swift-based native setups with robust offline caches, CoreData syncs, and Apple Pay checkouts.", area: "iOS Ecosystem Portal" },
+      { name: "Android Native Engine", desc: "Kotlin applications leveraging modern Jetpack Compose layouts and encrypted SQLite local storage.", area: "Android Native Engine" },
+      { name: "Enterprise CRM Module", desc: "Centralized client lifecycle registers with automated notification pipelines and sales funnel tracking.", area: "Enterprise CRM Module" },
+      { name: "Material Supply Chain Tracker", desc: "Real-time inventory logging systems integrated with barcode scanners and automated reorder points.", area: "Material Supply Chain Tracker" },
+      { name: "Resource & Material Planning", desc: "Intelligent factory load balancing indices mapping operational capacity to customer order queues.", area: "Resource & Material Planning" },
+      { name: "Advanced Corporate Accounting", desc: "Double-entry general ledgers with automated tax calculation profiles and multi-currency registers.", area: "Advanced Corporate Accounting" },
+      { name: "Business Intelligence Console", desc: "Dynamic data visualization panels utilizing fast REST aggregations for live executive telemetry.", area: "Business Intelligence Console" }
+    ];
+
+    const integrationsConsulting = [
+      { name: "Technical Integration Blueprints", desc: "Seamless interconnectivity between physical ERP structures, secure API gateways, and serverless background tasks." },
+      { name: "MIS Outsource Surveillance", desc: "Rigid continuous operation checks, uptime analytics trackers, and dedicated Pakistani team oversight protocols." },
+      { name: "Operational Consulting Roadmaps", desc: "High-value business strategy mapping executing complete legacy software upgrades and structural audits." }
+    ];
+
+    const marketingBranding = [
+      { name: "Corporate Stationery Matrix", desc: "High-end corporate branding guidelines, beautiful business card layouts, secure letterhead grids, and print assets." },
+      { name: "Video Multimedia Production", desc: "Professional high-definition corporate promotional videos, commercial campaign trailer editing, and audio overlays." },
+      { name: "12-Column Social Campaign", desc: "Rigorous continuous social channel scheduling systems mapping executive publishing grids and metadata tracking." }
+    ];
+
+    const lifecycleSteps = [
+      { stage: "01", name: "Data Mining & Spec Analysis", desc: "Deep analysis of enterprise code specs, and legacy information parameters before structure design." },
+      { stage: "02", name: "Requirements Matrix Mapping", desc: "Precise operational specs translation mapping security configurations, databases, and structural schema bounds." },
+      { stage: "03", name: "System Wireframes Prototyping", desc: "Designing clean zero shadow layouts utilizing precise editorial alignment grids and interactive mock-ups." },
+      { stage: "04", name: "Interactive Frontend Development", desc: "Clean code implementations utilizing fast dynamic routing protocols, modern type-strip scripts, and assets caches." },
+      { stage: "05", name: "Comprehensive Unit Testing", desc: "Thorough compilation checks verifying inputs validation layers, Firestore actions, and rendering bounds." },
+      { stage: "06", name: "Global Dispatch Deployment", desc: "Provisioning Cloud DNS grids, live Firestore rules publishing, and deploying code elements securely." },
+      { stage: "07", name: "System Retrospective Logs", desc: "Comprehensive review mapping live data velocities and metrics logs back to enterprise requirements blocks." },
+      { stage: "08", name: "Perpetual Upkeep & Maintenance", desc: "Continuous uptime surveillance, real-time database schema validation, and regular priority structural optimization." }
+    ];
+
+    // Card grid generator
+    function generateUIAndData() {
+      // methodology grid
+      const methGrid = document.getElementById('methodology-node-grid');
+      methGrid.innerHTML = methodologies.map(m => `
+        <div id="node-stage-${m.id}" onclick="selectStageNode(${m.id})" class="border border-cyber-emerald/20 p-3 hover:border-cyber-emerald/60 transition-all bg-cyber-obsidian/40 cursor-pointer rounded-sm active:bg-cyber-emerald/10 select-none">
+          <div class="text-[8px] text-cyber-slate font-bold">STAGE 0${m.id}</div>
+          <div class="text-[10px] uppercase text-white font-black mt-1 font-display">${m.name}</div>
+        </div>
+      `).join('');
+
+      // capabilities matrix grid
+      const capGrid = document.getElementById('capabilities-matrix-grid');
+      capGrid.innerHTML = capabilities.map((c, idx) => `
+        <div class="bg-cyber-obsidian/40 p-6 border border-cyber-emerald/15 hover:border-cyber-emerald/50 transition-all flex flex-col justify-between space-y-4 rounded-sm">
+          <div class="space-y-3">
+            <span class="text-[9px] font-mono text-cyber-slate block">// CORESPECS_0${idx + 1}</span>
+            <h4 class="text-lg font-bold text-white font-display">${c.name}</h4>
+            <p class="text-xs text-cyber-slate leading-relaxed">${c.desc}</p>
+          </div>
+          <button onclick="quickFillForm('${c.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left cursor-pointer uppercase tracking-wider font-bold">
+            COMMENCE MODULE &rarr;
+          </button>
+        </div>
+      `).join('');
+
+      // lifecycle steps timeline
+      const lifeGrid = document.getElementById('lifecycle-timeline-grid');
+      lifeGrid.innerHTML = lifecycleSteps.map(step => `
+        <div class="cyber-glass p-5 space-y-2 hover:border-cyber-emerald/50 transition-all rounded-sm">
+          <div class="text-[9px] font-mono text-cyber-emerald font-bold">LIFECYCLE // MODULE ${step.stage}</div>
+          <h4 class="text-base font-bold text-white font-display">${step.name}</h4>
+          <p class="text-xs text-cyber-slate leading-relaxed font-sans">${step.desc}</p>
+        </div>
+      `).join('');
+
+      // cms stacks grid
+      const cmsGrid = document.getElementById('cms-stacks-grid');
+      cmsGrid.innerHTML = cmsStacks.map((s, idx) => `
+        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[9px] font-mono text-cyber-teal block">// ID_CMS_0${idx + 1}</span>
+            <h4 class="text-lg font-bold text-white font-display tracking-tight">${s.name}</h4>
+            <p class="text-xs text-cyber-slate leading-relaxed">${s.desc}</p>
+          </div>
+          <button onclick="quickFillForm('${s.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
+            COMMENCE MODULE &rarr;
+          </button>
+        </div>
+      `).join('');
+
+      // mobility erp grid
+      const mobGrid = document.getElementById('mobility-erp-grid');
+      mobGrid.innerHTML = mobilityERP.map((m, idx) => `
+        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[9px] font-mono text-cyber-teal block">// ID_MOBILITY_0${idx + 1}</span>
+            <h4 class="text-lg font-bold text-white font-display tracking-tight">${m.name}</h4>
+            <p class="text-xs text-cyber-slate leading-relaxed">${m.desc}</p>
+          </div>
+          <button onclick="quickFillForm('${m.area}')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
+            COMMENCE MODULE &rarr;
+          </button>
+        </div>
+      `).join('');
+
+      // integrations grid
+      const intGrid = document.getElementById('integrations-grid');
+      intGrid.innerHTML = integrationsConsulting.map((i, idx) => `
+        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[9px] font-mono text-cyber-teal block">// ID_INTEGRATE_0${idx + 1}</span>
+            <h4 class="text-lg font-bold text-white font-display tracking-tight">${i.name}</h4>
+            <p class="text-xs text-cyber-slate leading-relaxed">${i.desc}</p>
+          </div>
+          <button onclick="quickFillForm('Systems Integration')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
+            COMMENCE MODULE &rarr;
+          </button>
+        </div>
+      `).join('');
+
+      // marketing grid
+      const mktGrid = document.getElementById('marketing-grid');
+      mktGrid.innerHTML = marketingBranding.map((m, idx) => `
+        <div class="cyber-glass p-6 rounded-lg flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[9px] font-mono text-cyber-teal block">// ID_MARKETING_0${idx + 1}</span>
+            <h4 class="text-lg font-bold text-white font-display tracking-tight">${m.name}</h4>
+            <p class="text-xs text-cyber-slate leading-relaxed">${m.desc}</p>
+          </div>
+          <button onclick="quickFillForm('Social Media Management')" class="text-[10px] font-mono text-cyber-emerald hover:underline text-left uppercase tracking-wider font-bold">
+            COMMENCE MODULE &rarr;
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // Initialize UI markup on bootstrap
+    generateUIAndData();
+
+    // Hybrid paths and hash router
+    function handlePathAndHashRoute() {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      
+      if (path.endsWith('/steve') || path.endsWith('/steve/') || hash === '#steve') {
+        switchViewport('steve');
+      } else if (hash === '#services') {
+        switchViewport('services');
+      } else if (hash === '#stacks') {
+        switchViewport('stacks');
+      } else if (hash === '#mobility') {
+        switchViewport('mobility');
+      } else if (hash === '#integration') {
+        switchViewport('integration');
+      } else if (hash === '#marketing') {
+        switchViewport('marketing');
+      } else if (hash === '#intake') {
+        switchViewport('intake');
+      } else if (hash === '#admin') {
+        switchViewport('admin');
+      } else {
+        switchViewport('home');
+      }
+    }
+    
+    window.addEventListener('hashchange', handlePathAndHashRoute);
+    window.addEventListener('load', handlePathAndHashRoute);
   </script>
 
 </body>
